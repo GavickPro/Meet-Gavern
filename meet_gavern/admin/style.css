@@ -1,0 +1,47 @@
+/* hide specific elements - JS/CSS/translations/labels */
+
+#jform_params_js_translations-lbl,
+#template_options_translations,
+#jform_params_asset_css-lbl,
+#jform_params_asset_js-lbl,
+#jform_params_layout_override,
+#jform_params_module_override,
+#jform_params_suffix_override,
+#jform_params_tools_for_pages,
+#jform_params_mootools_for_pages,
+#jform_params_sidebar_width_for_pages,
+#jform_params_menu_override,
+.gkFormLine,
+label[id^=jform_params_gk_line_] { display: none; }
+.gkFormHide { display: none!important; }
+div.button2-left { margin-top: 7px; }
+.gk-label { clear: both; display: block; }
+.gk-label input { clear: both; display: block!important; }
+.gk-label strong { font-size: 11px!important; }
+.gkfont_form select { clear: both!important; }
+textarea[id^="jform_params_font_rules_group"] { max-width: 100%!important; }
+
+/* Config manager */ 
+
+#jform_params_config_manager-lbl { display: none; }
+.gk-no-left-margin { margin-left: 0!important; }
+#config_manager_form { margin-bottom: -10px!important; word-wrap: break-word!important; }
+.control-label { max-width: 140px; }
+
+/* Updates */
+#gk_template_updates { margin: 20px 10px; border-right: 1px solid #eee; }
+.gk_updates { list-style-type: none; margin: 0!important; }
+#gk_template_updates li { margin: 0; padding: 0; border: none; line-height: 34px; color: #555; border-top: 1px solid #eee }
+#gk_template_updates li span strong { padding: 0 12px 0 0 }
+#gk_template_updates li span { display: block; float: left; height: 34px; line-height: 34px; padding: 0 0 0 20px; border-left: 1px solid #eee }
+span.gk_update_version { width: 110px; background: #fff9f6; }
+span.gk_update_data { width: 150px; background: #f9f9f9; }
+span.gk_update_link a { padding: 4px 12px; -moz-border-radius: 26px; background: #03a0da; text-transform: uppercase; font: bold 10px Arial, Helvetica, sans-serif; color: #fff; line-height: 34px; }
+span.gk_update_link a:hover { background: #222; text-decoration: none; }
+#gk_template_updates p { color: #555 }
+
+/* Support for mobile */
+@media (max-width: 480px) {
+	.form-horizontal .controls { clear: both!important; }
+	.form-horizontal .control-label { width: 100%!important; }
+}

@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install PUBLIC "-//Joomla! 2.5//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/2.5/template-install.dtd">
+<extension version="3.0" type="template" client="site" method="upgrade">
+  <name>meet_gavern</name>
+  <version>1.0</version>
+  <creationDate>07/02/2012</creationDate>
+  <author>GavickPro</author>
+  <authorEmail>info@gavick.com</authorEmail>
+  <copyright>Copyright (C) 2012 GavickPro. All rights reserved.</copyright>
+  <description><![CDATA[<link rel="stylesheet" type="text/css" href="../templates/meet_gavern/admin/style.css" />
+  		<style type="text/css" media="all">
+  		<!--
+  		#wrap1 {padding:0px 0px 4px 0px;}
+  		#wrap1 h1 {clear:both;font-family: Georgia, sans-serif;font-size:38px;margin:30px 20px 12px ;padding:0px 0px 24px 10px;color:#333; border-bottom: 1px solid #ccc; font-weight: normal;}
+  		#wrap1 h4 { border: none;  margin: 0 0 12px; padding:0; font: italic 20px/32px Georgia, sans-serif; color: #333; }
+  		#wrap1 sup { font-style: italic; font-size: }
+  		.wrap2 {background:#fff;padding: 20px; font-family: Arial; font-size:13px; text-align: justify; color: #4d4d4d; line-height: 24px;}
+  		.leftart {margin: 16px 0 0 176px; font-weight:normal!important; }
+  		.livedemo { margin-top: 28px; }
+  		-->
+  		</style>	
+  		
+  		<div id="wrap1">    
+  		<h1><em>Meet Gavern</em></h1>
+  		<div class="wrap2">                    
+  		
+  		<a title="Visit the official website!" href="http://joomla30.gavick.com" target="_blank"> <img style="padding-left: 10px;float: left; background-color: #fff;" src="../templates/meet_gavern/images/template_image.jpg" border="0" alt="Logo" /></a>       
+  		
+  		<div class="leftart">            
+  		
+  		<h4>Responsive, bootstrap-based, free Joomla 3.0 template</h4>
+  		
+  		<p>We are happy to announce the availability of a free Joomla 3.0 template called Meet Gavern. Based upon a brand-new version of our Gavern Framework, this template has a few interesting features you should check out.
+  		<p>First, it has been designed exclusively for use with Joomla! 3.0. Further, Meet Gavern features built-in support for Bootstrap.</p>
+  		
+  		<p>Finally, this wonderful no-cost template was built with support for Responsive Web Design, which means it is more flexible and powerful. This is surely a must-have template for Joomla users!</p>
+  		
+  		<p>With the anticipated release of the production version of Joomla 3.0, the enhanced version of the Gavern Framework will become the basis for all future GavickPro template releases.</p>
+  		
+  		<p class="livedemo">View Meet Gavern template in action <a href="http://joomla30.gavick.com" target="_blank">here</a>...</p><small>Gavern v.4.0</small></div>
+  		</div>
+  		</div>]]></description>
+  <files>
+  	<filename>component.php</filename>
+  	<filename>error.php</filename>
+    <filename>favicon.ico</filename>
+    <filename>index.php</filename>
+    <filename>LICENSE.txt</filename>
+    <filename>offline.php</filename>
+    <filename>templateDetails.xml</filename>
+    <filename>template_preview.png</filename>
+    <filename>template_thumbnail.png</filename>
+    <folder>admin</folder>
+    <folder>bootstrap</folder>
+    <folder>config</folder>
+    <folder>css</folder>
+    <folder>html</folder>
+    <folder>fonts</folder>
+    <folder>images</folder>
+    <folder>js</folder>
+    <folder>language</folder>
+    <folder>layouts</folder>
+    <folder>less</folder>
+    <folder>lib</folder>
+  </files>
+  <positions>
+  	<position>debug</position>
+  	<position>menu</position>
+  	<position>social</position>
+  	<position>search</position>
+  	<position>header</position>
+  	<position>top</position>
+  	<position>breadcrumb</position>
+  	<position>sidebar</position>
+  	<position>mainbody</position>
+  	<position>mainbody_top</position>
+  	<position>mainbody_bottom</position>
+  	<position>bottom</position>
+  	<position>footer</position>
+  </positions>
+  <languages folder="language">
+      <language tag="en-GB">en-GB/en-GB.tpl_meet_gavern.ini</language>
+  </languages>
+  <config>
+	  <fields name="params">
+	  	<fieldset name="BASIC_SETTINGS" addfieldpath="/templates/meet_gavern/admin/elements">
+	  		<field name="config_manager" type="configmanager" directory="templates/meet_gavern/config/" />
+	  		<field name="js_translations" type="translations" />
+	  		<field name="asset_css" type="asset" extension="css" path="templates/meet_gavern/admin/style.css" />
+	  		<field name="asset_js" type="asset" extension="js" path="templates/meet_gavern/admin/scripts.js" />	
+	  	</fieldset>
+	  	
+	  	<fieldset name="LAYOUT_SETTINGS">
+  			<field name="max_page_width" type="text" default="1200" label="TPL_GK_LANG_MAX_PAGE_WIDTH" description="TPL_GK_LANG_MAX_PAGE_WIDTH_DESC" />
+  			
+  			<field name="recompile_css" type="list" default="0" label="TPL_GK_LANG_RECOMPILE_CSS" description="TPL_GK_LANG_RECOMPILE_CSS_DESC">
+  				<option value="1">TPL_GK_LANG_ENABLED</option>
+  				<option value="0">TPL_GK_LANG_DISABLED</option>
+  			</field>
+  			
+  			<field name="recompile_bootstrap" type="list" default="0" label="TPL_GK_LANG_RECOMPILE_BOOTSTRAP" description="TPL_GK_LANG_RECOMPILE_BOOTSTRAP_DESC">
+  				<option value="1">TPL_GK_LANG_ENABLED</option>
+  				<option value="0">TPL_GK_LANG_DISABLED</option>
+  			</field>
+  			
+  			<field name="social_pos" type="list" default="left" label="TPL_GK_LANG_SOCIAL_POS" description="TPL_GK_LANG_SOCIAL_POS_DESC">
+  				<option value="left">TPL_GK_LANG_LEFT</option>
+  				<option value="right">TPL_GK_LANG_RIGHT</option>
+  			</field>
+  			
+  			<field name="sidebar_width" type="list" default="span3" label="TPL_GK_LANG_SIDEBAR_WIDTH" description="TPL_GK_LANG_SIDEBAR_WIDTH_DESC">
+  				<option value="1">TPL_GK_LANG_SPAN1</option>
+  				<option value="2">TPL_GK_LANG_SPAN2</option>
+  				<option value="3">TPL_GK_LANG_SPAN3</option>
+  				<option value="4">TPL_GK_LANG_SPAN4</option>
+  				<option value="5">TPL_GK_LANG_SPAN5</option>
+  				<option value="6">TPL_GK_LANG_SPAN6</option>
+  				<option value="7">TPL_GK_LANG_SPAN7</option>
+  				<option value="8">TPL_GK_LANG_SPAN8</option>
+  				<option value="9">TPL_GK_LANG_SPAN9</option>
+  				<option value="10">TPL_GK_LANG_SPAN10</option>
+  			</field>
+		</fieldset>
+		
+		<!-- Font settings -->
+		<fieldset name="FONT_SETTINGS" addfieldpath="/templates/meet_gavern/admin/elements">
+				<field name="font_link1" type="url" label="TPL_GK_LANG_GOOGLE_FONTS_URL" description="TPL_GK_LANG_GOOGLE_FONTS_URL_DESC" url="http://code.google.com/webfonts" text="TPL_GK_LANG_CLICK_HERE" />
+				<field name="font_link2" type="url" label="TPL_GK_LANG_SQUIRREL_FONTS_URL" description="TPL_GK_LANG_SQUIRREL_FONTS_URL_DESC" url="http://www.fontsquirrel.com/fontface" text="TPL_GK_LANG_CLICK_HERE" />
+				<field name="gk_line_20" type="line" text="" />
+				<field name="font_name_group1" type="gkfont" directory="templates/meet_gavern/fonts/" label="TPL_GK_LANG_FONT_NAME_G1" description="TPL_GK_LANG_FONT_NAME_G1_DESC" />
+				<field name="font_rules_group1" type="textarea" rows="6" cols="40" label="TPL_GK_LANG_FONT_RULES_G1" description="TPL_GK_LANG_FONT_RULES_G1_DESC" />
+				<field name="font_name_group2" type="gkfont" directory="templates/meet_gavern/fonts/" label="TPL_GK_LANG_FONT_NAME_G2" description="TPL_GK_LANG_FONT_NAME_G2_DESC" />
+				<field name="font_rules_group2" type="textarea" rows="6" cols="40" label="TPL_GK_LANG_FONT_RULES_G2" description="TPL_GK_LANG_FONT_RULES_G2_DESC" />
+				<field name="font_name_group3" type="gkfont" directory="templates/meet_gavern/fonts/" label="TPL_GK_LANG_FONT_NAME_G3" description="TPL_GK_LANG_FONT_NAME_G3_DESC" />
+				<field name="font_rules_group3" type="textarea" rows="6" cols="40" label="TPL_GK_LANG_FONT_RULES_G3" description="TPL_GK_LANG_FONT_RULES_G3_DESC" />
+				<field name="font_name_group4" type="gkfont" directory="templates/meet_gavern/fonts/" label="TPL_GK_LANG_FONT_NAME_G4" description="TPL_GK_LANG_FONT_NAME_G4_DESC" />
+				<field name="font_rules_group4" type="textarea" rows="6" cols="40" label="TPL_GK_LANG_FONT_RULES_G4" description="TPL_GK_LANG_FONT_RULES_G4_DESC" />
+		</fieldset>
+		
+		<!-- Features -->
+		<fieldset name="FEATURES_SETTINGS" addfieldpath="/templates/gk_gamenews/admin/elements">
+				<field name="logo_type" type="list" default="image" label="TPL_GK_LANG_LOGO_TYPE" description="TPL_GK_LANG_LOGO_TYPE_DESC">
+						<option value="image">TPL_GK_LANG_LOGO_TYPE_IMAGE</option>
+						<option value="text">TPL_GK_LANG_LOGO_TYPE_TEXT</option>
+						<option value="css">TPL_GK_LANG_LOGO_TYPE_CSS</option>
+						<option value="none">TPL_GK_LANG_LOGO_TYPE_NONE</option>
+				</field>
+				
+				<field name="logo_image" type="media" default="" label="TPL_GK_LANG_LOGO_IMAGE" description="TPL_GK_LANG_LOGO_IMAGE_DESC" />
+				
+				<field name="logo_text" type="text" default="" label="TPL_GK_LANG_LOGO_TEXT" description="TPL_GK_LANG_LOGO_TEXT_DESC" />
+				
+				<field name="logo_slogan" type="text" default="" label="TPL_GK_LANG_LOGO_SLOGAN" description="TPL_GK_LANG_LOGO_SLOGAN_DESC" />
+				
+				<field name="favicon_image" type="media" default="" label="TPL_GK_LANG_FAVICON_IMAGE" description="TPL_GK_LANG_FAVICON_IMAGE_DESC" />
+				
+				<field name="framework_logo" type="list" class="gk_switch" default="1" label="TPL_GK_LANG_FRAMEWORK_LOGO" description="TPL_GK_LANG_FRAMEWORK_LOGO_DESC">
+						<option value="1">TPL_GK_LANG_ENABLED</option>
+						<option value="0">TPL_GK_LANG_DISABLED</option>
+				</field>
+				
+				<field name="copyrights" type="textarea" rows="3" cols="40" filter="raw" label="TPL_GK_LANG_COPYRIGHTS" description="TPL_GK_LANG_COPYRIGHTS_DESC" />
+				
+				<field name="webmaster_contact_type" type="list" default="1" label="TPL_GK_LANG_WEBMASTER_CONTACT_TYPE" description="TPL_GK_LANG_WEBMASTER_CONTACT_TYPE_DESC">
+						<option value="email">TPL_GK_LANG_WEBMASTER_CONTACT_TYPE_EMAIL</option>
+						<option value="url">TPL_GK_LANG_WEBMASTER_CONTACT_TYPE_URL</option>
+						<option value="none">TPL_GK_LANG_WEBMASTER_CONTACT_TYPE_NONE</option>
+				</field>
+				
+				<field name="webmaster_contact" type="text" default="webmaster@gavick.com" label="TPL_GK_LANG_WEBMASTER_CONTACT" description="TPL_GK_LANG_WEBMASTER_CONTACT_DESC" />
+				
+				<field name="google_analytics" type="text" label="TPL_GK_LANG_GOOGLE_ANALYTICS" description="TPL_GK_LANG_GOOGLE_ANALYTICS_DESC" />
+		</fieldset>
+		
+		<fieldset name="menu" label="Menu">
+			<field name="menu_animation" type="list" default="width_height_opacity" label="TPL_GK_LANG_MENU_ANIMATION" description="TPL_GK_LANG_MENU_ANIMATION_DESC">
+				<option value="width_height_opacity">TPL_GK_LANG_WIDTH_HEIGHT_OPACITY</option>
+				<option value="width_opacity">TPL_GK_LANG_WIDTH_OPACITY</option>
+				<option value="height_opacity">TPL_GK_LANG_HEIGHT_OPACITY</option>
+				<option value="width_height">TPL_GK_LANG_WIDTH_HEIGHT</option>
+				<option value="width">TPL_GK_LANG_WIDTH</option>
+				<option value="height">TPL_GK_LANG_HEIGHT</option>
+				<option value="opacity">TPL_GK_LANG_OPACITY</option>
+				<option value="none">TPL_GK_LANG_NONE</option>
+			</field>
+			
+			<field name="menu_speed" type="list" default="fast" label="TPL_GK_LANG_MENU_SPEED" description="TPL_GK_LANG_MENU_SPEED_DESC">
+				<option value="fast">TPL_GK_LANG_FAST</option>
+				<option value="normal">TPL_GK_LANG_NORMAL</option>
+				<option value="slow">TPL_GK_LANG_SLOW</option>
+			</field>
+			
+			<field name="submenu_width" type="text" default="200" label="TPL_GK_LANG_SUBMENU_WIDTH" description="TPL_GK_LANG_SUBMENU_WIDTH_DESC" />
+		</fieldset>
+		
+		<fieldset name="socialapi" label="Social API">
+			<field name="fb_api_id" type="text" default="" label="TPL_GK_LANG_FB_API_ID" description="TPL_GK_LANG_FB_API_ID_DESC" />
+			<field name="fb_lang" type="text" default="en_US" label="TPL_GK_LANG_FB_LANG" description="TPL_GK_LANG_FB_LANG_DESC" />
+			<field name="fb_login" type="list" class="gk_switch" default="0" label="TPL_GK_LANG_FB_LOGIN" description="TPL_GK_LANG_FB_LOGIN_DESC">
+					<option value="1">TPL_GK_LANG_ENABLED</option>
+					<option value="0">TPL_GK_LANG_DISABLED</option>
+			</field>
+			
+			<!-- FB LIKE -->
+			<field name="fb_like" type="list" class="gk_switch" default="0" label="TPL_GK_LANG_FB_LIKE" description="TPL_GK_LANG_FB_LIKE_DESC">
+					<option value="1">TPL_GK_LANG_ENABLED</option>
+					<option value="0">TPL_GK_LANG_DISABLED</option>
+			</field>
+			<field name="fb_like_send" type="list" class="gk_switch" default="0" label="TPL_GK_LANG_FB_LIKE_SEND" description="TPL_GK_LANG_FB_LIKE_SEND_DESC">
+					<option value="1">TPL_GK_LANG_ENABLED</option>
+					<option value="0">TPL_GK_LANG_DISABLED</option>
+			</field>
+			<field name="fb_like_layout" type="list" default="standard" label="TPL_GK_LANG_FB_LIKE_LAYOUT" description="TPL_GK_LANG_FB_LIKE_LAYOUT_DESC">
+					<option value="standard">standard</option>
+					<option value="button_count">button_count</option>
+					<option value="box_count">box_count</option>
+			</field>
+			<field name="fb_like_show_faces" type="list" default="true" label="TPL_GK_LANG_FB_LIKE_SHOW_FACES" description="TPL_GK_LANG_FB_LIKE_SHOW_FACES_DESC">
+					<option value="true">TPL_GK_LANG_ENABLED</option>
+					<option value="false">TPL_GK_LANG_DISABLED</option>
+			</field>
+			<field name="fb_like_width" type="text" default="500" label="TPL_GK_LANG_FB_LIKE_WIDTH" description="TPL_GK_LANG_FB_LIKE_WIDTH_DESC" />
+			<field name="fb_like_action" type="list" default="like" label="TPL_GK_LANG_FB_LIKE_ACTION" description="TPL_GK_LANG_FB_LIKE_ACTION_DESC">
+					<option value="like">like</option>
+					<option value="recommend">recommend</option>
+			</field>
+			<field name="fb_like_font" type="list" default="arial" label="TPL_GK_LANG_FB_LIKE_FONT" description="TPL_GK_LANG_FB_LIKE_FONT_DESC">
+					<option value="arial">arial</option>
+					<option value="lucida grande">lucida grande</option>
+					<option value="segoe ui">segoe ui</option>
+					<option value="tahoma">tahoma</option>
+					<option value="trebuchet ms">trebuchet ms</option>
+					<option value="verdana">verdana</option>
+			</field>
+			<field name="fb_like_colorscheme" type="list" default="light" label="TPL_GK_LANG_FB_LIKE_COLORSCHEME" description="TPL_GK_LANG_FB_LIKE_COLORSCHEME_DESC">
+					<option value="light">light</option>
+					<option value="dark">dark</option>
+			</field>
+			
+			<!-- G+ -->
+			<field name="google_plus" type="list" class="gk_switch" default="1" label="TPL_GK_LANG_GOOGLE_PLUS" description="TPL_GK_LANG_GOOGLE_PLUS_DESC">
+					<option value="1">TPL_GK_LANG_ENABLED</option>
+					<option value="0">TPL_GK_LANG_DISABLED</option>
+			</field>
+			<field name="google_plus_count" type="list" class="gk_switch" default="1" label="TPL_GK_LANG_GOOGLE_PLUS_COUNT" description="TPL_GK_LANG_GOOGLE_PLUS_COUNT_DESC">
+					<option value="1">TPL_GK_LANG_ENABLED</option>
+					<option value="0">TPL_GK_LANG_DISABLED</option>
+			</field>
+			<field name="google_plus_size" type="list" default="medium" label="TPL_GK_LANG_GOOGLE_PLUS_SIZE" description="TPL_GK_LANG_GOOGLE_PLUS_SIZE_DESC">
+					<option value="standard">standard</option>
+					<option value="small">small</option>
+					<option value="medium">medium</option>
+					<option value="tall">tall</option>
+			</field>
+			<field name="google_plus_lang" type="text" default="en-GB" label="TPL_GK_LANG_GOOGLE_PLUS_LANG" description="TPL_GK_LANG_GOOGLE_PLUS_LANG_DESC" />
+			
+			<!-- GOOGLE+ SHARE BUTTON -->
+			<field name="google_plus_share" type="list" class="gk_switch" default="1" label="TPL_GK_LANG_GOOGLE_PLUS_SHARE" description="TPL_GK_LANG_GOOGLE_PLUS_SHARE_DESC">
+					<option value="1">TPL_GK_LANG_ENABLED</option>
+					<option value="0">TPL_GK_LANG_DISABLED</option>
+			</field>
+			<field name="google_plus_share_annotation" type="list" default="vertical-bubble" label="TPL_GK_LANG_GOOGLE_PLUS_ANNOTATION" description="TPL_GK_LANG_GOOGLE_PLUS_ANNOTATION">
+					<option value="none">none</option>
+					<option value="inline">inline</option>
+					<option value="vertical-bubble">bubble (vertical)</option>
+					<option value="bubble">bubble (horizontal)</option>
+			</field>
+			<field name="google_plus_share_size" type="list" default="20" label="TPL_GK_LANG_GOOGLE_PLUS_SHARE_SIZE" description="TPL_GK_LANG_GOOGLE_PLUS_SHARE_SIZE_DESC">
+					<option value="15">small</option>
+					<option value="20">medium</option>
+					<option value="24">large</option>
+			</field>
+			
+			<!-- TWEET BTN -->
+			<field name="tweet_btn" type="list" class="gk_switch" default="0" label="TPL_GK_LANG_TWEET_BTN" description="TPL_GK_LANG_TWEET_BTN_DESC">
+					<option value="1">TPL_GK_LANG_ENABLED</option>
+					<option value="0">TPL_GK_LANG_DISABLED</option>
+			</field>
+			<field name="tweet_btn_data_count" type="list" default="vertical" label="TPL_GK_LANG_TWEET_BTN_DATA_COUNT" description="TPL_GK_LANG_TWEET_BTN_DATA_COUNT_DESC">
+					<option value="vertical">vertical count</option>
+					<option value="horizontal">horizontal count</option>
+					<option value="none">no count</option>
+			</field>
+			<field name="tweet_btn_data_via" type="text" default="" label="TPL_GK_LANG_TWEET_BTN_DATA_VIA" description="TPL_GK_LANG_TWEET_BTN_DATA_VIA_DESC" />
+			<field name="tweet_btn_data_lang" type="list" default="en" label="TPL_GK_LANG_TWEET_BTN_DATA_LANG" description="TPL_GK_LANG_TWEET_BTN_DATA_LANG_DESC">
+					<option value="en">English</option>
+					<option value="fr">French</option>
+					<option value="de">German</option>
+					<option value="es">Spanish</option>
+					<option value="ja">Japanese</option>
+					<option value="nl">Dutch</option>
+					<option value="id">Indonesian</option>
+					<option value="it">Italian</option>
+					<option value="ko">Korean</option>
+					<option value="pt">Portuguese</option>
+					<option value="ru">Russian</option>
+					<option value="tr">Turkish</option>
+			</field>
+			<!-- Pinterest BTN -->
+			<field name="pinterest_btn" type="list" class="gk_switch" default="0" label="TPL_GK_LANG_PINTEREST_BTN" description="TPL_GK_LANG_PINTEREST_BTN_DESC">
+					<option value="1">TPL_GK_LANG_ENABLED</option>
+					<option value="0">TPL_GK_LANG_DISABLED</option>
+			</field>
+			<field name="pinterest_btn_style" type="list" default="horizontal" label="TPL_GK_LANG_PINTEREST_BTN_STYLE" description="TPL_GK_LANG_PINTEREST_BTN_STYLE_DESC">
+					<option value="horizontal">TPL_GK_LANG_PINTEREST_HORIZONTAL</option>
+					<option value="vertical">TPL_GK_LANG_PINTEREST_VERTICAL</option>
+					<option value="none">TPL_GK_LANG_PINTEREST_NONE</option>
+			</field>
+			
+			<!-- Excluded -->
+			<field name="excluded_arts" type="text" label="TPL_GK_LANG_EXCLUDED_ARTS" description="TPL_GK_LANG_EXCLUDED_ARTS_DESC" />
+			<field name="excluded_cats" type="category" extension="com_content" default="" multiple="multiple"  label="TPL_GK_LANG_EXCLUDED_CATS" description="TPL_GK_LANG_EXCLUDED_CATS_DESC" />
+		</fieldset>
+		
+		<!-- Cookie consent settings -->
+		<fieldset name="COOKIE_SETTINGS" addfieldpath="/templates/gk_appphone/admin/elements">
+				<field name="cookie_consent" type="list" class="gk_switch" default="0" label="TPL_GK_LANG_COOKIE_CONSENT" description="TPL_GK_LANG_COOKIE_CONSENT_DESC">
+						<option value="1">TPL_GK_LANG_ENABLED</option>
+						<option value="0">TPL_GK_LANG_DISABLED</option>
+				</field>
+				<field name="consenttype" type="list"  default="explicit" label="TPL_GK_LANG_CONSENT_TYPE" description="TPL_GK_LANG_CONSENT_TYPE_DESC">
+						<option value="implicit">TPL_GK_LANG_IMPLIED</option>
+						<option value="explicit">TPL_GK_LANG_EXPLICIT</option>
+				</field>
+				<field name="cookie_latest_version" type="list" class="gk_switch" default="0" label="TPL_GK_LANG_COOKIE_LATEST_VERSION" description="TPL_GK_LANG_COOKIE_LATEST_VERSION_DESC">
+						<option value="1">TPL_GK_LANG_ENABLED</option>
+						<option value="0">TPL_GK_LANG_DISABLED</option>
+				</field>
+				<field name="cookie_use_ssl" type="list" class="gk_switch" default="0" label="TPL_GK_LANG_COOKIE_SSL" description="TPL_GK_LANG_COOKIE_SSL_DESC">
+						<option value="1">TPL_GK_LANG_ENABLED</option>
+						<option value="0">TPL_GK_LANG_DISABLED</option>
+				</field>
+				<field name="banner_position" type="list"  default="bottom" label="TPL_GK_LANG_BANNER_POSITION" description="TPL_GK_LANG_BANNER_POSITION_DESC">
+						<option value="top">TPL_GK_LANG_TOP</option>
+						<option value="bottom">TPL_GK_LANG_BOTTOM</option>
+						<option value="push">TPL_GK_LANG_PUSH</option>
+				</field>
+				<field name="banner_tag_placement" type="list"  default="bottom-right" label="TPL_GK_LANG_TAG_PLACEMENT" description="TPL_GK_LANG_TAG_PLACEMENT_DESC">
+						<option value="bottom-right">TPL_GK_LANG_BR</option>
+						<option value="bottom-left">TPL_GK_LANG_BL</option>
+						<option value="vertical-left">TPL_GK_LANG_VL</option>
+						<option value="vertical-right">TPL_GK_LANG_VR</option>
+				</field>
+				<field name="cookie_style" type="list"  default="light" label="TPL_GK_LANG_COOKIE_STYLE" description="TPL_GK_LANG_COOKIE_STYLE_DESC">
+						<option value="dark">TPL_GK_LANG_DARK</option>
+						<option value="light">TPL_GK_LANG_LIGHT</option>
+						<option value="monochrome">TPL_GK_LANG_MONOCHROME</option>
+				</field>
+				<field name="refreshOnConsent" type="list"  class="gk_switch" default="0" label="TPL_GK_LANG_REFRESH_CONSENT" description="TPL_GK_LANG_REFRESH_CONSENT_DESC">
+						<option value="1">TPL_GK_LANG_ENABLED</option>
+						<option value="0">TPL_GK_LANG_DISABLED</option>
+				</field>
+				<field name="cookiecss" type="list" class="gk_switch" default="1" label="TPL_GK_LANG_COOKIE_CSS" description="TPL_GK_LANG_COOKIE_CSS_DESC">
+						<option value="1">TPL_GK_LANG_ENABLED</option>
+						<option value="0">TPL_GK_LANG_DISABLED</option>
+				</field>
+		</fieldset>
+		<!-- Dev settings -->
+		<fieldset name="DEV_SETTINGS" addfieldpath="/templates/gk_fest/admin/elements">
+				<field name="usernameless_login" type="list" class="gk_switch" default="0" label="TPL_GK_LANG_USERNAMELESS_LOGIN" description="TPL_GK_LANG_USERNAMELESS_LOGIN_DESC">
+						<option value="1">TPL_GK_LANG_ENABLED</option>
+						<option value="0">TPL_GK_LANG_DISABLED</option>
+				</field>
+				
+				<field name="css_cache" type="list" class="gk_switch" default="0" label="TPL_GK_LANG_CSS_CACHE" description="TPL_GK_LANG_CSS_CACHE_DESC">
+						<option value="1">TPL_GK_LANG_ENABLED</option>
+						<option value="0">TPL_GK_LANG_DISABLED</option>
+				</field>
+				<field name="css_compression" type="list" class="gk_switch" default="0" label="TPL_GK_LANG_CSS_COMPRESSION" description="TPL_GK_LANG_CSS_COMPRESSION_DESC">
+						<option value="1">TPL_GK_LANG_ENABLED</option>
+						<option value="0">TPL_GK_LANG_DISABLED</option>
+				</field>
+				<field name="css_override" type="list" class="gk_switch" default="0" label="TPL_GK_LANG_CSS_OVERRIDE" description="TPL_GK_LANG_CSS_OVERRIDE_DESC">
+						<option value="1">TPL_GK_LANG_ENABLED</option>
+						<option value="0">TPL_GK_LANG_DISABLED</option>
+				</field>
+				<field name="css_prefixer" type="list" class="gk_switch" default="0" label="TPL_GK_LANG_CSS_PREFIXER" description="TPL_GK_LANG_CSS_PREFIXER_DESC">
+						<option value="1">TPL_GK_LANG_ENABLED</option>
+						<option value="0">TPL_GK_LANG_DISABLED</option>
+				</field>
+				<field name="js_compression" type="list" class="gk_switch" default="0" label="TPL_GK_LANG_JS_COMPRESSION" description="TPL_GK_LANG_JS_COMPRESSION_DESC">
+						<option value="1">TPL_GK_LANG_ENABLED</option>
+						<option value="0">TPL_GK_LANG_DISABLED</option>
+				</field>
+				<!--<field name="jscss_excluded" type="textarea" rows="3" cols="30" label="TPL_GK_LANG_EXCLUDEJSCSS" description="TPL_GK_LANG_EXCLUDEJSCSS_DESC" />-->
+				<field name="css_custom" type="textarea" rows="6" cols="40" label="TPL_GK_LANG_CSS_CUSTOM" description="TPL_GK_LANG_CSS_CUSTOM_DESC" />
+				<field name="gk_line_13" type="line" text="" />
+				<field name="chrome_frame_support" class="gk_switch" type="list" default="0" label="TPL_GK_LANG_CHROME_FRAME_SUPPORT" description="TPL_GK_LANG_CHROME_FRAME_SUPPORT_DESC">
+						<option value="1">TPL_GK_LANG_ENABLED</option>
+						<option value="0">TPL_GK_LANG_DISABLED</option>
+				</field>
+		</fieldset>
+		
+		<!-- Updates -->
+		<fieldset name="UPDATES" addfieldpath="/templates/meet_gavern/admin/elements">
+				<field name="template_updates" type="update" />
+		</fieldset>
+	  </fields>
+  </config>
+</extension>

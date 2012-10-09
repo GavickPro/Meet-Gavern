@@ -1,0 +1,58 @@
+body {
+  color:#777;
+  font-family:Arial, Verdana, sans-serif;
+  font-size:13px;
+  font-weight:400;
+  padding:0 20px;
+}
+a {
+  color:#5990de;
+  outline:none !important;
+  text-decoration:none;
+}
+a:active, a:focus, a:hover {
+  color:#7ae;
+  text-decoration:none;
+}
+h1, h2, h3 {
+  color:#5c5c5c;
+  font-family:'Colaborate', sans-serif;
+  font-weight:500;
+}
+#gk-logo.css-logo {
+  background:transparent url('../images/logo.png') no-repeat 0 0;
+  display:block;
+  height:67px;
+  text-indent:-9999px;
+  width:188px;
+  margin:0 auto;
+}
+#gk-logo.text-logo span {
+  display:block;
+  font-size:24px;
+  line-height:24px;
+  padding:10px 0 0 0;
+}
+#gk-logo.text-logo small {
+  display:block;
+  font-size:12px;
+  line-height:12px;
+  padding:0 0 10px 0;
+}
+h2 {
+  color:#5990de;
+  font-size:42px;
+  margin:10px 0;
+}
+h3 {
+  font-weight:300;
+  margin:0;
+}
+#frame { text-align:center; }
+#errorDescription { margin:50px 0 24px; }
+#errorboxbody {
+  width:300px;
+  margin:0 auto;
+  padding:9px 0;
+  border-top:1px solid #e5e5e5;
+}

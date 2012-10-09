@@ -1,0 +1,120 @@
+@media (max-width: @maxTabletWidth) {
+	/* mobile menu */
+	.gk-mainmenu-toggle {	 
+		display: inline-block;
+	}
+	
+	.gk-main-menu {
+		float: none;
+	
+		ul.nav-child {
+			display: block!important;
+			height: auto!important;
+			margin: 0!important;
+			overflow: visible!important;
+			opacity: 1!important;
+			padding: 0!important;
+			position: static!important;
+			width: 100%!important;
+		}
+		
+		> ul {
+			background: #fff;
+			border: 1px solid #eee;
+			.border-radius(5px);
+			margin-bottom: 20px!important;
+			
+			> li:first-child {
+				> a {
+					border-top: none!important;	
+				}
+			}	
+		}
+	
+		ul {
+			li {
+				border: none!important;
+				line-height: 28px!important;
+				min-height: 28px!important;
+				
+				a,
+				li a,
+				ul li a {
+					border-top: 1px solid #e5e5e5;
+					color: #777!important;
+					font-weight: normal!important;
+					line-height: 28px!important;
+					margin: 0!important;
+					min-height: 28px!important;
+				}
+				
+				a {
+					font-size: 13px;
+					padding: 0 15px!important;
+					
+					&:active,
+					&:focus,
+					&:hover {
+						background: #f5f5f5!important;
+						color: #585656!important;
+					}	
+				}	
+				
+				li a {
+					font-size: 12px;
+					padding-left: 30px!important;
+				}
+				li li a {
+					font-size: 11px;
+					padding-left: 40px!important;
+				}
+				
+				li li li a {
+					font-size: 10px;
+					padding-left: 50px!important;
+				}				
+			}
+			
+			ul {
+				background: #fff;
+				border: none!important;
+				.box-shadow(none!important);
+				position: static;
+				width: 100%;
+			}
+		}
+	}
+	
+	/* Demo content */
+	.gk-big-header {
+		font-size: 80px;
+		line-height: 1.5;
+		margin-top: 20px;
+	}
+	
+	.gk-small-header {
+		font-size: 18px;
+	}
+	
+	.gk-buttons {
+		padding: 60px 0;
+	}
+	
+	.gk-blue-button,
+	.gk-yellow-button {
+		font-size: 24px;
+		font-weight: 300;
+		height: 48px;
+		line-height: 49px;
+		margin-left: 25px;
+		padding: 0 36px;
+	}
+	
+	.gk-medium-header {
+		font-size: 30px;
+	}
+	
+	#gk-download-btn {
+		width: 130px;
+	}
+}

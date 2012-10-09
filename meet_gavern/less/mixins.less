@@ -1,0 +1,29 @@
+// Useful mixins for our code
+.border-radius(@radius: 5px) {
+	-webkit-border-radius: @radius;
+	   -moz-border-radius: @radius;
+	        border-radius: @radius;
+}
+
+.transition(@type: all 0.3s ease-out) {
+	-webkit-transition: @type;
+	   -moz-transition: @type;
+	     -o-transition: @type;
+	     	transition: @type;
+}
+
+.box-sizing(@type: border-box) {
+	-webkit-box-sizing: @type;
+	   -moz-box-sizing: @type;
+	    -ms-box-sizing: @type;
+	     -o-box-sizing: @type;
+	        box-sizing: @type;
+}
+
+.box-shadow(@shadow: 0 0 5px #000) {
+	-webkit-box-shadow: @shadow;
+	   -moz-box-shadow: @shadow;
+	    -ms-box-shadow: @shadow;
+	     -o-box-shadow: @shadow;
+	        box-shadow: @shadow;
+}

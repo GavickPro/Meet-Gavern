@@ -1,0 +1,159 @@
+/**
+ * 
+ * File used to change styling of the standard Bootstrap elements 
+ *
+ **/
+ 
+/* Fluid layout */
+.container-fluid {
+	margin: 0 auto;
+	max-width: 1180px;
+} 
+ 
+/* Mainmenu toggler */ 
+.gk-mainmenu-toggle {
+	display: none;
+}
+
+/* Fix for the images */
+img {
+	max-width: 100%;
+}
+
+div.imgcaption {
+	max-width: 100%!important;
+}
+
+/* Fix for the btn-toolbar */
+.btn-toolbar {
+	clear: both;
+}
+
+.article-index + .btn-toolbar {
+	clear: left;
+}
+
+/* Adjustment for the buttns */
+aside .btn-group > .dropdown-toggle {
+	padding: 0!important;
+}
+
+.btn.btn-primary [class^="icon-"] {
+	margin-top: -1px;
+	opacity: 1;
+} 
+
+a [class^="icon-"] {
+	margin-top: -3px;
+}
+
+/* Adjustment for the badges and labels */
+.label,
+.badge {
+	vertical-align: text-top!important;
+}
+
+/* Adjustment for the well class */
+.well {
+	background: #fff;
+}
+
+/* Adjustment for the nav-pills */
+.nav-pills li:hover a {
+	background: #5990de;
+	color: #fff;
+}
+
+/* Adjustment for the form actions */
+.form-actions {
+	background: #fff;
+	border-top: 1px solid #ddd;
+	overflow: hidden;
+}
+
+/* Fix for the icons */
+[class^="icon-"], [class*=" icon-"] {
+	/*opacity: 0.5;*/
+	position: relative;
+	top: 2px;
+}
+
+/* Adjustment of the dropdown button */
+.btn-group.open .btn.dropdown-toggle,
+.btn.dropdown-toggle {
+	background: transparent;
+	border: none;
+	.box-shadow(none);
+}
+
+.dropdown-menu {
+	border: 1px solid #ddd;
+	.box-shadow(1px 1px 3px #eee);
+}
+
+.dropdown-menu li:hover a {
+	background: #f5f5f5!important;
+	color: #000;
+}
+
+/* Fix for the spans in the rows */
+[class*="span"]:first-child {
+	margin-left: 0!important;
+}
+
+.row {
+	margin-left: 0!important;
+}
+
+[class*="span"] {
+	.box-sizing;
+}
+
+.span3 + .span4,
+.span3 + .span6,
+.span3 + .span12 { /* fix for the problem with margin-left in spans */
+	margin-left: 0!important;
+}
+
+/* Fix for the breadcrumbs */
+.breadcrumb {
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid #e5e5e5;
+	.border-radius(0);
+	padding: 15px 0;	
+}
+
+.breadcrumb > li:first-child {
+	margin-right: 10px;
+}
+
+/* Fix for the tables */
+table {
+	clear: both;
+}
+
+/* Fix for the dropdown menu in the <aside> */
+aside .dropdown-menu {
+	min-width: 80px!important;
+}
+
+/* Fix for the stripped lists */
+.list-striped {
+	border: 1px solid #eee;
+	.border-radius(3px);
+	list-style-type: none;
+	margin: 0;
+	padding: 3px;
+}
+
+.list-striped li {
+	padding: 7px 10px;
+}
+
+.list-striped li:nth-child(odd) { 
+	background-color:#f9f9f9; 
+}
+.list-striped li:hover { 
+	background-color:#f5f5f5; 
+}

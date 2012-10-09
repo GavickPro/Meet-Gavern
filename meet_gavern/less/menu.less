@@ -1,0 +1,153 @@
+/** 
+ *
+ * Template menu code
+ *
+ **/
+
+.gk-mainmenu-toggle {
+	float: right;
+	
+	a {
+		background: transparent url('../images/mobile_menu_btn.png') no-repeat 0 0;
+		display: block;
+		height: 30px;
+		margin-top: 20px;
+		text-indent: -9999px;
+		width: 30px;
+	}
+}
+
+.gk-main-menu {
+	float: right;
+	position: relative;
+	
+	> ul {
+		margin: 0!important;
+		
+		> li {
+			border: none;
+			float: left;
+			font-size: 14px;
+			min-height: 67px;
+			line-height: 67px;
+			margin: 0;
+			
+			> a {
+				color: #777;
+				margin: 0;
+				padding: 0 14px;
+				.transition(color .3s ease-out);
+				
+				&:hover {
+					background: transparent;
+					color: #5990de;
+				}
+			}
+		}
+		
+		li.current > a,
+		li.active > a {
+			background: transparent!important;
+			color: #5990de!important;
+		}
+		
+		> li.active,
+		> li:hover {
+			color: #5990de;
+			
+			> a {
+				background: transparent;
+				color: #5990de;
+			}
+			
+			li.current > a,
+			li.active > a {
+				background: transparent!important;
+				color: #5990de!important;
+			}
+		}
+	}	
+	// Submenu
+	ul {
+		ul {
+			background: #fff;
+			.border-radius(3px);
+			.box-shadow(0 0 6px #939393);
+			display: block;
+			font-size: 13px;
+			left: -9999px;
+			margin-top: -3px;
+			padding: 0!important;
+			position: absolute;
+			width: 200px;
+			z-index: 10;
+			
+			ul:before {
+				display: none;
+			}
+			
+			li {
+				border-top: 1px solid #ececec;
+				min-height: 22px;
+				.transition(background-color .3s ease-out);
+				
+				a {
+					color: #777;
+					display: block;
+					line-height: 22px;
+					padding: 10px 26px;
+					
+					&:active,
+					&:focus,
+					&:hover {
+						color: #585656!important;
+						text-decoration: none;
+					}
+				}
+				
+				&:hover {
+					background: #f5f5f5;
+				}
+			}
+			
+			li:first-child {
+				border-top: none;
+			}
+			
+			li:hover {
+				ul {
+					left: auto!important;
+				}
+				
+				a {
+					color: #585656!important;
+					text-decoration: none;	
+				}
+			}
+			
+			ul {
+				border-top: 1px solid #eee;
+				left: -9999px!important;
+				margin-left: 180px;
+				margin-top: -24px;
+			}
+		}
+		
+		ul:before {
+			background: transparent url('../images/menu_arrow.png') no-repeat 0 0;
+			content: "";
+			display: block;
+			height: 10px;
+			left: 26px;
+			position: absolute;
+			top: -10px;
+			width: 14px;
+		}
+		
+		li:hover{
+			ul {
+				left: auto;
+			}
+		}
+	} 
+}
