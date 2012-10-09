@@ -1,0 +1,37 @@
+// CSS code for the logo - used in:
+// * template.less, 
+// * error.less,
+// * offline.less
+
+// logomargin mixin
+.logomargin() when (@page = 'offline') {
+	margin: 0 auto;
+}
+
+.logomargin() when (@page = 'normal') {
+	margin: 0;
+}
+
+#gk-logo.css-logo {
+	background: transparent url('../images/logo.png') no-repeat 0 0;
+	display: block;
+	height: 67px;
+	.logomargin;
+	text-indent: -9999px;
+	width: 188px;
+}
+
+#gk-logo.text-logo span {
+	display: block;
+	font-size: 24px;
+	line-height: 24px;
+	padding: 10px 0 0 0;
+}
+
+
+#gk-logo.text-logo small {
+	display: block;
+	font-size: 12px;
+	line-height: 12px;
+	padding: 0 0 10px 0;
+}
