@@ -157,7 +157,7 @@ jQuery(window).load(function(){
 // function to generate the updates list
 function getUpdates() {
 	jQuery('#jform_params_template_updates-lbl').remove(); // remove unnecesary label
-	var update_url = 'https://www.gavick.com/updates/json/tmpl,component/query,product/product,gk_creative_j16';
+	var update_url = 'https://www.gavick.com/updates/json/tmpl,component/query,product/product,gk_meet_gavern_j30';
 	var update_div = jQuery('#gk_template_updates');
 	update_div.html('<div id="gk_update_div"><span id="gk_loader"></span>Loading update data from GavicPro Update service...</div>');
 	
