@@ -106,7 +106,7 @@ class GKTemplateLayout {
     function isFrontpage() {
         // get all known languages
         $languages	= JLanguage::getKnownLanguages();
-        $menu = JSite::getMenu();
+        $menu = JFactory::getApplication()->getMenu();
         
         foreach($languages as $lang){
             if ($menu->getActive() == $menu->getDefault($lang['tag'])) {
