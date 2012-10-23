@@ -1,6 +1,8 @@
 body {
   color:#777;
-  font:normal 13px/24px Arial, Verdana, sans-serif !important;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 24px;
 }
 a {
   color:#5990de;

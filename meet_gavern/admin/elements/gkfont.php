@@ -17,6 +17,7 @@ class JFormFieldGkfont extends JFormField
 		$options_type = array(
 								JHTML::_('select.option', 'standard', 'Standard'),
 								JHTML::_('select.option', 'google', 'Google Fonts'),
+								JHTML::_('select.option', 'edge', 'Adobe Edge Fonts'),
 								JHTML::_('select.option', 'squirrel', 'Squirrel')
 							);
 							
@@ -65,6 +66,10 @@ class JFormFieldGkfont extends JFormField
 		$html .= '<input type="text" name="'.$this->name.'" id="'.$this->id.'" class="gkFormHide" value="' . htmlspecialchars($this->value, ENT_COMPAT, 'UTF-8') . '"/>';
 		$html .= '<span class="gk-label" id="'.str_replace(array('[', ']'), '', $this->name).'_google_own_link_label"><strong>'.JText::_('TPL_GK_LANG_OWN_GOOGLE_FONT_LINK').'</strong><input type="text" id="'.str_replace(array('[', ']'), '', $this->name).'_google_own_link" size="40" /></span>';
 		$html .= '<span class="gk-label" id="'.str_replace(array('[', ']'), '', $this->name).'_google_own_font_label"><strong>'.JText::_('TPL_GK_LANG_OWN_GOOGLE_FONT_FAMILY').'</strong><input type="text" id="'.str_replace(array('[', ']'), '', $this->name).'_google_own_font" size="40" /></span>';
+		
+		$html .= '<span class="gk-label" id="'.str_replace(array('[', ']'), '', $this->name).'_edge_own_link_label"><strong>'.JText::_('TPL_GK_LANG_OWN_EDGE_FONT_LINK').'</strong><input type="text" id="'.str_replace(array('[', ']'), '', $this->name).'_edge_own_link" size="40" /></span>';
+		$html .= '<span class="gk-label" id="'.str_replace(array('[', ']'), '', $this->name).'_edge_own_font_label"><strong>'.JText::_('TPL_GK_LANG_OWN_EDGE_FONT_FAMILY').'</strong><input type="text" id="'.str_replace(array('[', ']'), '', $this->name).'_edge_own_font" size="40" /></span>';
+		
 		$html .= '</div>';
 		
 		return $html;

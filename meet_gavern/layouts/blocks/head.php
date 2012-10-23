@@ -48,7 +48,13 @@ while($this->API->get('font_name_group'.$font_iter, 'gkFontNull') !== 'gkFontNul
 			} elseif($font_type == 'squirrel') {
 				$this->API->addCSS($this->API->URLtemplate() . '/fonts/' . $font_name . '/stylesheet.css');	
 				$this->API->addCSSRule($this->API->get('font_rules_group'.$font_iter, '') . ' { font-family: ' . $font_name . ', Arial, sans-serif; }'."\n");
-			}
+			} elseif($font_type == 'edge') {
+	            $font_link = $font_data[2];
+	            $font_family = $font_data[3];
+	            
+	            $this->API->addJS($font_link);
+	            $this->API->addCSSRule($this->API->get('font_rules_group'.$font_iter, '') . ' { font-family: ' . $font_family . ', sans-serif; }'."\n");
+	        }
 		}
 	}
 	
