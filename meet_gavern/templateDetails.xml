@@ -126,6 +126,7 @@
 		<fieldset name="FONT_SETTINGS" addfieldpath="/templates/meet_gavern/admin/elements">
 				<field name="font_link1" type="url" label="TPL_GK_LANG_GOOGLE_FONTS_URL" description="TPL_GK_LANG_GOOGLE_FONTS_URL_DESC" url="http://code.google.com/webfonts" text="TPL_GK_LANG_CLICK_HERE" />
 				<field name="font_link2" type="url" label="TPL_GK_LANG_SQUIRREL_FONTS_URL" description="TPL_GK_LANG_SQUIRREL_FONTS_URL_DESC" url="http://www.fontsquirrel.com/fontface" text="TPL_GK_LANG_CLICK_HERE" />
+				<field name="font_link3" type="url" label="TPL_GK_LANG_EDGE_FONTS_URL" description="TPL_GK_LANG_EDGE_FONTS_URL_DESC" url="http://html.adobe.com/edge/webfonts/" text="TPL_GK_LANG_CLICK_HERE" />
 				<field name="gk_line_20" type="line" text="" />
 				<field name="font_name_group1" type="gkfont" directory="templates/meet_gavern/fonts/" label="TPL_GK_LANG_FONT_NAME_G1" description="TPL_GK_LANG_FONT_NAME_G1_DESC" />
 				<field name="font_rules_group1" type="textarea" rows="6" cols="40" label="TPL_GK_LANG_FONT_RULES_G1" description="TPL_GK_LANG_FONT_RULES_G1_DESC" />

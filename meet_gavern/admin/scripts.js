@@ -27,15 +27,36 @@ jQuery(window).load(function(){
 			jQuery('#' + base_id + '_google_own_font').fadeOut();
 			jQuery('#' + base_id + '_google_own_link_label').fadeOut();
 			jQuery('#' + base_id + '_google_own_font_label').fadeOut();
+			jQuery('#' + base_id + '_edge_own_link').fadeOut();
+			jQuery('#' + base_id + '_edge_own_font').fadeOut();
+			jQuery('#' + base_id + '_edge_own_link_label').fadeOut();
+			jQuery('#' + base_id + '_edge_own_font_label').fadeOut();
 			jQuery('#' + base_id + '_squirrel').fadeOut();
 		} else if(values[0] == 'google') {
 			jQuery('#' + base_id + '_google_own_link').attr('value', values[2]);
 			jQuery('#' + base_id + '_google_own_font').attr('value', values[3]);
 			jQuery('#' + base_id + '_normal').fadeOut();
 			jQuery('#' + base_id + '_squirrel').fadeOut();
+			jQuery('#' + base_id + '_edge_own_link').fadeOut();
+			jQuery('#' + base_id + '_edge_own_font').fadeOut();
+			jQuery('#' + base_id + '_edge_own_link_label').fadeOut();
+			jQuery('#' + base_id + '_edge_own_font_label').fadeOut();
 		} else if(values[0] == 'squirrel') {
 			jQuery('#' + base_id + '_squirrel').attr('value', values[1]);
 			jQuery('#' + base_id + '_normal').fadeOut();
+			jQuery('#' + base_id + '_google_own_link').fadeOut();
+			jQuery('#' + base_id + '_google_own_font').fadeOut();
+			jQuery('#' + base_id + '_google_own_link_label').fadeOut();
+			jQuery('#' + base_id + '_google_own_font_label').fadeOut();
+			jQuery('#' + base_id + '_edge_own_link').fadeOut();
+			jQuery('#' + base_id + '_edge_own_font').fadeOut();
+			jQuery('#' + base_id + '_edge_own_link_label').fadeOut();
+			jQuery('#' + base_id + '_edge_own_font_label').fadeOut();
+		} else if(values[0] == 'edge') {
+			jQuery('#' + base_id + '_edge_own_link').attr('value', values[2]);
+			jQuery('#' + base_id + '_edge_own_font').attr('value', values[3]);
+			jQuery('#' + base_id + '_normal').fadeOut();
+			jQuery('#' + base_id + '_squirrel').fadeOut();
 			jQuery('#' + base_id + '_google_own_link').fadeOut();
 			jQuery('#' + base_id + '_google_own_font').fadeOut();
 			jQuery('#' + base_id + '_google_own_link_label').fadeOut();
@@ -52,6 +73,10 @@ jQuery(window).load(function(){
 					jQuery('#' + base_id + '_google_own_font').fadeOut();
 					jQuery('#' + base_id + '_google_own_link_label').fadeOut();
 					jQuery('#' + base_id + '_google_own_font_label').fadeOut();
+					jQuery('#' + base_id + '_edge_own_link').fadeOut();
+					jQuery('#' + base_id + '_edge_own_font').fadeOut();
+					jQuery('#' + base_id + '_edge_own_link_label').fadeOut();
+					jQuery('#' + base_id + '_edge_own_font_label').fadeOut();
 					jQuery('#' + base_id + '_squirrel').fadeOut();
 				} else if(jQuery('#' + base_id + '_type').val() == 'google') {
 					jQuery('#' + base_id + '_normal').fadeOut();
@@ -60,6 +85,10 @@ jQuery(window).load(function(){
 					jQuery('#' + base_id + '_google_own_font').trigger('change');
 					jQuery('#' + base_id + '_google_own_link_label').fadeIn();
 					jQuery('#' + base_id + '_google_own_font_label').fadeIn();
+					jQuery('#' + base_id + '_edge_own_link').fadeOut();
+					jQuery('#' + base_id + '_edge_own_font').fadeOut();
+					jQuery('#' + base_id + '_edge_own_link_label').fadeOut();
+					jQuery('#' + base_id + '_edge_own_font_label').fadeOut();
 					jQuery('#' + base_id + '_squirrel').fadeOut();
 				} else if(jQuery('#' + base_id + '_type').val() == 'squirrel') {
 					jQuery('#' + base_id + '_normal').fadeOut();
@@ -67,9 +96,25 @@ jQuery(window).load(function(){
 					jQuery('#' + base_id + '_google_own_font').fadeOut();
 					jQuery('#' + base_id + '_google_own_link_label').fadeOut();
 					jQuery('#' + base_id + '_google_own_font_label').fadeOut();
+					jQuery('#' + base_id + '_edge_own_link').fadeOut();
+					jQuery('#' + base_id + '_edge_own_font').fadeOut();
+					jQuery('#' + base_id + '_edge_own_link_label').fadeOut();
+					jQuery('#' + base_id + '_edge_own_font_label').fadeOut();
 					jQuery('#' + base_id + '_squirrel').fadeIn();
 					jQuery('#' + base_id + '_squirrel').trigger('change');
-				}
+				} else if(jQuery('#' + base_id + '_type').val() == 'edge') {
+					jQuery('#' + base_id + '_normal').fadeOut();
+					jQuery('#' + base_id + '_edge_own_link').fadeIn();
+					jQuery('#' + base_id + '_edge_own_font').fadeIn();
+					jQuery('#' + base_id + '_edge_own_font').trigger('change');
+					jQuery('#' + base_id + '_edge_own_link_label').fadeIn();
+					jQuery('#' + base_id + '_edge_own_font_label').fadeIn();
+					jQuery('#' + base_id + '_google_own_link').fadeOut();
+					jQuery('#' + base_id + '_google_own_font').fadeOut();
+					jQuery('#' + base_id + '_google_own_link_label').fadeOut();
+					jQuery('#' + base_id + '_google_own_font_label').fadeOut();
+					jQuery('#' + base_id + '_squirrel').fadeOut();
+				} 
 			});
 			jQuery('#' + base_id + '_type').blur(function() {
 				var values = (base_el.val()).split(';');
@@ -81,6 +126,10 @@ jQuery(window).load(function(){
 					jQuery('#' + base_id + '_google_own_font').fadeOut();
 					jQuery('#' + base_id + '_google_own_link_label').fadeOut();
 					jQuery('#' + base_id + '_google_own_font_label').fadeOut();
+					jQuery('#' + base_id + '_edge_own_link').fadeOut();
+					jQuery('#' + base_id + '_edge_own_font').fadeOut();
+					jQuery('#' + base_id + '_edge_own_link_label').fadeOut();
+					jQuery('#' + base_id + '_edge_own_font_label').fadeOut();
 					jQuery('#' + base_id + '_squirrel').css('display', 'none');
 				} else if(jQuery('#' + base_id + '_type').val() == 'google') {
 					jQuery('#' + base_id + '_normal').fadeOut();
@@ -89,6 +138,10 @@ jQuery(window).load(function(){
 					jQuery('#' + base_id + '_google_own_font').trigger('change');
 					jQuery('#' + base_id + '_google_own_link_label').fadeIn();
 					jQuery('#' + base_id + '_google_own_font_label').fadeIn();
+					jQuery('#' + base_id + '_edge_own_link').fadeOut();
+					jQuery('#' + base_id + '_edge_own_font').fadeOut();
+					jQuery('#' + base_id + '_edge_own_link_label').fadeOut();
+					jQuery('#' + base_id + '_edge_own_font_label').fadeOut();
 					jQuery('#' + base_id + '_squirrel').css('display', 'none');
 				} else if(jQuery('#' + base_id + '_type').val() == 'squirrel') {
 					jQuery('#' + base_id + '_normal').fadeOut();
@@ -96,8 +149,24 @@ jQuery(window).load(function(){
 					jQuery('#' + base_id + '_google_own_font').fadeOut();
 					jQuery('#' + base_id + '_google_own_link_label').fadeOut();
 					jQuery('#' + base_id + '_google_own_font_label').fadeOut();
+					jQuery('#' + base_id + '_edge_own_link').fadeOut();
+					jQuery('#' + base_id + '_edge_own_font').fadeOut();
+					jQuery('#' + base_id + '_edge_own_link_label').fadeOut();
+					jQuery('#' + base_id + '_edge_own_font_label').fadeOut();
 					jQuery('#' + base_id + '_squirrel').fadeIn();
 					jQuery('#' + base_id + '_squirrel').trigger('change');
+				} else if(jQuery('#' + base_id + '_type').val() == 'edge') {
+					jQuery('#' + base_id + '_normal').fadeOut();
+					jQuery('#' + base_id + '_edge_own_link').fadeIn();
+					jQuery('#' + base_id + '_edge_own_font').fadeIn();
+					jQuery('#' + base_id + '_edge_own_font').trigger('change');
+					jQuery('#' + base_id + '_edge_own_link_label').fadeIn();
+					jQuery('#' + base_id + '_edge_own_font_label').fadeIn();
+					jQuery('#' + base_id + '_google_own_link').fadeOut();
+					jQuery('#' + base_id + '_google_own_font').fadeOut();
+					jQuery('#' + base_id + '_google_own_link_label').fadeOut();
+					jQuery('#' + base_id + '_google_own_font_label').fadeOut();
+					jQuery('#' + base_id + '_squirrel').css('display', 'none');
 				}
 		});
 		
@@ -145,6 +214,45 @@ jQuery(window).load(function(){
 				jQuery('#' + base_id + '_google_own_font').val()
 			);
 		});
+		
+		
+		jQuery('#' + base_id + '_edge_own_link').keydown(function() {
+			base_el.attr(
+				'value',
+				jQuery('#' + base_id + '_type').val() + ';' +
+				'own;' +
+				jQuery('#' + base_id + '_edge_own_link').val() + ';' +
+				jQuery('#' + base_id + '_edge_own_font').val()
+			);
+		});
+		jQuery('#' + base_id + '_edge_own_link').blur(function() {
+			base_el.attr(
+				'value',
+				jQuery('#' + base_id + '_type').val() + ';' +
+				'own;' +
+				jQuery('#' + base_id + '_edge_own_link').val() + ';' +
+				jQuery('#' + base_id + '_edge_own_font').val()
+			);
+		});
+		
+		jQuery('#' + base_id + '_edge_own_font').keydown(function() {
+			base_el.attr(
+				'value',
+				jQuery('#' + base_id + '_type').val() + ';' +
+				'own;' +
+				jQuery('#' + base_id + '_edge_own_link').val() + ';' +
+				jQuery('#' + base_id + '_edge_own_font').val()
+			);
+		});
+		jQuery('#' + base_id + '_edge_own_font').blur(function() {
+			base_el.attr(
+				'value',
+				jQuery('#' + base_id + '_type').val() + ';' +
+				'own;' +
+				jQuery('#' + base_id + '_edge_own_link').val() + ';' +
+				jQuery('#' + base_id + '_edge_own_font').val()
+			);
+		});
 	
 		
 		jQuery('#' + base_id + '_squirrel').change(function() { 
@@ -157,7 +265,7 @@ jQuery(window).load(function(){
 // function to generate the updates list
 function getUpdates() {
 	jQuery('#jform_params_template_updates-lbl').remove(); // remove unnecesary label
-	var update_url = 'https://www.gavick.com/updates/json/tmpl,component/query,product/product,gk_meet_gavern_j30';
+	var update_url = 'https://www.gavick.com/updates/json/tmpl,component/query,product/product,gk_creative_j16';
 	var update_div = jQuery('#gk_template_updates');
 	update_div.html('<div id="gk_update_div"><span id="gk_loader"></span>Loading update data from GavicPro Update service...</div>');
 	
