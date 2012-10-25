@@ -108,7 +108,7 @@ class GKTemplate {
     public function getLayout($mode) {
         // check layout saved in cookie
 		if ($mode == 'facebook') { // facebook mode
-			$layoutpath = $this->API->URLtemplatepath() . DS . 'layouts' . DS . $this->API->get('facebook_layout', 'facebook') . '.php';
+			$layoutpath = $this->API->URLtemplatepath() . DS . 'layouts' . DS . 'facebook.php';
 			if (is_file($layoutpath)) include ($layoutpath);
 			else echo 'Facebook layout doesn\'t exist!';
 		} else { // normal mode
