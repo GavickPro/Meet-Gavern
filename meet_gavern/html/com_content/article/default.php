@@ -23,6 +23,47 @@ JHtml::_('behavior.caption');
 // URL for Social API
 $cur_url = (!empty($_SERVER['HTTPS'])) ? "https://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'] : "http://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
 
+// OpenGraph support
+$template_config = new JConfig();
+$uri = JURI::getInstance();
+$article_attribs = json_decode($this->item->attribs, true);
+$pin_image = '';
+$og_title = $this->escape($this->item->title);
+$og_type = 'article';
+$og_url = $cur_url;
+if (isset($images->image_fulltext) and !empty($images->image_fulltext)) {     $og_image = $uri->root() . htmlspecialchars($images->image_fulltext);
+     $pin_image = $uri->root() . htmlspecialchars($images->image_fulltext);
+} else {
+     $og_image = '';
+     preg_match('/src="([^"]*)"/', $this->item->text, $matches);
+     
+     if(isset($matches[0])) {
+     	$pin_image = $uri->root() . substr($matches[0], 5,-1);
+     }
+}
+
+$og_site_name = $template_config->sitename;
+$og_desc = '';
+
+
+if(isset($article_attribs['og:title'])) {
+     $og_title = ($article_attribs['og:title'] == '') ? $this->escape($this->item->title) : $this->escape($article_attribs['og:title']);
+     $og_type = $this->escape($article_attribs['og:type']);
+     $og_url = $cur_url;
+     $og_image = ($article_attribs['og:image'] == '') ? $og_image : $uri->root() . $article_attribs['og:image'];
+     $og_site_name = ($article_attribs['og:site_name'] == '') ? $template_config->sitename : $this->escape($article_attribs['og:site_name']);
+     $og_desc = $this->escape($article_attribs['og:description']);
+}
+
+$doc = JFactory::getDocument();
+$doc->setMetaData( 'og:title', $og_title );
+$doc->setMetaData( 'og:type', $og_type );
+$doc->setMetaData( 'og:url', $og_url );
+$doc->setMetaData( 'og:image', $og_image );
+$doc->setMetaData( 'og:site_name', $og_site_name );
+$doc->setMetaData( 'og:description', $og_desc );
+
+
 ?>
 
 <div class="item-page<?php echo $this->pageclass_sfx?> gk-item-page">
