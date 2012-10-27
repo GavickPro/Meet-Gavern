@@ -155,6 +155,11 @@
 				
 				<field name="favicon_image" type="media" default="" label="TPL_GK_LANG_FAVICON_IMAGE" description="TPL_GK_LANG_FAVICON_IMAGE_DESC" />
 				
+				<field name="show_category_details" type="list" class="gk_switch" default="0" label="TPL_GK_LANG_CATEGORY_DETAILS" description="TPL_GK_LANG_CATEGORY_DETAILS_DESC">
+						<option value="1">TPL_GK_LANG_ENABLED</option>
+						<option value="0">TPL_GK_LANG_DISABLED</option>
+				</field>
+				
 				<field name="framework_logo" type="list" class="gk_switch" default="1" label="TPL_GK_LANG_FRAMEWORK_LOGO" description="TPL_GK_LANG_FRAMEWORK_LOGO_DESC">
 						<option value="1">TPL_GK_LANG_ENABLED</option>
 						<option value="0">TPL_GK_LANG_DISABLED</option>

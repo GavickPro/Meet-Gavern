@@ -17,6 +17,8 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers/html');
 JHtml::_('behavior.tooltip');
 JHtml::_('behavior.framework');
 
+$templateParams = JFactory::getApplication()->getTemplate(true)->params;
+
 ?>
 <?php if ($this->item->state == 0) : ?>
 
@@ -49,6 +51,44 @@ JHtml::_('behavior.framework');
 					<dt class="createdby"><?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', '</dt><dd>' . JHtml::_('link', JRoute::_($cntlink), $author) . '</dd>'); ?>
 				<?php else: ?>
 					<dt class="createdby"><?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', '</dt><dd>' . $author . '</dd>'); ?>
+				<?php endif; ?>
+			<?php endif; ?>
+			
+			<?php if($templateParams->get('show_category_details', 0) == 1) : ?>
+				<?php if ($params->get('show_modify_date')) : ?>
+				<dt class="modified"><?php echo JText::sprintf('COM_CONTENT_LAST_UPDATED', '</dt><dd>' . JHtml::_('date', $this->item->modified, JText::sprintf('DATE_FORMAT_LC3')) . '</dd>'); ?>
+				<?php endif; ?>
+				
+				<?php if ($params->get('show_publish_date')) : ?>
+				<dt class="published"><?php echo JText::sprintf('COM_CONTENT_PUBLISHED_DATE_ON', '</dt><dd>' . JHtml::_('date', $this->item->publish_up, JText::sprintf('DATE_FORMAT_LC3')) . '</dd>'); ?>
+				<?php endif; ?>
+				
+				<?php if ($params->get('show_hits')) : ?>
+				<dt class="hits"><?php echo JText::sprintf('COM_CONTENT_ARTICLE_HITS', '</dt><dd>' . $this->item->hits . '</dd>'); ?>
+				<?php endif; ?>
+				
+				<?php if ($params->get('show_create_date')) : ?>
+				<dt class="create"><?php echo JText::sprintf('COM_CONTENT_CREATED_DATE_ON', '</dt><dd>' . JHtml::_('date', $this->item->created, JText::_('DATE_FORMAT_LC3')) . '</dd>'); ?>
+				<?php endif; ?>
+				
+				<?php if ($params->get('show_parent_category') && $this->item->parent_slug != '1:root') : ?>
+					<?php $title = $this->escape($this->item->parent_title);
+					$url = '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->parent_slug)).'">'.$title.'</a>';?>
+					<?php if ($params->get('link_parent_category') and $this->item->parent_slug) : ?>
+						<dt class="parent-category-name"><?php echo JText::sprintf('COM_CONTENT_PARENT', '</dt><dd>' . $url . '</dd>'); ?>
+					<?php else : ?>
+						<dt class="parent-category-name"><?php echo JText::sprintf('COM_CONTENT_PARENT', '</dt><dd>' . $title . '</dd>'); ?>
+					<?php endif; ?>
+				<?php endif; ?>
+				
+				<?php if ($params->get('show_category')) : ?>
+					<?php $title = $this->escape($this->item->category_title);
+					$url = '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catslug)).'">'.$title.'</a>';?>
+					<?php if ($params->get('link_category') and $this->item->catslug) : ?>
+					<dt class="category-name"><?php echo JText::sprintf('COM_CONTENT_CATEGORY', '</dt><dd>' . $url . '</dd>'); ?>
+					<?php else : ?>
+					<dt class="category-name"><?php echo JText::sprintf('COM_CONTENT_CATEGORY', '</dt><dd>' . $title . '</dd>'); ?>
+					<?php endif; ?>
 				<?php endif; ?>
 			<?php endif; ?>
 		</dl>
