@@ -19,6 +19,7 @@ $user = JFactory::getUser();
 // get the option and view value
 $option = JRequest::getCmd('option');
 $view = JRequest::getCmd('view');
+$current_url = (!empty($_SERVER['HTTPS'])) ? "https://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'] : "http://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
 
 // username-less login
 if($this->API->get('usernameless_login', 0)) {
@@ -150,7 +151,7 @@ if ($this->API->modules('sidebar')) {
 		<jdoc:include type="modules" name="footer" style="none" />
 		<?php endif; ?>
 		
-		<p class="pull-right gk-toplink"><a href="#top" id="back-top">Back to top</a></p>
+		<p class="pull-right gk-toplink"><a href="<?php echo $current_url; ?>#top" id="back-top">Back to top</a></p>
 		
 		<p class="pull-right gk-copyrights">
 		<?php if($this->API->get('copyrights', '') == '') : ?>
