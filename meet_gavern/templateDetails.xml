@@ -2,8 +2,8 @@
 <!DOCTYPE install PUBLIC "-//Joomla! 2.5//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/2.5/template-install.dtd">
 <extension version="3.0" type="template" client="site" method="upgrade">
   <name>meet_gavern</name>
-  <version>1.0</version>
-  <creationDate>07/02/2012</creationDate>
+  <version>1.1</version>
+  <creationDate>05/11/2012</creationDate>
   <author>GavickPro</author>
   <authorEmail>info@gavick.com</authorEmail>
   <copyright>Copyright (C) 2012 GavickPro. All rights reserved.</copyright>
@@ -37,7 +37,7 @@
   		
   		<p>With the anticipated release of the production version of Joomla 3.0, the enhanced version of the Gavern Framework will become the basis for all future GavickPro template releases.</p>
   		
-  		<p class="livedemo">View Meet Gavern template in action <a href="http://joomla30.gavick.com" target="_blank">here</a>...</p><small>Gavern v.4.0</small></div>
+  		<p class="livedemo">View Meet Gavern template in action <a href="http://joomla30.gavick.com" target="_blank">here</a>...</p><small>Gavern v.4.1</small></div>
   		</div>
   		</div>]]></description>
   <files>
