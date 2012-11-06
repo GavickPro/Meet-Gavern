@@ -311,6 +311,9 @@ footer .gk-copyrigths { color:#aaa; }
 #gk-social-icons.right {
   left:auto;
   right:0;
+  -webkit-border-radius:3px 0 0 3px;
+  -moz-border-radius:3px 0 0 3px;
+  border-radius:3px 0 0 3px;
 }
 #gk-social-icons p { margin:0 !important; }
 #gkuserless {
