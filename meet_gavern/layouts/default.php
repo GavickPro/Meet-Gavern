@@ -71,7 +71,7 @@ if ($this->API->modules('sidebar')) {
 			</a>
 		</div>
 		
-		<div class="nav-collapse gk-main-menu">
+		<div class="nav-collapse collapse gk-main-menu">
 			<jdoc:include type="modules" name="menu" style="none" />
 		</div>
 	</header>
