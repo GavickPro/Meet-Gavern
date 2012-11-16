@@ -60,9 +60,6 @@ while($this->API->get('font_name_group'.$font_iter, 'gkFontNull') !== 'gkFontNul
 	
 	$font_iter++;
 }
-// include JavaScript
-$this->API->addJS('//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js');
-$this->API->addJS($this->API->URLtemplate().'/js/bootstrap.js');
 
 // load prefixer
 if($this->API->get("css_prefixer", '0')) {
@@ -72,7 +69,8 @@ if($this->API->get("css_prefixer", '0')) {
 $this->API->addJSFragment('$GK_MENU = [];' . "\n" . '$GK_MENU[\'animation\'] = "' . $this->API->get('menu_animation', 'width_height_opacity') . "\";\n" . '$GK_MENU[\'animation_speed\'] = "' . $this->API->get('menu_speed', 'fast') . "\";\n");
 $this->API->addJSFragment( "\n".'$GK_TMPL_URL = "' . $this->API->URLtemplate() . '";'."\n" );
 $this->API->addJSFragment( "\n".'$GK_URL = "' . $this->API->URLbase() . '";'."\n" );
-
+// include JavaScript
+$this->API->addJS($this->API->URLtemplate().'/js/bootstrap.js');
 $this->API->addJS($this->API->URLtemplate().'/js/page.js');
 $this->API->addJS($this->API->URLtemplate().'/js/gk.menu.js');
 // load CSS compresssion
