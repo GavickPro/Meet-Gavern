@@ -30,32 +30,6 @@ class GKTemplateLayout {
 	        include($this->API->URLtemplatepath() . DS . 'layouts' . DS . 'blocks' . DS . $path . '.php');
 	    }
 	}   
-	// function to generate tablet and mobile width & base CSS urles
-	public function generateLayoutWidths() {
-		//
-		$body_padding = $this->API->get('layout_body_space', 20); // get the body padding
-		//
-		$template_width = $this->API->get('template_width', 1120); // get the template width
-		$tablet_width = $this->API->get('tablet_width', 900); // get the tablet width
-		$mobile_width = $this->API->get('mobile_width', 540); // get the mobile width
-		//
-		$sidebar_width = $this->getSidebarWidthOverride(); // get the sidebar width
-		$content_width = 100;
-		//
-		if($this->API->modules('sidebar')) {
-			$content_width = 100 - $sidebar_width;
-			// generate sidebar width
-			$this->API->addCSSRule('#gkSidebar { width: '.$sidebar_width.'%; }' . "\n");
-		}
-		// generate content width
-		$this->API->addCSSRule('#gkContent { width: '.$content_width.'%; }' . "\n");
-		// set the max width for the page
-		$this->API->addCSSRule('#gkPageWrap { max-width: '.$template_width.'px; }' . "\n");
-		// set body paddings
-		$this->API->addCSSRule('body { padding: 0 '.$body_padding.'px; }');
-		// generate the data attributes
-		echo ' data-tablet-width="'.($tablet_width + (2 * $body_padding)).'" data-mobile-width="'.($mobile_width + (2 * $body_padding)).'"';
-	}
     
     public function getSidebarWidthOverride() {
     	// get current ItemID
