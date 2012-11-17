@@ -56,36 +56,6 @@ class GKTemplateLayout {
 		// generate the data attributes
 		echo ' data-tablet-width="'.($tablet_width + (2 * $body_padding)).'" data-mobile-width="'.($mobile_width + (2 * $body_padding)).'"';
 	}
-    // function to generate blocks paddings
-    public function generateLayout() {
-    	//
-    	$body_padding = $this->API->get('layout_body_space', 20); // get the body padding
-    	//
-    	$template_width = $this->API->get('template_width', 1120); // get the template width
-    	$tablet_width = $this->API->get('tablet_width', 900); // get the tablet width
-    	$mobile_width = $this->API->get('mobile_width', 540); // get the mobile width
-    	$paddings = $this->API->get('box_paddings', '24'); // get the box paddings
-    	// set media query for the tablet.css
-    	$this->API->addCSS($this->API->URLtemplate() . '/css/tablet.css','text/css','only screen and (max-width: '.$tablet_width.'px), only screen and (max-device-width: '.$tablet_width.'px) and (-moz-max-device-pixel-ratio: 1.5), only screen and (max-device-width: '.$tablet_width.'px) and (-o-max-device-pixel-ratio: 1.5/1), only screen  and (max-device-width: '.$tablet_width.'px) and (-webkit-max-device-pixel-ratio: 1.5), only screen and (max-device-width: '.$tablet_width.'px) and (max-device-pixel-ratio: 1.5), only screen and (max-device-width: '.($tablet_width * 2).'px) and (-moz-min-device-pixel-ratio: 2), only screen and (max-device-width: '.($tablet_width * 2).'px) and (-o-min-device-pixel-ratio: 2/1), only screen and (max-device-width: '.($tablet_width * 2).'px) and (-webkit-min-device-pixel-ratio: 2), only screen and (max-device-width: '.($tablet_width * 2).'px) and (min-device-pixel-ratio: 2)');
-    	// set media query for the mobile.css
-    	$this->API->addCSS($this->API->URLtemplate() . '/css/mobile.css','text/css','only screen and (max-width: '.$mobile_width.'px), only screen and (max-device-width: '.$mobile_width.'px) and (-moz-max-device-pixel-ratio: 1.5), only screen and (max-device-width: '.$mobile_width.'px) and (-o-max-device-pixel-ratio: 1.5/1), only screen  and (max-device-width: '.$mobile_width.'px) and (-webkit-max-device-pixel-ratio: 1.5), only screen and (max-device-width: '.$mobile_width.'px) and (max-device-pixel-ratio: 1.5), only screen and (max-device-width: '.($mobile_width * 2).'px) and (-moz-min-device-pixel-ratio: 2), only screen and (max-device-width: '.($mobile_width * 2).'px) and (-o-min-device-pixel-ratio: 2/1), only screen and (max-device-width: '.($mobile_width * 2).'px) and (-webkit-min-device-pixel-ratio: 2), only screen and (max-device-width: '.($mobile_width * 2).'px) and (min-device-pixel-ratio: 2)');
-       	// CSS to avoid problems with the K2/com_content columns on the smaller screens
-    	$this->API->addCSSRule('@media screen and (max-width: '.($tablet_width * 0.75).'px) {
-    	#k2Container .itemsContainer { width: 100%!important; } 
-    	.cols-2 .column-1,
-    	.cols-2 .column-2,
-    	.cols-3 .column-1,
-    	.cols-3 .column-2,
-    	.cols-3 .column-3,
-    	.demo-typo-col2,
-    	.demo-typo-col3,
-    	.demo-typo-col4 {width: 100%; }
-    	}');
-    	// set CSS code for the messages
-    	$this->API->addCSSRule('#system-message-container { margin: 0 -'.$body_padding.'px; }');
-    	// set the paddings inside containers
-    	$this->API->addCSSRule('.box > div, #gkContent > div { padding: '.$paddings.'px; }');
-    }
     
     public function getSidebarWidthOverride() {
     	// get current ItemID
