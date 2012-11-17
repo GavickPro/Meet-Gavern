@@ -84,6 +84,7 @@ class GKTemplate {
 				$this->getLayout('normal');
     		}
         }
+        GKParser::$customRules['/<script src="\/media\/system\/js\/core.js" type="text\/javascript"><\/script>/mis'] = '<script src="'.$this->API->URLtemplate().'/js/hash.js" type="text/javascript"></script>'."\n".'<script src="/media/system/js/core.js" type="text/javascript"></script>';
         // parse FB and Twitter buttons
         $this->social->socialApiParser($embed_mode);
         // define an event for replacement
