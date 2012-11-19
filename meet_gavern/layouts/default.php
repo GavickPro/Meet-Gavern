@@ -20,6 +20,7 @@ $user = JFactory::getUser();
 $option = JRequest::getCmd('option');
 $view = JRequest::getCmd('view');
 $current_url = (!empty($_SERVER['HTTPS'])) ? "https://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'] : "http://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+$current_url = preg_replace('@%[0-9A-Fa-f]{1,2}@mi', '', htmlspecialchars($current_url, ENT_QUOTES, 'UTF-8'));
 
 // username-less login
 if($this->API->get('usernameless_login', 0)) {
