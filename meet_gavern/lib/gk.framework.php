@@ -90,11 +90,7 @@ class GKTemplate {
         // define an event for replacement
         $dispatcher = JDispatcher::getInstance();
  		// set a proper event for GKParserPlugin 
- 		if($this->API->get('use_gk_cache', 0) == 0) {
- 			$dispatcher->register('onAfterRender', 'GKParserPlugin');
- 		} else {
- 			$dispatcher->register('onBeforeCache', 'GKParserPlugin');
- 		}
+ 		$dispatcher->register('onAfterRender', 'GKParserPlugin');
     }
     
     // get the template parameters in PHP form
