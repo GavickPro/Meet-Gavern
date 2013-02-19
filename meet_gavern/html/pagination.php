@@ -150,25 +150,25 @@ function pagination_item_active(&$item)
 	// Check for "Start" item
 	if ($item->text == JText::_('JLIB_HTML_START'))
 	{
-		$display = '<i class="icon-first"></i>';
+		$display = '<i class="icomoon-first"></i>';
 	}
 
 	// Check for "Prev" item
 	if ($item->text == JText::_('JPREV'))
 	{
-		$display = '<i class="icon-previous"></i>';
+		$display = '<i class="icomoon-previous"></i>';
 	}
 
 	// Check for "Next" item
 	if ($item->text == JText::_('JNEXT'))
 	{
-		$display = '<i class="icon-next"></i>';
+		$display = '<i class="icomoon-next"></i>';
 	}
 
 	// Check for "End" item
 	if ($item->text == JText::_('JLIB_HTML_END'))
 	{
-		$display = '<i class="icon-last"></i>';
+		$display = '<i class="icomoon-last"></i>';
 	}
 
 	// If the display object isn't set already, just render the item with its text
@@ -177,7 +177,7 @@ function pagination_item_active(&$item)
 		$display = $item->text;
 	}
 
-	return "<li><a title=\"" . $item->text . "\" href=\"" . $item->link . "\" class=\"pagenav\">" . $item->text . "</a></li>";
+	return "<li><a title=\"" . $item->text . "\" href=\"" . $item->link . "\" class=\"pagenav\">" . $display . "</a></li>";
 }
 
 /**
@@ -194,25 +194,25 @@ function pagination_item_inactive(&$item)
 	// Check for "Start" item
 	if ($item->text == JText::_('JLIB_HTML_START'))
 	{
-		return '<li class="disabled"><a>'.JText::_('JLIB_HTML_START').'</a></li>';
+		return '<li class="disabled"><a><i class="icomoon-first"></i></a></li>';
 	}
 
 	// Check for "Prev" item
 	if ($item->text == JText::_('JPREV'))
 	{
-		return '<li class="disabled"><a>'.JText::_('JPREV').'</a></li>';
+		return '<li class="disabled"><a><i class="icomoon-previous"></i></a></li>';
 	}
 
 	// Check for "Next" item
 	if ($item->text == JText::_('JNEXT'))
 	{
-		return '<li class="disabled"><a>'.JText::_('JNEXT').'</a></li>';
+		return '<li class="disabled"><a><i class="icomoon-next"></i></a></li>';
 	}
 
 	// Check for "End" item
 	if ($item->text == JText::_('JLIB_HTML_END'))
 	{
-		return '<li class="disabled"><a>'.JText::_('JLIB_HTML_END').'</a></li>';
+		return '<li class="disabled"><a><i class="icomoon-last"></i></a></li>';
 	}
 
 	// Check if the item is the active page
