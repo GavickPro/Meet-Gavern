@@ -10,6 +10,7 @@
 defined('_JEXEC') or die;
 
 JHtml::addIncludePath(JPATH_COMPONENT . '/helpers');
+JLoader::register('TagsHelperRoute', JPATH_BASE . '/components/com_tags/helpers/route.php');
 
 // Create shortcuts to some parameters.
 $params		= $this->item->params;
@@ -91,7 +92,7 @@ if (!empty($this->item->pagination) AND $this->item->pagination && !$this->item-
 		<?php endif; ?>
 		
 		<?php if (($params->get('show_modify_date')) or ($params->get('show_publish_date'))
-			or ($params->get('show_hits')) or ($params->get('show_category')) or ($params->get('show_create_date')) or ($params->get('show_parent_category')) or ($params->get('show_author'))) : ?>
+			or ($params->get('show_hits')) or ($params->get('show_category')) or ($params->get('show_create_date')) or ($params->get('show_parent_category')) or ($params->get('show_author')) or ($params->get('show_tags', 1))) : ?>
 		
 		<dl class="article-info">
 			<?php if ($params->get('show_author') && !empty($this->item->author )) : ?>
@@ -121,6 +122,15 @@ if (!empty($this->item->pagination) AND $this->item->pagination && !$this->item-
 			<dt class="hits"><?php echo JText::sprintf('COM_CONTENT_ARTICLE_HITS', '</dt><dd>' . $this->item->hits . '</dd>'); ?>
 			<?php endif; ?>
 			
+			<?php if ($params->get('show_tags', 1) && !empty($this->item->tags)) : ?>
+				<dt class="category-name"><?php echo JText::sprintf('TPL_GK_LANG_TAGGED_UNDER', '</dt>'); ?>
+				<dd>	
+				<?php foreach ($this->item->tags->itemTags as $tag) : ?>
+					<a href="<?php echo JRoute::_(TagsHelperRoute::getTagRoute($tag->tag_id . ':' . $tag->alias)) ?>"><?php echo $tag->title; ?></a>
+				<?php endforeach; ?>
+				</dd>
+			<?php endif; ?>
+			
 			<?php if ($params->get('show_create_date')) : ?>
 			<dt class="create"><?php echo JText::sprintf('COM_CONTENT_CREATED_DATE_ON', '</dt><dd>' . JHtml::_('date', $this->item->created, JText::_('DATE_FORMAT_LC3')) . '</dd>'); ?>
 			<?php endif; ?>
@@ -144,6 +154,7 @@ if (!empty($this->item->pagination) AND $this->item->pagination && !$this->item-
 				<dt class="category-name"><?php echo JText::sprintf('COM_CONTENT_CATEGORY', '</dt><dd>' . $title . '</dd>'); ?>
 				<?php endif; ?>
 			<?php endif; ?>
+		
 		</dl>
 		<?php endif; ?>
 		

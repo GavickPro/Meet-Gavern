@@ -13,6 +13,19 @@ jQuery(window).load(function() {
 			jQuery('#password').val('');
 		});
 	}
+	jQuery('.tag').each(function(i, el) {	
+		jQuery(el).popover({
+			html: true,
+			trigger: 'hover',
+		 	content: function () {
+			 	if(jQuery(el).attr('data-img-url') == "") {
+			    	return jQuery(el).attr('data-tag-content');
+			    } else {
+			    	return '<img src="'+jQuery(el).attr('data-img-url')+ '" />'+jQuery(el).attr('data-tag-content');
+			    }
+		    }
+		});
+	});
 });
 
 var JCaption = function() {};

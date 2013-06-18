@@ -8,7 +8,7 @@
  */
 
 defined('_JEXEC') or die;
-
+JLoader::register('TagsHelperRoute', JPATH_BASE . '/components/com_tags/helpers/route.php');
 // Create a shortcut for params.
 $params = &$this->item->params;
 $images = json_decode($this->item->images);
@@ -60,6 +60,16 @@ $canEdit	= $this->item->params->get('access-edit');
 			<dt class="hits"><?php echo JText::sprintf('COM_CONTENT_ARTICLE_HITS', '</dt><dd>' . $this->item->hits . '</dd>'); ?>
 			<?php endif; ?>
 			
+			
+			<?php if ($params->get('show_tags', 1) && !empty($this->item->tags)) : ?>
+				<dt class="category-name"><?php echo JText::sprintf('TPL_GK_LANG_TAGGED_UNDER', '</dt>'); ?>
+				<dd>	
+				<?php foreach ($this->item->tags->itemTags as $tag) : ?>
+					<a href="<?php echo JRoute::_(TagsHelperRoute::getTagRoute($tag->tag_id . ':' . $tag->alias)) ?>"><?php echo $tag->title; ?></a>
+				<?php endforeach; ?>
+				</dd>
+			<?php endif; ?>
+			
 			<?php if ($params->get('show_create_date')) : ?>
 			<dt class="create"><?php echo JText::sprintf('COM_CONTENT_CREATED_DATE_ON', '</dt><dd>' . JHtml::_('date', $this->item->created, JText::_('DATE_FORMAT_LC3')) . '</dd>'); ?>
 			<?php endif; ?>
@@ -84,6 +94,11 @@ $canEdit	= $this->item->params->get('access-edit');
 				<?php endif; ?>
 			<?php endif; ?>
 		</dl>
+		<?php endif; ?>
+		
+		<?php if ($this->params->get('show_tags', 1)) : ?>
+			<?php $this->item->tagLayout = new JLayoutFile('joomla.content.tags'); ?>
+			<?php echo $this->item->tagLayout->render($this->item->tags->itemTags); ?>
 		<?php endif; ?>
 		
 		<?php if ($params->get('show_print_icon') || $params->get('show_email_icon') || $canEdit) : ?>

@@ -33,15 +33,17 @@ if($this->API->get('usernameless_login', 0)) {
 }
 // Adjusting content width
 $span = 12;
-$sidebar_width = $this->API->get('sidebar_width', 3);
-
+if($this->layout->manager['sidebar']->float == 'left') {
+	$this->API->addCSSRule('#gk-content { float: right} #sidebar { margin: 0 2.5641% 0 0}');
+}
+$sidebar_width = str_replace('span', '', $this->layout->manager['sidebar']->width);
 if ($this->API->modules('sidebar')) {
 	$span = 12 - $sidebar_width;
 }
 
 ?>
 <!DOCTYPE html>
-<html lang="<?php echo $this->APITPL->language; ?>">
+<html lang="<?php echo $this->APITPL->language; ?>" prefix="og: http://ogp.me/ns#">
 <head>
 	<?php if($this->browser->get('browser') == 'ie8' || $this->browser->get('browser') == 'ie7' || $this->browser->get('browser') == 'ie6') : ?>
 	<meta http-equiv="X-UA-Compatible" content="IE=9">
@@ -91,7 +93,7 @@ if ($this->API->modules('sidebar')) {
 		<section class="container-fluid">
 			<?php if($this->API->modules('top')) : ?>
 			<section id="gk-top" class="row-fluid">
-				<jdoc:include type="modules" name="top" modpos="top" modnum="<?php echo $this->API->modules('top'); ?>" modamount="4" style="gk_style" />
+				<jdoc:include type="modules" name="top" modpos="top" modnum="<?php echo $this->API->modules('top'); ?>" style="gk_style" settings="<?php echo htmlspecialchars(json_encode($this->layout->manager['top'])); ?>"/>	
 			</section>
 			<?php endif; ?>
 			
@@ -99,13 +101,13 @@ if ($this->API->modules('sidebar')) {
 				<section id="gk-content" class="span<?php echo $span;?>">
 					<?php if($this->API->modules('breadcrumb')) : ?>
 					<section id="gk-breadcrumb">
-						<jdoc:include type="modules" name="breadcrumb" style="none" />
+						<jdoc:include type="modules" name="breadcrumb" style="none" modules="<?php $this->layout->manager['breadcrumb']; ?>" />
 					</section>
 					<?php endif; ?>
 					
 					<?php if($this->API->modules('mainbody_top')) : ?>
 					<section id="gk-mainbody-top">
-						<jdoc:include type="modules" name="mainbody_top" style="gk_style" />
+						<jdoc:include type="modules" name="mainbody_top" style="gk_style" modnum="<?php echo $this->API->modules('mainbody_top'); ?>" settings="<?php echo htmlspecialchars(json_encode($this->layout->manager['mainbody_top'])); ?>"/>
 					</section>
 					<?php endif; ?>
 					
@@ -121,7 +123,7 @@ if ($this->API->modules('sidebar')) {
 					
 					<?php if($this->API->modules('mainbody_bottom')) : ?>
 					<section id="gk-mainbody-bottom">
-						<jdoc:include type="modules" name="mainbody_bottom" style="gk_style" />
+						<jdoc:include type="modules" name="mainbody_bottom" modpos="mainbody_bottom" style="gk_style" modnum="<?php echo $this->API->modules('mainbody_bottom'); ?>" settings="<?php echo htmlspecialchars(json_encode($this->layout->manager['mainbody_bottom'])); ?>"/>	
 					</section>
 					<?php endif; ?>
 				</section>
@@ -130,7 +132,7 @@ if ($this->API->modules('sidebar')) {
 				<aside id="sidebar" class="span<?php echo $sidebar_width; ?>">
 					<?php if ($this->API->modules('search')): ?>	
 					<div class="sidebar-search">
-						<jdoc:include type="modules" name="search" style="gk_style" />
+						<jdoc:include type="modules" name="search" style="gk_style"/>
 					</div>
 					<?php endif; ?>
 					
@@ -140,10 +142,9 @@ if ($this->API->modules('sidebar')) {
 				</aside>
 				<?php endif; ?>
 			</section>
-			
 			<?php if($this->API->modules('bottom')) : ?>
 			<section id="gk-bottom">
-				<jdoc:include type="modules" name="bottom" modpos="bottom" modnum="<?php echo $this->API->modules('bottom'); ?>" style="gk_style" />
+				<jdoc:include type="modules" name="bottom" modpos="bottom" modnum="<?php echo $this->API->modules('bottom'); ?>" style="gk_style" settings="<?php echo htmlspecialchars(json_encode($this->layout->manager['bottom'])); ?>"/>
 			</section>
 			<?php endif; ?>
 		</section>
@@ -151,7 +152,7 @@ if ($this->API->modules('sidebar')) {
 	
 	<footer class="container-fluid">
 		<?php if($this->API->modules('footer')) : ?>
-		<jdoc:include type="modules" name="footer" style="none" />
+		<jdoc:include type="modules" name="footer" style="gk_style" modnum="<?php echo $this->API->modules('footer'); ?>" settings="<?php echo htmlspecialchars(json_encode($this->layout->manager['footer'])); ?>"/>
 		<?php endif; ?>
 		
 		<p class="pull-right gk-toplink"><a href="<?php echo $current_url; ?>#top" id="back-top">Back to top</a></p>
@@ -194,6 +195,6 @@ if ($this->API->modules('sidebar')) {
 GKParser::$customRules['/<script src="(.*?)media\/jui\/js\/jquery.min.js" type="text\/javascript"><\/script>/mi'] = '';
 GKParser::$customRules['/<script src="(.*?)media\/jui\/js\/jquery-noconflict.js" type="text\/javascript"><\/script>/mi'] = '';
 GKParser::$customRules['/<script src="(.*?)media\/jui\/js\/bootstrap.min.js" type="text\/javascript"><\/script>/mi'] = '';
-GKParser::$customRules['/<script src="(.*?)media\/system\/js\/mootools-more.js" type="text\/javascript"><\/script>/mi'] = '';
+//GKParser::$customRules['/<script src="(.*?)media\/system\/js\/mootools-more.js" type="text\/javascript"><\/script>/mi'] = '';
 
 // EOF

@@ -6,33 +6,68 @@
 	.container-fluid .row-fluid .span2 {
 		clear: both;
 		float: none;
-		margin: 20px auto 0 auto!important;
+	}
+	
+	.container-fluid #gk-top .span12,
+	.container-fluid #gk-top  .span6,
+	.container-fluid #gk-top  .span4,
+	.container-fluid #gk-top  .span3,
+	.container-fluid #gk-top  .span2,
+	.container-fluid #gk-bottom .span12,
+	.container-fluid #gk-bottom .span6,
+	.container-fluid #gk-bottom .span4,
+	.container-fluid #gk-bottom .span3,
+	.container-fluid #gk-bottom  .span2 {
 		width: 100%!important;
+		margin: 20px auto 0 auto!important;
 		max-width: 480px!important;
 	}
 	
-	.container-fluid .row-fluid .span2 {
+	.container-fluid #gk-top .span2,
+	.container-fluid #gk-bottom  .span2 {
 		max-width: 240px!important;
 	}
-
-	.gk-article .article-header {
+	
+	.container-fluid #gk-top {
+		margin-bottom: 20px;
+	}
+	
+	.gk-article .article-header,
+	#k2Container header h1,
+	.itemView header h2 a {
 		font-size: 24px!important;
 		line-height: 32px!important;
 	}
 	
-	.item-page aside {
+	.gk-item-page .gk-article {
+		min-height: auto;
+	}
+	
+	.item-page aside,
+	#k2Container aside {
 		float: none;
 		position: static;
 		width: 100%;
+		max-width: 100%;
 	}
-	.gk-article {
+	.gk-article,
+	.itemBody.containsItemInfo, .itemOtherElements.containsItemInfo, .itemListView .itemBlock.containsItemInfo, .itemListView .itemBlock.itemOtherElements, .genericView .itemView.itemOtherElements, .userView .itemBlock.itemOtherElements, .latestView .itemBlock.itemOtherElements {
 		clear: both;
 		margin-left: 0!important;
 		min-height: 120px;
 		font-size: 13px;
 		line-height: 23px!important
 	}
-	.item-page time {
+	
+	.latestView .itemsContainer,
+	.itemAuthorContent {
+		width: 100%;
+		min-width: 100%;
+		clear: both;
+	}
+	
+	.item-page time,
+	.itemAsideInfo time {
 		display: block;
 		width: 66px;
 		height: 66px;
@@ -43,10 +78,11 @@
 		font-size: 48px;
 		font-weight: 600;
 		color: #fff;
-		float: left;
+		float: left !important;
 		margin-left: 0;
 	}
-	.item-page time span {
+	.item-page time span,
+	.itemAsideInfo time span {
 		display: block;
 		font-size: 18px;
 		line-height: 0;
@@ -55,8 +91,11 @@
 		float: left;
 		margin: 0 0 10px 10px;
 		text-align: left;
-		font-size: 11px
+		font-size: 11px;
+		max-width: 345px;
 	}
+	
+	
 	.article-info dt,
 	.article-info dd {
 		float: left;
@@ -107,5 +146,20 @@
 
 	#gk-download-btn {
 		width: 80px;
+	}
+	/* reset */
+	div.box.dlastrow + div.box {
+		margin: 20px auto!important;
+		clear: both;
+	}
+	div.box.dlastrow {
+		clear: both;
+	}
+	div.box.tlastrow + div.box {
+		margin: 20px auto!important;
+		clear: both;
+	}
+	div.box.tlastrow {
+		clear: both;
 	}
 }

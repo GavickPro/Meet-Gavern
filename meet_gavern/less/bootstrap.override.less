@@ -97,11 +97,13 @@ a [class^="icon-"] {
 }
 
 /* Fix for the spans in the rows */
-[class*="span"]:first-child {
+#gk-top [class*="span"]:first-child,
+#gk-bottom [class*="span"]:first-child {
 	margin-left: 0!important;
 }
 
-.row {
+#gk-top .row,
+#gk-bottom .row {
 	margin-left: 0!important;
 }
 
@@ -109,9 +111,12 @@ a [class^="icon-"] {
 	.box-sizing;
 }
 
-.span3 + .span4,
-.span3 + .span6,
-.span3 + .span12 { /* fix for the problem with margin-left in spans */
+#gk-top .span3 + #gk-top .span4,
+#gk-top .span3 + #gk-top .span6,
+#gk-top .span3 + #gk-top .span12,
+#gk-bottom .span3 + #gk-bottom .span4,
+#gk-bottom .span3 + #gk-bottom .span6,
+#gk-bottom .span3 + #gk-bottom .span12 { /* fix for the problem with margin-left in spans */
 	margin-left: 0!important;
 }
 

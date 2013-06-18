@@ -13,6 +13,7 @@ class GKTemplateLayout {
     public $social;
     public $utilities;
     public $menu;
+    public $manager;
     //
     function __construct($parent) {
     	$this->parent = $parent;
@@ -21,6 +22,8 @@ class GKTemplateLayout {
     	$this->social = $parent->social;
     	$this->utilities = $parent->utilities;
     	$this->menu = $parent->menu;
+    	$this->manager = array();
+    	$this->parseLayoutManagerSetting();
     }
 	// function to load specified block
 	public function loadBlock($path) {
@@ -30,6 +33,45 @@ class GKTemplateLayout {
 	        include($this->API->URLtemplatepath() . DS . 'layouts' . DS . 'blocks' . DS . $path . '.php');
 	    }
 	}   
+    
+    public function parseLayoutManagerSetting() {
+    	$lm_settings = json_decode($this->API->get('layout_manager', ''));
+    	if (json_last_error() === JSON_ERROR_NONE) {
+    		//print_r($lm_settings);
+    		foreach($lm_settings as $key => $level) {
+    			$this->parseLayoutManagerLevel($level);
+    		}
+    	} else {
+    		// error during parsing JSON
+    		switch(json_last_error())
+	        {
+	            case JSON_ERROR_DEPTH:
+	                $error =  'Maximum stack depth exceeded during parsing Layout Manager data.';
+	                break;
+	            case JSON_ERROR_CTRL_CHAR:
+	                $error = 'Unexpected control character found in Layout Manager data. Please check your template configuration.';
+	                break;
+	            case JSON_ERROR_SYNTAX:
+	                $error = 'Syntax error, malformed JSON. Please check your template configuration.';
+	                break;
+	            default:
+	                $error = 'Unexpected error during parsing Layout Manager data. Please check your template configuration.';                    
+	        }
+	        JFactory::getApplication()->enqueueMessage($error, 'Notice'); 
+    	}    
+    }
+    
+    private function parseLayoutManagerLevel($level) {
+    	if(isset($level->childs)) {
+    		foreach($level->childs as $key => $child) {
+    			$this->parseLayoutManagerLevel($child);
+    		}
+    	} else if($level->type == 'module') {
+    		$this->manager[$level->position] = $level;
+    	} else {
+    		
+    	}
+    }
     
     public function getSidebarWidthOverride() {
     	// get current ItemID

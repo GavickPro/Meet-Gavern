@@ -1,0 +1,115 @@
+[
+    {
+        "position": "top-wrapper",
+        "type": "wrapper",
+        "width" : "row-fluid",
+        "desktop" : [
+        	{
+        		"position" : "logo",
+        		"type" : "locked",
+        		"width" : "span3"
+        	},
+        	{
+        		"position" : "banner_top",
+        		"type" : "module",
+        		"width": "span7"
+        	},
+        	{
+        		"position" : "userarea",
+        		"type" : "locked",
+        		"width": "span2"
+        	}
+        ],
+        "tablet" : [
+        	{
+        		"position" : "logo",
+        		"type" : "locked",
+        		"width" : "span8"
+        	},
+        	{
+        		"position" : "userarea",
+        		"type" : "locked",
+        		"width": "span4"
+        	}
+        ]
+    },
+    {
+        "position": "mainbody-wrapper",
+        "type": "wrapper",
+     	"width" : "row-fluid",
+        "desktop" : [
+        	{
+        		"position" : "content-wrapper",
+        		"type" : "wrapper",
+        		"width" : "span8",
+        		"desktop" : [
+        			{
+        				"position" : "conten-wrapper",
+        				"type" : "wrapper",
+        				"width" : "span9",
+        				"desktop" : [
+        					{
+        						"position" : "top1",
+        						"type" : "module",
+        						"width": "row-fluid"
+        					},
+        					{
+        						"position" : "top2",
+        						"type" : "module",
+        						"width": "row-fluid"
+        					},
+        					{
+        						"position" : "mainbody",
+        						"type" : "locked",
+        						"width": "row-fluid"
+        					}
+        				]
+        			},
+        			{
+        				
+    					"position" : "inset",
+    					"type" : "locked",
+    					"width": "span3"
+        			}
+        		]
+        	},
+        	{
+        		"position" : "sidebar",
+        		"type" : "sidebar",
+        		"width" : "span4",
+        		"pos" : "left",
+        		"sibling" : "content-wrapper"
+        	}
+        ]
+    },
+    {
+        "position": "bottom1",
+        "type": "module",
+        "width" : "row-fluid",
+        "childs": [
+            {
+                "position": "bottom1",
+                "width": "span6"
+            },
+            {
+                "position": "bottom2",
+                "width": "span6"
+            }
+        ]
+    },
+    {
+        "position": "bottom2",
+        "type": "module",
+        "width" : "row-fluid",
+        "childs": [
+            {
+                "position": "bot5",
+                "width": "span6"
+            },
+            {
+                "position": "bot6",
+                "width": "span6"
+            }
+        ]
+    }
+]

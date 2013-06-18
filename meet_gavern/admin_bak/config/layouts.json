@@ -1,0 +1,292 @@
+[
+	{
+	"desktop": [
+	    {
+	        "position": "top-wrapper",
+	        "type": "wrapper",
+	        "width" : "row-fluid",
+	        "childs" : [	
+	    		{
+	        		"position" : "logo",
+	        		"type" : "locked",
+	        		"width" : "span3"
+	    		},
+	        	{
+	        		"position" : "banner_top",
+	        		"type" : "module",
+	        		"width": "span9",
+	        		"default_width" : "5",
+	        		"advanced" : "0",
+					"modules": [
+					    {
+					        "position": "bottom1",
+					        "width": "6"
+					    },
+					    {
+					        "position": "bottom2",
+					        "width": "6"
+							}
+						]	        		
+	        	}
+	        ]  
+	    },
+	    {
+	    	"position": "header",
+	    	"type": "locked",
+	    	"width" : "row-fluid"
+	    },
+	    {
+	    	"position": "top",
+	    	"type": "locked",
+	    	"width" : "row-fluid"
+	    },
+	    {
+	    	"position": "content-wrapper",
+	    	"type": "wrapper",
+	    	"width" : "row-fluid",
+	    	"childs" : [
+	    		{
+	    			"position": "mainbody-wrapper",
+	    			"type": "wrapper",
+	    			"width" : "span9",
+	    			"childs" : [
+	    				{
+	    					"position" : "breadcrumb",
+	    					"type" : "locked",
+	    					"width": "row-fluid"
+	    				},
+	    				{
+	    					"position" : "mainbody_top",
+	    					"type" : "locked",
+	    					"width": "row-fluid"
+	    				},
+	    				{
+	    					"position" : "mainbody",
+	    					"type" : "locked",
+	    					"width": "row-fluid"
+	    				},
+	    				{
+	    					"position" : "mainbody_bottom",
+	    					"type" : "locked",
+	    					"width": "row-fluid"
+	    				}
+	    			]
+	    		},
+	    		{
+	    			"position": "sidebar",
+	    			"type": "module",
+	    			"float" : "right",
+	    			"width" : "span3",
+	    			"default_width" : "5",
+	    			"advanced" : "0",
+	    			"sibling" : "mainbody-wrapper",
+	    			"modules": [
+	    			    {
+	    			        "position": "bottom1",
+	    			        "width": "6"
+	    			    },
+	    			    {
+	    			        "position": "bottom2",
+	    			        "width": "6"
+	    					}
+	    			]	
+	    		}
+	    	]
+	    },
+	    {
+			"position": "bottom",
+	        "type": "module",
+	        "width" : "row-fluid",
+	        "default_width" : "5",
+	        "advanced" : "0",
+	        "modules": [
+		        {
+		            "position": "bottom1",
+		            "width": "4"
+		        },
+		        {
+		            "position": "bottom2",
+		            "width": "4"
+		   		},
+		   		{
+		   		    "position": "bottom2",
+		   		    "width": "4"
+		   		}
+	       	]
+	    },
+		{       
+		    "position": "footer",
+		    "type": "module",
+		    "width" : "span8"
+	    }
+	]
+	},
+	{
+	"tablet": [
+	    {
+	        "position": "top-wrapper",
+	        "type": "wrapper",
+	        "width" : "row-fluid",
+	        "default_width" : "5",
+	        "advanced" : "0",
+	        "childs" : [	
+	    		{
+	        		"position" : "logo",
+	        		"type" : "locked",
+	        		"width" : "span3"
+	    		},
+	        	{
+	        		"position" : "banner_top",
+	        		"type" : "module",
+	        		"width": "span9"
+	        	}
+	        ]  
+	    },
+	    {
+	    	"position": "top",
+	    	"type": "locked",
+	    	"width" : "row-fluid"
+	    },
+	    {
+	    	"position": "content-wrapper",
+	    	"type": "wrapper",
+	    	"width" : "row-fluid",
+	    	"childs" : [
+	    		{
+	    			"position": "mainbody-wrapper",
+	    			"type": "wrapper",
+	    			"width" : "span9",
+	    			"childs" : [
+	    				{
+	    					"position" : "breadcrumb",
+	    					"type" : "locked",
+	    					"width": "row-fluid"
+	    				},
+	    				{
+	    					"position" : "mainbody",
+	    					"type" : "locked",
+	    					"width": "row-fluid"
+	    				}
+	    			]
+	    		},
+	    		{
+	    			"position": "sidebar",
+	    			"type": "module",
+	    			"width" : "span3"
+	    		}
+	    	]
+	    },
+	    {
+			"position": "bottom",
+	        "type": "module",
+	        "width" : "row-fluid",
+	        "default_width" : "5",
+	        "advanced" : "0",
+	        "modules": [
+		        {
+		            "position": "bottom1",
+		            "width": "6"
+		        },
+		        {
+		            "position": "bottom2",
+		            "width": "6"
+		   		}
+	       	]
+	    },
+		{       
+		    "position": "footer",
+		    "type": "module",
+		    "width" : "span8",
+		    "default_width" : "5",
+		    "advanced" : "0",
+		    "modules": [
+		        {
+		            "position": "bottom1",
+		            "width": "6"
+		        },
+		        {
+		            "position": "bottom2",
+		            "width": "6"
+		    		}
+		    	]	
+	    }
+	]
+	},
+	{
+	"mobile": [
+	    {
+	        "position": "top-wrapper",
+	        "type": "wrapper",
+	        "width" : "row-fluid",
+	        "childs" : [	
+	    		{
+	        		"position" : "logo",
+	        		"type" : "locked",
+	        		"width" : "span3"
+	    		},
+	        	{
+	        		"position" : "banner_top",
+	        		"type" : "module",
+	        		"width": "span9"
+	        	}
+	        ]  
+	    },
+	    {
+	    	"position": "top",
+	    	"type": "locked",
+	    	"width" : "row-fluid"
+	    },
+	    {
+	    	"position": "content-wrapper",
+	    	"type": "wrapper",
+	    	"width" : "row-fluid",
+	    	"childs" : [
+	    		{
+	    			"position": "mainbody-wrapper",
+	    			"type": "wrapper",
+	    			"width" : "span9",
+	    			"childs" : [
+	    				{
+	    					"position" : "breadcrumb",
+	    					"type" : "locked",
+	    					"width": "row-fluid"
+	    				},
+	    				{
+	    					"position" : "mainbody",
+	    					"type" : "locked",
+	    					"width": "row-fluid"
+	    				}
+	    			]
+	    		},
+	    		{
+	    			"position": "sidebar",
+	    			"type": "module",
+	    			"width" : "span3"
+	    		}
+	    	]
+	    },
+	    {
+			"position": "bottom",
+	        "type": "module",
+	        "width" : "row-fluid",
+	        "default_width" : "5",
+	        "advanced" : "0",
+	        "modules": [
+		        {
+		            "position": "bottom1",
+		            "width": "6"
+		        },
+		        {
+		            "position": "bottom2",
+		            "width": "6"
+		   		}
+	       	]
+	    },
+		{       
+		    "position": "footer",
+		    "type": "module",
+		    "width" : "span8"
+	    }
+	]
+	}
+]

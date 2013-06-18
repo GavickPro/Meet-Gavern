@@ -25,16 +25,23 @@ defined('_JEXEC') or die;
  */
 
 $position_counter = array();
+$rows_counter = array();
 
 function modChrome_gk_style($module, $params, $attribs) {	
 	// ToDo: remember that spanX is not proper in all layout settings
 	global $position_counter;
+	global $rows_counter;
 	
 	$pos = '';
 	$modamount = 6;
-	
+	$settings = '';
+		
 	if(isset($attribs['modamount'])) {
 		$modamount = (int) $attribs['modamount'];
+	}
+	
+	if(isset($attribs['settings'])) {
+		$settings = json_decode(htmlspecialchars_decode($attribs['settings']));
 	}
 	
 	if(isset($attribs['modpos'])) {
@@ -47,66 +54,37 @@ function modChrome_gk_style($module, $params, $attribs) {
 		}
 	}
 	
+	
+	
 	if (!empty ($module->content)) {		
 		$modnum_class = '';
+		$modnum_class = ' span12';
 		
-		if(isset($attribs['modnum'])) {
-			$num = $attribs['modnum'];
-
-			if($num >= $modamount) {
-				$numrest = $num % $modamount;
-				
-				if($numrest == 0) {
-					$modnum_class = ($modamount == 4) ? ' span3' : ' span2';
+		if(isset($settings->default_width)) {
+			if(isset($settings->modules) && count($settings->modules) > $position_counter[$pos] && isset($settings->modules[$position_counter[$pos]-1])) {
+				$modnum_class = ' span'.(string)$settings->modules[$position_counter[$pos]-1]->width_desktop.' tspan'.$settings->modules[$position_counter[$pos]-1]->width_tablet;
+				if(isset($rows_counter[$pos]['desktop']) && isset($rows_counter[$pos]['tablet'])) {
+					if($rows_counter[$pos]['desktop'] + $settings->modules[$position_counter[$pos]-1]->width_desktop >= 12) {
+						$modnum_class .= ' dlastrow';
+						$rows_counter[$pos]['desktop'] = 0;
+					} else {
+						$rows_counter[$pos]['desktop'] += $settings->modules[$position_counter[$pos]-1]->width_desktop;
+					}
+					if($rows_counter[$pos]['tablet'] + $settings->modules[$position_counter[$pos]-1]->width_tablet >= 12) {
+						$modnum_class .= ' tlastrow';
+						$rows_counter[$pos]['tablet'] = 0;
+					} else {
+						$rows_counter[$pos]['tablet'] += $settings->modules[$position_counter[$pos]-1]->width_tablet;
+					}
 				} else {
-					if($pos != '') {
-						 if($position_counter[$pos] > $num - $numrest) {
-						 	if($numrest == 1) {
-						 		$modnum_class = ' span12';
-						 	} elseif($numrest == 2) {
-						 		$modnum_class = ' span6';
-						 	} elseif($numrest == 3) {
-						 		$modnum_class = ' span4';
-						 	} elseif($numrest == 4) {
-						 		$modnum_class = ' span3';
-						 	} elseif($numrest == 5) {
-						 		if(
-						 			$position_counter[$pos] % 6 == 1 ||
-						 			$position_counter[$pos] % 6 == 5
-						 		) {
-						 			$modnum_class = ' span3';	
-						 		} else {
-						 			$modnum_class = ' span2';
-						 		}
-						 	}
-						 } else {
-						 	$modnum_class = ($modamount == 4) ? ' span3' : ' span2';
-						 }
-					} else {
-						$modnum_class = ' span2';
-					}
+					$rows_counter[$pos]['desktop'] = $settings->modules[$position_counter[$pos]-1]->width_desktop;
+					$rows_counter[$pos]['tablet'] = $settings->modules[$position_counter[$pos]-1]->width_tablet;
 				}
+				
 			} else {
-				if($num == 1) {
-					$modnum_class = ' span12';
-				} elseif($num == 2) {
-					$modnum_class = ' span6';
-				} elseif($num == 3) {
-					$modnum_class = ' span4';
-				} elseif($num == 4) {
-					$modnum_class = ' span3';
-				} elseif($num == 5) {
-					if(
-						$position_counter[$pos] % 6 == 1 ||
-						$position_counter[$pos] % 6 == 5
-					) {
-						$modnum_class = ' span3';	
-					} else {
-						$modnum_class = ' span2';
-					}
-				} 
+				$modnum_class = ' span'.$settings->default_width.' tspan'.$settings->default_width;
 			}
-		}
+		}		
 		
 		if($pos != '' && isset($position_counter[$pos])) { 
 			if($position_counter[$pos] == 1) {
@@ -114,12 +92,12 @@ function modChrome_gk_style($module, $params, $attribs) {
 			}
 		}
 		
-		if($pos != '' && isset($position_counter[$pos])) {
+		/*if($pos != '' && isset($position_counter[$pos])) {
 			if($position_counter[$pos] > 1 && $position_counter[$pos] % $modamount == 1) {
 				echo '</div>' . "\n";
 				echo '<div class="row-fluid">' . "\n";
 			}
-		}
+		}*/
 		
 		echo '<'.($params->get('module_tag', 'div')).' class="box ' . $params->get('moduleclass_sfx') . $modnum_class . '">';
 		echo '<div>';
