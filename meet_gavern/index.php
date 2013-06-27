@@ -13,7 +13,9 @@
 // No direct access.
 defined('_JEXEC') or die;
 // to avoid the problems
-define('DS', DIRECTORY_SEPARATOR);
+if(!defined('DS')) {
+ define('DS', DIRECTORY_SEPARATOR);
+}
 // enable showing errors in PHP
 //ini_set('error_reporting', E_ALL);
 //ini_set('display_errors','On');
