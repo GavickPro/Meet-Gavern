@@ -246,7 +246,10 @@ if(!function_exists('optimizejs')){
 if(!function_exists('compressjs')){
 function compressjs($data) {
         require_once(dirname(__file__) . DS . 'minify' . DS . 'JSMin.php');
-       	$data = JSMin::minify($data);
+        
+       	if (!class_exists('JSMin')) {
+       		$data = JSMin::minify($data);
+       	}
         return $data;
     }	
 }
