@@ -28,10 +28,8 @@ window.addEvent('load', function () {
         onShow: jMediaRefreshPreviewTip
     });
 });
-jQuery(document).ready(function () {
-    jQuery('.hasTooltip').tooltip({});
-   
-    
+jQuery(document).ready(function(){
+	jQuery('.hasTooltip').tooltip({"container": false});
 });
 
 jQuery(window).load(function() {
@@ -144,7 +142,7 @@ jQuery(window).load(function(){
 	jQuery('.gkfont_form').each(function(i, el) {
 		el = jQuery(el);
 		
-		var base_id = el.find('input');
+		var base_id = el.find('> input');
 		base_id = jQuery(base_id).attr('id');
 		
 		var base_el = jQuery('#' + base_id);
@@ -153,47 +151,50 @@ jQuery(window).load(function(){
 		// id of selectbox are different from input id
 		base_id = base_id.replace('jform_params_font_', 'jformparamsfont_');
 		jQuery('#'+base_id + '_type').attr('value', values[0]);
-		
 		if(values[0] == 'standard') {
 			jQuery('#' + base_id + '_normal').attr('value', values[1]);
+			jQuery('#' + base_id + '_normal').fadeIn();
+			jQuery('#' + base_id + '_normal').css("cssText","display: block !important;");
 			jQuery('#' + base_id + '_google_own_link').fadeOut();
 			jQuery('#' + base_id + '_google_own_font').fadeOut();
 			jQuery('#' + base_id + '_google_own_link_label').fadeOut();
 			jQuery('#' + base_id + '_google_own_font_label').fadeOut();
-			jQuery('#' + base_id + '_edge_own_link').fadeOut();
-			jQuery('#' + base_id + '_edge_own_font').fadeOut();
+			jQuery('#' + base_id + '_squirrel').fadeOut();
 			jQuery('#' + base_id + '_edge_own_link_label').fadeOut();
 			jQuery('#' + base_id + '_edge_own_font_label').fadeOut();
-			jQuery('#' + base_id + '_squirrel').fadeOut();
 		} else if(values[0] == 'google') {
 			jQuery('#' + base_id + '_google_own_link').attr('value', values[2]);
 			jQuery('#' + base_id + '_google_own_font').attr('value', values[3]);
 			jQuery('#' + base_id + '_normal').fadeOut();
+			jQuery('#' + base_id + '_normal').css("cssText","display: none !important;");
+			jQuery('#' + base_id + '_squirrel').css("cssText","display: none !important;");
 			jQuery('#' + base_id + '_squirrel').fadeOut();
-			jQuery('#' + base_id + '_edge_own_link').fadeOut();
-			jQuery('#' + base_id + '_edge_own_font').fadeOut();
 			jQuery('#' + base_id + '_edge_own_link_label').fadeOut();
 			jQuery('#' + base_id + '_edge_own_font_label').fadeOut();
 		} else if(values[0] == 'squirrel') {
 			jQuery('#' + base_id + '_squirrel').attr('value', values[1]);
+			jQuery('#' + base_id + '_squirrel').css("cssText","display: block !important;");
 			jQuery('#' + base_id + '_normal').fadeOut();
+			jQuery('#' + base_id + '_normal').css("cssText","display: none !important;");
 			jQuery('#' + base_id + '_google_own_link').fadeOut();
 			jQuery('#' + base_id + '_google_own_font').fadeOut();
 			jQuery('#' + base_id + '_google_own_link_label').fadeOut();
 			jQuery('#' + base_id + '_google_own_font_label').fadeOut();
-			jQuery('#' + base_id + '_edge_own_link').fadeOut();
-			jQuery('#' + base_id + '_edge_own_font').fadeOut();
 			jQuery('#' + base_id + '_edge_own_link_label').fadeOut();
 			jQuery('#' + base_id + '_edge_own_font_label').fadeOut();
 		} else if(values[0] == 'edge') {
 			jQuery('#' + base_id + '_edge_own_link').attr('value', values[2]);
 			jQuery('#' + base_id + '_edge_own_font').attr('value', values[3]);
+			jQuery('#' + base_id + '_edge_own_link_label').fadeIn();
+			jQuery('#' + base_id + '_edge_own_font_label').fadeIn();
 			jQuery('#' + base_id + '_normal').fadeOut();
-			jQuery('#' + base_id + '_squirrel').fadeOut();
+			jQuery('#' + base_id + '_normal').css("cssText","display: none !important;");
 			jQuery('#' + base_id + '_google_own_link').fadeOut();
 			jQuery('#' + base_id + '_google_own_font').fadeOut();
 			jQuery('#' + base_id + '_google_own_link_label').fadeOut();
 			jQuery('#' + base_id + '_google_own_font_label').fadeOut();
+			jQuery('#' + base_id + '_squirrel').fadeOut();
+			jQuery('#' + base_id + '_squirrel').css("cssText","display: none !important;");
 		}
 		
 		jQuery('#' + base_id + '_type').change(function() {
@@ -201,53 +202,55 @@ jQuery(window).load(function(){
 				
 				if(jQuery('#' + base_id + '_type').val() == 'standard') {
 					jQuery('#' + base_id + '_normal').fadeIn();
+					
 					jQuery('#' + base_id + '_normal').trigger('change');
+					jQuery('#' + base_id + '_normal').css("cssText","display: block !important;");
 					jQuery('#' + base_id + '_google_own_link').fadeOut();
 					jQuery('#' + base_id + '_google_own_font').fadeOut();
 					jQuery('#' + base_id + '_google_own_link_label').fadeOut();
 					jQuery('#' + base_id + '_google_own_font_label').fadeOut();
-					jQuery('#' + base_id + '_edge_own_link').fadeOut();
-					jQuery('#' + base_id + '_edge_own_font').fadeOut();
+					jQuery('#' + base_id + '_squirrel').fadeOut();
+					jQuery('#' + base_id + '_squirrel').css("cssText","display: none !important;");
 					jQuery('#' + base_id + '_edge_own_link_label').fadeOut();
 					jQuery('#' + base_id + '_edge_own_font_label').fadeOut();
-					jQuery('#' + base_id + '_squirrel').fadeOut();
 				} else if(jQuery('#' + base_id + '_type').val() == 'google') {
 					jQuery('#' + base_id + '_normal').fadeOut();
+					jQuery('#' + base_id + '_normal').css("cssText","display: none !important;");
 					jQuery('#' + base_id + '_google_own_link').fadeIn();
 					jQuery('#' + base_id + '_google_own_font').fadeIn();
 					jQuery('#' + base_id + '_google_own_font').trigger('change');
 					jQuery('#' + base_id + '_google_own_link_label').fadeIn();
 					jQuery('#' + base_id + '_google_own_font_label').fadeIn();
-					jQuery('#' + base_id + '_edge_own_link').fadeOut();
-					jQuery('#' + base_id + '_edge_own_font').fadeOut();
+					jQuery('#' + base_id + '_squirrel').fadeOut();
+					jQuery('#' + base_id + '_squirrel').css("cssText","display: none !important;");
 					jQuery('#' + base_id + '_edge_own_link_label').fadeOut();
 					jQuery('#' + base_id + '_edge_own_font_label').fadeOut();
-					jQuery('#' + base_id + '_squirrel').fadeOut();
 				} else if(jQuery('#' + base_id + '_type').val() == 'squirrel') {
 					jQuery('#' + base_id + '_normal').fadeOut();
+					jQuery('#' + base_id + '_normal').css("cssText","display: none !important;");
 					jQuery('#' + base_id + '_google_own_link').fadeOut();
 					jQuery('#' + base_id + '_google_own_font').fadeOut();
 					jQuery('#' + base_id + '_google_own_link_label').fadeOut();
 					jQuery('#' + base_id + '_google_own_font_label').fadeOut();
-					jQuery('#' + base_id + '_edge_own_link').fadeOut();
-					jQuery('#' + base_id + '_edge_own_font').fadeOut();
 					jQuery('#' + base_id + '_edge_own_link_label').fadeOut();
 					jQuery('#' + base_id + '_edge_own_font_label').fadeOut();
 					jQuery('#' + base_id + '_squirrel').fadeIn();
 					jQuery('#' + base_id + '_squirrel').trigger('change');
+					jQuery('#' + base_id + '_squirrel').css("cssText","display: block !important;");
 				} else if(jQuery('#' + base_id + '_type').val() == 'edge') {
-					jQuery('#' + base_id + '_normal').fadeOut();
-					jQuery('#' + base_id + '_edge_own_link').fadeIn();
-					jQuery('#' + base_id + '_edge_own_font').fadeIn();
-					jQuery('#' + base_id + '_edge_own_font').trigger('change');
-					jQuery('#' + base_id + '_edge_own_link_label').fadeIn();
-					jQuery('#' + base_id + '_edge_own_font_label').fadeIn();
-					jQuery('#' + base_id + '_google_own_link').fadeOut();
-					jQuery('#' + base_id + '_google_own_font').fadeOut();
-					jQuery('#' + base_id + '_google_own_link_label').fadeOut();
-					jQuery('#' + base_id + '_google_own_font_label').fadeOut();
-					jQuery('#' + base_id + '_squirrel').fadeOut();
-				} 
+		           jQuery('#' + base_id + '_normal').fadeOut();
+		           jQuery('#' + base_id + '_normal').css("cssText","display: none !important;");
+		           jQuery('#' + base_id + '_google_own_link').fadeOut();
+		           jQuery('#' + base_id + '_google_own_font').fadeOut();
+		           jQuery('#' + base_id + '_google_own_link_label').fadeOut();
+		           jQuery('#' + base_id + '_google_own_font_label').fadeOut();
+		           jQuery('#' + base_id + '_squirrel').fadeOut();
+		           jQuery('#' + base_id + '_squirrel').css("cssText","display: none !important;");
+		           jQuery('#' + base_id + '_edge_own_link_label').fadeIn();
+		           jQuery('#' + base_id + '_edge_own_font_label').fadeIn();
+		           jQuery('#' + base_id + '_edge_own_link_label').trigger('change');
+		       }
+				
 			});
 			jQuery('#' + base_id + '_type').blur(function() {
 				var values = (base_el.val()).split(';');
@@ -259,11 +262,9 @@ jQuery(window).load(function(){
 					jQuery('#' + base_id + '_google_own_font').fadeOut();
 					jQuery('#' + base_id + '_google_own_link_label').fadeOut();
 					jQuery('#' + base_id + '_google_own_font_label').fadeOut();
-					jQuery('#' + base_id + '_edge_own_link').fadeOut();
-					jQuery('#' + base_id + '_edge_own_font').fadeOut();
+					jQuery('#' + base_id + '_squirrel').css('display', 'none');
 					jQuery('#' + base_id + '_edge_own_link_label').fadeOut();
 					jQuery('#' + base_id + '_edge_own_font_label').fadeOut();
-					jQuery('#' + base_id + '_squirrel').css('display', 'none');
 				} else if(jQuery('#' + base_id + '_type').val() == 'google') {
 					jQuery('#' + base_id + '_normal').fadeOut();
 					jQuery('#' + base_id + '_google_own_link').fadeIn();
@@ -271,35 +272,28 @@ jQuery(window).load(function(){
 					jQuery('#' + base_id + '_google_own_font').trigger('change');
 					jQuery('#' + base_id + '_google_own_link_label').fadeIn();
 					jQuery('#' + base_id + '_google_own_font_label').fadeIn();
-					jQuery('#' + base_id + '_edge_own_link').fadeOut();
-					jQuery('#' + base_id + '_edge_own_font').fadeOut();
+					jQuery('#' + base_id + '_squirrel').css('display', 'none');
 					jQuery('#' + base_id + '_edge_own_link_label').fadeOut();
 					jQuery('#' + base_id + '_edge_own_font_label').fadeOut();
-					jQuery('#' + base_id + '_squirrel').css('display', 'none');
 				} else if(jQuery('#' + base_id + '_type').val() == 'squirrel') {
 					jQuery('#' + base_id + '_normal').fadeOut();
 					jQuery('#' + base_id + '_google_own_link').fadeOut();
 					jQuery('#' + base_id + '_google_own_font').fadeOut();
 					jQuery('#' + base_id + '_google_own_link_label').fadeOut();
 					jQuery('#' + base_id + '_google_own_font_label').fadeOut();
-					jQuery('#' + base_id + '_edge_own_link').fadeOut();
-					jQuery('#' + base_id + '_edge_own_font').fadeOut();
 					jQuery('#' + base_id + '_edge_own_link_label').fadeOut();
 					jQuery('#' + base_id + '_edge_own_font_label').fadeOut();
 					jQuery('#' + base_id + '_squirrel').fadeIn();
 					jQuery('#' + base_id + '_squirrel').trigger('change');
 				} else if(jQuery('#' + base_id + '_type').val() == 'edge') {
-					jQuery('#' + base_id + '_normal').fadeOut();
-					jQuery('#' + base_id + '_edge_own_link').fadeIn();
-					jQuery('#' + base_id + '_edge_own_font').fadeIn();
-					jQuery('#' + base_id + '_edge_own_font').trigger('change');
+				    jQuery('#' + base_id + '_normal').fadeOut();
+				    jQuery('#' + base_id + '_google_own_link').fadeOut();
+				    jQuery('#' + base_id + '_google_own_font').fadeOut();
+				    jQuery('#' + base_id + '_google_own_link_label').fadeOut();
+				    jQuery('#' + base_id + '_google_own_font_label').fadeOut();
+				    jQuery('#' + base_id + '_squirrel').fadeOut();
 					jQuery('#' + base_id + '_edge_own_link_label').fadeIn();
 					jQuery('#' + base_id + '_edge_own_font_label').fadeIn();
-					jQuery('#' + base_id + '_google_own_link').fadeOut();
-					jQuery('#' + base_id + '_google_own_font').fadeOut();
-					jQuery('#' + base_id + '_google_own_link_label').fadeOut();
-					jQuery('#' + base_id + '_google_own_font_label').fadeOut();
-					jQuery('#' + base_id + '_squirrel').css('display', 'none');
 				}
 		});
 		
@@ -557,9 +551,7 @@ function jMediaRefreshPreviewTip(tip) {
 
 function equalHeight() {
 	jQuery('#style-form').find('div.control-label').each(function(i, el) {
-		//console.log(jQuery(el));
 		var h = jQuery(el).parent().find('.controls').height();
-		console.log(h);
 		if(h > jQuery(el).height()) {
 			jQuery(el).css('height', h+'px');		
 		} 

@@ -15,6 +15,88 @@
 label[id^=jform_params_gk_line_] {
 	display: none;
 }
+#jform_params_js_translations-lbl,
+#template_options_translations,
+#jform_params_asset_css-lbl,
+#jform_params_asset_js-lbl,
+#layout_override_select,
+#jform_params_layout_override,
+#module_override_select,
+#mootools_for_pages_select,
+#jform_params_suffix_override,
+#jform_params_module_override,
+#module_override_input,
+#suffix_override_select,
+#jform_params_tools_for_pages,
+#jform_params_mootools_for_pages,
+#jform_params_sidebar_width_for_pages,
+#jform_params_inner_inset_width_for_pages,
+#jform_params_inset_width_for_pages,
+#jform_params_menu_override,
+#jform_params_google_analytics,
+#importOptions,
+#jform_params_logo_type,
+#jform_params_webmaster_contact_type {
+	clear: both;
+	margin-left: 14px;
+	display: block!important;
+}
+#features .chzn-container,
+#menu_options .chzn-container,
+#social_api .chzn-container,
+#cookie_law .chzn-container,
+#advanced_settings .chzn-container {
+	display: none!important;
+}
+#features .chzn-done,
+#menu_options .chzn-done,
+#social_api .chzn-done,
+#cookie_law .chzn-done,
+#advanced_settings .chzn-done {
+	display: block!important;
+}
+#layout_override_select_chzn,
+#module_override_select_chzn,
+#suffix_override_select_chzn,
+#jform_params_tools_chzn,
+#mootools_for_pages_select_chzn,
+#module_override_input_chzn,
+#module_override_select,
+#jform_params_font_name_group1,
+#jform_params_font_name_group2,
+#jform_params_font_name_group3,
+#jform_params_font_name_group4,
+#jformparamsfont_name_group1_type_chzn,
+#jformparamsfont_name_group2_type_chzn,
+#jformparamsfont_name_group3_type_chzn,
+#jformparamsfont_name_group4_type_chzn,
+#jformparamsfont_name_group1_normal_chzn,
+#jformparamsfont_name_group2_normal_chzn,
+#jformparamsfont_name_group3_normal_chzn,
+#jformparamsfont_name_group4_normal_chzn,
+#jformparamsfont_name_group1_squirrel_chzn,
+#jformparamsfont_name_group2_squirrel_chzn,
+#jformparamsfont_name_group3_squirrel_chzn,
+#jformparamsfont_name_group4_squirrel_chzn,
+#jform_params_logo_type_chzn,
+#importOptions_chzn,
+#jform_params_webmaster_contact_type_chzn {
+	display: none;
+}
+select#jformparamsfont_name_group1_type,
+select#jformparamsfont_name_group2_type,
+select#jformparamsfont_name_group3_type,
+select#jformparamsfont_name_group4_type,
+#jform_params_webmaster_contact_type,
+#jform_params_logo_type {
+	margin: 0 0 8px 0;
+	clear: none!important;
+	display: block!important;
+}
+#jform_params_google_analytics {
+	margin: 0;
+	clear: none;
+}
 .gkFormHide {
 	display: none!important;
 }
@@ -225,6 +307,9 @@ a.gkFormLink {
 	background: #FAFAFA;
 	margin-top: -10px;
 	border-bottom: 1px solid #ddd;
+}
+#myTabContent #details > .control-group:nth-child(1) input {
+	margin-left: 15px;
 }
 select#jform_home {
 	margin-top: -2px;
@@ -441,6 +526,7 @@ select#jform_home {
 	margin-bottom: 8px;
 }
 .layoutManager .btn-group {
+	display: inline-block;
 	text-align: center;
 }
 #lManagerMode {
@@ -471,6 +557,10 @@ div.tablet #mainbody-wrapper {
 }
 #layoutManager.mobile .row-fluid.modules [class*="span"] {
 	width: 100% !important;
+}
+#sidebar .btn-group {
+	display: block;
+	margin: 0 auto;
 }
 #layoutManager.mobile #sidebar > div.row-fluid,
 #layoutManager.tablet #sidebar > div.row-fluid,
@@ -506,6 +596,7 @@ span + .row-fluid [class*="span"] {
 .layoutManager #appendedPrependedDropdownButton {
 	max-width: 32px;
 	width: 32px;
+	margin: 0 !important;
 }
 .layoutManager button.configuration {
 	max-width: 35px;
@@ -583,7 +674,7 @@ div#popOverContent {
 .popover #importOptions {
 	float: left;
 	max-width: 130px;
-	margin-right: 8px;
+	margin: 0 8px 10px 0;
 }
 .popover .btn-info {
 	float: left;
