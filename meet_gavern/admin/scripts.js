@@ -1,6 +1,6 @@
 /* back-end customizations */
 
-window.addEvent('domready', function () {
+/*window.addEvent('domready', function () {
     $$('.hasTip').each(function (el) {
     	el.addClass('gkHasTip');
     	el.removeClass('hasTip');
@@ -22,15 +22,7 @@ window.addEvent('load', function () {
             el.store('tip:text', parts[1]);
         }
     });
-    var JTooltips = new Tips($$('.hasTipPreview'), {
-        maxTitleChars: 50,
-        fixed: false,
-        onShow: jMediaRefreshPreviewTip
-    });
-});
-jQuery(document).ready(function(){
-	jQuery('.hasTooltip').tooltip({"container": false});
-});
+});*/
 
 jQuery(window).load(function() {
 	// class fixes
@@ -77,7 +69,7 @@ jQuery(window).load(function() {
 				id: el.find('.accordion-heading a').html().replace(' ', '_').toLowerCase(),
 			});
 			
-			var content = el.find('.accordion-body .accordion-inner').clone(true);
+			var content = el.find('.accordion-body .accordion-inner').clone();
 			tabcontent.append(content);
 			jQuery('#myTabContent').find('#options').before(tabcontent);
 			
@@ -91,10 +83,7 @@ jQuery(window).load(function() {
 		}
 	});
 	
-	var JTooltips = new Tips($$('.gkHasTip'), {
-	    maxTitleChars: 50,
-	    fixed: false
-	});
+	jQuery('.hasTooltip').tooltip();
 	
 
 	
@@ -394,9 +383,9 @@ jQuery(window).load(function(){
 	
 	
 	(function($){
-		$('*[rel=tooltip]').tooltip()
+		//$('*[rel=tooltip]').tooltip()
 
-					// fix sub nav on scroll
+		// fix sub nav on scroll
 		var $win = $(window)
 		  , $nav = $('.subhead')
 		  , navTop = $('.subhead').length && $('.subhead').offset().top - 40			  , isFixed = 0
@@ -450,8 +439,11 @@ jQuery(window).load(function(){
 	    });
 	})(jQuery);
 	
-		
+
+			
 });
+
+
 // init config manager
 function initConfigManager() {    
      jQuery('#config_manager_form').parent().addClass('gk-no-left-margin');
@@ -557,7 +549,3 @@ function equalHeight() {
 		} 
 	});
 }
-
-jQuery(document).load(function () {
-
-});

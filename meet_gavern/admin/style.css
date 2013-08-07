@@ -55,6 +55,10 @@ label[id^=jform_params_gk_line_] {
 #advanced_settings .chzn-done {
 	display: block!important;
 }
+#config_manager_delete_filename,
+#config_manager_load_filename {
+	display: inline-block!important;
+}
 #layout_override_select_chzn,
 #module_override_select_chzn,
 #suffix_override_select_chzn,
@@ -80,7 +84,9 @@ label[id^=jform_params_gk_line_] {
 #jformparamsfont_name_group4_squirrel_chzn,
 #jform_params_logo_type_chzn,
 #importOptions_chzn,
-#jform_params_webmaster_contact_type_chzn {
+#jform_params_webmaster_contact_type_chzn,
+#config_manager_load_filename_chzn,
+#config_manager_delete_filename_chzn {
 	display: none;
 }
 select#jformparamsfont_name_group1_type,
@@ -121,7 +127,14 @@ textarea[id^="jform_params_font_rules_group"] {
 	max-width: 100%!important;
 }
 /* Config manager */ 
-
+.well p {
+	float: left;
+}
+#config_manager_load,
+#config_manager_delete {
+	clear: right;
+	margin-top: 23px;
+}
 #jform_params_config_manager-lbl,
 #jform_params_layout_manager-lbl,
 #jform_params_font_link1-lbl {
