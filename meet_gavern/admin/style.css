@@ -136,6 +136,12 @@ textarea[id^="jform_params_font_rules_group"] {
 .well p {
 	float: left;
 }
+.well > div {
+	clear: both;
+}
+.well .input-append {
+	float: left;
+}
 #config_manager_load,
 #config_manager_delete {
 	clear: right;

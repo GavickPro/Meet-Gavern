@@ -358,33 +358,46 @@ jQuery(window).load(function(){
 		
 		
 	});
-
+	
+	// init config manager
+	function initConfigManager() {    
+	     jQuery('#config_manager_form').parent().addClass('gk-no-left-margin');
+	     jQuery('#config_manager_form').parent().parent().parent().find('.control-group:gt(0)').css('display', 'none');
+	     
+	     jQuery('#config_manager_load').click(function(e) {
+	          e.stopPropagation();
+	          e.preventDefault();
+	          loadSaveOperation('load');
+	     });
+	    
+	     jQuery('#config_manager_save').click(function(e) {
+	          e.stopPropagation();
+	          e.preventDefault();
+	          loadSaveOperation('save');
+	     });
+	     
+	     jQuery('#config_manager_delete').click(function(e) {
+	          e.stopPropagation();
+	          e.preventDefault();
+	          loadSaveOperation('delete');
+	     });
+	}
+	
+	// function to load/save settings
+	function loadSaveOperation(type) {
+		var current_url = window.location;
+		if((current_url + '').indexOf('#', 0) === -1) {
+			current_url = current_url + '&gk_template_task='+type+'&gk_template_file=' + jQuery('#config_manager_'+type+'_filename').val();
+		} else {
+			current_url = current_url.substr(0, (current_url + '').indexOf('#', 0) - 1);
+			current_url = current_url + '&gk_template_task='+type+'&gk_template_file=' + jQuery('config_manager_'+type+'_filename').val();
+		}
+		window.location = current_url;
+	}
+	
 });
 
 
-// init config manager
-function initConfigManager() {    
-     jQuery('#config_manager_form').parent().addClass('gk-no-left-margin');
-     jQuery('#config_manager_form').parent().parent().parent().find('.control-group:gt(0)').css('display', 'none');
-     
-     jQuery('#config_manager_load').click(function(e) {
-          e.stopPropagation();
-          e.preventDefault();
-          loadSaveOperation('load');
-     });
-    
-     jQuery('#config_manager_save').click(function(e) {
-          e.stopPropagation();
-          e.preventDefault();
-          loadSaveOperation('save');
-     });
-     
-     jQuery('#config_manager_delete').click(function(e) {
-          e.stopPropagation();
-          e.preventDefault();
-          loadSaveOperation('delete');
-     });
-}
 
 function jInsertFieldValue(value, id) {
 	var old_value = document.id(id).value;

@@ -107,8 +107,9 @@ if ($this->API->modules('sidebar')) {
 					
 					<?php if($this->API->modules('mainbody_top')) : ?>
 					<section id="gk-mainbody-top">
-						<jdoc:include type="modules" name="mainbody_top" style="gk_style" modnum="<?php echo $this->API->modules('mainbody_top'); ?>" settings="<?php echo htmlspecialchars(json_encode($this->layout->manager['mainbody_top'])); ?>"/>
+						<jdoc:include type="modules" name="mainbody_top" style="gk_style" modpos="mainbody_top" modnum="<?php echo $this->API->modules('mainbody_top'); ?>" settings="<?php echo htmlspecialchars(json_encode($this->layout->manager['mainbody_top'])); ?>"/>
 					</section>
+					
 					<?php endif; ?>
 					
 					<?php if($this->layout->isFrontpage() && $this->API->modules('mainbody')) : ?>

@@ -1035,6 +1035,12 @@ div.popover .popover-content {
   font-size: 12px !important;
   line-height: 14px;
 }
+#modlgn-username {
+  min-width: 105px;
+}
+#modlgn-passwd {
+  min-width: 120px;
+}
 .gk-big-header {
   color: #333;
   font-size: 112px;
