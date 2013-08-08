@@ -376,7 +376,6 @@ jQuery(document).ready(function () {
 				var target = jQuery(e.target).closest('button');
 			}
 			
-			console.log(target);
 			var tmpl = '<div class="popover" data-id="'+target.closest('.position').attr('id')+'" data-level="'+target.closest('.position').attr('data-level')+'" data-cid="'+target.closest('.position').attr('data-cid')+'"><div class="arrow"></div><div class="popover-inner"><h3 class="popover-title">Import Settings</h3><div class="popover-content"><div></div></div></div></div>';
 						
 				var pos = target.closest('.position');
@@ -490,7 +489,6 @@ jQuery(document).ready(function () {
 			if(value > 1) 
 			{
 				value--;
-				console.log(value);
 				jQuery(e.target).parents().eq(2).find('.widthValue').attr('value', value);
 				if(jQuery(e.target).closest('.position').attr('id') == 'sidebar') {
 					var pos = jQuery(e.target).closest('.position');
@@ -536,8 +534,12 @@ jQuery(document).ready(function () {
 			var pos = jQuery(e.target).closest('.popover');
 			var model = levels[pos.attr('data-level')].get(pos.attr('data-cid'));
 			var selected = jQuery(e.target).closest('.popover').find('.imported').val().split(":");	
-			var imported = levels[selected[0]-1].get(selected[1]);
-		
+			if(selected[0] == 0 || selected[0] == 1) {
+				var imported = levels[selected[0]-1].get(selected[1]);
+			} else {
+				var imported = levels[selected[0]].get(selected[1]);
+			}
+						
 			// to avoid reference problem
 			var temp = imported.clone();
 			temp.off();			

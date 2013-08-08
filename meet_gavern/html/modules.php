@@ -50,10 +50,9 @@ function modChrome_gk_style($module, $params, $attribs) {
 		if(isset($position_counter[$pos])) {
 			$position_counter[$pos] += 1;
 		} else {
-			$position_counter[$pos] = 1;
+			$position_counter[$pos] = 0;
 		}
 	}
-	
 	
 	
 	if (!empty ($module->content)) {		
@@ -61,24 +60,24 @@ function modChrome_gk_style($module, $params, $attribs) {
 		$modnum_class = ' span12';
 		
 		if(isset($settings->default_width)) {
-			if(isset($settings->modules) && count($settings->modules) > $position_counter[$pos] && isset($settings->modules[$position_counter[$pos]-1])) {
-				$modnum_class = ' span'.(string)$settings->modules[$position_counter[$pos]-1]->width_desktop.' tspan'.$settings->modules[$position_counter[$pos]-1]->width_tablet;
+			if(isset($settings->modules) && count($settings->modules) > $position_counter[$pos] && isset($settings->modules[$position_counter[$pos]])) {
+				$modnum_class = ' span'.(string)$settings->modules[$position_counter[$pos]]->width_desktop.' tspan'.$settings->modules[$position_counter[$pos]]->width_tablet;
 				if(isset($rows_counter[$pos]['desktop']) && isset($rows_counter[$pos]['tablet'])) {
-					if($rows_counter[$pos]['desktop'] + $settings->modules[$position_counter[$pos]-1]->width_desktop >= 12) {
+					if($rows_counter[$pos]['desktop'] + $settings->modules[$position_counter[$pos]]->width_desktop >= 12) {
 						$modnum_class .= ' dlastrow';
 						$rows_counter[$pos]['desktop'] = 0;
 					} else {
-						$rows_counter[$pos]['desktop'] += $settings->modules[$position_counter[$pos]-1]->width_desktop;
+						$rows_counter[$pos]['desktop'] += $settings->modules[$position_counter[$pos]]->width_desktop;
 					}
-					if($rows_counter[$pos]['tablet'] + $settings->modules[$position_counter[$pos]-1]->width_tablet >= 12) {
+					if($rows_counter[$pos]['tablet'] + $settings->modules[$position_counter[$pos]]->width_tablet >= 12) {
 						$modnum_class .= ' tlastrow';
 						$rows_counter[$pos]['tablet'] = 0;
 					} else {
-						$rows_counter[$pos]['tablet'] += $settings->modules[$position_counter[$pos]-1]->width_tablet;
+						$rows_counter[$pos]['tablet'] += $settings->modules[$position_counter[$pos]]->width_tablet;
 					}
 				} else {
-					$rows_counter[$pos]['desktop'] = $settings->modules[$position_counter[$pos]-1]->width_desktop;
-					$rows_counter[$pos]['tablet'] = $settings->modules[$position_counter[$pos]-1]->width_tablet;
+					$rows_counter[$pos]['desktop'] = $settings->modules[$position_counter[$pos]]->width_desktop;
+					$rows_counter[$pos]['tablet'] = $settings->modules[$position_counter[$pos]]->width_tablet;
 				}
 				
 			} else {
@@ -86,7 +85,7 @@ function modChrome_gk_style($module, $params, $attribs) {
 			}
 		}		
 		
-		if($pos != '' && isset($position_counter[$pos])) { 
+		/*if($pos != '' && isset($position_counter[$pos])) { 
 			if($position_counter[$pos] == 1) {
 				echo '<div class="row-fluid">' . "\n";
 			}
@@ -99,8 +98,13 @@ function modChrome_gk_style($module, $params, $attribs) {
 			}
 		}*/
 		
+		if($settings->modules[$position_counter[$pos]]->width_desktop == 12 && $settings->modules[$position_counter[$pos]-1]->width_desktop == 12) {
+			echo '<div class="row-fluid">';
+		}
 		echo '<'.($params->get('module_tag', 'div')).' class="box ' . $params->get('moduleclass_sfx') . $modnum_class . '">';
 		echo '<div>';
+		
+		
 		
 		if($module->showtitle) {
 			$icons = array();	
@@ -120,6 +124,10 @@ function modChrome_gk_style($module, $params, $attribs) {
 		echo '<div class="content">' . $module->content . '</div>';
 		echo '</div>';
 		echo '</'.($params->get('module_tag', 'div')).'>';
+		
+		if($settings->modules[$position_counter[$pos]]->width_desktop == 12 && $settings->modules[$position_counter[$pos]-1]->width_desktop == 12) {
+			echo '</div>';
+		}
 		
 		if($pos != '' && isset($position_counter[$pos])) {
 			if($position_counter[$pos] == $attribs['modnum']) {
