@@ -1,31 +1,7 @@
-/* back-end customizations */
-
-/*window.addEvent('domready', function () {
-    $$('.hasTip').each(function (el) {
-    	el.addClass('gkHasTip');
-    	el.removeClass('hasTip');
-        var title = el.get('title');
-        if (title) {
-            var parts = title.split('::', 2);
-            el.store('tip:title', parts[0]);
-            el.store('tip:text', parts[1]);
-        }
-    });
-});
-
-window.addEvent('load', function () {
-    $$('.hasTipPreview').each(function (el) {
-        var title = el.get('title');
-        if (title) {
-            var parts = title.split('::', 2);
-            el.store('tip:title', parts[0]);
-            el.store('tip:text', parts[1]);
-        }
-    });
-});*/
 
 jQuery(window).load(function() {
 	// class fixes
+	
 	jQuery('#style-form .nav-tabs').wrap('<div class="navbar-inner" />');
 	jQuery('#style-form .navbar-inner').wrap('<div class="navbar" />');
 	
@@ -69,24 +45,25 @@ jQuery(window).load(function() {
 				id: el.find('.accordion-heading a').html().replace(' ', '_').toLowerCase(),
 			});
 			
-			var content = el.find('.accordion-body .accordion-inner').clone();
-			tabcontent.append(content);
+			//var content = el.find('.accordion-body .accordion-inner').clone(true);
+		
+			
+			tabcontent.append(el.find('.accordion-body .accordion-inner'));
+			
 			jQuery('#myTabContent').find('#options').before(tabcontent);
 			
 		}	
 	});
 		
+		
 	jQuery('#myTabTabs').find('li a').each(function(i, el) {
 		if(jQuery(el).attr('href') == '#options') {
-			jQuery(el).parent().remove();
-			jQuery('#options').remove();
+			jQuery(el).parent().empty();
+			jQuery('#options').empty();
 		}
 	});
 	
-	jQuery('.hasTooltip').tooltip();
-	
-
-	
+		
 });
 jQuery(window).resize(function() {
 	if(jQuery(window).width() < 1024) {
@@ -102,12 +79,13 @@ jQuery(window).resize(function() {
 });
 
 jQuery(window).load(function(){
-		jQuery('#preloaderWrap').fadeOut(400,function(){
-			jQuery(this).remove();
-		});
-		jQuery('#preloader').fadeOut('slow',function(){
-        	jQuery(this).remove();
-   		 });
+		
+	jQuery('#preloaderWrap').fadeOut(400,function(){
+		jQuery(this).remove();
+	});
+	jQuery('#preloader').fadeOut('slow',function(){
+    	jQuery(this).remove();
+	});
    		
    	// enable config manager
     initConfigManager();
@@ -380,67 +358,7 @@ jQuery(window).load(function(){
 		
 		
 	});
-	
-	
-	(function($){
-		//$('*[rel=tooltip]').tooltip()
 
-		// fix sub nav on scroll
-		var $win = $(window)
-		  , $nav = $('.subhead')
-		  , navTop = $('.subhead').length && $('.subhead').offset().top - 40			  , isFixed = 0
-
-		processScroll()
-
-		// hack sad times - holdover until rewrite for 2.1
-		$nav.on('click', function () {
-			if (!isFixed) setTimeout(function () {  $win.scrollTop($win.scrollTop() - 47) }, 10)
-		})
-
-		$win.on('scroll', processScroll)
-
-		function processScroll() {
-			var i, scrollTop = $win.scrollTop()
-			if (scrollTop >= navTop && !isFixed) {
-				isFixed = 1
-				$nav.addClass('subhead-fixed')
-			} else if (scrollTop <= navTop && isFixed) {
-				isFixed = 0
-				$nav.removeClass('subhead-fixed')
-			}
-		}
-		
-		// Turn radios into btn-group
-	    $('.radio.btn-group label').addClass('btn');
-	    $(".btn-group label:not(.active)").click(function() {
-	        var label = $(this);
-	        var input = $('#' + label.attr('for'));
-
-	        if (!input.prop('checked')) {
-	            label.closest('.btn-group').find("label").removeClass('active btn-success btn-danger btn-primary');
-	            if(input.val()== '') {
-	                    label.addClass('active btn-primary');
-	             } else if(input.val()==0) {
-	                    label.addClass('active btn-danger');
-	             } else {
-	            label.addClass('active btn-success');
-	             }
-	            input.prop('checked', true);
-	        }
-	    });
-	    $(".btn-group input[checked=checked]").each(function() {
-			if($(this).val()== '') {
-	           $("label[for=" + $(this).attr('id') + "]").addClass('active btn-primary');
-	        } else if($(this).val()==0) {
-	           $("label[for=" + $(this).attr('id') + "]").addClass('active btn-danger');
-	        } else {
-	            $("label[for=" + $(this).attr('id') + "]").addClass('active btn-success');
-	        }
-	    });
-	})(jQuery);
-	
-
-			
 });
 
 
@@ -468,84 +386,40 @@ function initConfigManager() {
      });
 }
 
-
-
-// function to load/save settings
-function loadSaveOperation(type) {
-     var current_url = window.location;
-     if((current_url + '').indexOf('#', 0) === -1) {
-          current_url = current_url + '&gk_template_task='+type+'&gk_template_file=' + jQuery('#config_manager_'+type+'_filename').val();    
-     } else {
-          current_url = current_url.substr(0, (current_url + '').indexOf('#', 0) - 1);
-          current_url = current_url + '&gk_template_task='+type+'&gk_template_file=' + jQuery('#config_manager_'+type+'_filename').val();
-     }
-     window.location = current_url;
-}
-
-
-
-function keepAlive() {
-    var myAjax = new Request({
-        method: "get",
-        url: "index.php"
-    }).send();
-}
-window.addEvent('load', function () {
-    keepAlive.periodical(840000);
-});
-
-window.addEvent('load', function () {
-
-    SqueezeBox.initialize({});
-    SqueezeBox.assign($$('a.modal'), {
-        parse: 'rel'
-    });
-});
-
 function jInsertFieldValue(value, id) {
-    var old_value = document.id(id).value;
-    if (old_value != value) {
-        var elem = document.id(id);
-        elem.value = value;
-        elem.fireEvent("change");
-        if (typeof (elem.onchange) === "function") {
-            elem.onchange();
-        }
-        jMediaRefreshPreview(id);
-    }
+	var old_value = document.id(id).value;
+	if (old_value != value) {
+		var elem = document.id(id);
+		elem.value = value;
+		elem.fireEvent("change");
+		if (typeof(elem.onchange) === "function") {
+			elem.onchange();
+		}
+		jMediaRefreshPreview(id);
+	}
 }
-
 function jMediaRefreshPreview(id) {
-    var value = document.id(id).value;
-    var img = document.id(id + "_preview");
-    if (img) {
-        if (value) {
-            img.src = "http://localhost:8888/meet_gavern/" + value;
-            document.id(id + "_preview_empty").setStyle("display", "none");
-            document.id(id + "_preview_img").setStyle("display", "");
-        } else {
-            img.src = ""
-            document.id(id + "_preview_empty").setStyle("display", "");
-            document.id(id + "_preview_img").setStyle("display", "none");
-        }
-    }
-}
-
-function jMediaRefreshPreviewTip(tip) {
-    var img = tip.getElement("img.media-preview");
-    tip.getElement("div.tip").setStyle("max-width", "none");
-    var id = img.getProperty("id");
-    id = id.substring(0, id.length - "_preview".length);
-    jMediaRefreshPreview(id);
-    tip.setStyle("display", "block");
-}
-
-
-function equalHeight() {
-	jQuery('#style-form').find('div.control-label').each(function(i, el) {
-		var h = jQuery(el).parent().find('.controls').height();
-		if(h > jQuery(el).height()) {
-			jQuery(el).css('height', h+'px');		
+	var value = document.id(id).value;
+	var img = document.id(id + "_preview");
+	if (img) {
+		if (value) {
+			img.src = "http://project.gavick.com/_updates/joomla30/clean_demo/meet_gavern/" + value;
+			document.id(id + "_preview_empty").setStyle("display", "none");
+			document.id(id + "_preview_img").setStyle("display", "");
+		} else { 
+			img.src = ""
+			document.id(id + "_preview_empty").setStyle("display", "");
+			document.id(id + "_preview_img").setStyle("display", "none");
 		} 
-	});
+	} 
 }
+function jMediaRefreshPreviewTip(tip) {
+	var img = tip.getElement("img.media-preview");
+	tip.getElement("div.tip").setStyle("max-width", "none");
+	var id = img.getProperty("id");
+	id = id.substring(0, id.length - "_preview".length);
+	jMediaRefreshPreview(id);
+	tip.setStyle("display", "block");
+}
+
+

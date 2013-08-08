@@ -99,6 +99,12 @@ select#jformparamsfont_name_group4_type,
 	clear: none!important;
 	display: block!important;
 }
+.tooltip.in{
+    opacity: 1;
+    filter:alpha(opacity=100)
+}
+.tooltip-inner {background-color: #000; opacity: 1; border: 1px solid #333;}
+.tooltip.top .tooltip-arrow {border-top-color: #000;}
 #jform_params_google_analytics {
 	margin: 0;
 	clear: none;
@@ -582,6 +588,20 @@ div.tablet #mainbody-wrapper {
 #layoutManager.mobile div.modules > div > div > input {
 	display: none
 }
+#layoutManager .decVal {
+	-webkit-border-radius: 4px 0 0 4px;
+	-moz-border-radius: 4px 0 0 4px;
+	border-radius: 4px 0 0 4px;
+}
+#layoutManager .checkbox input[type="checkbox"] {
+	margin-left: 0;
+}
+#layoutManager .incVal {
+	-webkit-border-radius: 0 4px 4px 0;
+	-moz-border-radius: 0 4px 4px 0;
+	border-radius: 0 4px 4px 0;
+	margin-right: 8px;
+}
 /* modals */
 .modal-body > div > div {
 	background: #eee;
@@ -610,6 +630,10 @@ span + .row-fluid [class*="span"] {
 	max-width: 32px;
 	width: 32px;
 	margin: 0 !important;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	min-height: 24px!important;
 }
 .layoutManager button.configuration {
 	max-width: 35px;
@@ -766,6 +790,10 @@ div.position p {
 .row-fluid .span12 {
 	width: 100%;
  *width:100%;
+}
+.layoutManager [class^="icon-"], 
+.layoutManager  [class*=" icon-"] {
+	width: 18px;
 }
 .layoutManager .row-fluid.modules .span11 {
 	width: 91.66666666%;
