@@ -1055,6 +1055,12 @@ div.popover .popover-content {
 #login-form button {
   margin: 5px 0 0 5px;
 }
+div.edit #adminForm label {
+  display: block !important;
+}
+div.edit #adminForm input {
+  display: inline-block !important;
+}
 .gk-big-header {
   color: #333;
   font-size: 112px;
