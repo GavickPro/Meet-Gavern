@@ -153,7 +153,7 @@ if ($this->API->modules('sidebar')) {
 	
 	<footer class="container-fluid">
 		<?php if($this->API->modules('footer')) : ?>
-		<jdoc:include type="modules" name="footer" style="gk_style" modnum="<?php echo $this->API->modules('footer'); ?>" settings="<?php echo htmlspecialchars(json_encode($this->layout->manager['footer'])); ?>"/>
+		<jdoc:include type="modules" name="footer" modpos="footer" style="gk_style" modnum="<?php echo $this->API->modules('footer'); ?>" settings="<?php echo htmlspecialchars(json_encode($this->layout->manager['footer'])); ?>"/>
 		<?php endif; ?>
 		
 		<p class="pull-right gk-toplink"><a href="<?php echo $current_url; ?>#top" id="back-top">Back to top</a></p>

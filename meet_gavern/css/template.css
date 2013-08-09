@@ -1039,11 +1039,21 @@ div.popover .popover-content {
   font-size: 12px !important;
   line-height: 14px;
 }
-#modlgn-username {
-  min-width: 105px;
+#form-login-username span.add-on,
+#form-login-password span.add-on {
+  min-width: 100px;
+  text-align: left;
+  margin-left: 5px;
 }
-#modlgn-passwd {
-  min-width: 120px;
+#form-login-username a i.icon-question-sign,
+#form-login-password a i.icon-question-sign {
+  vertical-align: text-top !important;
+}
+#login-form #modlgn-remember {
+  margin: 6px 8px 0 5px;
+}
+#login-form button {
+  margin: 5px 0 0 5px;
 }
 .gk-big-header {
   color: #333;

@@ -302,6 +302,7 @@ label#jform_menuselect-lbl {
 }
 #style-form div#details .well {
 	margin-top: 30px;
+	overflow: hidden;
 }
 div#preloader {
 	position: fixed;

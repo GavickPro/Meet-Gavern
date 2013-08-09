@@ -81,5 +81,3 @@ $mailto = JRequest::getCmd('option') == 'com_mailto';
 	<?php endif; ?>
 </body>
 </html>
-
-

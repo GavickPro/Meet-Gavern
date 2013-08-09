@@ -3,7 +3,7 @@
 <extension version="3.0" type="template" client="site" method="upgrade">
           <name>meet_gavern</name>
           <version>1.2.3</version>
-          <creationDate>06/08/2013</creationDate>
+          <creationDate>09/08/2013</creationDate>
           <author>GavickPro</author>
           <authorEmail>info@gavick.com</authorEmail>
           <copyright>Copyright (C) 2013 GavickPro. All rights reserved.</copyright>
