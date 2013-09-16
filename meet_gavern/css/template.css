@@ -2,7 +2,7 @@ body {
   color: #777;
   font-size: 13px;
   font-weight: normal;
-  line-height: 24px;
+  line-height: 24.05px;
 }
 a {
   color: #5990de;
@@ -39,7 +39,7 @@ body > header > .row {
   padding: 10px 0;
 }
 body > header > h1 {
-  line-height: 24px;
+  line-height: 1.2*;
   margin-bottom: 20px;
 }
 body > header > h1 small {
@@ -65,13 +65,13 @@ body > header #mod-search-searchword {
 }
 #gk-logo.text-logo span {
   display: block;
-  font-size: 24px;
-  line-height: 24px;
+  font-size: 24.05px;
+  line-height: 24.05px;
   padding: 10px 0 0 0;
 }
 #gk-logo.text-logo small {
   display: block;
-  font-size: 12px;
+  font-size: 11.96px;
   line-height: 12px;
   padding: 0 0 10px 0;
 }
@@ -103,7 +103,7 @@ body > header + section#gk-main:before {
 }
 body > footer {
   border-top: 1px solid #e5e5e5;
-  font-size: 11px;
+  font-size: 11.05px;
   padding: 12px 0;
 }
 body > footer ul {
@@ -146,7 +146,7 @@ body > footer .gk-toplink {
 .gk-disclaimer {
   clear: both;
   text-align: center;
-  line-height: 18px;
+  line-height: 18.2px;
 }
 footer .gk-toplink i {
   margin-top: -3px;
@@ -357,7 +357,7 @@ div.box.dlastrow {
   display: block;
   font-size: 11px;
   height: 16px;
-  line-height: 17px;
+  line-height: 16px;
   padding: 0 4px;
   position: absolute;
   right: 5px;
@@ -513,6 +513,115 @@ div.userdata span.add-on i {
   margin-right: 6px;
   top: 0px;
 }
+#gk-user-area {
+  float: right;
+  position: relative;
+  margin-left: 15px;
+}
+#gk-user-area > a {
+  color: #777;
+  padding: 4px 8px;
+  font-size: 14.3px;
+  min-height: 67px;
+  line-height: 67px;
+  border: 1px solid #ddd;
+  padding: 8px 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+#gk-user-area > a:hover {
+  border: 1px solid #7ae;
+}
+button i,
+span i {
+  top: 0 !important;
+  margin-right: 5px;
+}
+#loginModal {
+  max-width: 420px;
+  margin-left: -200px;
+}
+#loginModal .btn {
+  padding: 11px 19px;
+  font-size: 16.25px;
+  margin: 0 !important;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+#loginModal .userdata {
+  padding: 0 15px;
+}
+#loginModal #form-login-remember {
+  margin: 5px 10px;
+}
+#loginModal .usermenu {
+  width: 45%;
+  float: right;
+}
+#loginModal ul.nav.menu {
+  float: left;
+  width: 55%;
+  margin-left: 20px;
+}
+#loginModal ul.nav a:hover {
+  background: none;
+}
+#loginModal ul.nav li {
+  padding: 8px;
+  font-size: 14.3px;
+}
+#loginModal .modal-header h3 {
+  font-size: 30px;
+  padding: 8px 20px;
+}
+#loginModal .modal-header small {
+  font-size: 20px;
+}
+#loginModal .modal-header button {
+  margin-top: 12px !important;
+  margin-right: 10px;
+}
+#loginModal .modal-body h3.header {
+  display: none;
+}
+#loginModal .modal-body #form-login-username label,
+#loginModal .modal-body #form-login-password label {
+  width: 100%;
+  clear: both;
+}
+#loginModal .modal-body input[type=text],
+#loginModal .modal-body input[type=password] {
+  width: 95%;
+  clear: both;
+  margin-top: 5px;
+  height: 30px;
+  line-height: 30px;
+}
+#loginModal .modal-footer a {
+  color: #666;
+}
+#loginModal .modal-footer a:hover {
+  text-decoration: underline;
+}
+#loginModal .modal-footer ul {
+  margin-left: 20px;
+}
+#loginModal .modal-footer ul li {
+  display: inline-block;
+  float: left;
+  margin-right: 15px;
+  padding-bottom: 5px;
+  font-size: 90%;
+}
+.hasTooltip {
+  display: block !important;
+}
 .gk-mainmenu-toggle {
   float: right;
 }
@@ -536,9 +645,9 @@ div.userdata span.add-on i {
 .gk-main-menu > ul > li {
   border: none;
   float: left;
-  font-size: 14px;
+  font-size: 14.3px;
   min-height: 67px;
-  line-height: 67px;
+  line-height: 66.95px;
   margin: 0;
 }
 .gk-main-menu > ul > li > a {
@@ -608,7 +717,7 @@ div.userdata span.add-on i {
 .gk-main-menu ul ul li a {
   color: #777;
   display: block;
-  line-height: 22px;
+  line-height: 22.1px;
   padding: 10px 26px;
 }
 .gk-main-menu ul ul li a:active,
@@ -671,17 +780,17 @@ div.userdata span.add-on i {
 #gk-content h2 small {
   clear: both;
   display: block;
-  font-size: 11px;
+  font-size: 10px;
   line-height: 1.0;
 }
 .gk-article-content {
-  font-size: 14px;
+  font-size: 14.3px;
 }
 body > .container-fluid.gk-message .alert {
   margin: 15px 0;
 }
 .contact fieldset legend {
-  font-size: 11px;
+  font-size: 11.05px;
 }
 .contact .jicons-icons {
   display: none;
@@ -703,7 +812,7 @@ body > .container-fluid.gk-message .alert {
   width: 100%;
 }
 .gk-article {
-  font-size: 14px;
+  font-size: 14.3px;
   line-height: 26px !important;
   margin: 0 0 56px 116px;
 }
@@ -720,7 +829,7 @@ body > .container-fluid.gk-message .alert {
   padding: 6px;
   text-align: center;
   background: #ffb251;
-  font-size: 48px;
+  font-size: 48.1px;
   font-weight: 600;
   color: #fff;
 }
@@ -730,14 +839,14 @@ body > .container-fluid.gk-message .alert {
 .item-page time span,
 .itemAsideInfo time span {
   display: block;
-  font-size: 18px;
+  font-size: 18.2px;
   line-height: 0;
 }
 .article-info,
 .itemAsideInfo {
   margin: 0;
   text-align: right;
-  font-size: 11px;
+  font-size: 11.05px;
 }
 .article-info dd {
   margin: 0 0 12px;
@@ -790,7 +899,7 @@ body > .container-fluid.gk-message .alert {
   width: 100px;
 }
 #advancedSearch {
-  font-size: 11px;
+  font-size: 11.05px;
 }
 #advancedSearch > div {
   border: 1px solid #eee;
@@ -804,7 +913,7 @@ body > .container-fluid.gk-message .alert {
   margin: 20px 0 40px 0;
 }
 #search-results .result-title {
-  font-size: 18px;
+  font-size: 18.2px;
   margin: 0 0 10px 0;
 }
 #finder-filter-select-list {
@@ -828,14 +937,14 @@ body > .container-fluid.gk-message .alert {
   padding: 10px 0;
 }
 #searchForm legend {
-  font-size: 12px;
+  font-size: 11.96px;
   margin-bottom: 5px;
 }
 .search-results {
   clear: both;
 }
 .search-results .result-title {
-  font-size: 18px;
+  font-size: 18.2px;
   margin: 0 0 10px 0;
 }
 .contentpane iframe {
@@ -863,25 +972,25 @@ body > .container-fluid.gk-message .alert {
 .contact-category .cat-children ul li,
 .weblink-category .cat-children ul li,
 .categories-list ul li {
-  font-size: 18px;
+  font-size: 18.2px;
   line-height: 1.4;
 }
 .contact-category .cat-children ul li,
 .weblink-category .cat-children ul li,
 .categories-list ul li li {
-  font-size: 14px;
+  font-size: 14.3px;
 }
 .contact-category .cat-children ul li li,
 .weblink-category .cat-children ul li li,
 .categories-list ul li li li {
-  font-size: 12px;
+  font-size: 11.96px;
 }
 .contact-category .cat-children dl,
 .weblink-category .cat-children dl,
 .category-desc,
 .categories-list dl {
   color: #666;
-  font-size: 11px;
+  font-size: 11.05px;
 }
 .contact-category .cat-children dt,
 .contact-category .cat-children dd,
@@ -894,7 +1003,7 @@ body > .container-fluid.gk-message .alert {
 .newsfeed .feed-description {
   border-bottom: 1px solid #e5e5e5;
   color: #888;
-  font-size: 16px;
+  font-size: 16.25px;
   margin: 10px 0 20px 0;
   padding: 0 0 10px 0;
 }
@@ -904,7 +1013,7 @@ body > .container-fluid.gk-message .alert {
 }
 .newsfeed > ol > li {
   border-top: 1px solid #e5e5e5;
-  font-size: 18px;
+  font-size: 18.2px;
   padding: 20px 0;
 }
 .newsfeed > ol > li:first-child {
@@ -915,11 +1024,11 @@ body > .container-fluid.gk-message .alert {
   padding: 0 0 15px 0;
 }
 .newsfeed > ol > li .feed-item-description {
-  font-size: 12px;
+  font-size: 11.96px;
 }
 .profile dl dt,
 .profile dl dd {
-  line-height: 21px;
+  line-height: 20.8px;
   padding: 6px 0;
 }
 .reset fieldset,
@@ -936,7 +1045,7 @@ div.img_caption {
 p.img_caption {
   clear: both;
   color: #888;
-  font-size: 11px;
+  font-size: 11.05px;
   line-height: 1.6;
   padding-top: 10px;
   text-align: center;
@@ -950,7 +1059,7 @@ p.img_caption {
 }
 .pagenavcounter {
   color: #999;
-  font-size: 11px;
+  font-size: 11.05px;
   margin: 10px 0 30px 0;
 }
 .toclink.active {
@@ -1036,8 +1145,8 @@ div.popover img {
   margin: 0 10px 10px 0;
 }
 div.popover .popover-content {
-  font-size: 12px !important;
-  line-height: 14px;
+  font-size: 11.96px !important;
+  line-height: 14.3px;
 }
 #form-login-username span.add-on,
 #form-login-password span.add-on {
@@ -1049,11 +1158,13 @@ div.popover .popover-content {
 #form-login-password a i.icon-question-sign {
   vertical-align: text-top !important;
 }
+#modlgn-username,
+#modlgn-passwd {
+  clear: both;
+  width: 95%;
+}
 #login-form #modlgn-remember {
   margin: 6px 8px 0 5px;
-}
-#login-form button {
-  margin: 5px 0 0 5px;
 }
 div.edit #adminForm label {
   display: block !important;
@@ -1117,10 +1228,10 @@ body.loaded .gk-big-header {
   border-radius: 5px;
   color: #fff;
   display: inline-block;
-  font-size: 30px;
+  font-size: 29.9px;
   font-weight: 300;
   height: 60px;
-  line-height: 61px;
+  line-height: 61.1px;
   margin-left: 25px;
   padding: 0 45px;
   text-shadow: 0 1px 0 rgba(0,0,0,0.21);
@@ -1241,7 +1352,7 @@ body.loaded .gk-big-header {
 }
 .gk-demo-content p {
   color: #777;
-  font-size: 14px;
+  font-size: 14.3px;
   line-height: 1.6;
   padding: 20px 0;
 }
@@ -1286,7 +1397,7 @@ ul.the-icons li:hover {
   cursor: pointer;
 }
 ul.the-icons li:hover i {
-  font-size: 20px;
+  font-size: 20.15px;
   margin-right: 12px;
   margin-left: -4px;
 }
@@ -1446,9 +1557,16 @@ aside .dropdown-menu {
 .list-striped li:hover {
   background-color: #f5f5f5;
 }
+.modal-backdrop {
+  background: #fafafa;
+}
 @media (max-width: 979px) {
   .gk-mainmenu-toggle {
     display: inline-block;
+  }
+  #loginModal {
+    max-width: 100%;
+    margin-left: auto;
   }
   .nav-collapse.gk-main-menu.collapse {
     overflow: hidden;
@@ -1486,7 +1604,7 @@ aside .dropdown-menu {
   }
   .gk-main-menu ul li {
     border: none !important;
-    line-height: 28px !important;
+    line-height: 39px !important;
     min-height: 28px !important;
   }
   .gk-main-menu ul li a,
@@ -1495,7 +1613,7 @@ aside .dropdown-menu {
     border-top: 1px solid #e5e5e5;
     color: #777 !important;
     font-weight: normal !important;
-    line-height: 28px !important;
+    line-height: 39px !important;
     margin: 0 !important;
     min-height: 28px !important;
   }
@@ -1510,15 +1628,15 @@ aside .dropdown-menu {
     color: #585656 !important;
   }
   .gk-main-menu ul li li a {
-    font-size: 12px;
+    font-size: 11.96px;
     padding-left: 30px !important;
   }
   .gk-main-menu ul li li li a {
-    font-size: 11px;
+    font-size: 11.05px;
     padding-left: 40px !important;
   }
   .gk-main-menu ul li li li li a {
-    font-size: 10px;
+    font-size: 9.75px;
     padding-left: 50px !important;
   }
   .gk-main-menu ul ul {
@@ -1545,10 +1663,10 @@ aside .dropdown-menu {
   }
   .gk-blue-button,
   .gk-yellow-button {
-    font-size: 24px;
+    font-size: 23.4px;
     font-weight: 300;
     height: 48px;
-    line-height: 49px;
+    line-height: 49.4px;
     margin-left: 25px;
     padding: 0 36px;
   }
@@ -1629,6 +1747,10 @@ aside .dropdown-menu {
   }
 }
 @media (max-width: 768px) {
+  #loginModal {
+    max-width: 100%;
+    margin-left: auto;
+  }
   .nav-collapse.gk-main-menu.collapse {
     overflow: hidden;
     height: 0;
@@ -1746,7 +1868,7 @@ aside .dropdown-menu {
     width: 50%;
   }
   .gk-big-header {
-    font-size: 56px;
+    font-size: 2.8*;
     line-height: 1.4;
     margin-top: 10px;
   }
@@ -1758,10 +1880,10 @@ aside .dropdown-menu {
   }
   .gk-blue-button,
   .gk-yellow-button {
-    font-size: 18px;
+    font-size: 18.2px;
     font-weight: 300;
     height: 32px;
-    line-height: 33px;
+    line-height: 32.5px;
     margin-left: 16px;
     padding: 0 24px;
   }
@@ -1845,6 +1967,10 @@ aside .dropdown-menu {
   }
 }
 @media (max-width: 480px) {
+  #loginModal {
+    max-width: 100%;
+    margin-left: auto;
+  }
   .nav-collapse.gk-main-menu.collapse {
     overflow: hidden;
     height: 0;
@@ -1912,7 +2038,7 @@ aside .dropdown-menu {
     margin-left: 0 !important;
     min-height: 120px;
     font-size: 13px;
-    line-height: 23px !important;
+    line-height: 22.75px !important;
   }
   .latestView .itemsContainer,
   .itemAuthorContent {
@@ -1929,7 +2055,7 @@ aside .dropdown-menu {
     padding: 6px;
     text-align: center;
     background: #ffb251;
-    font-size: 48px;
+    font-size: 48.1px;
     font-weight: 600;
     color: #fff;
     float: left !important;
@@ -1938,14 +2064,14 @@ aside .dropdown-menu {
   .item-page time span,
   .itemAsideInfo time span {
     display: block;
-    font-size: 18px;
+    font-size: 18.2px;
     line-height: 0;
   }
   .article-info {
     float: left;
     margin: 0 0 10px 10px;
     text-align: left;
-    font-size: 11px;
+    font-size: 11.05px;
     max-width: 345px;
   }
   .article-info dt,
@@ -1977,10 +2103,10 @@ aside .dropdown-menu {
   }
   .gk-blue-button,
   .gk-yellow-button {
-    font-size: 14px;
+    font-size: 14.3px;
     font-weight: 300;
     height: 24px;
-    line-height: 25px;
+    line-height: 24.7px;
     margin-left: 10px;
     padding: 0 16px;
   }
@@ -2017,7 +2143,7 @@ a.k2FeedIcon {
   display: block;
   float: left;
   height: 21px;
-  line-height: 21px;
+  line-height: 20.8px;
   padding: 0 0 0 32px;
 }
 .k2FeedIcon a:hover,
@@ -2105,7 +2231,7 @@ ul li.itemResizer #fontIncrease {
   border-bottom: 1px solid #eee;
   color: #999;
   display: block;
-  font-size: 12px;
+  font-size: 11.96px;
   margin: -40px 0 40px;
   padding: 9px 0;
 }
@@ -2133,7 +2259,7 @@ ul li.itemResizer #fontIncrease {
   width: 100%;
 }
 .itemExtraFields {
-  font-size: 12px;
+  font-size: 11.96px;
   margin: 8px 0 24px;
 }
 .itemExtraFields h3 {
@@ -2148,14 +2274,14 @@ small.itemDateModified {
 }
 .itemRatingForm {
   display: block;
-  line-height: 25px;
+  line-height: 2*;
   vertical-align: middle;
 }
 .itemRatingLog {
   color: #999;
   float: left;
-  font-size: 11px;
-  line-height: 25px;
+  font-size: 11.05px;
+  line-height: 24.7px;
   padding: 4px 0 0 12px;
 }
 span#formLog {
@@ -2200,7 +2326,7 @@ span#formLog {
   cursor: pointer;
   height: 25px;
   left: 0;
-  line-height: 25px;
+  line-height: 25.35px;
   outline: none;
   overflow: hidden;
   position: absolute;
@@ -2247,7 +2373,7 @@ span#formLog {
 }
 .k2TagCloudBlock a,
 .itemTags a {
-  font-size: 12px;
+  font-size: 11.96px;
   display: block;
   color: #fff;
   float: left;
@@ -2285,7 +2411,7 @@ span#formLog {
 }
 .itemLinks .itemAttachmentsBlock ul li a span {
   color: #676767;
-  font-size: 11px;
+  font-size: 11.05px;
   font-weight: 400;
 }
 .itemAuthorData img {
@@ -2335,7 +2461,7 @@ span#formLog {
 }
 a.itemCommentsAuthor {
   color: #333 !important;
-  font-size: 14px;
+  font-size: 14.3px;
   font-weight: 600;
 }
 a:hover.itemCommentsAuthor {
@@ -2357,11 +2483,11 @@ a:hover.itemCommentsAuthor {
 }
 .itemCommentsForm .itemCommentsFormNotes {
   color: #999;
-  font-size: 12px;
+  font-size: 11.96px;
 }
 .itemComments p {
   margin: .6em 0;
-  font-size: 12px;
+  font-size: 11.96px;
 }
 .itemComments .itemCommentsList,
 .itemComments .itemCommentsForm {
@@ -2388,7 +2514,7 @@ a:hover.itemCommentsAuthor {
 }
 .itemComments .itemCommentsList li div div span {
   color: #999;
-  font-size: 11px;
+  font-size: 11.05px;
   margin-right: 16px;
 }
 .userView article,
@@ -2422,7 +2548,7 @@ a:hover.itemCommentsAuthor {
 .itemView header ul {
   list-style: none;
   margin: 0 0 8px;
-  font-size: 11px;
+  font-size: 11.05px;
 }
 .itemView header ul li {
   display: inline-block;
@@ -2435,7 +2561,7 @@ a:hover.itemCommentsAuthor {
   color: #333;
 }
 .genericView header h1 {
-  font-size: 24px;
+  font-size: 44px;
   color: #FE654C;
 }
 .subCategoryContainer {
@@ -2476,13 +2602,13 @@ section.itemList div.itemBody {
   font-weight: bold;
   font-size: 13px;
   color: #555;
-  line-height: 18px;
+  line-height: 18.2px;
 }
 .k2LatestCommentsBlock ul li .lcCommentDate,
 .k2TopCommentersBlock ul li .lcCommentDate {
   font-weight: normal;
-  font-size: 10px;
-  line-height: 15px;
+  font-size: 10.4px;
+  line-height: 14.95px;
 }
 .k2LatestCommentsBlock ul li .lcCommentDate a,
 .k2TopCommentersBlock ul li .lcCommentDate a {
@@ -2513,7 +2639,7 @@ div .k2ItemsBlock ul li.clearList {
 .k2TopCommentersBlock div span {
   color: #999;
   display: block;
-  font-size: 11px;
+  font-size: 11.05px;
 }
 .k2Avatar {
   display: block !important;
@@ -2527,7 +2653,7 @@ div .k2ItemsBlock ul li.clearList {
   padding: 4px 0 0;
 }
 .lcUsername {
-  font-size: 12px;
+  font-size: 11.96px;
   font-weight: 600;
 }
 .k2LatestCommentsBlock ul li {
@@ -2557,7 +2683,7 @@ div .k2ItemsBlock ul li.clearList {
 .k2CommentItem span.lcCommentDate {
   color: #999;
   display: block;
-  font-size: 10px;
+  font-size: 10.4px;
 }
 .k2AuthorsListBlock ul li {
   border: none;
@@ -2567,15 +2693,15 @@ div .k2ItemsBlock ul li.clearList {
 .k2AuthorsListBlock ul li a.abAuthorLatestItem {
   clear: both;
   display: block;
-  font-size: 11px;
-  line-height: 14px;
+  font-size: 11.05px;
+  line-height: 14.3px;
   margin: 12px 0 0;
   padding: 0 0 0 12px;
 }
 .k2AuthorsListBlock ul li a.abAuthorLatestItem span {
   color: #777;
   display: block;
-  font-size: 10px;
+  font-size: 10.4px;
 }
 #gkRight .k2Avatar,
 #gkLeft .k2Avatar {
@@ -2583,7 +2709,7 @@ div .k2ItemsBlock ul li.clearList {
 }
 .tcUsername {
   color: #333;
-  font-size: 18px;
+  font-size: 18.2px;
 }
 .tcLatestComment {
   color: #737373;
@@ -2594,7 +2720,7 @@ div .k2ItemsBlock ul li.clearList {
 .tcLatestCommentDate {
   color: #999;
   display: block;
-  font-size: 11px;
+  font-size: 11.05px;
 }
 div .k2ItemsBlock ul {
   margin-right: -20px;
@@ -2608,13 +2734,13 @@ div .k2ItemsBlock ul li {
 a.moduleItemTitle {
   color: #2f3336;
   display: block;
-  font-size: 14px;
+  font-size: 14.3px;
   font-weight: 400;
-  line-height: 22px;
+  line-height: 20.8px;
 }
 .moduleItemAuthor {
   border-bottom: 1px solid #e5e5e5;
-  font-size: 11px;
+  font-size: 11.05px;
   margin: 0 0 16px;
   overflow: hidden;
 }
@@ -2652,10 +2778,10 @@ a.moduleItemTitle {
 }
 .moduleItemTags strong {
   color: #2f3336;
-  font-size: 12px;
+  font-size: 11.96px;
 }
 a.moduleItemComments {
-  font-size: 12px;
+  font-size: 11.96px;
 }
 a:hover.moduleItemComments {
   background-position: 0 100%;
@@ -2691,7 +2817,7 @@ a:hover.moduleItemComments {
 }
 .k2UserBlock .k2UserBlockDetails span.ubName {
   display: block;
-  font-size: 14px;
+  font-size: 14.3px;
   font-weight: 700;
 }
 .k2BreadcrumbsBlock span.bcTitle {
@@ -2699,7 +2825,7 @@ a:hover.moduleItemComments {
   padding: 0 4px 0 0;
 }
 .k2BreadcrumbsBlock span.bcSeparator {
-  font-size: 14px;
+  font-size: 14.3px;
   padding: 0 4px;
 }
 .k2CalendarBlock {
@@ -2721,7 +2847,7 @@ a:hover.moduleItemComments {
 }
 .k2CalendarBlock table.calendar tr td.calendarNavMonthPrev,
 .k2CalendarBlock table.calendar tr td.calendarNavMonthNext {
-  font-size: 15px !important;
+  font-size: 14.95px !important;
   text-align: center;
 }
 .k2CalendarBlock table.calendar tr td.calendarDayName {
@@ -2752,7 +2878,7 @@ a:hover.moduleItemComments {
 table.calendar tr td.calendarTodayLinked a {
   color: #7AE;
   display: block;
-  font-size: 12px;
+  font-size: 11.96px;
   font-weight: 700;
   padding: 2px;
 }
@@ -2779,7 +2905,7 @@ table.calendar tr td.calendarTodayLinked a {
   color: #fff;
 }
 .gkColumns > aside .k2CalendarBlock table.calendar tr td.calendarDateLinked a {
-  font-size: 18px;
+  font-size: 18.2px;
   font-weight: 700;
 }
 .gkColumns > aside .calendarNavMonthPrev,
@@ -2802,7 +2928,7 @@ table.calendar tr td.calendarTodayLinked a {
   padding: 0 10px;
   height: 28px;
   display: inline-block;
-  line-height: 28px;
+  line-height: 27.95px;
   background: #7ae;
   color: #fff;
   -webkit-transition: all .3s ease-out;
@@ -2837,14 +2963,14 @@ span.ubUserEmail a {
 }
 .catCounter,
 .k2ArchivesBlock b {
-  font-size: 11px;
+  font-size: 11.05px;
   font-weight: 400;
   color: #999;
 }
 li.counter {
   float: right;
   font-size: 85%;
-  line-height: 33px;
+  line-height: 32.5px;
 }
 .itemCommentsPagination ul li {
   display: inline-block;
@@ -2908,7 +3034,7 @@ li.counter {
 }
 .itemRatingBlock > span,
 .itemListSubCategories > span {
-  line-height: 32px;
+  line-height: 32.5px;
 }
 .itemComments .itemCommentsList li > span > img,
 .k2LoginBlock fieldset.input p label,
@@ -2944,13 +3070,13 @@ itemContainerLast article {
   float: right;
 }
 .moduleItemTags a {
-  font-size: 10px;
+  font-size: 10.4px;
   float: left;
   margin: 0 8px 3px 0;
 }
 .moduleItemTags b {
   float: left;
-  font-size: 10px;
+  font-size: 10.4px;
   margin-right: 15px;
   font-weight: normal;
 }
@@ -2994,7 +3120,7 @@ a.ubUserURL:hover {
 .k2CategoriesListBlock ul li {
   border: none;
   padding: 2px 0;
-  font-size: 15px;
+  font-size: 14.95px;
 }
 .k2ArchivesBlock ul li a,
 .k2CategoriesListBlock ul li a {

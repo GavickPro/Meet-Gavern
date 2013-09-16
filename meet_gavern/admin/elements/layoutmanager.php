@@ -40,12 +40,16 @@ class JFormFieldLayoutManager extends JFormField {
 			$html .= '<script id="moduleTemplate" type="text/template">
 					 <% if (type == "module" && position != "sidebar") { %>
 						  <div class="span12">
-						  	<div class="span2"><button class="btn btn-small btn-link configuration" data-original-title="Advanced settings" data-toggle="popover"><i class="icon-cog"></i></button></div>
+						  	<div class="span2"><button class="btn btn-small btn-link configuration" data-toggle="popover"><i class="icon-cog"></i></button></div>
 						 	<div class="span7 title"><span class="label label-<%= type %>"><%= position %></span><span class="badge badge-warning"><%= modules.length %></span></div>	  
 						  	<div class="span2 pull-right"><button class="btn btn-small btn-link add-modules pull-right" data-html="true" data-original-title="Add modules" data-toggle="popover"><i class="icon-plus"></i> <span>Add</span></button></div></div>
 					  <% } else if( position != "sidebar") { %>
 					      <div class="span12"><span class="label label-<%= type %>"><%= position %></span></div>
 					  <% } else { %>
+					  	 <div class="btnWrap">
+					  	 <a class="btn btn-link sidebarOverride" id="sidebarOverride"><span class="icon-cogs"></span><small>OVERRIDE</small></a>
+					  	 </div>
+					  	 <div id="sidebarOverlay"></div>
 					  	 <div class="span12 title"><span class="label label-<%= type %>"><%= position %></span></div>
 					  	 <div class="row-fluid sidebarPosition"><p>Sidebar position</p><div class="btn-group">
 					  	 <% if(float == "left") { %>

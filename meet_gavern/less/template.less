@@ -8,9 +8,9 @@
 
 body {
 	color:#777;
-	font-size: 13px;
+	font-size: @baseBodyFontSize;
 	font-weight: normal;
-	line-height: 24px;
+	line-height: 1.85*@baseBodyFontSize;
 }
 
 a {
@@ -55,14 +55,14 @@ body > header > .row {
 }
 
 body > header > h1 {
-	line-height: 24px;
+	line-height: 1.2*@baseHeadersFontSizepx;
 	margin-bottom: 20px;
 }
 
 body > header > h1 small {
 	clear: both;
 	display: block;
-	font-size: 14px;
+	font-size: 0.7*@baseHeadersFontSize;
 }
 
 body > header > .row p,
@@ -107,7 +107,7 @@ body > header + section#gk-main:before {
 /* Footer */
 body > footer {
 	border-top: 1px solid #e5e5e5;
-	font-size: 11px;
+	font-size: 0.85*@baseBodyFontSize;
 	padding: 12px 0;
 }
 
@@ -155,7 +155,7 @@ body > footer .gk-toplink {
 .gk-disclaimer {
 	clear: both;
 	text-align: center;
-	line-height: 18px 
+	line-height: 1.4*@baseBodyFontSize
 }
 
 footer .gk-toplink i {
@@ -189,7 +189,7 @@ div.box.dlastrow {
 }
 
 .box .header {
-	font-size: 20px;
+	font-size: @baseHeadersFontSize;
 	font-weight: 300;
 	margin-bottom: 12px;
 }
@@ -402,9 +402,9 @@ div.box.dlastrow {
 	color: #fff;
 	content: "HOT";
 	display: block;
-	font-size: 11px;
+	font-size: 0.55*@baseHeadersFontSize;
 	height: 16px;
-	line-height: 17px;
+	line-height: 0.8*@baseHeadersFontSize;
 	padding: 0 4px;
 	position: absolute;
 	right: 5px;
@@ -562,4 +562,70 @@ div.userdata span.add-on i {
 	margin-right: 6px;
 	top: 0px;
 }
+/* Login popup */
+#gk-user-area {
+	float: right; 
+	position: relative;
+	margin-left: 15px;
+	
+	> a {
+		color: #777;
+		padding: 4px 8px;
+		font-size: 1.1*@baseBodyFontSize;
+		min-height: 67px;
+		line-height: 67px;
+		border: 1px solid #ddd;
+		padding: 8px 10px;
+		.border-radius;
+		.transition(all 0.5s ease-out);
+		
+		&:hover {
+			border: 1px solid #7ae;
+		}
+	}
+}
 
+button i,
+span i { top: 0!important; margin-right: 5px}
+
+#loginModal {
+	max-width: 420px;
+	margin-left: -200px;
+	.btn {padding: 11px 19px; font-size: 1.25*@baseBodyFontSize;margin: 0!important; .border-radius(6px) }
+	.userdata {padding: 0 15px}
+	#form-login-remember {margin: 5px 10px }
+	.usermenu { width: 45%; float: right}
+	ul.nav.menu { float: left; width: 55%; margin-left: 20px}
+	ul.nav {
+		a:hover {background: none}
+		li { padding: 8px; font-size: 1.1*@baseBodyFontSize}
+	}
+	.modal-header {
+		h3 { 
+			font-size: 1.5*@baseHeadersFontSize;
+			padding: 8px 20px;
+			}
+		small {
+			font-size: @baseHeadersFontSize;
+		}
+		button {margin-top: 12px!important; margin-right: 10px}
+	}
+	.modal-body {
+		h3.header {display: none}
+		#form-login-username label,
+		#form-login-password label {width: 100%; clear: both }
+		input[type=text],
+		input[type=password] { width: 95%; clear: both; margin-top: 5px; height: 30px; line-height: 30px}
+	}
+	.modal-footer {
+		a { color: #666}
+		a:hover { text-decoration: underline}
+		ul {margin-left: 20px}
+		ul li { display: inline-block; float: left; margin-right: 15px; padding-bottom: 5px; font-size: 90%}
+		
+	}
+}
+
+.hasTooltip {
+	display: block!important;
+}

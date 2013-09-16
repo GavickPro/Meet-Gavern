@@ -15,10 +15,22 @@ $app = JFactory::getApplication();
 $doc = JFactory::getDocument();
 // Add current user information
 $user = JFactory::getUser();
+// getting User ID
+$userID = $user->get('id');
 
 // get the option and view value
 $option = JRequest::getCmd('option');
 $view = JRequest::getCmd('view');
+$ItemId = JRequest::getCmd('Itemid');
+$sidebarOverride = json_decode($this->API->get('sidebar_override', ''));
+$sidebarRules = array();
+foreach($sidebarOverride as $rule => $obj) {
+	$sidebarRules[$obj->option] = $obj;
+}
+
+// defines if com_users
+define('GK_COM_USERS', $option == 'com_users' && ($view == 'login' || $view == 'registration'));
+
 $current_url = (!empty($_SERVER['HTTPS'])) ? "https://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'] : "http://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
 $current_url = preg_replace('@%[0-9A-Fa-f]{1,2}@mi', '', htmlspecialchars($current_url, ENT_QUOTES, 'UTF-8'));
 
@@ -33,14 +45,27 @@ if($this->API->get('usernameless_login', 0)) {
 }
 // Adjusting content width
 $span = 12;
-if($this->layout->manager['sidebar']->float == 'left') {
-	$this->API->addCSSRule('#gk-content { float: right} #sidebar { margin: 0 2.5641% 0 0}');
+if(isset($sidebarRules[$option]) || isset($sidebarRules[$ItemId])) {
+	if(isset($sidebarRules[$ItemId])) {
+		if($sidebarRules[$ItemId]->position == 'left') {
+			$this->API->addCSSRule('#gk-content { float: right} #sidebar { margin: 0 2.5641% 0 0}');
+		}
+		$sidebar_width = str_replace('span', '', $sidebarRules[$ItemId]->width);
+	} else {
+		if($sidebarRules[$option]->position == 'left') {
+			$this->API->addCSSRule('#gk-content { float: right} #sidebar { margin: 0 2.5641% 0 0}');
+		}
+		$sidebar_width = str_replace('span', '', $sidebarRules[$option]->width);
+	}
+} else {
+	if($this->layout->manager['sidebar']->float == 'left') {
+		$this->API->addCSSRule('#gk-content { float: right} #sidebar { margin: 0 2.5641% 0 0}');
+	}
+	$sidebar_width = str_replace('span', '', $this->layout->manager['sidebar']->width);
 }
-$sidebar_width = str_replace('span', '', $this->layout->manager['sidebar']->width);
 if ($this->API->modules('sidebar')) {
 	$span = 12 - $sidebar_width;
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $this->APITPL->language; ?>" prefix="og: http://ogp.me/ns#">
@@ -69,6 +94,14 @@ if ($this->API->modules('sidebar')) {
 
 	<header class="container-fluid">
 		<?php $this->layout->loadBlock('logo'); ?>
+		
+		<?php if((($userID == 0) || $this->API->modules('login')) && !GK_COM_USERS) : ?>
+		<div id="gk-user-area">
+			<?php if($this->API->modules('login')) : ?>
+			<a href="#loginModal" role="button" data-toggle="modal"><?php echo ($userID == 0) ? JText::_('TPL_GK_LANG_LOGIN') : $user->get('username'); ?></a>
+			<?php endif; ?>
+		</div>
+		<?php endif; ?>
 		
 		<div class="gk-mainmenu-toggle">
 			<a href="#" data-toggle="collapse" data-target=".nav-collapse">
@@ -187,6 +220,7 @@ if ($this->API->modules('sidebar')) {
 	</script>
 	
 	<?php $this->layout->loadBlock('social'); ?>
+	<?php $this->layout->loadBlock('tools/login'); ?>
 	<jdoc:include type="modules" name="debug" style="none" />
 </body>
 </html>

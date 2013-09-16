@@ -1,5 +1,10 @@
 @media (max-width: @minTabletWidth) {	
 	
+	#loginModal {
+		max-width: 100%;
+		margin-left: auto;
+	}
+	
 	.nav-collapse.gk-main-menu.collapse {	
 		overflow: hidden;
 		height: 0;
@@ -80,8 +85,8 @@
 	}
 	
 	.gk-article .article-header {
-		font-size: 32px!important;
-		line-height: 48px!important;
+		font-size: 1.6*@baseHeadersFontSize!important;
+		line-height: 2.4*@baseHeadersFontSize!important;
 	}
 	
 	#gk-header {
@@ -143,13 +148,13 @@
 	
 	/* Demo content */
 	.gk-big-header {
-		font-size: 56px;
+		font-size: 2.8*@baseBodyHeadersSize;
 		line-height: 1.4;
 		margin-top: 10px;
 	}
 	
 	.gk-small-header {
-		font-size: 16px;
+		font-size: 0.8*@baseHeadersFontSize;
 	}
 	
 	.gk-buttons {
@@ -158,16 +163,16 @@
 	
 	.gk-blue-button,
 	.gk-yellow-button {
-		font-size: 18px;
+		font-size: 1.4*@baseBodyFontSize;
 		font-weight: 300;
 		height: 32px;
-		line-height: 33px;
+		line-height: 2.5*@baseBodyFontSize;
 		margin-left: 16px;
 		padding: 0 24px;
 	}
 	
 	.gk-medium-header {
-		font-size: 24px;
+		font-size: 1.2*@baseHeadersFontSize;
 	}
 	
 	.container-fluid .row-fluid .gk-demo-content,

@@ -366,6 +366,120 @@ select#jform_home {
 #myTabContent div.controls.gk-no-left-margin {
 	padding: 0;
 }
+/* sidebar override styles */
+#gk_sidebar_position + div,
+#gk_sidebar_width + div {
+	display: none!important;
+}
+#gk_sidebar_position,
+#gk_sidebar_width {
+	display: block!important
+}
+ul#sidebar_rules_list {
+	margin: 0;
+	height: 110px;
+	overflow: scroll;
+}
+ul#sidebar_rules_list li {
+	list-style: none;
+	border-top: 1px solid #ddd;
+}
+ul#sidebar_rules_list li p {
+	display: inline-block;
+	margin-right: 20px;
+}
+#jform_params_sidebar_override {
+	display: none;
+}
+ul#sidebar_rules_list li p:first-child {
+	font-weight: bold;
+	text-transform: none;
+	text-align: left;
+}
+ul#sidebar_rules_list p.option {
+	width: 83px;
+	margin-bottom: 0;
+}
+ul#sidebar_rules_list p.position,
+ul#sidebar_rules_list p.width {
+	width: 40px;
+	margin-bottom: 0;
+	text-align: left;
+}
+ul#sidebar_rules_list .btn {
+	padding: 0 4px;
+}
+ul#sidebar_rules_list .icon-remove {
+	color: #ddd;
+}
+ul#sidebar_rules_list .icon-remove:hover,
+.icon-remove:hover {
+	color: #EC7565;
+}
+#sidebar {
+	position: relative;
+}
+#sidebar_override .span12 {
+	clear: both;
+	width: 100%!important;
+	margin: 0;
+}
+#sidebar_override {
+	padding: 0 10px 10px 20px;
+}
+#sidebar_override label {
+	text-transform: none;
+	font-size: 10px;
+	text-align: left;
+}
+.btnWrap .btn {
+	float: right;
+}
+.sidebarOverrideClose {
+	padding-right: 0;
+}
+.btnWrap {
+	width: 100%;
+	clear: both;
+	overflow: hidden;
+	font-size: 10px;
+	height: 25px;
+}
+#gk_sidebar_add_rule { margin-top: 22px; }
+#sidebar_override input,
+#sidebar_override select {
+	font-size: 11px;
+	max-width: 100%!important;
+	padding: 4px 0;
+}
+
+#sidebarOverlay {
+	background: #fcfcfc;  
+	position: absolute;  
+	color: #fff;  
+	z-index: 100;  
+	-webkit-transition: all 300ms ease-out;  
+	-moz-transition: all 300ms ease-out;  
+	-o-transition: all 300ms ease-out;  
+	-ms-transition: all 300ms ease-out;  
+	transition: all 300ms ease-out;  
+	min-width: 295px;  
+	height: 100%;
+	visibility: hidden; 
+	opacity: 0;
+	top: 0;
+	-webkit-box-shadow: 0px 0px 7px rgba(50, 50, 50, 0.35);
+	-moz-box-shadow:    0px 0px 7px rgba(50, 50, 50, 0.35);
+	box-shadow:         0px 0px 7px rgba(50, 50, 50, 0.35);
+}
+#sidebar.pull-left #sidebarOverlay {
+	left: 0;
+	right: auto;
+}
+#sidebar.pull-right #sidebarOverlay {
+	right: 0;
+	left: auto;
+}
 /*layout manager styles */
 #layoutManager {
 	background: #f5f5f5;

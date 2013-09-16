@@ -11,7 +11,7 @@ a.k2FeedIcon {
 	display: block;
 	float: left;
 	height: 21px;
-	line-height: 21px;
+	line-height: 1.6*@baseBodyFontSize;
 	padding: 0 0 0 32px
 }
 
@@ -27,7 +27,7 @@ a:hover.k2FeedIcon {
 .itemFeature {
 	background: #fe654c;
 	color: #fff;
-	font-size: 13px;
+	font-size: @baseBodyFontSize;
 	font-weight: 600;
 	padding: 6px 16px;
 	position: absolute;
@@ -114,7 +114,7 @@ ul li.itemResizer #fontIncrease {
 	border-bottom: 1px solid #eee;
 	color: #999;
 	display: block;
-	font-size: 12px;
+	font-size: 0.92*@baseBodyFontSize;
 	margin: -40px 0 40px;
 	padding: 9px 0
 }
@@ -147,12 +147,12 @@ ul li.itemResizer #fontIncrease {
 }
 
 .itemExtraFields {
-	font-size: 12px;
+	font-size: 0.92*@baseBodyFontSize;
 	margin: 8px 0 24px
 }
 
 .itemExtraFields h3 {
-	font-size: 18px;
+	font-size: 0.9*@baseHeadersFontSize;
 	padding: 0 0 8px
 }
 
@@ -165,7 +165,7 @@ small.itemDateModified {
 
 .itemRatingForm {
 	display: block;
-	line-height: 25px;
+	line-height: 2*@baseBodyFontSizex;
 	vertical-align: middle
 }
 
@@ -173,8 +173,8 @@ small.itemDateModified {
 .itemRatingLog {
 	color: #999;
 	float: left;
-	font-size: 11px;
-	line-height: 25px;
+	font-size: 0.85*@baseBodyFontSize;
+	line-height: 1.9*@baseBodyFontSize;
 	padding: 4px 0 0 12px
 }
 
@@ -225,7 +225,7 @@ span#formLog {
 	cursor: pointer;
 	height: 25px;
 	left: 0;
-	line-height: 25px;
+	line-height: 1.95*@baseBodyFontSize;
 	outline: none;
 	overflow: hidden;
 	position: absolute;
@@ -279,7 +279,7 @@ span#formLog {
 }
 .k2TagCloudBlock a,
 .itemTags a {
-	font-size: 12px;
+	font-size: 0.92*@baseBodyFontSize;
 	display: block;
 	color: #fff;
 	float: left;
@@ -323,7 +323,7 @@ span#formLog {
 
 .itemLinks .itemAttachmentsBlock ul li a span {
 	color: #676767;
-	font-size: 11px;
+	font-size: 0.85*@baseBodyFontSize;
 	font-weight: 400
 }
 
@@ -351,9 +351,9 @@ span#formLog {
 	margin-bottom: 12px;
 }
 .itemAuthorContent h3 {
-	font-size: 18px;
+	font-size: 0.9*@baseHeadersFontSize;
 	font-weight: 600;
-	line-height: 28px;
+	line-height: 1.4*@baseHeadersFontSize;
 }
 
 .itemAuthorContent {
@@ -374,7 +374,7 @@ span#formLog {
 
 .itemComments h3 {
 	border-top: 1px solid #e5e5e5;
-	font-size: 26px;
+	font-size: 1.3*@baseHeadersFontSize;
 	font-weight: 300;
 	padding: 20px 0 0
 }
@@ -385,7 +385,7 @@ span#formLog {
 
 a.itemCommentsAuthor {
 	color: #333 !important;
-	font-size: 14px;
+	font-size: 1.1*@baseBodyFontSize;
 	font-weight: 600
 }
 
@@ -412,12 +412,12 @@ a:hover.itemCommentsAuthor {
 
 .itemCommentsForm .itemCommentsFormNotes {
 	color: #999;
-	font-size: 12px;
+	font-size: 0.92*@baseBodyFontSize;
 }
 
 .itemComments p {
 	margin: .6em 0;
-	font-size: 12px;
+	font-size: 0.92*@baseBodyFontSize;
 }
 
 .itemComments .itemCommentsList,
@@ -450,7 +450,7 @@ a:hover.itemCommentsAuthor {
 
 .itemComments .itemCommentsList li div div span {
 	color: #999;
-	font-size: 11px;
+	font-size: 0.85*@baseBodyFontSize;
 	margin-right: 16px
 }
 
@@ -476,8 +476,8 @@ a:hover.itemCommentsAuthor {
 }
 
 .genericView .itemView h2 {
-	font-size: 28px;
-	line-height: 36px;
+	font-size: 1.4*@baseHeadersFontSize;
+	line-height: 1.8*@baseHeadersFontSize;
 }
 
 .itemView header h2 a {
@@ -488,7 +488,7 @@ a:hover.itemCommentsAuthor {
 .itemView header ul {
 	list-style: none;
 	margin: 0 0 8px;
-	font-size: 11px; 
+	font-size: 0.85*@baseBodyFontSize; 
 	li { 
 		display: inline-block;
 		margin-right: 10px;
@@ -500,7 +500,7 @@ a:hover.itemCommentsAuthor {
 	}
 }
 
-.genericView header h1 { font-size: 24px; color: #FE654C }
+.genericView header h1 { font-size: 2.2*@baseHeadersFontSize; color: #FE654C }
 .subCategoryContainer {
 	float: left;
 	margin-bottom: 32px
@@ -517,7 +517,7 @@ section.itemList div.itemBody {
 }
 
 #itemListLinks li {
-	font-size: 13px;
+	font-size: @baseBodyFontSize;
 	padding-left: 24px
 }
 
@@ -531,7 +531,7 @@ section.itemList div.itemBody {
 
 .k2LatestCommentsBlock ul li,
 .k2TopCommentersBlock ul li {
-	font-size: 13px;
+	font-size: @baseBodyFontSize;
 	color: #555;
 	list-style: none!important;
 	
@@ -541,14 +541,14 @@ section.itemList div.itemBody {
 	
 	.lcUsername {
 		font-weight: bold;
-		font-size: 13px;
+		font-size: @baseBodyFontSize;
 		color: #555;
-		line-height: 18px;
+		line-height: 1.4*@baseBodyFontSize;
 	}
 	.lcCommentDate {
 		font-weight: normal;
-		font-size: 10px;
-		line-height: 15px;
+		font-size: 0.8*@baseBodyFontSize;
+		line-height: 1.15*@baseBodyFontSize;
 		
 		a {
 			color: #333;
@@ -584,7 +584,7 @@ div .k2ItemsBlock ul li.clearList {
 .k2TopCommentersBlock div span {
 	color: #999;
 	display: block;
-	font-size: 11px;
+	font-size: 0.85*@baseBodyFontSize;
 }
 
 .k2Avatar {
@@ -602,7 +602,7 @@ div .k2ItemsBlock ul li.clearList {
 }
 
 .lcUsername {
-	font-size: 12px;
+	font-size: 0.92*@baseBodyFontSize;
 	font-weight: 600
 }
 .k2LatestCommentsBlock ul li {
@@ -636,7 +636,7 @@ div .k2ItemsBlock ul li.clearList {
 .k2CommentItem span.lcCommentDate {
 	color: #999;
 	display: block;
-	font-size: 10px
+	font-size: 0.8*@baseBodyFontSize
 }
 
 .k2AuthorsListBlock ul li {
@@ -648,8 +648,8 @@ div .k2ItemsBlock ul li.clearList {
 .k2AuthorsListBlock ul li a.abAuthorLatestItem {
 	clear: both;
 	display: block;
-	font-size: 11px;
-	line-height: 14px;
+	font-size: 0.85*@baseBodyFontSize;
+	line-height: 1.1*@baseBodyFontSize;
 	margin: 12px 0 0;
 	padding: 0 0 0 12px
 }
@@ -657,7 +657,7 @@ div .k2ItemsBlock ul li.clearList {
 .k2AuthorsListBlock ul li a.abAuthorLatestItem span {
 	color: #777;
 	display: block;
-	font-size: 10px
+	font-size: 0.8*@baseBodyFontSize
 }
 
 #gkRight .k2Avatar,
@@ -667,20 +667,20 @@ div .k2ItemsBlock ul li.clearList {
 
 .tcUsername {
 	color: #333;
-	font-size: 18px
+	font-size: 1.4*@baseBodyFontSize
 }
 
 .tcLatestComment {
 	color: #737373;
 	display: block;
-	font-size: 13px;
+	font-size: @baseBodyFontSize;
 	margin: 6px 0
 }
 
 .tcLatestCommentDate {
 	color: #999;
 	display: block;
-	font-size: 11px
+	font-size: 0.85*@baseBodyFontSize
 }
 
 div .k2ItemsBlock ul {
@@ -697,14 +697,14 @@ div .k2ItemsBlock ul li {
 a.moduleItemTitle {
 	color: #2f3336;
 	display: block;
-	font-size: 14px;
+	font-size: 1.1*@baseBodyFontSize;
 	font-weight: 400;
-	line-height: 22px
+	line-height: 1.6*@baseBodyFontSize;
 }
 
 .moduleItemAuthor {
 	border-bottom: 1px solid #e5e5e5;
-	font-size: 11px;
+	font-size: 0.85*@baseBodyFontSize;
 	margin: 0 0 16px;
 	overflow: hidden
 }
@@ -749,11 +749,11 @@ a.moduleItemTitle {
 
 .moduleItemTags strong {
 	color: #2f3336;
-	font-size: 12px
+	font-size: 0.92*@baseBodyFontSize
 }
 
 a.moduleItemComments {
-	font-size: 12px
+	font-size: 0.92*@baseBodyFontSize
 }
 
 a:hover.moduleItemComments {
@@ -798,7 +798,7 @@ a:hover.moduleItemComments {
 
 .k2UserBlock .k2UserBlockDetails span.ubName {
 	display: block;
-	font-size: 14px;
+	font-size: 1.1*@baseBodyFontSize;
 	font-weight: 700
 }
 
@@ -808,7 +808,7 @@ a:hover.moduleItemComments {
 }
 
 .k2BreadcrumbsBlock span.bcSeparator {
-	font-size: 14px;
+	font-size: 1.1*@baseBodyFontSize;
 	padding: 0 4px
 }
 
@@ -835,7 +835,7 @@ a:hover.moduleItemComments {
 
 .k2CalendarBlock table.calendar tr td.calendarNavMonthPrev,
 .k2CalendarBlock table.calendar tr td.calendarNavMonthNext {
-	font-size: 15px!important;
+	font-size: 1.15*@baseBodyFontSize !important;
 	text-align: center
 }
 
@@ -873,7 +873,7 @@ a:hover.moduleItemComments {
 table.calendar tr td.calendarTodayLinked a {
 	color: #7AE;
 	display: block;
-	font-size: 12px;
+	font-size: 0.92*@baseBodyFontSize;
 	font-weight: 700;
 	padding: 2px
 }
@@ -903,7 +903,7 @@ table.calendar tr td.calendarTodayLinked a {
 }
 
 .gkColumns > aside .k2CalendarBlock table.calendar tr td.calendarDateLinked a {
-	font-size: 18px;
+	font-size: 1.4*@baseBodyFontSize;
 	font-weight: 700
 }
 
@@ -930,7 +930,7 @@ table.calendar tr td.calendarTodayLinked a {
 	padding: 0 10px;
 	height: 28px;
 	display: inline-block;
-	line-height: 28px;
+	line-height: 2.15*@baseBodyFontSize;
 	background: #7ae;
 	color: #fff;
 	-webkit-transition: all .3s ease-out;
@@ -970,7 +970,7 @@ span.ubUserEmail a {
 
 .catCounter,
 .k2ArchivesBlock b {
-	font-size: 11px;
+	font-size: 0.85*@baseBodyFontSize;
 	font-weight: 400;
 	color: #999
 }
@@ -978,7 +978,7 @@ span.ubUserEmail a {
 li.counter {
 	float: right;
 	font-size: 85%;
-	line-height: 33px;
+	line-height: 2.5*@baseBodyFontSize;
 }
 
 .itemCommentsPagination ul li {
@@ -1015,11 +1015,11 @@ li.counter {
 .genericView .itemBlock h2,
 .itemListView .itemBlock h2,
 .latestView .itemBlock h2 {
-	font-size: 32px;
+	font-size: 1.6*@baseHeadersFontSize;
 	margin: 20px 0;
 }
 .userView .itemBlock h2 {
-	font-size: 32px;
+	font-size: 1.6*@baseHeadersFontSize;
 	margin: 0 0 20px;
 }
 .itemBottom .itemRatingBlock span,
@@ -1048,7 +1048,7 @@ li.counter {
 	padding: 15px 0;
 	
 	> span {
-		line-height: 32px;
+		line-height: 2.5*@baseBodyFontSize;
 	}
 }
 
@@ -1091,14 +1091,14 @@ itemContainerLast article {
 }
 
 .moduleItemTags a {
-	font-size: 10px;
+	font-size: 0.8*@baseBodyFontSize;
 	float: left;
 	margin: 0 8px 3px 0;
 }
 
 .moduleItemTags b {
 	float: left;
-	font-size: 10px;
+	font-size: 0.8*@baseBodyFontSize;
 	margin-right: 15px;
 	font-weight: normal;
 }
@@ -1135,8 +1135,8 @@ a.ubUserURL:hover {
 
 .itemsContainerWrap2 h2,
 .itemsContainerWrap3 h2 {
-	font-size: 28px;
-	line-height: 36px;
+	font-size: 1.4*@baseHeadersFontSize;
+	line-height: 1.8*@baseHeadersFontSize;
 }
 
 .itemIntroText ol,
@@ -1145,7 +1145,7 @@ a.ubUserURL:hover {
 	list-style-position: inside;
 }
 .k2ArchivesBlock ul li,
-.k2CategoriesListBlock ul li { border: none; padding: 2px 0; font-size: 15px}
+.k2CategoriesListBlock ul li { border: none; padding: 2px 0; font-size: 1.15*@baseBodyFontSize}
 .k2ArchivesBlock ul li b { }
 
 .k2ArchivesBlock ul li a,

@@ -11,6 +11,8 @@ jQuery(window).load(function() {
 	jQuery('#jform_menuselect-lbl').wrap('<div class="control-label" />');
 	jQuery('#assignment div.control-group .btn-toolbar').wrap('<div class="controls" />');
 	
+	// hide sidebar override options
+	jQuery('#jform_params_sidebar_override').parents().eq(1).css('display', 'none');
 	
 	// move Config Manager	
 	var configManager = '<div class="control-group"><div class="well">'+jQuery('#config_manager_form').html()+'</div></div>';
@@ -88,8 +90,10 @@ jQuery(window).load(function(){
 	});
    		
    	// enable config manager
+   	initLESSParser();
     initConfigManager();
     initLayoutManager();    
+ 	new GKSidebarOverride();
 
 	// clear the unnecessary margins
 	jQuery('#gk_template_updates').parent().addClass('gk-no-left-margin');
@@ -381,6 +385,22 @@ jQuery(window).load(function(){
 	          e.preventDefault();
 	          loadSaveOperation('delete');
 	     });
+	     
+	}
+	
+	function initLESSParser() { 
+		if(jQuery('#toolbar-gavickpro').length != 0) {
+			btn = jQuery('#toolbar-gavickpro').find('button');
+			btn.attr('id', 'gk-parser-less');
+			btn.find('span').attr('class', 'icon-cube');
+			
+			jQuery('#gk-parser-less').click(function(e) {
+			     e.stopPropagation();
+			     e.preventDefault();
+			     loadSaveOperation('recompile_less');
+			});
+		}
+	
 	}
 	
 	// function to load/save settings

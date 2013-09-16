@@ -62,7 +62,7 @@ class GKTemplate {
         // get the helpers
         $this->bootstrap = new GKTemplateBootstrap($this);
         $this->cache = new GKTemplateCache($this);
-        $this->less = new GKTemplateLESS($this);
+        $this->less = new GKTemplateLESS($this, false);
         $this->social = new GKTemplateSocial($this);
         $this->utilities = new GKTemplateUtilities($this);
         $this->menu = new GKTemplateMenu($this);

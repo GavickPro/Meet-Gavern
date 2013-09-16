@@ -1,5 +1,8 @@
 @media (max-width: @maxMobileWidth) {
-	
+	#loginModal {
+		max-width: 100%;
+		margin-left: auto;
+	}
 	.nav-collapse.gk-main-menu.collapse {	
 		overflow: hidden;
 		height: 0;
@@ -49,8 +52,8 @@
 	.gk-article .article-header,
 	#k2Container header h1,
 	.itemView header h2 a {
-		font-size: 24px!important;
-		line-height: 32px!important;
+		font-size: 1.2*@baseHeadersFontSize !important;
+		line-height: 1.6*@baseHeadersFontSize !important;
 	}
 	
 	.gk-item-page .gk-article {
@@ -69,8 +72,8 @@
 		clear: both;
 		margin-left: 0!important;
 		min-height: 120px;
-		font-size: 13px;
-		line-height: 23px!important
+		font-size: @baseBodyFontSize;
+		line-height: 1.75*@baseBodyFontSize !important
 	}
 	
 	.latestView .itemsContainer,
@@ -85,11 +88,11 @@
 		display: block;
 		width: 66px;
 		height: 66px;
-		line-height: 52px;
+		line-height: 4*@baseBodyFontSize;
 		padding: 6px;
 		text-align: center;
 		background: #ffb251;
-		font-size: 48px;
+		font-size: 3.7*@baseBodyFontSize;
 		font-weight: 600;
 		color: #fff;
 		float: left !important;
@@ -98,14 +101,14 @@
 	.item-page time span,
 	.itemAsideInfo time span {
 		display: block;
-		font-size: 18px;
+		font-size: 1.4*@baseBodyFontSize;
 		line-height: 0;
 	}
 	.article-info {
 		float: left;
 		margin: 0 0 10px 10px;
 		text-align: left;
-		font-size: 11px;
+		font-size: 0.85*@baseBodyFontSize;
 		max-width: 345px;
 	}
 	
@@ -131,13 +134,13 @@
 	
 	/* Demo content */
 	.gk-big-header {
-		font-size: 32px;
+		font-size: 1.6*@baseHeadersFontSize;
 		line-height: 1.2;
 		margin-top: 0px;
 	}
 	
 	.gk-small-header {
-		font-size: 12px;
+		font-size: 0.6*@baseHeadersFontSize;
 	}
 	
 	.gk-buttons {
@@ -146,16 +149,16 @@
 	
 	.gk-blue-button,
 	.gk-yellow-button {
-		font-size: 14px;
+		font-size: 1.1*@baseBodyFontSize;
 		font-weight: 300;
 		height: 24px;
-		line-height: 25px;
+		line-height: 1.9*@baseBodyFontSize;
 		margin-left: 10px;
 		padding: 0 16px;
 	}
 	
 	.gk-medium-header {
-		font-size: 18px;
+		font-size: 0.9*@baseHeadersFontSize;
 	}
 
 	#gk-download-btn {

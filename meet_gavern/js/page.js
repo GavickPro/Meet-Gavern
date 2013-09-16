@@ -2,13 +2,13 @@ jQuery(window).load(function() {
 	jQuery(document).find('body').addClass('loaded');
 	// Username-less login
 	if(jQuery('#gkuserless').length > 0) {
-		jQuery('#username').parent().parent().css('display', 'none');
+		jQuery('#username').parent().parent().hide();
 		jQuery('#username').val(jQuery('#gkuserless').attr('data-username'));
 		
 		jQuery('#gkwronguserless').click(function(e) {
 			e.preventDefault();
 			jQuery(e.target).parent().remove();	
-			jQuery('#username').parent().parent().css('display', 'block');
+			jQuery('#username').parent().parent().show();
 			jQuery('#username').val('');
 			jQuery('#password').val('');
 		});
@@ -26,6 +26,8 @@ jQuery(window).load(function() {
 		    }
 		});
 	});
+	
+
 });
 
 var JCaption = function() {};

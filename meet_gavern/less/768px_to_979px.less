@@ -3,7 +3,10 @@
 	.gk-mainmenu-toggle {	 
 		display: inline-block;
 	}
-	
+	#loginModal {
+		max-width: 100%;
+		margin-left: auto;
+	}
 	.nav-collapse.gk-main-menu.collapse {
 		overflow: hidden;
 		height: 0;
@@ -47,7 +50,7 @@
 		ul {
 			li {
 				border: none!important;
-				line-height: 28px!important;
+				line-height: 3*@baseBodyFontSize !important;
 				min-height: 28px!important;
 				
 				a,
@@ -56,13 +59,13 @@
 					border-top: 1px solid #e5e5e5;
 					color: #777!important;
 					font-weight: normal!important;
-					line-height: 28px!important;
+					line-height: 3*@baseBodyFontSize !important;
 					margin: 0!important;
 					min-height: 28px!important;
 				}
 				
 				a {
-					font-size: 13px;
+					font-size: @baseBodyFontSize;
 					padding: 0 15px!important;
 					
 					&:active,
@@ -74,16 +77,16 @@
 				}	
 				
 				li a {
-					font-size: 12px;
+					font-size: 0.92*@baseBodyFontSize;
 					padding-left: 30px!important;
 				}
 				li li a {
-					font-size: 11px;
+					font-size: 0.85*@baseBodyFontSize;
 					padding-left: 40px!important;
 				}
 				
 				li li li a {
-					font-size: 10px;
+					font-size: 0.75*@baseBodyFontSize;
 					padding-left: 50px!important;
 				}				
 			}
@@ -100,13 +103,13 @@
 	
 	/* Demo content */
 	.gk-big-header {
-		font-size: 80px;
+		font-size: 4*@baseHeadersFontSize;
 		line-height: 1.5;
 		margin-top: 20px;
 	}
 	
 	.gk-small-header {
-		font-size: 18px;
+		font-size: 0.9*@baseHeadersFontSize;
 	}
 	
 	.gk-buttons {
@@ -115,16 +118,16 @@
 	
 	.gk-blue-button,
 	.gk-yellow-button {
-		font-size: 24px;
+		font-size: 1.8*@baseBodyFontSize;
 		font-weight: 300;
 		height: 48px;
-		line-height: 49px;
+		line-height: 3.8*@baseBodyFontSize;
 		margin-left: 25px;
 		padding: 0 36px;
 	}
 	
 	.gk-medium-header {
-		font-size: 30px;
+		font-size: 1.5*@baseHeadersFontSize;
 	}
 	
 	#gk-download-btn {

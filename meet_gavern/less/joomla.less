@@ -32,11 +32,11 @@
 #gk-content h2 small {
 	clear: both;
 	display: block;
-	font-size: 11px;
+	font-size: 0.5*@baseHeadersFontSize;
 	line-height: 1.0;
 }
 .gk-article-content {
-	font-size: 14px;
+	font-size: 1.1*@baseBodyFontSize;
 }
 // messages
 body > .container-fluid.gk-message .alert {
@@ -49,7 +49,7 @@ body > .container-fluid.gk-message .alert {
  **/
  
 .contact fieldset legend {
-	font-size: 11px;
+	font-size: 0.85*@baseBodyFontSize;
 }
 
 .contact .jicons-icons {
@@ -81,8 +81,8 @@ body > .container-fluid.gk-message .alert {
 	width: 100%;
 }
 .gk-article {
-	font-size: 14px;
-	line-height: 26px !important;
+	font-size: 1.1*@baseBodyFontSize;
+	line-height: 2*@baseBodyFontSize !important;
 	margin: 0 0 56px 116px;
 }
 .item-page .item-page {
@@ -93,12 +93,12 @@ body > .container-fluid.gk-message .alert {
 	display: block;
 	width: 66px;
 	height: 66px;
-	line-height: 52px;
+	line-height: 4*@baseBodyFontSize;
 	margin: 0 0 0 8px;
 	padding: 6px;
 	text-align: center;
 	background: #ffb251;
-	font-size: 48px;
+	font-size: 3.7*@baseBodyFontSize;
 	font-weight: 600;
 	color: #fff
 }
@@ -108,14 +108,14 @@ body > .container-fluid.gk-message .alert {
 .item-page time span,
 .itemAsideInfo time span {
 	display: block;
-	font-size: 18px;
+	font-size: 1.4*@baseBodyFontSize;
 	line-height: 0;
 }
 .article-info,
 .itemAsideInfo {
 	margin: 0;
 	text-align: right;
-	font-size: 11px
+	font-size: 0.85*@baseBodyFontSize
 }
 .article-info dd {
 	margin: 0 0 12px;
@@ -132,8 +132,8 @@ body > .container-fluid.gk-message .alert {
 .gk-article .article-header {
 	clear: both;
 	color: #444;
-	font-size: 48px;
-	line-height: 52px;
+	font-size: 2.4*@baseHeadersFontSize;
+	line-height: 2.6*@baseHeadersFontSize;
 	margin: 0 0 24px;
 }
 .gk-article .item-image + .article-header,
@@ -180,7 +180,7 @@ body > .container-fluid.gk-message .alert {
  **/
 
 #advancedSearch {
-	font-size: 11px;
+	font-size: 0.85*@baseBodyFontSize;
 }
 #advancedSearch > div {
 	border: 1px solid #eee;
@@ -192,7 +192,7 @@ body > .container-fluid.gk-message .alert {
 	margin: 20px 0 40px 0;
 }
 #search-results .result-title {
-	font-size: 18px;
+	font-size: 1.4*@baseBodyFontSize;
 	margin: 0 0 10px 0;
 }
 #finder-filter-select-list {
@@ -222,14 +222,14 @@ body > .container-fluid.gk-message .alert {
 	padding: 10px 0;
 }
 #searchForm legend {
-	font-size: 12px;
+	font-size: 0.92*@baseBodyFontSize;
 	margin-bottom: 5px;
 }
 .search-results {
 	clear: both;
 }
 .search-results .result-title {
-	font-size: 18px;
+	font-size: 1.4*@baseBodyFontSize;
 	margin: 0 0 10px 0;
 }
 /**
@@ -269,25 +269,25 @@ body > .container-fluid.gk-message .alert {
 .contact-category .cat-children ul li,
 .weblink-category .cat-children ul li,
 .categories-list ul li {
-	font-size: 18px;
+	font-size: 1.4*@baseBodyFontSize;
 	line-height: 1.4;
 }
 .contact-category .cat-children ul li,
 .weblink-category .cat-children ul li,
 .categories-list ul li li {
-	font-size: 14px;
+	font-size: 1.1*@baseBodyFontSize;
 }
 .contact-category .cat-children ul li li,
 .weblink-category .cat-children ul li li,
 .categories-list ul li li li {
-	font-size: 12px;
+	font-size: 0.92*@baseBodyFontSize;
 }
 .contact-category .cat-children dl,
 .weblink-category .cat-children dl,
 .category-desc,
 .categories-list dl {
 	color: #666;
-	font-size: 11px;
+	font-size: 0.85*@baseBodyFontSize;
 }
 .contact-category .cat-children dt,
 .contact-category .cat-children dd,
@@ -300,7 +300,7 @@ body > .container-fluid.gk-message .alert {
 .newsfeed .feed-description {
 	border-bottom: 1px solid #e5e5e5;
 	color: #888;
-	font-size: 16px;
+	font-size: 1.25*@baseBodyFontSize;
 	margin: 10px 0 20px 0;
 	padding: 0 0 10px 0;
 }
@@ -310,7 +310,7 @@ body > .container-fluid.gk-message .alert {
 }
 .newsfeed > ol > li {
 	border-top: 1px solid #e5e5e5;
-	font-size: 18px;
+	font-size: 1.4*@baseBodyFontSize;
 	padding: 20px 0;
 }
 .newsfeed > ol > li:first-child {
@@ -321,7 +321,7 @@ body > .container-fluid.gk-message .alert {
 	padding: 0 0 15px 0;
 }
 .newsfeed > ol > li .feed-item-description {
-	font-size: 12px;
+	font-size: 0.92*@baseBodyFontSize;
 }
 
 /**
@@ -332,7 +332,7 @@ body > .container-fluid.gk-message .alert {
 
 .profile dl dt,
 .profile dl dd {
-	line-height: 21px;
+	line-height: 1.6*@baseBodyFontSize;
 	padding: 6px 0;
 }
 .reset fieldset,
@@ -355,7 +355,7 @@ div.img_caption {
 p.img_caption {
 	clear: both;
 	color: #888;
-	font-size: 11px;
+	font-size: 0.85*@baseBodyFontSize;
 	line-height: 1.6;
 	padding-top: 10px;
 	text-align: center;
@@ -365,12 +365,12 @@ p.img_caption {
 	margin-left: 40px;
 }
 .article-index h3 {
-	font-size: 20px;
+	font-size: @baseHeadersFontSize;
 	margin-bottom: 10px;
 }
 .pagenavcounter {
 	color: #999;
-	font-size: 11px;
+	font-size: 0.85*@baseBodyFontSize;
 	margin: 10px 0 30px 0;
 }
 .toclink.active {
@@ -424,7 +424,7 @@ ul.latestnews li {
 aside div.tags a.label {float: right}
 div.tags a.label,
 .tag-category h3 a {
-	font-size: 12px;
+	font-size: 0.6*@baseHeadersFontSize;
 	display: block!important;
 	color: #fff;
 	float: left;
@@ -467,8 +467,8 @@ div.popover img {
 	margin: 0 10px 10px 0;
 }
 div.popover .popover-content {
-	font-size: 12px !important;
-	line-height: 14px;
+	font-size: 0.92*@baseBodyFontSize !important;
+	line-height: 1.1*@baseBodyFontSize;
 }
 
 /* login form */
@@ -478,11 +478,14 @@ div.popover .popover-content {
 #form-login-password a i.icon-question-sign {
 	vertical-align: text-top!important;
 }
+#modlgn-username,
+#modlgn-passwd {
+	clear: both;
+	width: 95%;
+}
 #login-form #modlgn-remember {
 	margin: 6px 8px 0 5px;
 }
-#login-form button {
-	margin: 5px 0 0 5px;
-}
+
 div.edit #adminForm label {display: block!important}
 div.edit #adminForm input {display: inline-block!important}

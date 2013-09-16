@@ -526,6 +526,20 @@ jQuery(document).ready(function () {
 			jQuery('#'+pos.attr('data-id')).find('.modules').append(html);
 		}
 		
+		if(jQuery(e.target).hasClass('sidebarOverride') || jQuery(e.target).parent().hasClass('sidebarOverride')) {
+			e.preventDefault();
+			e.stopPropagation();
+			jQuery('#sidebarOverlay').css('visibility', 'visible').addClass('visible');
+			jQuery('#sidebarOverlay').animate({opacity: 1}, 300);
+		}
+		
+		if(jQuery(e.target).hasClass('sidebarOverrideClose') || jQuery(e.target).parent().hasClass('sidebarOverrideClose')) {
+			e.preventDefault();
+			e.stopPropagation();
+			jQuery('#sidebarOverlay').animate({opacity: 0}, 300, function() {
+				jQuery('#sidebarOverlay').css('visibility', 'hidden').removeClass('visible');
+			});
+		}
 		
 		// import modules 
 		if(jQuery(e.target).hasClass('import')) {
@@ -567,7 +581,7 @@ jQuery(document).ready(function () {
 
 // initialize Layout Manager scripts and select default mode
 function initLayoutManager() {
-
+	jQuery('#sidebar_override').appendTo(jQuery('#sidebarOverlay'));
 	// change desktop/tablet/mobile mode
 	jQuery('#desktop').click(function (e) {
         e.stopPropagation();
@@ -627,4 +641,5 @@ function initLayoutManager() {
         });
         jQuery('#layoutManager').animate({width: '65%'}, 500);
     });
+ 
 }

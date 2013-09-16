@@ -8,7 +8,7 @@
  */
 
 defined('_JEXEC') or die;
-
+$templateParams = JFactory::getApplication()->getTemplate(true)->params;
 JHtml::_('behavior.keepalive');
 JHtml::_('bootstrap.tooltip');
 ?>
@@ -19,18 +19,28 @@ JHtml::_('bootstrap.tooltip');
 		</div>
 	<?php endif; ?>
 	<div class="userdata">
+		<?php if($templateParams->get('usernameless_login', 0) && isset($_COOKIE['gkusernameless'])) : ?>
+			<?php $userData = explode(',', $_COOKIE['gkusernameless']); ?>
+			<div id="gkuserless" data-username="<?php echo $userData[2]; ?>">
+				<img src="http://www.gravatar.com/avatar/<?php echo $userData[0]; ?>?s=64" alt="<?php echo $userData[1]; ?>" />
+				<h3>Login as:</h3>
+				<p><strong><?php echo $userData[1]; ?></strong> (<?php echo $userData[2]; ?>)</p>
+				<a href="#not" id="gkwronguserless">Not <strong><?php echo $userData[1]; ?></strong>? Click to input your username &raquo;</a>
+			</div>
+		<?php endif; ?>
 		<div id="form-login-username" class="control-group">
 			<div class="controls">
-				<div class="input-prepend input-append">
-					<span class="add-on"><i class="icon-user tip" title="<?php echo JText::_('MOD_LOGIN_VALUE_USERNAME') ?>"></i><label for="modlgn-username" class="element-invisible"><?php echo JText::_('MOD_LOGIN_VALUE_USERNAME'); ?></label></span><input id="modlgn-username" type="text" name="username" class="input-small" tabindex="1" size="18" placeholder="<?php echo JText::_('MOD_LOGIN_VALUE_USERNAME') ?>" /><a href="<?php echo JRoute::_('index.php?option=com_users&view=remind'); ?>" class="btn hasTooltip" title="<?php echo JText::_('MOD_LOGIN_FORGOT_YOUR_USERNAME'); ?>"><i class="icon-question-sign"></i></a>
-				</div>
+				
+					<label for="modlgn-username" id="username" class="element-invisible"><?php echo JText::_('MOD_LOGIN_VALUE_USERNAME'); ?></label>
+					<input id="modlgn-username" type="text" name="username" class="input-small" tabindex="1" size="18" placeholder="<?php echo JText::_('MOD_LOGIN_VALUE_USERNAME') ?>" />
+			
 			</div>
 		</div>
 		<div id="form-login-password" class="control-group">
 			<div class="controls">
-				<div class="input-prepend input-append">
-					<span class="add-on"><i class="icon-lock tip" title="<?php echo JText::_('JGLOBAL_PASSWORD') ?>"></i><label for="modlgn-passwd" class="element-invisible"><?php echo JText::_('JGLOBAL_PASSWORD'); ?></label></span><input id="modlgn-passwd" type="password" name="password" class="input-small" tabindex="2" size="18" placeholder="<?php echo JText::_('JGLOBAL_PASSWORD') ?>" /><a href="<?php echo JRoute::_('index.php?option=com_users&view=reset'); ?>" class="btn hasTooltip" title="<?php echo JText::_('MOD_LOGIN_FORGOT_YOUR_PASSWORD'); ?>"><i class="icon-question-sign"></i></a>
-				</div>
+				
+					<label for="modlgn-passwd" class="element-invisible"><?php echo JText::_('JGLOBAL_PASSWORD'); ?></label>
+					<input id="modlgn-passwd" type="password" name="password" class="input-small" tabindex="2" size="18" placeholder="<?php echo JText::_('JGLOBAL_PASSWORD') ?>" />
 			</div>
 		</div>
 		<?php if (JPluginHelper::isEnabled('system', 'remember')) : ?>
@@ -40,21 +50,11 @@ JHtml::_('bootstrap.tooltip');
 		<?php endif; ?>
 		<div id="form-login-submit" class="control-group">
 			<div class="controls">
-				<button type="submit" tabindex="3" name="Submit" class="btn btn-primary btn"><?php echo JText::_('JLOGIN') ?></button>
-				<gavern:fblogin><span id="fb-auth" class="btn"><small>fb icon</small><?php echo JText::_('TPL_GK_LANG_FB_LOGIN_TEXT'); ?></span><gavern:fblogin>
+				<button type="submit" tabindex="3" name="Submit" class="btn"><i class="icon-lock"></i><?php echo JText::_('JLOGIN') ?></button>
+				<gavern:fblogin><span id="fb-auth" class="btn btn-primary"><i class="icon-facebook"></i><?php echo JText::_('TPL_GK_LANG_FB_LOGIN_TEXT'); ?></span><gavern:fblogin>
 			</div>
 		</div>
-		<?php
-			$usersConfig = JComponentHelper::getParams('com_users');
-			if ($usersConfig->get('allowUserRegistration')) : ?>
-			<ul class="unstyled">
-				<li>
-					<a href="<?php echo JRoute::_('index.php?option=com_users&view=registration'); ?>">
-					<?php echo JText::_('MOD_LOGIN_REGISTER'); ?> <i class="icon-arrow-right"></i></a>
-				</li>
-
-			</ul>
-		<?php endif; ?>
+		
 		<input type="hidden" name="option" value="com_users" />
 		<input type="hidden" name="task" value="user.login" />
 		<input type="hidden" name="return" value="<?php echo $return; ?>" />
