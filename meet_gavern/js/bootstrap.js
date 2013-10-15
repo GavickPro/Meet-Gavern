@@ -1274,7 +1274,7 @@
         , $tip = this.tip()
         , e = $.Event('hide')
 
-      this.$element.trigger(e)
+      /*this.$element.trigger(e)*/
       if (e.isDefaultPrevented()) return
 
       $tip.removeClass('in')
