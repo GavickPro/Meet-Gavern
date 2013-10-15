@@ -150,25 +150,25 @@ function pagination_item_active(&$item)
 	// Check for "Start" item
 	if ($item->text == JText::_('JLIB_HTML_START'))
 	{
-		$display = '<i class="icomoon-first"></i>';
+		$display = '<i class="icon-double-angle-left"></i>';
 	}
 
 	// Check for "Prev" item
 	if ($item->text == JText::_('JPREV'))
 	{
-		$display = '<i class="icomoon-previous"></i>';
+		$display = '<i class="icon-angle-left"></i>';
 	}
 
 	// Check for "Next" item
 	if ($item->text == JText::_('JNEXT'))
 	{
-		$display = '<i class="icomoon-next"></i>';
+		$display = '<i class="icon-angle-right"></i>';
 	}
 
 	// Check for "End" item
 	if ($item->text == JText::_('JLIB_HTML_END'))
 	{
-		$display = '<i class="icomoon-last"></i>';
+		$display = '<i class="icon-double-angle-right"></i>';
 	}
 
 	// If the display object isn't set already, just render the item with its text
@@ -194,25 +194,25 @@ function pagination_item_inactive(&$item)
 	// Check for "Start" item
 	if ($item->text == JText::_('JLIB_HTML_START'))
 	{
-		return '<li class="disabled"><a><i class="icomoon-first"></i></a></li>';
+		return '<li class="disabled"><a>'.JText::_('JLIB_HTML_START').'</a></li>';
 	}
 
 	// Check for "Prev" item
 	if ($item->text == JText::_('JPREV'))
 	{
-		return '<li class="disabled"><a><i class="icomoon-previous"></i></a></li>';
+		return '<li class="disabled"><a>'.JText::_('JPREV').'</a></li>';
 	}
 
 	// Check for "Next" item
 	if ($item->text == JText::_('JNEXT'))
 	{
-		return '<li class="disabled"><a><i class="icomoon-next"></i></a></li>';
+		return '<li class="disabled"><a>'.JText::_('JNEXT').'</a></li>';
 	}
 
 	// Check for "End" item
 	if ($item->text == JText::_('JLIB_HTML_END'))
 	{
-		return '<li class="disabled"><a><i class="icomoon-last"></i></a></li>';
+		return '<li class="disabled"><a>'.JText::_('JLIB_HTML_END').'</a></li>';
 	}
 
 	// Check if the item is the active page
