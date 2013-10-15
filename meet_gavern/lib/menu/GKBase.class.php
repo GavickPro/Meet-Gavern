@@ -8,7 +8,7 @@
  *
  * @version             1.0.0
  * @package             Gavern Framework
- * @copyright			Copyright (C) 2010 - 2011 GavickPro. All rights reserved.
+ * @copyright           Copyright (C) 2010 - 2011 GavickPro. All rights reserved.
  *               
  */
  
@@ -80,31 +80,31 @@ if (!defined('_GK_BASE_MENU_CLASS')) {
                     }
                     // set cols to 1
                     if ($v->gkparams->get('group')) $v->gkparams->set('cols', 1);
-						
+                        
                     if ($v->gkparams->get('subcontent')=='pos') {
                         $modules = $this->loadModules ($v->gkparams);
-						if ($modules && count($modules)>0) {
-							$v->content = "";
-							$total = count($modules);
-							$cols =  min($v->gkparams->get('cols'), $total);
-							for ($col=0;$col<$cols;$col++) {
-								$pos = ($col == 0 ) ? 'first' : (($col == $cols-1) ? 'last' :'');
-								if ($cols > 1) $v->content .= $this->beginSubMenuModules($v->id, 1, $pos, $col, true);
-								$i = $col;
-								while ($i<$total) {
-									$mod = $modules[$i];
-									$i += $cols;
-									$mod_params = new JObject(json_decode($mod->params));
-									$v->content .= "<jdoc:include type=\"modules\" name=\"{$mod->position}\" style=\"".$v->gkparams->get('style','none')."\" />";
+                        if ($modules && count($modules)>0) {
+                            $v->content = "";
+                            $total = count($modules);
+                            $cols =  min($v->gkparams->get('cols'), $total);
+                            for ($col=0;$col<$cols;$col++) {
+                                $pos = ($col == 0 ) ? 'first' : (($col == $cols-1) ? 'last' :'');
+                                if ($cols > 1) $v->content .= $this->beginSubMenuModules($v->id, 1, $pos, $col, true);
+                                $i = $col;
+                                while ($i<$total) {
+                                    $mod = $modules[$i];
+                                    $i += $cols;
+                                    $mod_params = new JObject(json_decode($mod->params));
+                                    $v->content .= "<jdoc:include type=\"modules\" name=\"{$mod->position}\" style=\"".$v->gkparams->get('style','none')."\" />";
                                     
                                 }
-								if ($cols > 1) $v->content .= $this->endSubMenuModules($v->id, 1, true);
-							}
-						
-							$v->cols = $cols;
-							$v->content = trim($v->content);
-							$this->items[$v->id] = $v;
-						}
+                                if ($cols > 1) $v->content .= $this->endSubMenuModules($v->id, 1, true);
+                            }
+                        
+                            $v->cols = $cols;
+                            $v->content = trim($v->content);
+                            $this->items[$v->id] = $v;
+                        }
                     }
                     // friendly links
                     $v->flink = $v->link;
@@ -201,124 +201,124 @@ if (!defined('_GK_BASE_MENU_CLASS')) {
         }
 
         function loadModules($params) {
-		    //Load module
-		    $modules = array();
-		    switch ($params->get ('subcontent')) {
-		    	case 'pos':
-		    		$poses = $params->get ('subcontent_pos_positions','');
-		    		if (!$poses) $poses = $params->get ('subcontent-pos-positions','');
+            //Load module
+            $modules = array();
+            switch ($params->get ('subcontent')) {
+                case 'pos':
+                    $poses = $params->get ('subcontent_pos_positions','');
+                    if (!$poses) $poses = $params->get ('subcontent-pos-positions','');
 
-		    		$poses = preg_split ('/,/', $poses);
+                    $poses = preg_split ('/,/', $poses);
                     foreach ($poses as $pos) {
-						$modules = array_merge ($modules, $this->getModules ($pos));
-					}
-					return $modules;
-		    		break;
-		    	default:
-		    		return $this->loadModules_ ($params); 
-		    }
-		    return null;
-	    }
-	    
-	    function loadModules_($params) {
-		    $modules = array();
-			if (($modid = $params->get('modid'))) {
-				$ids = preg_split ('/,/', $modid);
-				foreach ($ids as $id) {
-					if ($module=$this->getModule ($id)) $modules[] = $module;
-				}
-				return $modules;
-			} 
-			
-			if (($modname = $params->get('modname'))) {
-				$names = preg_split ('/,/', $modname);
-				foreach ($names as $name) {
-					if (($module=$this->getModule (0, $name))) $modules[] = $module;
-				}
-				return $modules;
-			}
-			
-			if (($modpos = $params->get('modpos'))) {
-				$poses = preg_split ('/,/', $modpos);
-				foreach ($poses as $pos) {
-					$modules = array_merge ($modules, $this->getModules ($pos));
-				}
-				return $modules;
-			}
-			return null;
-	    }
-	    
-		function getModules ($position) {
-			return JModuleHelper::getModules ($position);
-		}
+                        $modules = array_merge ($modules, $this->getModules ($pos));
+                    }
+                    return $modules;
+                    break;
+                default:
+                    return $this->loadModules_ ($params); 
+            }
+            return null;
+        }
+        
+        function loadModules_($params) {
+            $modules = array();
+            if (($modid = $params->get('modid'))) {
+                $ids = preg_split ('/,/', $modid);
+                foreach ($ids as $id) {
+                    if ($module=$this->getModule ($id)) $modules[] = $module;
+                }
+                return $modules;
+            } 
+            
+            if (($modname = $params->get('modname'))) {
+                $names = preg_split ('/,/', $modname);
+                foreach ($names as $name) {
+                    if (($module=$this->getModule (0, $name))) $modules[] = $module;
+                }
+                return $modules;
+            }
+            
+            if (($modpos = $params->get('modpos'))) {
+                $poses = preg_split ('/,/', $modpos);
+                foreach ($poses as $pos) {
+                    $modules = array_merge ($modules, $this->getModules ($pos));
+                }
+                return $modules;
+            }
+            return null;
+        }
+        
+        function getModules ($position) {
+            return JModuleHelper::getModules ($position);
+        }
 
-		function getModule ($id=0, $name='') {
-			$Itemid = $this->Itemid;
-			$app	= JFactory::getApplication();
-			$user	= JFactory::getUser();
-			$groups	= implode(',', $user->authorisedLevels());
-			$db		= JFactory::getDbo();
+        function getModule ($id=0, $name='') {
+            $Itemid = $this->Itemid;
+            $app    = JFactory::getApplication();
+            $user   = JFactory::getUser();
+            $groups = implode(',', $user->authorisedLevels());
+            $db     = JFactory::getDbo();
 
-			$query = new JDatabaseQuery;
-			$query->select('id, title, module, position, content, showtitle, params, mm.menuid');
-			$query->from('#__modules AS m');
-			$query->join('LEFT','#__modules_menu AS mm ON mm.moduleid = m.id');
-			$query->where('m.published = 1');
-			$query->where('m.id = '.$id);
-			
-			$date = JFactory::getDate();
-			$now = $date->toMySQL();
-			$nullDate = $db->getNullDate();
-			$query->where('(m.publish_up = '.$db->Quote($nullDate).' OR m.publish_up <= '.$db->Quote($now).')');
-			$query->where('(m.publish_down = '.$db->Quote($nullDate).' OR m.publish_down >= '.$db->Quote($now).')');
-	
-			$clientid = (int) $app->getClientId();
-	
-			if (!$user->authorise('core.admin',1)) {
-				$query->where('m.access IN ('.$groups.')');
-			}
-			$query->where('m.client_id = '. $clientid);
-			if (isset($Itemid)) {
-				$query->where('(mm.menuid = '. (int) $Itemid .' OR mm.menuid <= 0)');
-			}
-			$query->order('position, ordering');
-	
-			// Filter by language
-			if ($app->isSite() && $app->getLanguageFilter()) {
-				$query->where('m.language in (' . $db->Quote(JFactory::getLanguage()->getTag()) . ',' . $db->Quote('*') . ')');
-			}
-	
-			// Set the query
-			$db->setQuery($query);
-			$cache 		= JFactory::getCache ('com_modules', 'callback');
-			$cacheid 	= md5(serialize(array($Itemid, $groups, $clientid, JFactory::getLanguage()->getTag(), $id)));
-	
-			$module = $cache->get(array($db, 'loadObject'), null, $cacheid, false);
-			
-			if (!$module) return null;
-			
-			$negId	= $Itemid ? -(int)$Itemid : false;
-			// The module is excluded if there is an explicit prohibition, or if
-			// the Itemid is missing or zero and the module is in exclude mode.
-			$negHit	= ($negId === (int) $module->menuid)
-					|| (!$negId && (int)$module->menuid < 0);
+            $query = new JDatabaseQuery;
+            $query->select('id, title, module, position, content, showtitle, params, mm.menuid');
+            $query->from('#__modules AS m');
+            $query->join('LEFT','#__modules_menu AS mm ON mm.moduleid = m.id');
+            $query->where('m.published = 1');
+            $query->where('m.id = '.$id);
+            
+            $date = JFactory::getDate();
+            $now = $date->toMySQL();
+            $nullDate = $db->getNullDate();
+            $query->where('(m.publish_up = '.$db->Quote($nullDate).' OR m.publish_up <= '.$db->Quote($now).')');
+            $query->where('(m.publish_down = '.$db->Quote($nullDate).' OR m.publish_down >= '.$db->Quote($now).')');
+    
+            $clientid = (int) $app->getClientId();
+    
+            if (!$user->authorise('core.admin',1)) {
+                $query->where('m.access IN ('.$groups.')');
+            }
+            $query->where('m.client_id = '. $clientid);
+            if (isset($Itemid)) {
+                $query->where('(mm.menuid = '. (int) $Itemid .' OR mm.menuid <= 0)');
+            }
+            $query->order('position, ordering');
+    
+            // Filter by language
+            if ($app->isSite() && $app->getLanguageFilter()) {
+                $query->where('m.language in (' . $db->Quote(JFactory::getLanguage()->getTag()) . ',' . $db->Quote('*') . ')');
+            }
+    
+            // Set the query
+            $db->setQuery($query);
+            $cache      = JFactory::getCache ('com_modules', 'callback');
+            $cacheid    = md5(serialize(array($Itemid, $groups, $clientid, JFactory::getLanguage()->getTag(), $id)));
+    
+            $module = $cache->get(array($db, 'loadObject'), null, $cacheid, false);
+            
+            if (!$module) return null;
+            
+            $negId  = $Itemid ? -(int)$Itemid : false;
+            // The module is excluded if there is an explicit prohibition, or if
+            // the Itemid is missing or zero and the module is in exclude mode.
+            $negHit = ($negId === (int) $module->menuid)
+                    || (!$negId && (int)$module->menuid < 0);
 
-			// Only accept modules without explicit exclusions.
-			if (!$negHit)
-			{
-				//determine if this is a custom module
-				$file				= $module->module;
-				$custom				= substr($file, 0, 4) == 'mod_' ?  0 : 1;
-				$module->user		= $custom;
-				// Custom module name is given by the title field, otherwise strip off "com_"
-				$module->name		= $custom ? $module->title : substr($file, 4);
-				$module->style		= null;
-				$module->position	= strtolower($module->position);
-				$clean[$module->id]	= $module;
-			}
-			return $module;
+            // Only accept modules without explicit exclusions.
+            if (!$negHit)
+            {
+                //determine if this is a custom module
+                $file               = $module->module;
+                $custom             = substr($file, 0, 4) == 'mod_' ?  0 : 1;
+                $module->user       = $custom;
+                // Custom module name is given by the title field, otherwise strip off "com_"
+                $module->name       = $custom ? $module->title : substr($file, 4);
+                $module->style      = null;
+                $module->position   = strtolower($module->position);
+                $clean[$module->id] = $module;
+            }
+            return $module;
 
-		}
+        }
 
         function genMenuItem($item, $level = 0, $pos = '', $ret = 0, $desc = true) {
             $data = '';
@@ -330,13 +330,13 @@ if (!defined('_GK_BASE_MENU_CLASS')) {
 
             $id = 'id="menu' . $tmp->id . '"';
             $tmpname = str_replace('"','&quot;', $tmpname);
-			$txt = '';
+            $txt = '';
 
-			if ($tmp->params->get('menu_image', 0)) {
-				$txt .= '<img src="'.$tmp->params->get('menu_image', 0).'" alt="'.$tmpname.'" />';
-			}
-			
-			$txt .= $tmpname;
+            if ($tmp->params->get('menu_image', 0)) {
+                $txt .= '<img src="'.$tmp->params->get('menu_image', 0).'" alt="'.$tmpname.'" />';
+            }
+            
+            $txt .= $tmpname;
 
             if ($tmp->gkparams->get('desc') && $desc) {
                 $txt .= '<small>' . JText::_($tmp->gkparams->get('desc')) . '</small>';
@@ -345,37 +345,44 @@ if (!defined('_GK_BASE_MENU_CLASS')) {
             $title = "title=\"$tmpname\"";
 
             if ($tmp->type == 'menulink') {
-                $menu = JSite::getMenu();
+                $menu = JFactory::getApplication()->getMenu();
                 $alias_item = clone ($menu->getItem($tmp->query['Itemid']));
                 if(!$alias_item) return false;
                 else $tmp->url = $alias_item->link;
             }
 
+            $rel = "";
+            if ($tmp->gkparams->get('gk_rel')) {
+                            $rel = " rel=\"nofollow\"";
+            }
             if ($txt != '') {
                 if ($tmp->type == 'separator') {
-                    $data = '<a href="#" '.$active.' '.$id.' '.$title.'>'.$txt.'</a>';
+                    $data = '<a href="#" ' . $active . ' ' . $id . ' ' . $title . ' ' . $rel . '>' . $txt . '</a>';
                 } else {
                     if ($tmp->url != null) {
                         switch ($tmp->browserNav) {
                             default:
                             case 0:
                                 // _top
-                                $data = '<a href="'.$tmp->url.'" '.$active.' '.$id.' '.$title.'>'.$txt.'</a>';
+                                $data = '<a href="' . $tmp->url . '" ' . $active . ' ' . $id . ' ' . $title .
+                                    ' ' . $rel . '>' . $txt . '</a>';
                                 break;
                             case 1:
                                 // _blank
-                                $data = '<a href="'.$tmp->url.'" target="_blank" '.$active.' '.$id.' '.$title.'>'.$txt.'</a>';
+                                $data = '<a href="' . $tmp->url . '" target="_blank" ' . $active . ' ' . $id .
+                                    ' ' . $title . ' ' . $rel . '>' . $txt . '</a>';
                                 break;
                             case 2:
-                                $data = '<a href="'.$tmp->url.'" target="_blank" '.$active.' '.$id.' '.$title.'>'.$txt.'</a>';
+                                $data = '<a href="' . $tmp->url . '" target="_blank" ' . $active . ' ' . $id .
+                                    ' ' . $title . ' ' . $rel . '>' . $txt . '</a>';
                                 break;
                         }
                     } else {
-                        $data = '<a '.$active.' '.$id.' '.$title.'>'.$txt.'</a>';
+                        $data = '<a ' . $active . ' ' . $id . ' ' . $title . ' ' . $rel . '>' . $txt . '</a>';
                     }
                 }
             }
-
+            
             if ($this->getParam('gkmenu')) {
                 if ($tmp->gkparams->get('group') && $data)
                     $data = "<header>$data</header>";
