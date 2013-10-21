@@ -41,19 +41,21 @@ a:hover.k2FeedIcon {
 	right: inherit
 }
 
-ul li.itemResizer a {
-	display: inline-block;
-	height: 15px;
-	text-indent: -9999em;
-	width: 15px
-}
+ul li.itemResizer {
+	a {
+		display: inline-block;
+		height: 15px;
+		text-indent: -9999em;
+		width: 15px
+	}
 
-ul li.itemResizer span {
-	padding: 0 6px 0 0
-}
-
-ul li.itemResizer #fontIncrease {
-	background-position: 0 5px
+	span {
+		padding: 0 6px 0 0
+	}
+	
+	#fontIncrease {
+		background-position: 0 5px
+	}
 }
 
 .smallerFontSize {
@@ -73,18 +75,18 @@ ul li.itemResizer #fontIncrease {
 	display: block;
 	line-height: 0;
 	margin: 0 0 15px;
-	overflow: hidden
-}
-.itemImage.modal {
-	position: relative;
-	top: auto;
-	left: auto;
-	z-index: 0;
-	box-shadow: none;
-	border: 0;
-	width: 100%;
-	border-radius: 0;
-	
+	overflow: hidden;
+
+	&.modal {
+		position: relative;
+		top: auto;
+		left: auto;
+		z-index: 0;
+		box-shadow: none;
+		border: 0;
+		width: 100%;
+		border-radius: 0;		
+	}
 }
 .itemsContainerWrap .itemImage {
 	margin: 0 0 16px 0;
@@ -99,15 +101,15 @@ ul li.itemResizer #fontIncrease {
 	display: block;
 	height: auto;
 	max-width: 100%;
-	padding: 0
-}
+	padding: 0;
 
-.itemImageBlock img:hover {
-	-moz-box-shadow: inset 0 0 12px rgba(0,0,0,0.4);
-	-ms-box-shadow: inset 0 0 12px rgba(0,0,0,0.4);
-	-o-box-shadow: inset 0 0 12px rgba(0,0,0,0.4);
-	-webkit-box-shadow: inset 0 0 12px rgba(0,0,0,0.4);
-	box-shadow: inset 0 0 12px rgba(0,0,0,0.4)
+	&:hover {
+		-moz-box-shadow: inset 0 0 12px rgba(0,0,0,0.4);
+		-ms-box-shadow: inset 0 0 12px rgba(0,0,0,0.4);
+		-o-box-shadow: inset 0 0 12px rgba(0,0,0,0.4);
+		-webkit-box-shadow: inset 0 0 12px rgba(0,0,0,0.4);
+		box-shadow: inset 0 0 12px rgba(0,0,0,0.4)
+	}
 }
 
 .itemImageCaption {
@@ -148,12 +150,12 @@ ul li.itemResizer #fontIncrease {
 
 .itemExtraFields {
 	font-size: 0.92*@baseBodyFontSize;
-	margin: 8px 0 24px
-}
+	margin: 8px 0 24px;
 
-.itemExtraFields h3 {
-	font-size: 0.9*@baseHeadersFontSize;
-	padding: 0 0 8px
+	h3 {
+		font-size: 0.9*@baseHeadersFontSize;
+		padding: 0 0 8px
+	}
 }
 
 small.itemDateModified {
@@ -166,9 +168,12 @@ small.itemDateModified {
 .itemRatingForm {
 	display: block;
 	line-height: 2*@baseBodyFontSizex;
-	vertical-align: middle
-}
+	vertical-align: middle;
 
+	.formLogLoading {
+		padding: 0 0 0 20px
+	}
+}
 
 .itemRatingLog {
 	color: #999;
@@ -190,10 +195,6 @@ span#formLog {
 	top: 10px
 }
 
-.itemRatingForm .formLogLoading {
-	padding: 0 0 0 20px
-}
-
 .itemRatingList,
 .itemRatingList a:hover,
 .itemRatingList .itemCurrentRating {
@@ -209,14 +210,14 @@ span#formLog {
 	overflow: hidden;
 	padding: 0;
 	position: relative;
-	width: 124px
-}
+	width: 124px;
 
-.itemRatingList li {
-	background: none;
-	border: none!important;
-	display: inline;
-	padding: 0
+	li {
+		background: none;
+		border: none!important;
+		display: inline;
+		padding: 0
+	}
 }
 
 .itemRatingList a,
@@ -238,29 +239,31 @@ span#formLog {
 	background-position: left center
 }
 
-.itemRatingList a.one-star {
-	width: 20%;
-	z-index: 6
-}
+.itemRatingList {
+	a.one-star {
+		width: 20%;
+		z-index: 6
+	}
 
-.itemRatingList a.two-stars {
-	width: 40%;
-	z-index: 5
-}
+	a.two-stars {
+		width: 40%;
+		z-index: 5
+	}
 
-.itemRatingList a.three-stars {
-	width: 60%;
-	z-index: 4
-}
+	a.three-stars {
+		width: 60%;
+		z-index: 4
+	}
 
-.itemRatingList a.four-stars {
-	width: 80%;
-	z-index: 3
-}
+	a.four-stars {
+		width: 80%;
+		z-index: 3
+	}
 
-.itemRatingList a.five-stars {
-	width: 100%;
-	z-index: 2
+	a.five-stars {
+		width: 100%;
+		z-index: 2
+	}
 }
 
 .itemRatingList .itemCurrentRating {
@@ -287,16 +290,15 @@ span#formLog {
 	margin: 0 5px 5px 0;
 	border-radius: 3px;
 	background: #5990D5;
-}
 
-.k2TagCloudBlock a:hover,
-.itemTags a:hover {
-	background: #444;
-	 -webkit-transition: all 300ms linear;
-	 -moz-transition: all 300ms linear;
- 	 -o-transition: all 300ms linear;
- 	 -ms-transition: all 300ms linear;
- 	 transition: all 300ms linear;
+	&:hover {
+		background: #444;
+		 -webkit-transition: all 300ms linear;
+		 -moz-transition: all 300ms linear;
+	 	 -o-transition: all 300ms linear;
+	 	 -ms-transition: all 300ms linear;
+	 	 transition: all 300ms linear;
+	}
 }
 
 .itemExtraFields ul li {
@@ -318,17 +320,13 @@ span#formLog {
 
 .itemLinks .itemAttachmentsBlock ul li a {
 	color: #222;
-	font-weight: 700
-}
+	font-weight: 700;
 
-.itemLinks .itemAttachmentsBlock ul li a span {
-	color: #676767;
-	font-size: 0.85*@baseBodyFontSize;
-	font-weight: 400
-}
-
-.itemAuthorData {
-	
+	span {
+		color: #676767;
+		font-size: 0.85*@baseBodyFontSize;
+		font-weight: 400
+	}
 }
 
 .itemAuthorData img {
@@ -512,17 +510,19 @@ a:hover.itemCommentsAuthor {
 section.itemList div.itemBody {
 	margin-bottom: 10px;
 }
-#itemListLinks ul {
-	margin: 12px 0 0
-}
+#itemListLinks { 
+	ul {
+		margin: 12px 0 0
+	}
 
-#itemListLinks li {
-	font-size: @baseBodyFontSize;
-	padding-left: 24px
-}
+	li {
+		font-size: @baseBodyFontSize;
+		padding-left: 24px
+	}
 
-#itemListLinks a {
-	color: #737373
+	a {
+		color: #737373
+	}
 }
 
 .k2LatestCommentsBlock .k2FeedIcon {
@@ -568,16 +568,17 @@ div .k2ItemsBlock ul li.clearList {
 	padding-left: 16px
 }
 
-.k2LatestCommentsBlock p,
-.k2LatestCommentsBlock p,
-.k2LatestCommentsBlock p a,
-.k2TopCommentersBlock p a {
-	color: #848484;
-}
+.k2LatestCommentsBlock,
+.k2TopCommentersBlock {
+	p {
+		a {
+			color: #848484;
 
-.k2LatestCommentsBlock p a:hover,
-.k2TopCommentersBlock p a:hover {
-	color: #363636;
+			&:hover {
+				color: #363636;
+			}
+		}
+	}
 }
 
 .k2LatestCommentsBlock div span,
@@ -613,51 +614,54 @@ div .k2ItemsBlock ul li.clearList {
 	padding-bottom: 10px;
 	line-height: 1.5;
 	margin: 0 0 10px 0;
-}
-.k2CommentItem > div > p {
-	background: #f5f5f5;
-	color: #888;
-	border-radius: 5px;
-	padding: 10px 15px;
+
+	> p {
+		background: #f5f5f5;
+		color: #888;
+		border-radius: 5px;
+		padding: 10px 15px;
+	}
 }
 
-.k2CommentItem span.lcItemTitle {
-	color: #2f3336;
-	display: block;
-	font-weight: 600;
-	padding: 0 0 9px
-}
+.k2CommentItem {
+	span.lcItemTitle {
+		color: #2f3336;
+		display: block;
+		font-weight: 600;
+		padding: 0 0 9px
+	}
 
-.k2CommentItem a {
-	color: #555;
-	&:hover { #888; }
-}
+	a {
+		color: #555;
+		&:hover { #888; }
+	}
 
-.k2CommentItem span.lcCommentDate {
-	color: #999;
-	display: block;
-	font-size: 0.8*@baseBodyFontSize
+	span.lcCommentDate {
+		color: #999;
+		display: block;
+		font-size: 0.8*@baseBodyFontSize
+	}
 }
 
 .k2AuthorsListBlock ul li {
 	border: none;
 	border-bottom: 1px solid #eee;
-	padding: 12px 0
-}
+	padding: 12px 0;
 
-.k2AuthorsListBlock ul li a.abAuthorLatestItem {
-	clear: both;
-	display: block;
-	font-size: 0.85*@baseBodyFontSize;
-	line-height: 1.1*@baseBodyFontSize;
-	margin: 12px 0 0;
-	padding: 0 0 0 12px
-}
+	a.abAuthorLatestItem {
+		clear: both;
+		display: block;
+		font-size: 0.85*@baseBodyFontSize;
+		line-height: 1.1*@baseBodyFontSize;
+		margin: 12px 0 0;
+		padding: 0 0 0 12px;
 
-.k2AuthorsListBlock ul li a.abAuthorLatestItem span {
-	color: #777;
-	display: block;
-	font-size: 0.8*@baseBodyFontSize
+		span {
+			color: #777;
+			display: block;
+			font-size: 0.8*@baseBodyFontSize
+		}
+	}
 }
 
 #gkRight .k2Avatar,
@@ -684,14 +688,14 @@ div .k2ItemsBlock ul li.clearList {
 }
 
 div .k2ItemsBlock ul {
-	margin-right: -20px
-}
+	margin-right: -20px;
 
-div .k2ItemsBlock ul li {
-	background: none!important;
-	list-style: none!important;
-	margin: 0 0 12px;
-	padding: 12px 20px 12px 0 !important
+	li {
+		background: none!important;
+		list-style: none!important;
+		margin: 0 0 12px;
+		padding: 12px 20px 12px 0 !important
+	}
 }
 
 a.moduleItemTitle {
@@ -706,23 +710,23 @@ a.moduleItemTitle {
 	border-bottom: 1px solid #e5e5e5;
 	font-size: 0.85*@baseBodyFontSize;
 	margin: 0 0 16px;
-	overflow: hidden
-}
+	overflow: hidden;
 
-.moduleItemAuthor a {
-	color: #333;
-	padding: 0 0 12px
+	a {
+		color: #333;
+		padding: 0 0 12px
+	}
 }
 
 .moduleItemIntrotext {
 	display: block;
 	line-height: 1.6;
-}
 
-.moduleItemIntrotext a.moduleItemImage img {
-	float: left;
-	margin: 4px 0;
-	overflow: hidden
+	a.moduleItemImage img {
+		float: left;
+		margin: 4px 0;
+		overflow: hidden
+	}
 }
 
 .moduleItemDateCreated,
@@ -779,12 +783,12 @@ a:hover.moduleItemComments {
 
 .k2LoginBlock fieldset.input {
 	margin: 0;
-	padding: 0 0 8px
-}
+	padding: 0 0 8px;
 
-.k2LoginBlock fieldset.input p {
-	margin: 0;
-	padding: 0 0 4px
+	p {
+		margin: 0;
+		padding: 0 0 4px
+	}
 }
 
 .k2LoginBlock fieldset.input p#form-login-remember label,
@@ -824,65 +828,65 @@ a:hover.moduleItemComments {
 	border-collapse: collapse;
 	margin: 0 auto;
 	width: 100%
-}
 
-.k2CalendarBlock table.calendar tr td {
-	border: 1px solid #fff;
-	padding: 6px;
-	text-align: center;
-	vertical-align: middle
-}
+	tr td {
+		border: 1px solid #fff;
+		padding: 6px;
+		text-align: center;
+		vertical-align: middle;
 
-.k2CalendarBlock table.calendar tr td.calendarNavMonthPrev,
-.k2CalendarBlock table.calendar tr td.calendarNavMonthNext {
-	font-size: 1.15*@baseBodyFontSize !important;
-	text-align: center
-}
+		&.calendarNavMonthPrev,
+		&.calendarNavMonthNext {
+			font-size: 1.15*@baseBodyFontSize !important;
+			text-align: center
+		}
 
-.k2CalendarBlock table.calendar tr td.calendarDayName {
-	background: #f5f5f5;
-	color: #333;
-	width: 14.2%
-}
+		&.calendarDayName {
+			background: #f5f5f5;
+			color: #333;
+			width: 14.2%
+		}
 
-.k2CalendarBlock table.calendar tr td.calendarDateEmpty {
-	background: #fbfbfb
-}
+		&.calendarDateEmpty {
+			background: #fbfbfb
+		}
 
-.k2CalendarBlock table.calendar tr td.calendarDateLinked a {
-	display: block;
-	padding: 2px
-}
+		&.calendarDateLinked a {
+			display: block;
+			padding: 2px;
 
-.k2CalendarBlock table.calendar tr td.calendarDateLinked a:hover {
-	color: #F5B35E!important;
-	display: block;
-	padding: 6px;
-}
+			&:hover {
+				color: #F5B35E!important;
+				display: block;
+				padding: 6px;
+			}
+		}
 
-.k2CalendarBlock table.calendar tr td.calendarToday {
-	background: #7AE;
-	color: #fff
-}
+		&.calendarToday {
+			background: #7AE;
+			color: #fff
+		}
 
-.k2CalendarBlock table.calendar tr td.calendarTodayLinked {
-	background: #f5f5f5;
-	padding: 0
-}
+		&.calendarTodayLinked {
+			background: #f5f5f5;
+			padding: 0;
 
-table.calendar tr td.calendarTodayLinked a {
-	color: #7AE;
-	display: block;
-	font-size: 0.92*@baseBodyFontSize;
-	font-weight: 700;
-	padding: 2px
-}
+			a {
+				color: #7AE;
+				display: block;
+				font-size: 0.92*@baseBodyFontSize;
+				font-weight: 700;
+				padding: 2px;
 
-.k2CalendarBlock table.calendar tr td.calendarTodayLinked a:hover {
-	background: #252525;
-	color: #fff;
-	display: block;
-	padding: 2px
+				&:hover {
+					background: #252525;
+					color: #fff;
+					display: block;
+					padding: 2px
+				}
+			}
+		}
+	}
 }
 
 .calendarNavLink {
@@ -917,31 +921,34 @@ table.calendar tr td.calendarTodayLinked a {
 	width: auto
 }
 
-#k2Container .gsc-control {
-	width: 100%
-}
-#k2Container header h1 {
-	margin-bottom: 22px;
-}
+#k2Container {
+	.gsc-control {
+		width: 100%
+	}
+	
+	header h1 {
+		margin-bottom: 22px;
+	}
 
-#k2Container .itemReadMore {
-	border-radius: 2px;
-	margin: 0 5px 2px 2px;
-	padding: 0 10px;
-	height: 28px;
-	display: inline-block;
-	line-height: 2.15*@baseBodyFontSize;
-	background: #7ae;
-	color: #fff;
-	-webkit-transition: all .3s ease-out;
-	-moz-transition: all .3s ease-out;
-	 -o-transition: all .3s ease-out;
-	 -ms-transition: all .3s ease-out;
-	 transition: all .3s ease-out;
-}
+	.itemReadMore {
+		border-radius: 2px;
+		margin: 0 5px 2px 2px;
+		padding: 0 10px;
+		height: 28px;
+		display: inline-block;
+		line-height: 2.15*@baseBodyFontSize;
+		background: #7ae;
+		color: #fff;
+		-webkit-transition: all .3s ease-out;
+		-moz-transition: all .3s ease-out;
+		 -o-transition: all .3s ease-out;
+		 -ms-transition: all .3s ease-out;
+		 transition: all .3s ease-out;
 
-#k2Container .itemReadMore:hover {
-	background: #333;
+		:hover {
+			background: #333;
+		}
+	}
 }
 
 span.ubUserEmail {
