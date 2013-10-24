@@ -7,20 +7,20 @@
 @page: 'normal';
 
 body {
-	color:#777;
+	color: @textcolor;
 	font-size: @baseBodyFontSize;
 	font-weight: normal;
 	line-height: 1.85*@baseBodyFontSize;
 }
 
 a {
-	color: #5990de;
+	color: @color1;
 	outline: none!important;
 
 	&:active,
 	&:focus,
 	&:hover {
-		color: #7ae;
+		color: @lightcolor1;
 		text-decoration: none;
 	}
 }
@@ -31,7 +31,7 @@ h3,
 h4,
 h5,
 h6 {
-	color: #444;
+	color: @headerscolor;
 	font-weight: 400;
 }
 
@@ -48,9 +48,9 @@ h6 {
 /* Header */
 body > header {
 	> .row {
-		background: #fff;
-		border-top: 1px solid #ddd;
-		border-bottom: 1px solid #ddd;
+		background: @lightcolor;
+		border-top: 1px solid @lightgrey;
+		border-bottom: 1px solid @lightgrey;
 		margin: 10px 0 20px 0;
 		padding: 10px 0;
 
@@ -77,7 +77,7 @@ body > header {
 	}
 
 	& + section#gk-main:before {
-		border-top: 1px solid #eee;
+		border-top: 1px solid @lightgrey;
 		content: "";
 		display: block;
 		margin-top: 0;
@@ -90,8 +90,8 @@ body > header {
 
 /* Content */
 #gk-header {
-	background: #f5f5f5;
-	.box-shadow(inset 0 0 3px #ebebeb);
+	background: @lightbg;
+	.box-shadow(inset 0 0 3px @lightgrey);
 	margin-bottom: 32px;
 	padding: 30px 0;
 }
@@ -101,14 +101,14 @@ body > header {
 }
 
 #gk-bottom {
-	border-top: 1px solid #e5e5e5;
+	border-top: 1px solid @lightgrey;
 	margin: 30px 0;
 	padding: 45px 0 0 0;
 }
 
 /* Footer */
 body > footer {
-	border-top: 1px solid #e5e5e5;
+	border-top: 1px solid @lightgrey;
 	font-size: 0.85*@baseBodyFontSize;
 	padding: 12px 0;
 
@@ -122,13 +122,13 @@ body > footer {
 	}
 
 	a {
-		color: #aaa;
+		color: lighten(@lighttext, 10%);
 
 		&:active,
 		&:focus,
 		&:hover {
 			background: transparent!important;
-			color: #5990de;
+			color: @color1;
 		}
 	}
 
@@ -167,7 +167,7 @@ footer {
 	}
 
 	.gk-copyrigths {
-		color: #aaa;
+		color: lighten(@lighttext, 10%);
 	}
 }
 
@@ -201,12 +201,12 @@ div.box.dlastrow {
 
 #gk-bottom .box {
 	a {
-		color: #777;
+		color: @textcolor;
 
 		&:active,
 		&:focus,
 		&:hover {
-			color: #333;
+			color: @darkcolor;
 		}
 	}
 
@@ -218,72 +218,72 @@ div.box.dlastrow {
 
 /* Suffix blue & blue-header */
 .box.blue-header {
-	border-color: #5990de!important;
+	border-color: @color1!important;
 
 	.header {
-		color: #5990de;
+		color: @color1;
 	}
 }
 
 
 .box.blue {
-	background: #5990de;
+	background: @color1;
 	.border-radius;
-	color: #fff;
+	color: @lightcolor;
 	padding: 10px 15px;
 
 	.header {
-		color: #fff;
+		color: @lightcolor;
 	}
 }
 
 .box.blue a {
-	color: #e8effa;
+	color: @verylightcolor1;
 
 	&:active,
 	&:focus,
 	&:hover {
-		color: #fff;
+		color: @lightcolor;
 	}
 }
 
 /* Suffix red & red-header */
 .box.red-header {
-	border-color: #dd514c!important;
+	border-color: @color3!important;
 
 	.header {
-		color: #dd514c;
+		color: @color3;
 	}
 
 	a {
-		color: #dd514c;
+		color: @color3;
 
 		&:active,
 		&:focus,
 		&:hover {
-			color: #ff736e;
+			color: @lightcolor3;
 		}
 	}
 }
 
 
 .box.red {
-	background: #dd514c;
+	background: @color3;
 	.border-radius;
-	color: #fff;
+	color: @lightcolor;
 	padding: 10px 15px;
 
 	.header {
-		color: #fff;
+		color: @lightcolor;
 	}
 
 	a {
-		color: #ffc4c2;
+		color: @verylightcolor3;
 
 		&:active,
 		&:focus,
 		&:hover {
-			color: #fff;
+			color: @lightcolor;
 		}
 	}
 }
@@ -291,102 +291,102 @@ div.box.dlastrow {
 
 /* Suffix green & green-header */
 .box.green-header {
-	border-color: #5eb95e!important;
+	border-color: @color4!important;
 
 	.header {
-		color: #5eb95e;
+		color: @color4;
 	}
 
 	a {
-		color: #5eb95e;
+		color: @color4;
 
 		&:active,
 		&:focus,
 		&:hover {
-			color: #7fdb7f;
+			color: @lightcolor4;
 		}
 	}
 }
 
 
 .box.green {
-	background: #5eb95e;
+	background: @color4;
 	.border-radius;
-	color: #fff;
+	color: @lightcolor;
 	padding: 10px 15px;
 
 	.header {
-		color: #fff;
+		color: @lightcolor;
 	}
 
 	a {
-		color: #e4f3e4;
+		color: @verylightcolor4;
 		
 		&:active,
 		&:focus,
 		&:hover {
-			color: #fff;
+			color: @lightcolor;
 		}
 	}
 }
 
 /* Suffix yellow & yellow-header */
 .box.yellow-header {
-	border-color: #fbb450!important;
+	border-color: @color2!important;
 
 	.header {
-		color: #fbb450;
+		color: @color2;
 	}
 
 	a {
-		color: #fbb450;
+		color: @color2;
 
 		&:active,
 		&:focus,
 		&:hover {
-			color: #fdd672;
+			color: @lightcolor2;
 		}
 	}
 }
 
 .box.yellow {
-	background: #fbb450;
+	background: @color2;
 	.border-radius;
-	color: #fff;
+	color: @lightcolor;
 	padding: 10px 15px;
 
 	.header {
-		color: #fff;
+		color: @lightcolor;
 	}
 
 	a {
-		color: #fffbc7;
+		color: @verylightcolor2;
 
 		&:active,
 		&:focus,
 		&:hover {
-			color: #fff;
+			color: @lightcolor;
 		}
 	}
 }
 
 /* Suffix border1 */
 .box.border1 {
-	border: 1px solid #e5e5e5;
+	border: 1px solid @lightgrey;
 	.border-radius;
 	padding: 10px 15px;
 }
 
 /* Suffix border2 */
 .box.border2 {
-	border: 3px solid #e5e5e5;
+	border: 3px solid @lightgrey;
 	.border-radius;
 	padding: 10px 15px;
 }
 
 /* Suffix border3 */
 .box.border3 {
-	border: 2px dashed #e5e5e5;
+	border: 2px dashed @lightgrey;
 	.border-radius;
 	padding: 10px 15px;
 }
@@ -405,9 +405,9 @@ div.box.dlastrow {
 	position: relative;
 
 	&:after {
-		background: #dd514c;
+		background: @color3;
 		.border-radius;
-		color: #fff;
+		color: @lightcolor;
 		content: "HOT";
 		display: block;
 		font-size: 0.55*@baseHeadersFontSize;
@@ -422,17 +422,17 @@ div.box.dlastrow {
 }
 
 .box.new:after {
-	background: #5990de;
+	background: @color1;
 	content: "NEW";
 }
 
 .box.coming:after {
-	background: #fbb450;
+	background: @color2;
 	content: "COMING";
 }
 
 .box.popular:after {
-	background: #5eb95e;
+	background: @color4;
 	content: "POPULAR";
 }
 
@@ -444,8 +444,8 @@ div.box.dlastrow {
 	.new:after,
 	.coming:after,
 	.popular:after {
-		background: #fff!important;
-		color: #dd514c!important;
+		background: @lightcolor!important;
+		color: @color3!important;
 		right: 12px!important;
 		top: 12px!important;
 	}
@@ -456,7 +456,7 @@ div.box.dlastrow {
 	.new:after,
 	.coming:after,
 	.popular:after {
-		color: #5990de!important;	
+		color: @color1!important;	
 	}
 }
 
@@ -465,7 +465,7 @@ div.box.dlastrow {
 	.new:after,
 	.coming:after,
 	.popular:after {
-		color: #5eb95e!important;
+		color: @color4!important;
 	}
 }
 
@@ -474,7 +474,7 @@ div.box.dlastrow {
 	.new:after,
 	.coming:after,
 	.popular:after {
-		color: #fbb450!important;
+		color: @color2!important;
 	}
 }
 
@@ -493,7 +493,7 @@ div.box.dlastrow {
 	width: 22px;
 
 	&:hover {
-		background-color: #fff;
+		background-color: @lightcolor;
 		height: 30px;
 		margin: 8px 5px;
 		width: 30px;
@@ -501,25 +501,25 @@ div.box.dlastrow {
 }
 
 .gk-facebook-icon {
-	background: #727272 url('../images/fb_icon.png') no-repeat center center;
+	background: @textcolor url('../images/fb_icon.png') no-repeat center center;
 }
 
 .gk-twitter-icon {
-	background: #727272 url('../images/twitter_icon.png') no-repeat center center;
+	background: @textcolor url('../images/twitter_icon.png') no-repeat center center;
 }
 
 .gk-gplus-icon {
-	background: #727272 url('../images/gplus_icon.png') no-repeat center center;
+	background: @textcolor url('../images/gplus_icon.png') no-repeat center center;
 }
 
 .gk-rss-icon {
-	background: #727272 url('../images/rss_icon.png') no-repeat center center;
+	background: @textcolor url('../images/rss_icon.png') no-repeat center center;
 }
 
 #gk-social-icons {
-	background: #333;
+	background: @darkcolor;
 	.border-radius(0 3px 3px 0);
-	.box-shadow(0 0 6px #939393);
+	.box-shadow(0 0 6px @darkshadow);
 	left: 0;
 	padding: 10px 0;
 	position: fixed;
@@ -541,7 +541,7 @@ div.box.dlastrow {
 
 /* Userless */
 #gkuserless {
-	border: 1px solid #e5e5e5;
+	border: 1px solid @lightgrey;
 	.border-radius;
 	.box-sizing;
 	margin: 0 auto 10px auto;
@@ -574,18 +574,18 @@ div.userdata span.add-on i {
 	margin-left: 15px;
 	
 	> a {
-		color: #777;
+		color: @textcolor;
 		padding: 4px 8px;
 		font-size: 1.1*@baseBodyFontSize;
 		min-height: 67px;
 		line-height: 67px;
-		border: 1px solid #ddd;
+		border: 1px solid @lightgrey;
 		padding: 8px 10px;
 		.border-radius;
 		.transition(all 0.5s ease-out);
 		
 		&:hover {
-			border: 1px solid #7ae;
+			border: 1px solid @lightcolor1;
 		}
 	}
 }
@@ -658,7 +658,7 @@ span i { top: 0!important; margin-right: 5px}
 	}
 	.modal-footer {
 		a { 
-			color: #666;
+			color: @textcolor;
 			
 			&:hover {
 				text-decoration: underline;

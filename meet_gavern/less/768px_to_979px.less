@@ -35,8 +35,8 @@
         }
         
         > ul {
-            background: #fff;
-            border: 1px solid #eee;
+            background: @lightcolor;
+            border: 1px solid @lightgrey;
             .border-radius(5px);
             margin-bottom: 20px!important;
             
@@ -56,8 +56,8 @@
                 a,
                 li a,
                 ul li a {
-                    border-top: 1px solid #e5e5e5;
-                    color: #777!important;
+                    border-top: 1px solid @lightgrey;
+                    color: @textcolor!important;
                     font-weight: normal!important;
                     line-height: 3*@baseBodyFontSize !important;
                     margin: 0!important;
@@ -71,8 +71,8 @@
                     &:active,
                     &:focus,
                     &:hover {
-                        background: #f5f5f5!important;
-                        color: #585656!important;
+                        background: @lightbg!important;
+                        color: @darkcolor!important;
                     }        
                 }        
                 
@@ -92,7 +92,7 @@
             }
             
             ul {
-                background: #fff;
+                background: @lightcolor;
                 border: none!important;
                 .box-shadow(none!important);
                 position: static;

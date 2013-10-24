@@ -7,7 +7,7 @@
 .k2FeedIcon a,
 a.k2FeedIcon {
 	background: url('../images/k2/rss.png') no-repeat 0 0;
-	color: #333 !important;
+	color: @darkcolor !important;
 	display: block;
 	float: left;
 	height: 21px;
@@ -17,7 +17,7 @@ a.k2FeedIcon {
 
 .k2FeedIcon a:hover,
 a:hover.k2FeedIcon {
-	color: #222
+	color: @iconcolor
 }
 
 .k2FeedIcon a {
@@ -25,8 +25,8 @@ a:hover.k2FeedIcon {
 }
 
 .itemFeature {
-	background: #fe654c;
-	color: #fff;
+	background: @color2;
+	color: @lightcolor;
 	font-size: @baseBodyFontSize;
 	font-weight: 600;
 	padding: 6px 16px;
@@ -105,8 +105,8 @@ ul li.itemResizer {
 }
 
 .itemImageCaption {
-	border-bottom: 1px solid #eee;
-	color: #999;
+	border-bottom: 1px solid @lightgrey;
+	color: @lighttext;
 	display: block;
 	font-size: 0.92*@baseBodyFontSize;
 	margin: -40px 0 40px;
@@ -133,7 +133,7 @@ ul li.itemResizer {
 }
 
 .itemSocialSharing {
-	border-top: 1px solid #e5e5e5;
+	border-top: 1px solid @lightgrey;
 	float: left;
 	overflow: visible!important;
 	padding: 20px 0;
@@ -151,7 +151,7 @@ ul li.itemResizer {
 }
 
 small.itemDateModified {
-	color: #999;
+	color: @lighttext;
 	display: block;
 	font-style: italic;
 	text-align: right
@@ -168,7 +168,7 @@ small.itemDateModified {
 }
 
 .itemRatingLog {
-	color: #999;
+	color: @lighttext;
 	float: left;
 	font-size: 0.85*@baseBodyFontSize;
 	line-height: 1.9*@baseBodyFontSize;
@@ -176,9 +176,9 @@ small.itemDateModified {
 }
 
 span#formLog {
-	background: #418cd1;
+	background: @color1;
 	clear: both;
-	color: #FFF;
+	color: @lightcolor;
 	display: block;
 	float: none;
 	margin: 10px 0;
@@ -276,21 +276,21 @@ span#formLog {
 .itemTags a {
 	font-size: 0.92*@baseBodyFontSize;
 	display: block;
-	color: #fff;
+	color: @lightcolor;
 	float: left;
 	padding: 3px 6px;
 	margin: 0 5px 5px 0;
 	border-radius: 3px;
-	background: #5990D5;
+	background: @color1;
 
 	&:hover {
-		background: #444;
+		background: @headerscolor;
 	 	.transition(all .3ms linear);
 	}
 }
 
 .itemExtraFields ul li {
-	border-top: 1px solid #eee;
+	border-top: 1px solid @lightgrey;
 	list-style: none;
 	padding: 5px 0
 }
@@ -300,18 +300,18 @@ span#formLog {
 }
 
 .itemAttachmentsBlock {
-	border: 1px solid #EAE8CC;
+	border: 1px solid @lightgrey;
 	margin: 0 0 48px;
 	min-height: 38px;
 	padding: 10px 10px 12px 80px
 }
 
 .itemLinks .itemAttachmentsBlock ul li a {
-	color: #222;
+	color: @iconcolor;
 	font-weight: 700;
 
 	span {
-		color: #676767;
+		color: @textcolor;
 		font-size: 0.85*@baseBodyFontSize;
 		font-weight: 400
 	}
@@ -354,12 +354,12 @@ span#formLog {
 .itemAuthorContent ul li a,
 .itemNavigation {
 	clear: both;
-	color: #848484;
+	color: @lighttext;
 	padding: 0
 }
 
 .itemComments h3 {
-	border-top: 1px solid #e5e5e5;
+	border-top: 1px solid @lightgrey;
 	font-size: 1.3*@baseHeadersFontSize;
 	font-weight: 300;
 	padding: 20px 0 0
@@ -370,13 +370,13 @@ span#formLog {
 }
 
 a.itemCommentsAuthor {
-	color: #333 !important;
+	color: @darkcolor !important;
 	font-size: 1.1*@baseBodyFontSize;
 	font-weight: 600
 }
 
 a:hover.itemCommentsAuthor {
-	color: #7AE
+	color: @lightcolor1
 }
 
 .itemCommentsForm label {
@@ -397,7 +397,7 @@ a:hover.itemCommentsAuthor {
 }
 
 .itemCommentsForm .itemCommentsFormNotes {
-	color: #999;
+	color: @lighttext;
 	font-size: 0.92*@baseBodyFontSize;
 }
 
@@ -415,7 +415,7 @@ a:hover.itemCommentsAuthor {
 }
 
 .itemComments .itemCommentsList li {
-	border-top: 1px dotted #e5e5e5;
+	border-top: 1px dotted @lightgrey;
 	margin: 24px 0 0;
 	padding: 24px 0 0
 }
@@ -435,7 +435,7 @@ a:hover.itemCommentsAuthor {
 }
 
 .itemComments .itemCommentsList li div div span {
-	color: #999;
+	color: @lighttext;
 	font-size: 0.85*@baseBodyFontSize;
 	margin-right: 16px
 }
@@ -467,8 +467,8 @@ a:hover.itemCommentsAuthor {
 }
 
 .itemView header h2 a {
-	color: #444;
-	&:hover { color: #7ae; }
+	color: @headerscolor;
+	&:hover { color: @lightcolor1; }
 }
 
 .itemView header ul {
@@ -480,13 +480,16 @@ a:hover.itemCommentsAuthor {
 		margin-right: 10px;
 		
 		a { 
-			color: #999;
-			&:hover { color: #333}
+			color: @lighttext;
+			&:hover { color: @darkcolor}
 		} 
 	}
 }
 
-.genericView header h1 { font-size: 2.2*@baseHeadersFontSize; color: #FE654C }
+.genericView header h1 { 
+	font-size: 2.2*@baseHeadersFontSize; 
+	color: @headerscolor;
+}
 .subCategoryContainer {
 	float: left;
 	margin-bottom: 32px
@@ -509,7 +512,7 @@ section.itemList div.itemBody {
 	}
 
 	a {
-		color: #737373
+		color: @textcolor;
 	}
 }
 
@@ -520,7 +523,7 @@ section.itemList div.itemBody {
 .k2LatestCommentsBlock ul li,
 .k2TopCommentersBlock ul li {
 	font-size: @baseBodyFontSize;
-	color: #555;
+	color: @headerscolor;
 	list-style: none!important;
 	
 	.lcAvatar {
@@ -530,7 +533,7 @@ section.itemList div.itemBody {
 	.lcUsername {
 		font-weight: bold;
 		font-size: @baseBodyFontSize;
-		color: #555;
+		color: @headerscolor;
 		line-height: 1.4*@baseBodyFontSize;
 	}
 	.lcCommentDate {
@@ -539,7 +542,7 @@ section.itemList div.itemBody {
 		line-height: 1.15*@baseBodyFontSize;
 		
 		a {
-			color: #333;
+			color: @darkcolor;
 		}
 	}
 }
@@ -560,10 +563,10 @@ div .k2ItemsBlock ul li.clearList {
 .k2TopCommentersBlock {
 	p {
 		a {
-			color: #848484;
+			color: @lighttext;
 
 			&:hover {
-				color: #363636;
+				color: @darkcolor;
 			}
 		}
 	}
@@ -571,7 +574,7 @@ div .k2ItemsBlock ul li.clearList {
 
 .k2LatestCommentsBlock div span,
 .k2TopCommentersBlock div span {
-	color: #999;
+	color: @lighttext;
 	display: block;
 	font-size: 0.85*@baseBodyFontSize;
 }
@@ -604,8 +607,8 @@ div .k2ItemsBlock ul li.clearList {
 	margin: 0 0 10px 0;
 
 	> p {
-		background: #f5f5f5;
-		color: #888;
+		background: @lightbg;
+		color: @lighttext;
 		border-radius: 5px;
 		padding: 10px 15px;
 	}
@@ -613,21 +616,21 @@ div .k2ItemsBlock ul li.clearList {
 
 .k2CommentItem {
 	span.lcItemTitle {
-		color: #2f3336;
+		color: @darkcolor;
 		display: block;
 		font-weight: 600;
 		padding: 0 0 9px
 	}
 
 	a {
-		color: #555;
+		color: @headerscolor;
 		&:hover { 
-			color: #888; 
+			color: @lighttext; 
 		}
 	}
 
 	span.lcCommentDate {
-		color: #999;
+		color: @lighttext;
 		display: block;
 		font-size: 0.8*@baseBodyFontSize
 	}
@@ -635,7 +638,7 @@ div .k2ItemsBlock ul li.clearList {
 
 .k2AuthorsListBlock ul li {
 	border: none;
-	border-bottom: 1px solid #eee;
+	border-bottom: 1px solid @lightgrey;
 	padding: 12px 0;
 
 	a.abAuthorLatestItem {
@@ -647,7 +650,7 @@ div .k2ItemsBlock ul li.clearList {
 		padding: 0 0 0 12px;
 
 		span {
-			color: #777;
+			color: @textcolor;
 			display: block;
 			font-size: 0.8*@baseBodyFontSize
 		}
@@ -656,23 +659,23 @@ div .k2ItemsBlock ul li.clearList {
 
 #gkRight .k2Avatar,
 #gkLeft .k2Avatar {
-	border-color: #fff
+	border-color: @lightcolor
 }
 
 .tcUsername {
-	color: #333;
+	color: @darkcolor;
 	font-size: 1.4*@baseBodyFontSize
 }
 
 .tcLatestComment {
-	color: #737373;
+	color: @textcolor;
 	display: block;
 	font-size: @baseBodyFontSize;
 	margin: 6px 0
 }
 
 .tcLatestCommentDate {
-	color: #999;
+	color: @lighttext;
 	display: block;
 	font-size: 0.85*@baseBodyFontSize
 }
@@ -689,7 +692,7 @@ div .k2ItemsBlock ul {
 }
 
 a.moduleItemTitle {
-	color: #2f3336;
+	color: @darkcolor;
 	display: block;
 	font-size: 1.1*@baseBodyFontSize;
 	font-weight: 400;
@@ -697,13 +700,13 @@ a.moduleItemTitle {
 }
 
 .moduleItemAuthor {
-	border-bottom: 1px solid #e5e5e5;
+	border-bottom: 1px solid @lightgrey;
 	font-size: 0.85*@baseBodyFontSize;
 	margin: 0 0 16px;
 	overflow: hidden;
 
 	a {
-		color: #333;
+		color: @darkcolor;
 		padding: 0 0 12px
 	}
 }
@@ -721,7 +724,7 @@ a.moduleItemTitle {
 
 .moduleItemDateCreated,
 .moduleItemCategory {
-	color: #999;
+	color: @lighttext;
 	font: normal 10px Verdana, Geneva, sans-serif
 }
 
@@ -735,14 +738,14 @@ a.moduleItemTitle {
 
 .moduleItemTags,
 .moduleAttachments {
-	border-top: 1px solid #e5e5e5;
+	border-top: 1px solid @lightgrey;
 	margin: 12px 0 0;
 	overflow: hidden;
 	padding: 12px 0 0
 }
 
 .moduleItemTags strong {
-	color: #2f3336;
+	color: @darkcolor;
 	font-size: 0.92*@baseBodyFontSize
 }
 
@@ -787,7 +790,7 @@ a:hover.moduleItemComments {
 }
 
 .k2UserBlock p.ubGreeting {
-	border-bottom: 1px dotted #eee
+	border-bottom: 1px dotted @lightgrey
 }
 
 .k2UserBlock .k2UserBlockDetails span.ubName {
@@ -797,7 +800,7 @@ a:hover.moduleItemComments {
 }
 
 .k2BreadcrumbsBlock span.bcTitle {
-	color: #999;
+	color: @lighttext;
 	padding: 0 4px 0 0
 }
 
@@ -811,7 +814,7 @@ a:hover.moduleItemComments {
 }
 
 .k2CalendarLoader {
-	background: #fff
+	background: @lightcolor
 }
 
 .k2CalendarBlock table.calendar {
@@ -820,7 +823,7 @@ a:hover.moduleItemComments {
 	width: 100%
 
 	tr td {
-		border: 1px solid #fff;
+		border: 1px solid @lightcolor;
 		padding: 6px;
 		text-align: center;
 		vertical-align: middle;
@@ -832,13 +835,13 @@ a:hover.moduleItemComments {
 		}
 
 		&.calendarDayName {
-			background: #f5f5f5;
-			color: #333;
+			background: @lightbg;
+			color: @darkcolor;
 			width: 14.2%
 		}
 
 		&.calendarDateEmpty {
-			background: #fbfbfb
+			background: @lightbg;
 		}
 
 		&.calendarDateLinked a {
@@ -846,31 +849,31 @@ a:hover.moduleItemComments {
 			padding: 2px;
 
 			&:hover {
-				color: #F5B35E!important;
+				color: @color2!important;
 				display: block;
 				padding: 6px;
 			}
 		}
 
 		&.calendarToday {
-			background: #7AE;
-			color: #fff
+			background: @lightcolor1;
+			color: @lightcolor
 		}
 
 		&.calendarTodayLinked {
-			background: #f5f5f5;
+			background: @lightbg;
 			padding: 0;
 
 			a {
-				color: #7AE;
+				color: @lightcolor1;
 				display: block;
 				font-size: 0.92*@baseBodyFontSize;
 				font-weight: 700;
 				padding: 2px;
 
 				&:hover {
-					background: #252525;
-					color: #fff;
+					background: @darkcolor;
+					color: @lightcolor;
 					display: block;
 					padding: 2px
 				}
@@ -880,12 +883,14 @@ a:hover.moduleItemComments {
 }
 
 .calendarNavLink {
-	color: #7AE;
-	&:hover { color: #F5B35E }
+	color: @lightcolor1;
+	&:hover { 
+		color: @color2;
+	}
 }
 
 .calendarCurrentMonth {
-	color: #333;
+	color: @darkcolor;
 	font-weight: 600
 }
 
@@ -893,7 +898,7 @@ a:hover.moduleItemComments {
 .gkColumns > aside .k2CalendarBlock table.calendar tr td {
 	background: none;
 	border: none;
-	color: #fff
+	color: @lightcolor
 }
 
 .gkColumns > aside .k2CalendarBlock table.calendar tr td.calendarDateLinked a {
@@ -904,7 +909,7 @@ a:hover.moduleItemComments {
 .gkColumns > aside .calendarNavMonthPrev,
 .gkColumns > aside .calendarCurrentMonth,
 .gkColumns > aside .calendarNavMonthNext {
-	background: #2f3336!important
+	background: @darkcolor!important
 }
 
 .k2CategorySelectBlock form select {
@@ -927,12 +932,12 @@ a:hover.moduleItemComments {
 		height: 28px;
 		display: inline-block;
 		line-height: 2.15*@baseBodyFontSize;
-		background: #7ae;
-		color: #fff;
+		background: @lightcolor1;
+		color: @lightcolor;
 		.transition(all .3s ease-out);
 
 		:hover {
-			background: #333;
+			background: @darkcolor;
 		}
 	}
 }
@@ -965,7 +970,7 @@ span.ubUserEmail a {
 .k2ArchivesBlock b {
 	font-size: 0.85*@baseBodyFontSize;
 	font-weight: 400;
-	color: #999
+	color: @lighttext
 }
 
 li.counter {
@@ -1035,7 +1040,7 @@ li.counter {
 
 .itemRatingBlock,
 .itemListSubCategories {
-	border-top: 1px solid #E5E5E5;
+	border-top: 1px solid @lightgrey;
 	margin: 30px 0 0;
 	overflow: hidden;
 	padding: 15px 0;
@@ -1053,8 +1058,8 @@ li.counter {
 .itemAuthorData {
 	clear: both;
 	overflow: hidden;
-	background: #FAFAFA;
-	border: 1px solid #F4F4F4;
+	background: @lightbg;
+	border: 1px solid @lightgrey;
 	min-height: 48px;
 	padding: 15px 20px;
 	margin-bottom: 20px;
@@ -1063,7 +1068,7 @@ li.counter {
 .itemAuthorData a,
 .itemAuthorContent ul li a:hover,
 #itemListLinks a:hover {
-	color: #2f3336
+	color: @darkcolor;
 }
 
 .itemAuthorData .itemAuthorContent,
@@ -1142,11 +1147,11 @@ a.ubUserURL:hover {
 .k2ArchivesBlock ul li b { }
 
 .k2ArchivesBlock ul li a,
-.k2CategoriesListBlock ul li a { color: #777 }
+.k2CategoriesListBlock ul li a { color: @textcolor }
 
 .k2ArchivesBlock ul li a:hover,
 .k2CategoriesListBlock ul li a:hover {
-	color: #7AE;
+	color: @lightcolor1;
 	.transition(all 0.2s ease-out);
 }
 

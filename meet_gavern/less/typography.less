@@ -6,7 +6,7 @@
 
 /* Header elements */
 .gk-big-header {
-	color: #333;
+	color: @darkcolor;
 	font-size: 5.6*@baseHeadersFontSize;
 	font-weight: 700;
 	line-height: 1.6;
@@ -20,7 +20,7 @@
 	        transition: filter 2.0s ease-out, font-size 0.5s ease-out, line-height 0.5s ease-out;
 	
 	span {
-		color: #5990de;
+		color: @color1;
 	}
 }
 
@@ -29,14 +29,14 @@ body.loaded .gk-big-header {
 }
 
 .gk-medium-header {
-	color: #333;
+	color: @darkcolor;
 	font-size: 1.4*@baseHeadersFontSize;
 	font-weight: 300;
 	line-height: 1.2;
 }
 
 .gk-small-header {
-	color: #7c7c7c;
+	color: @textcolor;
 	font-size: 1.2*@baseHeadersFontSize;
 	font-weight: 100;
 	line-height: 1.2;
@@ -53,7 +53,7 @@ body.loaded .gk-big-header {
 .gk-blue-button,
 .gk-yellow-button {
 	.border-radius(5px);
-	color: #fff;
+	color: @lightcolor;
 	display: inline-block;
 	font-size: 2.3*@baseBodyFontSize;
 	font-weight: 300;
@@ -67,8 +67,8 @@ body.loaded .gk-big-header {
 	&:active,
 	&:focus,
 	&:hover {
-		background: #333;
-		color: #fff;
+		background: @darkcolor;
+		color: @lightcolor;
 	}
 
 	&:first-child,
@@ -78,11 +78,11 @@ body.loaded .gk-big-header {
 }
 
 .gk-blue-button {
-	background: #5990de;
+	background: @color1;
 }
 
 .gk-yellow-button {
-	background: #fbb450;
+	background: @color2;
 }
 
 /* demo content */
@@ -176,7 +176,7 @@ body.loaded .gk-big-header {
 	}
 	
 	p {
-		color: #777;
+		color: @textcolor;
 		font-size: 1.1*@baseBodyFontSize;
 		line-height: 1.6;
 		padding: 20px 0;
@@ -219,7 +219,7 @@ ul.the-icons {
 	margin-left: 4px;
 
 	i {
-		color: #222;
+		color: @iconcolor;
 		margin-right: 15px;
 		transition: all 0.1s ease-in;  
 	}
