@@ -81,7 +81,6 @@
                               <fieldset name="BASIC_SETTINGS" addfieldpath="/templates/meet_gavern/admin/elements">
                               			<field name="less_compile" type="lesscompile" />
                                         <field name="config_manager" type="configmanager" directory="templates/meet_gavern/config/" />
-                                        <field name="js_translations" type="translations" />
                                         <field name="asset_css" type="asset" extension="css" path="templates/meet_gavern/admin/style.css" />
                                         <field name="asset_js" type="asset" extension="js" path="templates/meet_gavern/admin/scripts.js" />
                               </fieldset>
