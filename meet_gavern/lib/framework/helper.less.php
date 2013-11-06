@@ -9,40 +9,40 @@ include_once('lessparser.php');
 class GKTemplateLESS {
 	function __construct($parent, $force='false') {
 		if($parent->API->get('recompile_css', 0) == 1) {
+			$tpl_path = $parent->API->URLtemplatepath();
 			// remove old Template CSS files
-			
-			JFile::delete($parent->API->URLtemplatepath() . DS . 'css' . DS . 'template.css');
-			JFile::delete($parent->API->URLtemplatepath() . DS . 'css' . DS . 'override.css');
-			JFile::delete($parent->API->URLtemplatepath() . DS . 'css' . DS . 'error.css');
-			JFile::delete($parent->API->URLtemplatepath() . DS . 'css' . DS . 'print.css');
-			JFile::delete($parent->API->URLtemplatepath() . DS . 'css' . DS . 'mail.css');
+			JFile::delete($tpl_path . DS . 'css' . DS . 'template.css');
+			JFile::delete($tpl_path . DS . 'css' . DS . 'override.css');
+			JFile::delete($tpl_path . DS . 'css' . DS . 'error.css');
+			JFile::delete($tpl_path . DS . 'css' . DS . 'print.css');
+			JFile::delete($tpl_path . DS . 'css' . DS . 'mail.css');
 			// generate new Template CSS files
 			try {
 				// normal Template code
 			    lessc::ccompile(
-			    	$parent->API->URLtemplatepath() . DS . 'less' . DS . 'main.less', 
-			    	$parent->API->URLtemplatepath() . DS . 'css' . DS . 'template.css'
+			    	$tpl_path . DS . 'less' . DS . 'main.less', 
+			    	$tpl_path . DS . 'css' . DS . 'template.css'
 			    );
 			    lessc::ccompile(
-			    	$parent->API->URLtemplatepath() . DS . 'less' . DS . 'print.less', 
-			    	$parent->API->URLtemplatepath() . DS . 'css' . DS . 'print.css'
+			    	$tpl_path . DS . 'less' . DS . 'print.less', 
+			    	$tpl_path . DS . 'css' . DS . 'print.css'
 			    );
 			    lessc::ccompile(
-			    	$parent->API->URLtemplatepath() . DS . 'less' . DS . 'mail.less', 
-			    	$parent->API->URLtemplatepath() . DS . 'css' . DS . 'mail.css'
+			    	$tpl_path . DS . 'less' . DS . 'mail.less', 
+			    	$tpl_path . DS . 'css' . DS . 'mail.css'
 			    );
 			    // additional Template code
 			    lessc::ccompile(
-			    	$parent->API->URLtemplatepath() . DS . 'less' . DS . 'error.less', 
-			    	$parent->API->URLtemplatepath() . DS . 'css' . DS . 'error.css'
+			    	$tpl_path . DS . 'less' . DS . 'error.less', 
+			    	$tpl_path . DS . 'css' . DS . 'error.css'
 			    );
 			    lessc::ccompile(
-			    	$parent->API->URLtemplatepath() . DS . 'less' . DS . 'offline.less', 
-			    	$parent->API->URLtemplatepath() . DS . 'css' . DS . 'offline.css'
+			    	$tpl_path . DS . 'less' . DS . 'offline.less', 
+			    	$tpl_path . DS . 'css' . DS . 'offline.css'
 			    );
 			    lessc::ccompile(
-			    	$parent->API->URLtemplatepath() . DS . 'less' . DS . 'override.less', 
-			    	$parent->API->URLtemplatepath() . DS . 'css' . DS . 'override.css'
+			    	$tpl_path . DS . 'less' . DS . 'override.less', 
+			    	$tpl_path . DS . 'css' . DS . 'override.css'
 			    );
 			    
 			    return true; 
