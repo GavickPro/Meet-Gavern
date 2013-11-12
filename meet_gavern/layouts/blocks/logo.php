@@ -26,7 +26,7 @@ $logo_slogan = $this->API->get('logo_slogan', '');
         <small class="gk-logo-slogan"><?php echo $logo_slogan; ?></small>
      </a>
      <?php elseif($this->API->get('logo_type', 'image')=='image') : ?>
-     <a href="./" id="gk-logo" class="pull-left">
+     <a href="./" id="gk-logo pull-left">
         <img src="<?php echo $logo_image; ?>" alt="<?php echo $logo_text . ' - ' . $logo_slogan; ?>" />
      </a>
      <?php endif; ?>
