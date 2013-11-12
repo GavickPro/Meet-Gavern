@@ -35,7 +35,7 @@
           <files>
                     <filename>component.php</filename>
                     <filename>error.php</filename>
-                    <filename>favicon.ico</filename>
+                    <filename>default_favicon.ico</filename>
                     <filename>index.php</filename>
                     <filename>LICENSE.txt</filename>
                     <filename>offline.php</filename>
