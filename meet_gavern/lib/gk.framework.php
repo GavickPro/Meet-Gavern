@@ -106,11 +106,11 @@ class GKTemplate {
         // check layout saved in cookie
 		if ($mode == 'facebook') { // facebook mode
 			$layoutpath = $this->API->URLtemplatepath() . DS . 'layouts' . DS . 'facebook.php';
-			is_file($layoutpath) ? include ($layoutpath) : echo 'Facebook layout doesn\'t exist!';
+			is_file($layoutpath) ? include($layoutpath) : print 'Facebook layout doesn\'t exist!';
 		} else { // normal mode
 			// check the override
 			$layoutpath = $this->API->URLtemplatepath() . DS . 'layouts' . DS . $this->API->get('default_layout', 'default') . '.php';
-			is_file($layoutpath) ? include ($layoutpath) : echo 'Default layout doesn\'t exist!';
+			is_file($layoutpath) ? include($layoutpath) : print 'Default layout doesn\'t exist!';
     	}
     }
 }
