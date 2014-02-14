@@ -164,15 +164,13 @@ jQuery(document).ready(function() {
 			}
 		}
 	} else {
-		jQuery('.gk-mainmenu-toggle a').click(function(e) {
+		jQuery('.gk-mainmenu-toggle a').on('click','.gk-mainmenu-toggle a', function(e) {
 			if(jQuery('.gk-main-menu').hasClass('in')) {
 				jQuery('.gk-main-menu').removeClass('in').css({'height' : '0', 'display' : 'none'});
 			} else {
 				jQuery('.gk-main-menu').addClass('in').css({'height' : 'auto', 'display' : 'block'});
 				
 			}
-			
-			console.log(jQuery('.gk-main-menu'));
 		});
 	}
 }); 
