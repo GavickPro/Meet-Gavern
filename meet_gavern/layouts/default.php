@@ -24,7 +24,7 @@ $view = JRequest::getCmd('view');
 $ItemId = JRequest::getCmd('Itemid');
 $sidebarOverride = json_decode($this->API->get('sidebar_override', ''));
 $sidebarRules = array();
-if (!empty($sidebarRules)) {
+if (empty($sidebarRules)) {
 	foreach($sidebarOverride as $rule => $obj) {
 		$sidebarRules[$obj->option] = $obj;
 	}
