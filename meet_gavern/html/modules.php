@@ -98,7 +98,7 @@ function modChrome_gk_style($module, $params, $attribs) {
 			}
 		}*/
 		
-		if($settings->modules[$position_counter[$pos]]->width_desktop == 12 && $settings->modules[$position_counter[$pos]-1]->width_desktop == 12) {
+		if($pos > 0 && $settings->modules[$position_counter[$pos]]->width_desktop == 12 && $settings->modules[$position_counter[$pos]-1]->width_desktop == 12) {
 			echo '<div class="row-fluid">';
 		}
 		echo '<'.($params->get('module_tag', 'div')).' class="box ' . $params->get('moduleclass_sfx') . $modnum_class . '">';
@@ -125,7 +125,7 @@ function modChrome_gk_style($module, $params, $attribs) {
 		echo '</div>';
 		echo '</'.($params->get('module_tag', 'div')).'>';
 		
-		if($settings->modules[$position_counter[$pos]]->width_desktop == 12 && $settings->modules[$position_counter[$pos]-1]->width_desktop == 12) {
+		if($pos > 0 && $settings->modules[$position_counter[$pos]]->width_desktop == 12 && $settings->modules[$position_counter[$pos]-1]->width_desktop == 12) {
 			echo '</div>';
 		}
 		

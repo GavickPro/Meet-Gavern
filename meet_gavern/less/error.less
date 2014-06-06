@@ -4,30 +4,34 @@
  *
  **/
 
+@import "variables";
+@import "mixins.less";
+
 @page: 'offline';
 
 body {
-	color: #777;
+	color: @textcolor;
 	font-family: Arial, Verdana, sans-serif; /* ToDo */
 	font-size: @baseBodyFontSize;
 	font-weight: 400;
 	padding: 0 20px;
 }
 a {
-	color: #5990de;
+	color: @color1;
 	outline: none!important;
 	text-decoration: none;
-}
-a:active,
-a:focus,
-a:hover {
-	color: #7ae;
-	text-decoration: none;
+
+	&:active,
+	&:focus,
+	&:hover {
+		color: @lightcolor1;
+		text-decoration: none;
+	}
 }
 h1,
 h2,
 h3 {
-	color: #5c5c5c;
+	color: @headerscolor;
 	font-family: 'Colaborate', sans-serif; /* ToDo */
 	font-weight: 500;
 }
@@ -35,7 +39,7 @@ h3 {
 @import 'logo.less';
 
 h2 {
-	color: #5990de;
+	color: @color1;
 	font-size: 2.1*@baseHeadersFontSize;
 	margin: 10px 0;
 }
@@ -53,5 +57,5 @@ h3 {
 	width: 300px;
 	margin: 0 auto;
 	padding: 9px 0;
-	border-top: 1px solid #e5e5e5;
+	border-top: 1px solid @lightgrey;
 }

@@ -4,18 +4,20 @@
  *
  * Main framework class
  *
- * @version             1.0.0
+ * @version             4.0.0
  * @package             Gavern Framework
- * @copyright			Copyright (C) 2010 - 2011 GavickPro. All rights reserved.
+ * @copyright			Copyright (C) 2010 - 2013 GavickPro. All rights reserved.
  *               
  */
  
 // No direct access.
 defined('_JEXEC') or die;
 
+// load required classes
 require_once(dirname(__file__) . DS . 'framework' . DS . 'gk.parser.php');
 require_once(dirname(__file__) . DS . 'framework' . DS . 'gk.browser.php');
 
+// load required helper classes
 require_once(dirname(__file__) . DS . 'framework' . DS . 'helper.api.php');
 require_once(dirname(__file__) . DS . 'framework' . DS . 'helper.bootstrap.php');
 require_once(dirname(__file__) . DS . 'framework' . DS . 'helper.cache.php');
@@ -33,6 +35,7 @@ class GKTemplate {
     public $name = 'meetgavern_j30';
     // access to the standard Joomla! template API
     public $API;
+    public $APITPL;
     // access to the helper classes
     public $bootstrap;
     public $cache;
@@ -54,19 +57,19 @@ class GKTemplate {
     // page suffix
     public $page_suffix;
     
-    // constructor
+    // constructor which initializes the framework
     public function __construct($tpl, $embed_mode = false) {
 		// put the template handler into API field
         $this->API = new GKTemplateAPI($tpl);
         $this->APITPL = $tpl;
-        // get the helpers
+        // get the helper objects
         $this->bootstrap = new GKTemplateBootstrap($this);
         $this->cache = new GKTemplateCache($this);
         $this->less = new GKTemplateLESS($this, false);
         $this->social = new GKTemplateSocial($this);
         $this->utilities = new GKTemplateUtilities($this);
         $this->menu = new GKTemplateMenu($this);
-        // create instance of GKBrowser class and detect
+        // create instance of GKBrowser class and detect the used browser
         $browser = new GKBrowser();
         $this->browser = $browser->result;
         // get the params
@@ -76,13 +79,10 @@ class GKTemplate {
         $this->mobilemenu = $this->menu->getMenuType(true);
         // load the layout helper
         $this->layout = new GKTemplateLayout($this);
-        // get the layout
+        // get the layout in the embed mode
         if(!$embed_mode) {   
-    		if ($this->browser->get('browser') == 'facebook') { // facebook mode
-				$this->getLayout('facebook');
-			} else { // normal mode
-				$this->getLayout('normal');
-    		}
+    		// get the proper layout in the embed mode
+			$this->getLayout($this->browser->get('browser') == 'facebook' ? 'facebook' : 'normal');
         }
         GKParser::$customRules['/<script src="\/media\/system\/js\/core.js" type="text\/javascript"><\/script>/mis'] = '<script src="'.$this->API->URLtemplate().'/js/hash.js" type="text/javascript"></script>'."\n".'<script src="/media/system/js/core.js" type="text/javascript"></script>';
         // parse FB and Twitter buttons
@@ -106,22 +106,19 @@ class GKTemplate {
         // check layout saved in cookie
 		if ($mode == 'facebook') { // facebook mode
 			$layoutpath = $this->API->URLtemplatepath() . DS . 'layouts' . DS . 'facebook.php';
-			if (is_file($layoutpath)) include ($layoutpath);
-			else echo 'Facebook layout doesn\'t exist!';
+			is_file($layoutpath) ? include($layoutpath) : print 'Facebook layout doesn\'t exist!';
 		} else { // normal mode
 			// check the override
 			$layoutpath = $this->API->URLtemplatepath() . DS . 'layouts' . DS . $this->API->get('default_layout', 'default') . '.php';
-			if (is_file($layoutpath)) {
-				include ($layoutpath);	
-			} else {
-				echo 'Default layout doesn\'t exist!';
-			}
+			is_file($layoutpath) ? include($layoutpath) : print 'Default layout doesn\'t exist!';
     	}
     }
 }
 
+// check if the GKParserPlugin function exists
 if(!function_exists('GKParserPlugin')){
 	function GKParserPlugin(){
+		// create new GKParser object
 		$parser = new GKParser();
 	}
 }

@@ -1,13 +1,13 @@
 body {
   background: #fff;
-  font: normal 1.1*/1.4 *  Tahoma, sans-serif;
-  color: #444;
+  font: normal 14.3px/1.4 * 13px Tahoma, sans-serif;
+  color: #777;
   max-width: 665px;
 }
 a {
   text-decoration: none;
-  color: #000;
-  border-bottom: 1px dotted #000;
+  color: #333;
+  border-bottom: 1px dotted #333;
 }
 #gk-print-top {
   border-bottom: 3px solid #e5e5e5;
@@ -16,15 +16,15 @@ a {
 }
 #gk-print-bottom {
   border-top: 1px solid #e5e5e5;
-  font-size: 0.85*;
+  font-size: 11.05px;
   font-style: italic;
   margin: 30px 0 0 0;
   padding: 10px 0;
   text-align: center;
 }
 .item-page aside {
-  background: #eee;
-  border: 1px solid #ccc;
+  background: #e5e5e5;
+  border: 1px solid #b2b2b2;
   overflow: hidden;
   padding: 10px 20px;
 }
@@ -33,8 +33,8 @@ a {
   display: none;
 }
 .article-info {
-  background: #eee;
-  font-size: 0.85*;
+  background: #e5e5e5;
+  font-size: 11.05px;
   margin: 0 !important;
 }
 .article-info > * {

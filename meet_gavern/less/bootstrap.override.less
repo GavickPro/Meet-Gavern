@@ -43,7 +43,7 @@ aside .btn-group > .dropdown-toggle {
 	opacity: 1;
 } 
 
-a [class^="icon-"] {
+a[class^="icon-"] {
 	margin-top: -3px;
 }
 
@@ -55,19 +55,19 @@ a [class^="icon-"] {
 
 /* Adjustment for the well class */
 .well {
-	background: #fff;
+	background: @lightcolor;
 }
 
 /* Adjustment for the nav-pills */
 .nav-pills li:hover a {
-	background: #5990de;
-	color: #fff;
+	background: @color1;
+	color: @lightcolor;
 }
 
 /* Adjustment for the form actions */
 .form-actions {
-	background: #fff;
-	border-top: 1px solid #ddd;
+	background: @lightcolor;
+	border-top: 1px solid @lightgrey;
 	overflow: hidden;
 }
 
@@ -87,50 +87,52 @@ a [class^="icon-"] {
 }
 
 .dropdown-menu {
-	border: 1px solid #ddd;
-	.box-shadow(1px 1px 3px #eee);
+	border: 1px solid @lightgrey;
+	.box-shadow(1px 1px 3px @lightgrey);
+
+	li:hover a {
+		background: @lightbg!important;
+		color: @darkcolor;
+	}
 }
 
-.dropdown-menu li:hover a {
-	background: #f5f5f5!important;
-	color: #000;
-}
 
 /* Fix for the spans in the rows */
-#gk-top [class*="span"]:first-child,
-#gk-bottom [class*="span"]:first-child {
-	margin-left: 0!important;
-}
+#gk-top,
+#gk-bottom {
+	& [class*="span"]:first-child {
+		margin-left: 0!important;
+	}
 
-#gk-top .row,
-#gk-bottom .row {
-	margin-left: 0!important;
+	.row {
+		margin-left: 0!important;
+	}
 }
 
 [class*="span"] {
 	.box-sizing;
 }
 
-#gk-top .span3 + #gk-top .span4,
-#gk-top .span3 + #gk-top .span6,
-#gk-top .span3 + #gk-top .span12,
-#gk-bottom .span3 + #gk-bottom .span4,
-#gk-bottom .span3 + #gk-bottom .span6,
-#gk-bottom .span3 + #gk-bottom .span12 { /* fix for the problem with margin-left in spans */
-	margin-left: 0!important;
+#gk-top,
+#gk-bottom{  /* fix for the problem with margin-left in spans */
+	& .span3 + .span4,
+	& .span3 + .span6,
+	& .span3 + .span12 {
+		margin-left: 0!important;
+	}
 }
 
 /* Fix for the breadcrumbs */
 .breadcrumb {
 	background: transparent;
 	border: none;
-	border-bottom: 1px solid #e5e5e5;
+	border-bottom: 1px solid @lightgrey;
 	.border-radius(0);
-	padding: 15px 0;	
-}
+	padding: 15px 0;
 
-.breadcrumb > li:first-child {
-	margin-right: 10px;
+	li:first-child {
+		margin-right: 10px;
+	}	
 }
 
 /* Fix for the tables */
@@ -145,23 +147,24 @@ aside .dropdown-menu {
 
 /* Fix for the stripped lists */
 .list-striped {
-	border: 1px solid #eee;
+	border: 1px solid @lightgrey;
 	.border-radius(3px);
 	list-style-type: none;
 	margin: 0;
 	padding: 3px;
-}
 
-.list-striped li {
-	padding: 7px 10px;
-}
+	li {
+		padding: 7px 10px;
 
-.list-striped li:nth-child(odd) { 
-	background-color:#f9f9f9; 
-}
-.list-striped li:hover { 
-	background-color:#f5f5f5; 
+		&:nth-child(odd) { 
+			background-color:@lightbg; 
+		}
+
+		&:hover { 
+			background-color:@lightbg; 
+		}
+	}
 }
 .modal-backdrop {
-	background: #fafafa;
+	background: @lightbg;
 }

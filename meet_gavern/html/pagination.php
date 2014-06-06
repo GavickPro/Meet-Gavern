@@ -150,25 +150,25 @@ function pagination_item_active(&$item)
 	// Check for "Start" item
 	if ($item->text == JText::_('JLIB_HTML_START'))
 	{
-		$display = '<i class="icon-first"></i>';
+		$display = '<i class="icon-double-angle-left"></i>';
 	}
 
 	// Check for "Prev" item
 	if ($item->text == JText::_('JPREV'))
 	{
-		$display = '<i class="icon-previous"></i>';
+		$display = '<i class="icon-angle-left"></i>';
 	}
 
 	// Check for "Next" item
 	if ($item->text == JText::_('JNEXT'))
 	{
-		$display = '<i class="icon-next"></i>';
+		$display = '<i class="icon-angle-right"></i>';
 	}
 
 	// Check for "End" item
 	if ($item->text == JText::_('JLIB_HTML_END'))
 	{
-		$display = '<i class="icon-last"></i>';
+		$display = '<i class="icon-double-angle-right"></i>';
 	}
 
 	// If the display object isn't set already, just render the item with its text
@@ -177,7 +177,7 @@ function pagination_item_active(&$item)
 		$display = $item->text;
 	}
 
-	return "<li><a title=\"" . $item->text . "\" href=\"" . $item->link . "\" class=\"pagenav\">" . $item->text . "</a><li>";
+	return "<li><a title=\"" . $item->text . "\" href=\"" . $item->link . "\" class=\"pagenav\">" . $display . "</a></li>";
 }
 
 /**

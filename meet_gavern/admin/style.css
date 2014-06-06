@@ -248,6 +248,16 @@ div.span8 .controls {
 	margin: 0;
 	border-bottom: 1px solid #e5e5e5;
 }
+#myTabContent .span6 + .span6 {
+	margin-left: 0;
+}
+#myTabContent div.row-fluid.form-horizontal-desktop .span6 {
+	border-right: 3px solid #e5e5e5;
+}
+#myTabContent div.row-fluid.form-horizontal-desktop .span6 + .span6 {
+	border-right: 0;
+	width: 50.5%;
+}
 #myTabContent #details div.controls {
 	background: none;
 	margin-left: 0;
@@ -304,6 +314,13 @@ label#jform_menuselect-lbl {
 	margin-top: 30px;
 	overflow: hidden;
 }
+#style-form .form-horizontal  div#details .well {
+	margin-right: 20px;
+}
+#style-form .form-horizontal #config_manager_load, 
+#style-form .form-horizontal #config_manager_delete {
+	margin-top: 0;
+}
 div#preloader {
 	position: fixed;
 	background: url('loader.gif');
@@ -334,8 +351,40 @@ a.gkFormLink {
 	margin-top: -10px;
 	border-bottom: 1px solid #ddd;
 }
+div.form-horizontal > div #myTabTabs li:nth-child(2) {
+	display: none;
+}
 #myTabContent #details > .control-group:nth-child(1) input {
 	margin-left: 15px;
+}
+.form-horizontal  #myTabContent #details > .row-fluid {
+	width: 65%!important;
+	margin: 0;
+	float: left;
+}
+form > div.form-horizontal #myTabContent #details > .span4 {
+	margin: 0;
+	float: right;
+	display: block!important;
+	width: 35%!important;	
+	background: transparent;
+	border: 0;
+}
+#myTabContent #details .span3 div {
+	width: 100%;
+	clear: both;
+}
+#myTabContent #details .span9 div.info-labels,
+#myTabContent #details .span9 h3 {
+	display: none;
+}
+div.form-inline.form-inline-header {
+	padding: 10px 0 5px;
+}
+#content #myTabContent div.control-label label,
+#jform_title-lbl {
+	text-align: left;
+	padding-left: 10px;
 }
 select#jform_home {
 	margin-top: -2px;
@@ -362,6 +411,10 @@ select#jform_home {
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 	box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+#myTabContent div.controls .gkFont:last-child {
+	border-right: 0;
 }
 #myTabContent div.controls.gk-no-left-margin {
 	padding: 0;
@@ -481,6 +534,9 @@ ul#sidebar_rules_list .icon-remove:hover,
 	left: auto;
 }
 /*layout manager styles */
+body .controls #lManagerMode .btn-group > .btn {
+	min-width: 18px!important;
+}
 #layoutManager {
 	background: #f5f5f5;
 	display: block;
@@ -982,6 +1038,9 @@ div.position p {
 	width: 100%;
 	min-width: 100%;
 }
+#content #myTabContent div.control-label label {
+	padding: 10px;
+}
 #myTabContent div.controls {
 	clear: both;
 	width: 100%;
@@ -996,6 +1055,21 @@ div.position p {
 	 select#jform_home {
 		max-width: 150px;
 	}
+	.form-horizontal #myTabContent #details > .row-fluid,
+	.form-horizontal #myTabContent #details > .span4  {
+		width: 100%!important;
+	}
+	#style-form .form-horizontal div#details .well {
+		margin-left: 30px;
+	}
+	#myTabContent div.row-fluid.form-horizontal-desktop .span6 + .span6,
+	#myTabContent div.row-fluid.form-horizontal-desktop .span6  {
+		border-right: 0;
+		width: 100%;
+	}
+	.form-horizontal-desktop .control-label {
+		float: left;
+	}
 	#style-form .navbar .nav > li > a {
 		padding: 15px 20px!important;
 	}
@@ -1004,6 +1078,15 @@ div.position p {
 	#style-form .navbar,
 	#style-form .navbar-inner {
 		margin: 0 -20px
+	}
+	#myTabContent div.row-fluid.form-horizontal-desktop .span6 + .span6,
+	#myTabContent div.row-fluid.form-horizontal-desktop .span6  {
+		border-right: 0;
+		width: 100%;
+	}
+	.form-horizontal #myTabContent #details > .row-fluid,
+	.form-horizontal #myTabContent #details > .span4 {
+		width: 100%!important;
 	}
 	body {
 		padding: 0!important;
@@ -1020,7 +1103,7 @@ div.position p {
 		width: 100%!important;
 	}
 	#style-form .navbar .nav > li > a {
-		padding: 6px 10px!important
+		padding: 10px 14px!important
 	}
 }
  @media (max-width: 1076px) {

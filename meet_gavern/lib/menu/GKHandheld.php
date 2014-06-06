@@ -8,7 +8,7 @@
  *
  * @version             1.0.0
  * @package             Gavern Framework
- * @copyright			Copyright (C) 2010 - 2011 GavickPro. All rights reserved.
+ * @copyright           Copyright (C) 2010 - 2011 GavickPro. All rights reserved.
  *               
  */
  
@@ -67,7 +67,7 @@ if (!defined('_GK_HANDHELD_MENU_CLASS')) {
                 $v->name = str_replace('&', '&amp;', str_replace('&amp', '&', $v->name));
                 if ($v->access >= $aid) {
                     $ptr = $v->parent;
-                    $list = @$children[$ptr] ? $children[$ptr] : array();	
+                    $list = @$children[$ptr] ? $children[$ptr] : array();   
                     // friendly links
                     $v->flink = $v->link;
 
@@ -122,17 +122,17 @@ if (!defined('_GK_HANDHELD_MENU_CLASS')) {
             $txt = $tmpname;
             $txt_margin = '';
             for($i = 0; $i < $level; $i++) {
-            	$txt_margin .= '&nbsp;&nbsp;';
+                $txt_margin .= '&mdash;';
             }
             
             if($level > 0) {
-            	$txt = '&raquo;' . $txt;
+                $txt = ' ' . $txt;
             }
             
             $txt = $txt_margin . $txt;
 
             if ($tmp->type == 'menulink') {
-                $menu = &JSite::getMenu();
+                $menu = JFactory::getApplication()->getMenu();
                 $alias_item = clone ($menu->getItem($tmp->query['Itemid']));
                 if (!$alias_item) return false;
                 else $tmp->url = $alias_item->link;
@@ -203,7 +203,7 @@ if (!defined('_GK_HANDHELD_MENU_CLASS')) {
                         $this->beginMenuItem($row, $level);
                         $this->genMenuItem($row, $level);
                         if ($level < $this->getParam('endlevel')) {
-                        	$this->genMenuItems($row->id, $level + 1);
+                            $this->genMenuItems($row->id, $level + 1);
                         }
                         $this->endMenuItem($row, $level);
                         $j++;

@@ -1,26 +1,30 @@
-// CSS code for the proint page
+// CSS code for the print page
+
+@import "variables";
+@import "mixins.less";
+
 body { 
-	background: #fff; 
-	font:normal 1.1*@baseBodyFontSize/1.4*@baseBodyFontSize Tahoma, sans-serif; 
-	color:#444; 
+	background: @lightcolor; 
+	font: normal 1.1*@baseBodyFontSize/1.4*@baseBodyFontSize Tahoma, sans-serif; 
+	color: @textcolor; 
 	max-width: 665px;
 }
 
 a { 
 	text-decoration: none; 
-	color: #000; 
-	border-bottom: 1px dotted #000; 
+	color: @darkcolor; 
+	border-bottom: 1px dotted @darkcolor; 
 }
 
 // static elements
 #gk-print-top {
-	border-bottom: 3px solid #e5e5e5;
+	border-bottom: 3px solid @lightgrey;
 	margin: 0 0 30px 0;
 	text-align: center;
 }
 
 #gk-print-bottom {
-	border-top: 1px solid #e5e5e5;
+	border-top: 1px solid @lightgrey;
 	font-size: 0.85*@baseBodyFontSize;
 	font-style: italic;
 	margin: 30px 0 0 0;
@@ -31,8 +35,8 @@ a {
 // article elements
 .item-page {
 	aside {
-		background: #eee;
-		border: 1px solid #ccc;
+		background: @lightgrey;
+		border: 1px solid darken(@lightgrey, 20%);
 		overflow: hidden;
 		padding: 10px 20px;
 		
@@ -44,7 +48,7 @@ a {
 }
 
 .article-info {
-	background: #eee;
+	background: @lightgrey;
 	font-size: 0.85*@baseBodyFontSize;
 	margin: 0!important;
 	

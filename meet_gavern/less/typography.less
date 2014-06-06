@@ -6,41 +6,37 @@
 
 /* Header elements */
 .gk-big-header {
-	color: #333;
+	color: @darkcolor;
 	font-size: 5.6*@baseHeadersFontSize;
 	font-weight: 700;
 	line-height: 1.6;
 	margin-top: 40px;
 	text-align: center;
-	-webkit-filter: blur(35px);
-	   -moz-filter: blur(35px);
-	        filter: blur(35px);
+	.filter(blur(35px));
 	-webkit-transition: -webkit-filter 2.0s ease-out, font-size 0.5s ease-out, line-height 0.5s ease-out;
 	   -moz-transition: -moz-filter 2.0s ease-out, font-size 0.5s ease-out, line-height 0.5s ease-out;
 	    -ms-transition: font-size 0.5s ease-out, line-height 0.5s ease-out;
 	     -o-transition: font-size 0.5s ease-out, line-height 0.5s ease-out;
 	        transition: filter 2.0s ease-out, font-size 0.5s ease-out, line-height 0.5s ease-out;
+	
+	span {
+		color: @color1;
+	}
 }
 
 body.loaded .gk-big-header {
-	-webkit-filter: blur(0px);
-	   -moz-filter: blur(0px);
-	        filter: blur(0px);
-}
-
-.gk-big-header span {
-	color: #5990de;
+	.filter(blur(0px));
 }
 
 .gk-medium-header {
-	color: #333;
+	color: @darkcolor;
 	font-size: 1.4*@baseHeadersFontSize;
 	font-weight: 300;
 	line-height: 1.2;
 }
 
 .gk-small-header {
-	color: #7c7c7c;
+	color: @textcolor;
 	font-size: 1.2*@baseHeadersFontSize;
 	font-weight: 100;
 	line-height: 1.2;
@@ -57,7 +53,7 @@ body.loaded .gk-big-header {
 .gk-blue-button,
 .gk-yellow-button {
 	.border-radius(5px);
-	color: #fff;
+	color: @lightcolor;
 	display: inline-block;
 	font-size: 2.3*@baseBodyFontSize;
 	font-weight: 300;
@@ -67,67 +63,45 @@ body.loaded .gk-big-header {
 	padding: 0 45px;
 	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.21);
 	.transition(all 0.3s ease-out);
+
+	&:active,
+	&:focus,
+	&:hover {
+		background: @darkcolor;
+		color: @lightcolor;
+	}
+
+	&:first-child,
+	&:first-child {
+		margin-left: 0;
+	}
 }
 
 .gk-blue-button {
-	background: #5990de;
+	background: @color1;
 }
 
 .gk-yellow-button {
-	background: #fbb450;
-}
-
-.gk-blue-button:first-child,
-.gk-yellow-button:first-child {
-	margin-left: 0;
-}
-
-.gk-blue-button:active,
-.gk-blue-button:focus,
-.gk-blue-button:hover,
-.gk-yellow-button:active,
-.gk-yellow-button:focus,
-.gk-yellow-button:hover {
-	background: #333;
-	color: #fff;
+	background: @color2;
 }
 
 /* demo content */
 .gk-demo-content {
 	padding: 0 15px;
 	text-align: center;
-}
 
-.gk-demo-content img {
-	display: block;
-	height: auto;
-	margin: 30px auto;
-	max-width: 100%;
-	-webkit-transform: scale(1.0);
-	   -moz-transform: scale(1.0);
-	    -ms-transform: scale(1.0);
-	     -o-transform: scale(1.0);
-	        transform: scale(1.0);
-	.transition(transform 0.5s ease-out);
-}
+	img {
+		display: block;
+		height: auto;
+		margin: 30px auto;
+		max-width: 100%;
+		.transform(scale(1.0));
+		.transition(transform 0.5s ease-out);
+	}	
 
-.gk-demo-content:hover img {
-	-webkit-animation-name: gkbounce;
-	-webkit-animation-duration: 0.75s;
-	-webkit-animation-iteration-count: infinite;
-	-webkit-animation-timing-function: linear;
-	   -moz-animation-name: gkbounce;
-	   -moz-animation-duration: 0.75s;
-	   -moz-animation-iteration-count: infinite;
-	   -moz-animation-timing-function: linear;
-	    -ms-animation-name: gkbounce;
-	    -ms-animation-duration: 0.75s;
-	    -ms-animation-iteration-count: infinite;
-	    -ms-animation-timing-function: linear;
-	        animation-name: gkbounce;
-	        animation-duration: 0.75s;
-	        animation-iteration-count: infinite;
-	        animation-timing-function: linear;
+	&:hover img {
+		.animate(gkbounce; 0.75s; infinite; linear);
+	}
 }
 
 @-webkit-keyframes gkbounce {
@@ -196,15 +170,17 @@ body.loaded .gk-big-header {
 	}
 }
 
-.gk-demo-content h2 {
-	font-size: 1.2*@baseHeadersFontSize;
-}
-
-.gk-demo-content p {
-	color: #777;
-	font-size: 1.1*@baseBodyFontSize;
-	line-height: 1.6;
-	padding: 20px 0;
+.gk-demo-content {
+	h2 {
+		font-size: 1.2*@baseHeadersFontSize;
+	}
+	
+	p {
+		color: @textcolor;
+		font-size: 1.1*@baseBodyFontSize;
+		line-height: 1.6;
+		padding: 20px 0;
+	}
 }
 
 /* Demo button */
@@ -241,20 +217,24 @@ body.loaded .gk-big-header {
 ul.the-icons {
 	list-style: none;
 	margin-left: 4px;
-}
-ul.the-icons i {
-	color: #222;
-	margin-right: 15px;
-	transition: all 0.1s ease-in;  
-}
-ul.the-icons li:hover  {
-	cursor: pointer;
-}
-ul.the-icons li:hover i {
-	font-size: 1.55*@baseBodyFontSize;
-	margin-right: 12px;
-	margin-left: -4px;
-}
-ul.the-icons li {
-	line-height: 2.0;
+
+	i {
+		color: @iconcolor;
+		margin-right: 15px;
+		transition: all 0.1s ease-in;  
+	}
+
+	li {
+		line-height: 2.0;
+
+		&:hover  {
+			cursor: pointer;
+		}
+
+		&:hover i {
+			font-size: 1.55*@baseBodyFontSize;
+			margin-right: 12px;
+			margin-left: -4px;
+		}
+	}
 }
