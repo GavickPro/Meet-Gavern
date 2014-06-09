@@ -15,7 +15,7 @@ JHtml::_('behavior.caption');
 // If the page class is defined, add to class as suffix.
 // It will be a separate class if the user starts it with a space
 ?>
-<div class="blog-featured<?php echo $this->pageclass_sfx;?> item-page">
+<div class="blog-featured<?php echo $this->pageclass_sfx;?> item-page" itemscope itemtype="http://schema.org/Blog">
 <?php if ( $this->params->get('show_page_heading')!=0) : ?>
 <div class="page-header">
 	<h1>
@@ -28,7 +28,7 @@ JHtml::_('behavior.caption');
 <?php if (!empty($this->lead_items)) : ?>
 <div class="items-leading">
 	<?php foreach ($this->lead_items as &$item) : ?>
-		<div class="leading-<?php echo $leadingcount; ?><?php echo $item->state == 0 ? ' system-unpublished' : null; ?>">
+		<div class="leading-<?php echo $leadingcount; ?><?php echo $item->state == 0 ? ' system-unpublished' : null; ?>" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 			<?php
 				$this->item = &$item;
 				echo $this->loadTemplate('item');
@@ -58,7 +58,7 @@ JHtml::_('behavior.caption');
 
 		<div class="items-row cols-<?php echo (int) $this->columns;?> <?php echo 'row-'.$row ; ?> row-fluid">
 		<?php endif; ?>
-			<div class="item column-<?php echo $rowcount;?><?php echo $item->state == 0 ? ' system-unpublished"' : null; ?> span<?php echo round((12/$this->columns));?>">
+			<div class="item column-<?php echo $rowcount;?><?php echo $item->state == 0 ? ' system-unpublished"' : null; ?> span<?php echo round((12/$this->columns));?>" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 			<?php
 					$this->item = &$item;
 					echo $this->loadTemplate('item');

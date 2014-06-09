@@ -68,7 +68,8 @@ $doc->setMetaData( 'og:description', $og_desc );
 
 ?>
 
-<div class="item-page<?php echo $this->pageclass_sfx?> gk-item-page">
+<div class="item-page<?php echo $this->pageclass_sfx?> gk-item-page" itemscope itemtype="http://schema.org/Article">
+<meta itemprop="inLanguage" content="<?php echo ($this->item->language === '*') ? JFactory::getConfig()->get('language') : $this->item->language; ?>" />
 	<?php if ($this->params->get('show_page_heading', 1)) : ?>
 	<div class="page-header">
 		<h1> <?php echo $this->escape($this->params->get('page_heading')); ?> </h1>
@@ -85,7 +86,7 @@ if (!empty($this->item->pagination) AND $this->item->pagination && !$this->item-
 		or ($params->get('show_hits')) or ($params->get('show_category')) or ($params->get('show_create_date')) or ($params->get('show_parent_category')) or ($params->get('show_author')) or $params->get('show_publish_date') or ($canEdit ||  $params->get('show_print_icon') || $params->get('show_email_icon'))) : ?>
 	<aside>
 		<?php if ($params->get('show_publish_date')) : ?>	
-		<time datetime="<?php echo JHtml::_('date', $this->item->publish_up, 'Y-m-d'); ?>">
+		<time datetime="<?php echo JHtml::_('date', $this->item->publish_up, 'Y-m-d'); ?>" itemprop="datePublished">
 			<?php echo JHtml::_('date', $this->item->publish_up, JText::_('d')); ?>
 			<span><?php echo JHtml::_('date', $this->item->publish_up, JText::_('M')); ?></span>
 		</time>
@@ -97,6 +98,7 @@ if (!empty($this->item->pagination) AND $this->item->pagination && !$this->item-
 		<dl class="article-info">
 			<?php if ($params->get('show_author') && !empty($this->item->author )) : ?>
 				<?php $author = $this->item->created_by_alias ? $this->item->created_by_alias : $this->item->author; ?>
+				<?php $author = '<span itemprop="name">' . $author . '</span>'; ?>
 				<?php if (!empty($this->item->contactid) && $params->get('link_author') == true): ?>
 					<?php
 						$needle = 'index.php?option=com_contact&view=contact&id=' . $this->item->contactid;
@@ -104,14 +106,14 @@ if (!empty($this->item->pagination) AND $this->item->pagination && !$this->item-
 						$item = $menu->getItems('link', $needle, true);
 						$cntlink = !empty($item) ? $needle . '&Itemid=' . $item->id : $needle;
 					?>
-					<dt class="createdby"><?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', '</dt><dd>' . JHtml::_('link', JRoute::_($cntlink), $author) . '</dd>'); ?>
+					<dt class="createdby"><?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', '</dt><dd>' . JHtml::_('link', JRoute::_($cntlink), $author, array('itemprop' => 'url')) . '</dd>'); ?>
 				<?php else: ?>
 					<dt class="createdby"><?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', '</dt><dd>' . $author . '</dd>'); ?>
 				<?php endif; ?>
 			<?php endif; ?>
 			
 			<?php if ($params->get('show_modify_date')) : ?>
-			<dt class="modified"><?php echo JText::sprintf('COM_CONTENT_LAST_UPDATED', '</dt><dd>' . JHtml::_('date', $this->item->modified, JText::sprintf('DATE_FORMAT_LC3')) . '</dd>'); ?>
+			<dt class="modified" itemprop="dateModified"><?php echo JText::sprintf('COM_CONTENT_LAST_UPDATED', '</dt><dd>' . JHtml::_('date', $this->item->modified, JText::sprintf('DATE_FORMAT_LC3')) . '</dd>'); ?>
 			<?php endif; ?>
 			
 			<?php if ($params->get('show_publish_date')) : ?>
@@ -119,10 +121,12 @@ if (!empty($this->item->pagination) AND $this->item->pagination && !$this->item-
 			<?php endif; ?>
 			
 			<?php if ($params->get('show_hits')) : ?>
-			<dt class="hits"><?php echo JText::sprintf('COM_CONTENT_ARTICLE_HITS', '</dt><dd>' . $this->item->hits . '</dd>'); ?>
+			<dt class="hits">
+			<meta itemprop="interactionCount" content="UserPageVisits:<?php echo $this->item->hits; ?>" />
+			<?php echo JText::sprintf('COM_CONTENT_ARTICLE_HITS', '</dt><dd>' . $this->item->hits . '</dd>'); ?>
 			<?php endif; ?>
 			
-			<?php if ($params->get('show_tags', 1) && !empty($this->item->tags)) : ?>
+			<?php if ($params->get('show_tags', 1) && !empty($this->item->tags->itemTags)) : ?>
 				<dt class="category-name"><?php echo JText::sprintf('TPL_GK_LANG_TAGGED_UNDER', '</dt>'); ?>
 				<dd>	
 				<?php foreach ($this->item->tags->itemTags as $tag) : ?>
@@ -132,16 +136,16 @@ if (!empty($this->item->pagination) AND $this->item->pagination && !$this->item-
 			<?php endif; ?>
 			
 			<?php if ($params->get('show_create_date')) : ?>
-			<dt class="create"><?php echo JText::sprintf('COM_CONTENT_CREATED_DATE_ON', '</dt><dd>' . JHtml::_('date', $this->item->created, JText::_('DATE_FORMAT_LC3')) . '</dd>'); ?>
+			<dt class="create"><?php echo JText::sprintf('COM_CONTENT_CREATED_DATE_ON', '</dt><dd itemprop="dateCreated">' . JHtml::_('date', $this->item->created, JText::_('DATE_FORMAT_LC3')) . '</dd>'); ?>
 			<?php endif; ?>
 			
 			<?php if ($params->get('show_parent_category') && $this->item->parent_slug != '1:root') : ?>
 				<?php $title = $this->escape($this->item->parent_title);
-				$url = '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->parent_slug)).'">'.$title.'</a>';?>
+				$url = '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->parent_slug)).'" itemprop="genre">'.$title.'</a>';?>
 				<?php if ($params->get('link_parent_category') and $this->item->parent_slug) : ?>
 					<dt class="parent-category-name"><?php echo JText::sprintf('COM_CONTENT_PARENT', '</dt><dd>' . $url . '</dd>'); ?>
 				<?php else : ?>
-					<dt class="parent-category-name"><?php echo JText::sprintf('COM_CONTENT_PARENT', '</dt><dd>' . $title . '</dd>'); ?>
+					<dt class="parent-category-name"><?php echo JText::sprintf('COM_CONTENT_PARENT', '</dt><dd itemprop="genre">' . $title . '</dd>'); ?>
 				<?php endif; ?>
 			<?php endif; ?>
 			
@@ -151,7 +155,7 @@ if (!empty($this->item->pagination) AND $this->item->pagination && !$this->item-
 				<?php if ($params->get('link_category') and $this->item->catslug) : ?>
 				<dt class="category-name"><?php echo JText::sprintf('COM_CONTENT_CATEGORY', '</dt><dd>' . $url . '</dd>'); ?>
 				<?php else : ?>
-				<dt class="category-name"><?php echo JText::sprintf('COM_CONTENT_CATEGORY', '</dt><dd>' . $title . '</dd>'); ?>
+				<dt class="category-name"><?php echo JText::sprintf('COM_CONTENT_CATEGORY', '</dt><dd itemprop="genre">' . $title . '</dd>'); ?>
 				<?php endif; ?>
 			<?php endif; ?>
 		
@@ -188,12 +192,12 @@ if (!empty($this->item->pagination) AND $this->item->pagination && !$this->item-
 		<?php if ($images->image_fulltext_caption):
 			echo 'class="caption"'.' title="' .htmlspecialchars($images->image_fulltext_caption) .'"';
 		endif; ?>
-		src="<?php echo htmlspecialchars($images->image_fulltext); ?>" alt="<?php echo htmlspecialchars($images->image_fulltext_alt); ?>"/> </div>
+		src="<?php echo htmlspecialchars($images->image_fulltext); ?>" alt="<?php echo htmlspecialchars($images->image_fulltext_alt); ?>" itemprop="image"/> </div>
 		<?php endif; ?>
 		
-		<h1 class="article-header">
+		<h1 class="article-header"  itemprop="name">
 			<?php if ($params->get('link_titles') && !empty($this->item->readmore_link)) : ?>
-				<a href="<?php echo $this->item->readmore_link; ?>"> <?php echo $this->escape($this->item->title); ?></a>
+				<a href="<?php echo $this->item->readmore_link; ?>" itemprop="url"> <?php echo $this->escape($this->item->title); ?></a>
 			<?php else : ?>
 				<?php echo $this->escape($this->item->title); ?>
 			<?php endif; ?>
@@ -217,7 +221,9 @@ if (!empty($this->item->pagination) AND $this->item->pagination AND !$this->item
 	echo $this->item->pagination;
  endif;
 ?>
-	<?php echo $this->item->text; ?>
+	<span itemprop="articleBody">
+		<?php echo $this->item->text; ?>
+	</span>
 	
 	<?php 
 	//ToDo: move it to the proper place when config save will be available.

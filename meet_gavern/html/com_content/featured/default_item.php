@@ -23,7 +23,7 @@ $canEdit	= $this->item->params->get('access-edit');
 		or ($params->get('show_hits')) or ($params->get('show_category')) or ($params->get('show_create_date')) or ($params->get('show_parent_category')) or ($params->get('show_author')) or $params->get('show_publish_date') or ($params->get('show_print_icon') || $params->get('show_email_icon') || $canEdit)) : ?>
 	<aside>
 		<?php if ($params->get('show_publish_date')) : ?>	
-		<time datetime="<?php echo JHtml::_('date', $this->item->publish_up, 'Y-m-d'); ?>">
+		<time datetime="<?php echo JHtml::_('date', $this->item->publish_up, 'Y-m-d'); ?>" itemprop="datePublished">
 			<?php echo JHtml::_('date', $this->item->publish_up, JText::_('d')); ?>
 			<span><?php echo JHtml::_('date', $this->item->publish_up, JText::_('M')); ?></span>
 		</time>
@@ -34,7 +34,8 @@ $canEdit	= $this->item->params->get('access-edit');
 		
 		<dl class="article-info">
 			<?php if ($params->get('show_author') && !empty($this->item->author )) : ?>
-				<?php $author = $this->item->created_by_alias ? $this->item->created_by_alias : $this->item->author; ?>
+				<?php $author = ($this->item->created_by_alias) ? $this->item->created_by_alias : $this->item->author; ?>
+				<?php $author = '<span itemprop="name">' . $author . '</span>'; ?>
 				<?php if (!empty($this->item->contactid) && $params->get('link_author') == true): ?>
 					<?php
 						$needle = 'index.php?option=com_contact&view=contact&id=' . $this->item->contactid;
@@ -42,14 +43,14 @@ $canEdit	= $this->item->params->get('access-edit');
 						$item = $menu->getItems('link', $needle, true);
 						$cntlink = !empty($item) ? $needle . '&Itemid=' . $item->id : $needle;
 					?>
-					<dt class="createdby"><?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', '</dt><dd>' . JHtml::_('link', JRoute::_($cntlink), $author) . '</dd>'); ?>
+					<dt class="createdby"><?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', '</dt><dd>' . JHtml::_('link', JRoute::_($cntlink), $author, array('itemprop' => 'url')) . '</dd>'); ?>
 				<?php else: ?>
 					<dt class="createdby"><?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', '</dt><dd>' . $author . '</dd>'); ?>
 				<?php endif; ?>
 			<?php endif; ?>
 			
 			<?php if ($params->get('show_modify_date')) : ?>
-			<dt class="modified"><?php echo JText::sprintf('COM_CONTENT_LAST_UPDATED', '</dt><dd>' . JHtml::_('date', $this->item->modified, JText::sprintf('DATE_FORMAT_LC3')) . '</dd>'); ?>
+			<dt class="modified"><?php echo JText::sprintf('COM_CONTENT_LAST_UPDATED', '</dt><dd  itemprop="dateModified">' . JHtml::_('date', $this->item->modified, JText::sprintf('DATE_FORMAT_LC3')) . '</dd>'); ?>
 			<?php endif; ?>
 			
 			<?php if ($params->get('show_publish_date')) : ?>
@@ -57,6 +58,7 @@ $canEdit	= $this->item->params->get('access-edit');
 			<?php endif; ?>
 			
 			<?php if ($params->get('show_hits')) : ?>
+			<meta itemprop="interactionCount" content="UserPageVisits:<?php echo $this->item->hits; ?>" />
 			<dt class="hits"><?php echo JText::sprintf('COM_CONTENT_ARTICLE_HITS', '</dt><dd>' . $this->item->hits . '</dd>'); ?>
 			<?php endif; ?>
 			
@@ -71,26 +73,26 @@ $canEdit	= $this->item->params->get('access-edit');
 			<?php endif; ?>
 			
 			<?php if ($params->get('show_create_date')) : ?>
-			<dt class="create"><?php echo JText::sprintf('COM_CONTENT_CREATED_DATE_ON', '</dt><dd>' . JHtml::_('date', $this->item->created, JText::_('DATE_FORMAT_LC3')) . '</dd>'); ?>
+			<dt class="create"><?php echo JText::sprintf('COM_CONTENT_CREATED_DATE_ON', '</dt><dd itemprop="dateCreated">' . JHtml::_('date', $this->item->created, JText::_('DATE_FORMAT_LC3')) . '</dd>'); ?>
 			<?php endif; ?>
 			
 			<?php if ($params->get('show_parent_category') && $this->item->parent_slug != '1:root') : ?>
 				<?php $title = $this->escape($this->item->parent_title);
-				$url = '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->parent_slug)).'">'.$title.'</a>';?>
+				$url = '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->parent_slug)).'" itemprop="genre">'.$title.'</a>';?>
 				<?php if ($params->get('link_parent_category') and $this->item->parent_slug) : ?>
 					<dt class="parent-category-name"><?php echo JText::sprintf('COM_CONTENT_PARENT', '</dt><dd>' . $url . '</dd>'); ?>
 				<?php else : ?>
-					<dt class="parent-category-name"><?php echo JText::sprintf('COM_CONTENT_PARENT', '</dt><dd>' . $title . '</dd>'); ?>
+					<dt class="parent-category-name"><?php echo JText::sprintf('COM_CONTENT_PARENT', '</dt><dd itemprop="genre">' . $title . '</dd>'); ?>
 				<?php endif; ?>
 			<?php endif; ?>
 			
 			<?php if ($params->get('show_category')) : ?>
 				<?php $title = $this->escape($this->item->category_title);
-				$url = '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catslug)).'">'.$title.'</a>';?>
+				$url = '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catslug)).'" itemprop="genre">'.$title.'</a>';?>
 				<?php if ($params->get('link_category') and $this->item->catslug) : ?>
 				<dt class="category-name"><?php echo JText::sprintf('COM_CONTENT_CATEGORY', '</dt><dd>' . $url . '</dd>'); ?>
 				<?php else : ?>
-				<dt class="category-name"><?php echo JText::sprintf('COM_CONTENT_CATEGORY', '</dt><dd>' . $title . '</dd>'); ?>
+				<dt class="category-name"><?php echo JText::sprintf('COM_CONTENT_CATEGORY', '</dt><dd itemprop="genre">' . $title . '</dd>'); ?>
 				<?php endif; ?>
 			<?php endif; ?>
 		</dl>
@@ -133,9 +135,9 @@ $canEdit	= $this->item->params->get('access-edit');
 			</div>
 			<?php endif; ?>
 			
-			<h2 class="article-header">
+			<h2 class="article-header" itemprop="name">
 				<?php if ($params->get('link_titles') && $params->get('access-view')) : ?>
-				<a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid)); ?>"> <?php echo $this->escape($this->item->title); ?></a>
+				<a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid)); ?>" itemprop="url"><?php echo $this->escape($this->item->title); ?></a>
 				<?php else : ?>
 				<?php echo $this->escape($this->item->title); ?>
 				<?php endif; ?>
@@ -160,7 +162,7 @@ $canEdit	= $this->item->params->get('access-edit');
 			$link->setVar('return', base64_encode($returnURL));
 		endif;
 		?>
-		<a class="btn" href="<?php echo $link; ?>"> <i class="icon-chevron-right"></i>
+		<a class="btn" href="<?php echo $link; ?>" itemprop="url"> <i class="icon-chevron-right"></i>
 		<?php if (!$params->get('access-view')) :
 				echo JText::_('COM_CONTENT_REGISTER_TO_READ_MORE');
 			elseif ($readmore = $this->item->alternative_readmore) :

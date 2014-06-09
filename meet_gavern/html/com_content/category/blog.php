@@ -15,7 +15,7 @@ JHtml::_('behavior.caption');
 
 ?>
 
-<div class="blog<?php echo $this->pageclass_sfx;?> item-page">
+<div class="blog<?php echo $this->pageclass_sfx;?> item-page" itemscope itemtype="http://schema.org/Blog">
 	<?php if ($this->params->get('show_page_heading', 1)) : ?>
 	<div class="page-header">
 		<h1> <?php echo $this->escape($this->params->get('page_heading')); ?> </h1>
@@ -49,7 +49,7 @@ JHtml::_('behavior.caption');
 	<?php if (!empty($this->lead_items)) : ?>
 	<div class="items-leading">
 		<?php foreach ($this->lead_items as &$item) : ?>
-		<div class="leading-<?php echo $leadingcount; ?><?php echo $item->state == 0 ? ' system-unpublished' : null; ?>">
+		<div class="leading-<?php echo $leadingcount; ?><?php echo $item->state == 0 ? ' system-unpublished' : null; ?>" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 			<?php
 				$this->item = &$item;
 				echo $this->loadTemplate('item');
@@ -76,7 +76,7 @@ JHtml::_('behavior.caption');
 		if ($rowcount==1) : ?>
 	<div class="items-row cols-<?php echo (int) $this->columns;?> <?php echo 'row-'.$row ; ?> row-fluid">
 		<?php endif; ?>
-		<div class="item column-<?php echo $rowcount;?><?php echo $item->state == 0 ? ' system-unpublished' : null; ?> span<?php echo round((12/$this->columns));?>">
+		<div class="item column-<?php echo $rowcount;?><?php echo $item->state == 0 ? ' system-unpublished' : null; ?> span<?php echo round((12/$this->columns));?>" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 			<?php
 			$this->item = &$item;
 			echo $this->loadTemplate('item');

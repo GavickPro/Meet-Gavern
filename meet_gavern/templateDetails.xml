@@ -2,11 +2,11 @@
 <!DOCTYPE install PUBLIC "-//Joomla! 2.5//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/2.5/template-install.dtd">
 <extension version="3.0" type="template" client="site" method="upgrade">
           <name>meet_gavern</name>
-          <version>1.3.1</version>
-          <creationDate>10/12/2013</creationDate>
+          <version>1.3.2</version>
+          <creationDate>09 Jun 2014</creationDate>
           <author>GavickPro</author>
           <authorEmail>info@gavick.com</authorEmail>
-          <copyright>Copyright (C) 2013 GavickPro. All rights reserved.</copyright>
+          <copyright>Copyright (C) 2014 GavickPro. All rights reserved.</copyright>
           <description>
                     <![CDATA[<link rel="stylesheet" type="text/css" href="../templates/meet_gavern/admin/style.css" />
                               <style type="text/css" media="all">
@@ -28,7 +28,7 @@
                               <p>Finally, this wonderful no-cost template was built with support for Responsive Web Design, which means it is more flexible and powerful. This is surely a must-have template for Joomla users!</p>
                               <p>With the anticipated release of the production version of Joomla 3, the enhanced version of the Gavern Framework will become the basis for all future GavickPro template releases.</p>
                               <p class="livedemo">View Meet Gavern template in action <a href="http://joomla30.gavick.com" target="_blank">here</a>...</p>
-                              <small>Gavern v.1.3.1</small>
+                              <small>Gavern v.1.3.2</small>
                               
                               </div> ]]>
           </description>

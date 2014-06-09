@@ -935,7 +935,7 @@ color: @darkcolor
   margin-left: 5px;
   margin-right: 10px;
 }
-#searchForm fieldset div {
+#searchForm fieldset > div {
   padding: 10px 0;
 }
 #searchForm legend {
