@@ -164,7 +164,9 @@ jQuery(document).ready(function() {
 			}
 		}
 	} else {
-		jQuery('.gk-mainmenu-toggle a').on('click','.gk-mainmenu-toggle a', function(e) {
+		jQuery('.gk-mainmenu-toggle a').on('click', function(e) {
+			e.preventDefault();
+			e.stopPropagation();
 			if(jQuery('.gk-main-menu').hasClass('in')) {
 				jQuery('.gk-main-menu').removeClass('in').css({'height' : '0', 'display' : 'none'});
 			} else {
