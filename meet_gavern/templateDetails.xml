@@ -523,7 +523,7 @@
                                                   <option	value="1">TPL_GK_LANG_ENABLED</option>
                                         </field>
                                         
-                                        <!--<field name="jscss_excluded" type="textarea" rows="3" cols="30" label="TPL_GK_LANG_EXCLUDEJSCSS" description="TPL_GK_LANG_EXCLUDEJSCSS_DESC" />-->
+                                        <field name="jscss_excluded" type="textarea" rows="3" cols="30" label="TPL_GK_LANG_EXCLUDEJSCSS" description="TPL_GK_LANG_EXCLUDEJSCSS_DESC" />
                                         
                                         <field name="css_custom" type="textarea" rows="6" cols="40" label="TPL_GK_LANG_CSS_CUSTOM" description="TPL_GK_LANG_CSS_CUSTOM_DESC" />
                                         <field name="gk_line_13" type="line" text="" />
