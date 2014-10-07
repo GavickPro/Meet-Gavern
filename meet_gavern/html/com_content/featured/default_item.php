@@ -13,14 +13,16 @@ JLoader::register('TagsHelperRoute', JPATH_BASE . '/components/com_tags/helpers/
 $params = &$this->item->params;
 $images = json_decode($this->item->images);
 $canEdit	= $this->item->params->get('access-edit');
+
+$aside_visible = ($params->get('show_modify_date')) or ($params->get('show_publish_date')) or ($params->get('show_hits')) or ($params->get('show_category')) or ($params->get('show_create_date')) or ($params->get('show_parent_category')) or ($params->get('show_author')) or $params->get('show_publish_date') or ($params->get('show_print_icon') || $params->get('show_email_icon') || $canEdit);
+
 ?>
 <?php if ($this->item->state == 0) : ?>
 
 <div class="system-unpublished">
 	<?php endif; ?>
 	
-	<?php if (($params->get('show_modify_date')) or ($params->get('show_publish_date'))
-		or ($params->get('show_hits')) or ($params->get('show_category')) or ($params->get('show_create_date')) or ($params->get('show_parent_category')) or ($params->get('show_author')) or $params->get('show_publish_date') or ($params->get('show_print_icon') || $params->get('show_email_icon') || $canEdit)) : ?>
+	<?php if ($aside_visible) : ?>
 	<aside>
 		<?php if ($params->get('show_publish_date')) : ?>	
 		<time datetime="<?php echo JHtml::_('date', $this->item->publish_up, 'Y-m-d'); ?>" itemprop="datePublished">
@@ -121,7 +123,7 @@ $canEdit	= $this->item->params->get('access-edit');
 	</aside>
 	<?php endif; ?>
 	
-	<div class="gk-article">
+	<div class="gk-article<?php if(!$aside_visible) : ?> no-sidebar<?php endif; ?>">
 		<?php if ($params->get('show_title')) : ?>
 			<?php  if (isset($images->image_intro) and !empty($images->image_intro)) : ?>
 			<?php $imgfloat = (empty($images->float_intro)) ? $params->get('float_intro') : $images->float_intro; ?>

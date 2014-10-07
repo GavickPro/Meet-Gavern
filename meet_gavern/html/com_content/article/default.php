@@ -65,6 +65,7 @@ $doc->setMetaData( 'og:image', $og_image );
 $doc->setMetaData( 'og:site_name', $og_site_name );
 $doc->setMetaData( 'og:description', $og_desc );
 
+$aside_visible = ($params->get('show_modify_date')) or ($params->get('show_publish_date')) or ($params->get('show_hits')) or ($params->get('show_category')) or ($params->get('show_create_date')) or ($params->get('show_parent_category')) or ($params->get('show_author')) or $params->get('show_publish_date') or ($canEdit ||  $params->get('show_print_icon') || $params->get('show_email_icon'));
 
 ?>
 
@@ -82,8 +83,7 @@ if (!empty($this->item->pagination) AND $this->item->pagination && !$this->item-
 }
  ?>
 	
-	<?php if (($params->get('show_modify_date')) or ($params->get('show_publish_date'))
-		or ($params->get('show_hits')) or ($params->get('show_category')) or ($params->get('show_create_date')) or ($params->get('show_parent_category')) or ($params->get('show_author')) or $params->get('show_publish_date') or ($canEdit ||  $params->get('show_print_icon') || $params->get('show_email_icon'))) : ?>
+	<?php if ($aside_visible) : ?>
 	<aside>
 		<?php if ($params->get('show_publish_date')) : ?>	
 		<time datetime="<?php echo JHtml::_('date', $this->item->publish_up, 'Y-m-d'); ?>" itemprop="datePublished">
@@ -184,7 +184,7 @@ if (!empty($this->item->pagination) AND $this->item->pagination && !$this->item-
 	</aside>
 	<?php endif; ?>
 	
-	<div class="gk-article">
+	<div class="gk-article<?php if(!$aside_visible) : ?> no-sidebar<?php endif; ?>">
 	<?php if ($params->get('show_title') or (isset($images->image_fulltext) and !empty($images->image_fulltext))) : ?>
 		<?php  if (isset($images->image_fulltext) and !empty($images->image_fulltext)) : ?>
 		<?php $imgfloat = (empty($images->float_fulltext)) ? $params->get('float_fulltext') : $images->float_fulltext; ?>
