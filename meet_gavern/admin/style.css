@@ -1016,6 +1016,11 @@ div.position p {
 	width: 8.333333333%;
  *width:8.333333333%;
 }
+
+/* Hide preloader on installation screen */
+.com_installer #preloader {
+	display: none;
+}
   
   /* Support for mobile */
   @media (max-width: 480px) {
