@@ -50,18 +50,18 @@ $span = 12;
 if(isset($sidebarRules[$option]) || isset($sidebarRules[$ItemId])) {
 	if(isset($sidebarRules[$ItemId])) {
 		if($sidebarRules[$ItemId]->position == 'left') {
-			$this->API->addCSSRule('#gk-content { float: right} #sidebar { margin: 0 2.5641% 0 0}');
+			$this->API->addCSSRule('#gk-content { float: right} #sidebar { margin: 0 1.418438719% 0 0}');
 		}
 		$sidebar_width = str_replace('span', '', $sidebarRules[$ItemId]->width);
 	} else {
 		if($sidebarRules[$option]->position == 'left') {
-			$this->API->addCSSRule('#gk-content { float: right} #sidebar { margin: 0 2.5641% 0 0}');
+			$this->API->addCSSRule('#gk-content { float: right} #sidebar { margin: 0 1.418438719% 0 0}');
 		}
 		$sidebar_width = str_replace('span', '', $sidebarRules[$option]->width);
 	}
 } else {
 	if($this->layout->manager['sidebar']->float == 'left') {
-		$this->API->addCSSRule('#gk-content { float: right} #sidebar { margin: 0 2.5641% 0 0}');
+		$this->API->addCSSRule('#gk-content { float: right} #sidebar { margin: 0 1.418438719% 0 0}');
 	}
 	$sidebar_width = str_replace('span', '', $this->layout->manager['sidebar']->width);
 }
