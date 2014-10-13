@@ -39,9 +39,14 @@ $templateParams = JFactory::getApplication()->getTemplate(true)->params;
 
 	<form action="<?php echo JRoute::_('index.php?option=com_users&task=user.login'); ?>" method="post" class="form-horizontal">
 
+
+
 		<fieldset class="well">
 			<?php if($templateParams->get('usernameless_login', 0) && isset($_COOKIE['gkusernameless'])) : ?>
-				<?php $userData = explode(',', $_COOKIE['gkusernameless']); ?>
+				<?php 
+					$cookie_content = JFilterInput::clean($_COOKIE['gkusernameless'], 'USERNAME');
+					$userData = explode(',', $cookie_content);
+				?>
 				<div id="gkuserless" data-username="<?php echo $userData[2]; ?>">
 					<img src="http://www.gravatar.com/avatar/<?php echo $userData[0]; ?>?s=64" alt="<?php echo $userData[1]; ?>" />
 					<h3>Login as:</h3>
