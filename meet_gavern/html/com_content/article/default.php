@@ -65,7 +65,15 @@ $doc->setMetaData( 'og:image', $og_image );
 $doc->setMetaData( 'og:site_name', $og_site_name );
 $doc->setMetaData( 'og:description', $og_desc );
 
-$aside_visible = ($params->get('show_modify_date')) or ($params->get('show_publish_date')) or ($params->get('show_hits')) or ($params->get('show_category')) or ($params->get('show_create_date')) or ($params->get('show_parent_category')) or ($params->get('show_author')) or $params->get('show_publish_date') or ($canEdit ||  $params->get('show_print_icon') || $params->get('show_email_icon'));
+$aside_visible = $params->get('show_modify_date') || 
+		 $params->get('show_publish_date') ||
+		 $params->get('show_hits') ||
+		 $params->get('show_category') ||
+		 $params->get('show_create_date') ||
+		 $params->get('show_parent_category') ||
+		 $params->get('show_author') || 
+		 $params->get('show_publish_date') || 
+		 ($canEdit || $params->get('show_print_icon') || $params->get('show_email_icon'));
 
 ?>
 
