@@ -148,6 +148,10 @@
                                         </field>
                                         <field name="webmaster_contact" type="text" default="webmaster@gavick.com" label="TPL_GK_LANG_WEBMASTER_CONTACT" description="TPL_GK_LANG_WEBMASTER_CONTACT_DESC" />
                                         <field name="google_analytics" type="text" label="TPL_GK_LANG_GOOGLE_ANALYTICS" description="TPL_GK_LANG_GOOGLE_ANALYTICS_DESC" />
+                                        <field name="google_analytics_type" type="list" default="old" label="TPL_GK_LANG_GOOGLE_ANALYTICS_TYPE" description="TPL_GK_LANG_GOOGLE_ANALYTICS_TYPE_DESC">
+                                              <option value="old">Google Analytics</option>
+                                              <option value="universal">Universal Analytics</option>
+                                        </field>
                               </fieldset>
                               <fieldset name="menu" label="Menu Options">
                                         <field name="menu_animation" type="list" default="width_height_opacity" label="TPL_GK_LANG_MENU_ANIMATION" description="TPL_GK_LANG_MENU_ANIMATION_DESC">
