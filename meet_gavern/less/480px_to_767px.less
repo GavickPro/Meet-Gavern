@@ -26,10 +26,6 @@
 			content: "";
 			display: block;
 		}
-
-		&:first-child {
-			margin-top: 0;
-		}
 	}	
 
 	.row-fluid .span3,
@@ -37,11 +33,6 @@
 		float: left;
 		width: 48.618784527%;
 		*width: 48.5655930376383%;
-	}
-	
-	#gk-top .row-fluid .span3,
-	#gk-bottom .row-fluid .span3 {
-		margin-top: 0!important;
 	}
 	
 	.row-fluid {
@@ -61,7 +52,6 @@
 			.span2,
 			.span4 {
 				float: left;
-				margin-top: 0!important;
 				width: 31.491712705%;
 				*width: 31.4385212156383%;	
 
@@ -253,5 +243,10 @@
 	
 	#gk-download-btn {
 		width: 100px;
+	}
+	body > footer.container-fluid > div {
+		float: none!important;
+		margin: 0 auto;
+		width: 100%;
 	}
 }
