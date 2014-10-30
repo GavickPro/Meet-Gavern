@@ -101,6 +101,11 @@ body > header + section#gk-main:before {
   margin: 30px 0;
   padding: 45px 0 0 0;
 }
+#gk-bottom:after {
+  clear: both;
+  content: "";
+  display: table;
+}
 body > footer {
   border-top: 1px solid #e5e5e5;
   font-size: 11.05px;
@@ -1109,6 +1114,9 @@ p.img_caption {
   position: relative;
   top: -5px;
 }
+#gkSocialAPI .fb_iframe_widget {
+  top: -12px;
+}
 #fb-auth small {
   background: transparent url('../images/fb_icon.png') no-repeat 0 0;
   display: block;
@@ -1799,18 +1807,11 @@ aside .dropdown-menu {
     content: "";
     display: block;
   }
-  [class*="span"]:first-child {
-    margin-top: 0;
-  }
   .row-fluid .span3,
   .row-fluid .span3 {
     float: left;
     width: 48.618784527%;
     *width: 48.5655930376383%;
-  }
-  #gk-top .row-fluid .span3,
-  #gk-bottom .row-fluid .span3 {
-    margin-top: 0 !important;
   }
   .row-fluid .span3:nth-child(2n) {
     margin-left: 6px;
@@ -1825,7 +1826,6 @@ aside .dropdown-menu {
   #gk-bottom .row-fluid .span2,
   #gk-bottom .row-fluid .span4 {
     float: left;
-    margin-top: 0 !important;
     width: 31.491712705%;
     *width: 31.4385212156383%;
   }
@@ -2014,6 +2014,11 @@ aside .dropdown-menu {
   #gk-download-btn {
     width: 100px;
   }
+  body > footer.container-fluid > div {
+    float: none !important;
+    margin: 0 auto;
+    width: 100%;
+  }
 }
 @media (max-width: 480px) {
   #loginModal {
@@ -2072,8 +2077,19 @@ aside .dropdown-menu {
   #k2Container aside {
     float: none;
     position: static;
+    padding-bottom: 30px;
     width: 100%;
     max-width: 100%;
+  }
+  .item-page aside .btn-group.pull-right,
+  #k2Container aside .btn-group.pull-right {
+    margin-right: 16px;
+  }
+  .item-page aside:after,
+  #k2Container aside:after {
+    clear: both;
+    content: "";
+    display: table;
   }
   .gk-article,
   .itemBody.containsItemInfo,
@@ -2109,6 +2125,8 @@ aside .dropdown-menu {
     color: #fff;
     float: left !important;
     margin-left: 0;
+    position: static;
+    float: none !important;
   }
   .item-page time span,
   .itemAsideInfo time span {
@@ -2118,10 +2136,13 @@ aside .dropdown-menu {
   }
   .article-info {
     float: left;
-    margin: 0 0 10px 10px;
+    margin: 0 0 10px -4px;
     text-align: left;
     font-size: 11.05px;
     max-width: 345px;
+  }
+  .article-info {
+    width: 100%;
   }
   .article-info dt,
   .article-info dd {
@@ -2173,6 +2194,28 @@ aside .dropdown-menu {
   div.box.tlastrow + div.box {
     margin: 20px auto !important;
     clear: both;
+  }
+  #gk-main .container-fluid #sidebar .box {
+    width: 100%;
+  }
+  #form-login-submit .btn {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    margin-top: 5px !important;
+    width: 100%;
+  }
+  #loginModal .modal-header button {
+    margin-top: 0 !important;
+  }
+  #gk-logo.css-logo {
+    background-size: contain;
+    height: 60px;
+    margin: 5px 0 0 0;
+    width: 160px;
   }
 }
 #k2Container {
