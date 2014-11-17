@@ -67,7 +67,7 @@ $templateParams = JFactory::getApplication()->getTemplate(true)->params;
 					</div>
 				<?php endif; ?>
 			<?php endforeach; ?>
-			<?php if ($this->tfa): ?>
+			<?php if (property_exists($this,'tfa')): ?>
 				<div class="control-group">
 					<div class="control-label">
 						<?php echo $this->form->getField('secretkey')->label; ?>
