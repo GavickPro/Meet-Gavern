@@ -36,11 +36,19 @@ $og_url = $cur_url;
 if (isset($images->image_fulltext) and !empty($images->image_fulltext)) {     $og_image = $uri->root() . htmlspecialchars($images->image_fulltext);
      $pin_image = $uri->root() . htmlspecialchars($images->image_fulltext);
 } else {
-     $og_image = '';
-     preg_match('/src="([^"]*)"/', $this->item->text, $matches);
+     $templateParams = JFactory::getApplication()->getTemplate(true)->params;
+     $og_image = $uri->root() . $templateParams->get('logo_image','');
+     preg_match('/src="([^"]*)"/', $this->item->introtext, $matches);
+     $ext = substr($matches[0], -5, -1);
      
-     if(isset($matches[0])) {
-     	$pin_image = $uri->root() . substr($matches[0], 5,-1);
+     if(isset($matches[0]) && ($ext == ".jpg" || $ext == ".png" || $ext == ".tif" || $ext == "jpeg")) {
+       if (substr($matches[0], 5, 4) ==  "http") {
+	   $pin_image = substr($matches[0], 5,-1);
+	   $og_image = substr($matches[0], 5,-1);
+	} else {
+     	   $pin_image = $uri->root() . substr($matches[0], 5,-1);
+     	   $og_image = $uri->root() . substr($matches[0], 5,-1);
+	}
      }
 }
 
