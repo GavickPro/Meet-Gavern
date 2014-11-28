@@ -195,14 +195,14 @@ if ($this->API->modules('sidebar')) {
 		
 		<p class="pull-right gk-copyrights">
 		<?php if($this->API->get('copyrights', '') == '') : ?>
-			&copy; Meet Gavern - Free Joomla! 3.0 Template by <a href="http://www.gavick.com" title="GavickPro" rel="nofollow">GavickPro</a> <?php echo date('Y');?>
+			&copy; Meet Gavern - Free Joomla! 3.0 Template. <a href="https://www.gavick.com/joomla-templates.html" title="Best collection of Joomla Templates">Joomla Templates.</a>
 		<?php else : ?>
 			<?php echo $this->API->get('copyrights', ''); ?>
 		<?php endif; ?> 
 		</p>
 		
 		<?php if($this->API->get('framework_logo', 1)) : ?>
-		<a href="http://www.gavick.com" id="gk-framework-logo" rel="nofollow">Gavern Framework</a>
+		<a href="http://www.gavick.com" id="gk-framework-logo">Gavern Framework</a>
 		<?php endif; ?>
 		
 		<p class="gk-disclaimer">GavickPro is not affiliated with or endorsed by Open Source Matters or the Joomla! Project.<br />
