@@ -52,6 +52,12 @@ if (isset($images->image_fulltext) and !empty($images->image_fulltext)) {     $o
      }
 }
 
+list($width, $height, $type, $attr) = getimagesize($og_image);
+$ogfb_image = $templateParams->get('ogfb_image','');
+if (!empty($ogfb_image) && ($width < 200 || $height < 200)) {
+        $og_image = $uri->root() . $ogfb_image;
+
+}
 $og_site_name = $template_config->sitename;
 $og_desc = '';
 
