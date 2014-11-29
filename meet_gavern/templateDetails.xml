@@ -117,6 +117,7 @@
                                         <field name="logo_text" type="text" default="" label="TPL_GK_LANG_LOGO_TEXT" description="TPL_GK_LANG_LOGO_TEXT_DESC" />
                                         <field name="logo_slogan" type="text" default="" label="TPL_GK_LANG_LOGO_SLOGAN" description="TPL_GK_LANG_LOGO_SLOGAN_DESC" />
                                         <field name="favicon_image" type="media" default="" label="TPL_GK_LANG_FAVICON_IMAGE" description="TPL_GK_LANG_FAVICON_IMAGE_DESC" />
+                                        <field name="ogfb_image" type="media" default="" label="TPL_GK_LANG_OGFB_IMAGE" description="TPL_GK_LANG_OGFB_IMAGE_DESC" />
                                         <field
 					name="show_category_details"
 					type="radio"
