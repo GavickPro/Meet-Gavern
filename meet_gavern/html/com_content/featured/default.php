@@ -14,6 +14,40 @@ JHtml::addIncludePath(JPATH_COMPONENT . '/helpers');
 JHtml::_('behavior.caption');
 // If the page class is defined, add to class as suffix.
 // It will be a separate class if the user starts it with a space
+
+// URL for Social API
+$cur_url = (!empty($_SERVER['HTTPS'])) ? "https://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'] : "http://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+$cur_url = preg_replace('@%[0-9A-Fa-f]{1,2}@mi', '', htmlspecialchars($cur_url, ENT_QUOTES, 'UTF-8'));
+
+// Create shortcuts to some parameters.
+$params		= $this->item->params;
+$images     = json_decode($this->item->images);
+$doc = JFactory::getDocument();
+
+// OpenGraph support
+$template_config = new JConfig();
+$uri = JURI::getInstance();
+$og_title = $doc->getTitle();
+$og_type = 'blog';
+$og_url = $cur_url;
+$templateParams = JFactory::getApplication()->getTemplate(true)->params;
+$og_image = $uri->root() . $templateParams->get('logo_image','');
+
+list($width, $height, $type, $attr) = getimagesize($og_image);
+$ogfb_image = $templateParams->get('ogfb_image','');
+if (!empty($ogfb_image) && ($width < 200 || $height < 200)) {
+        $og_image = $uri->root() . $ogfb_image;
+
+} 
+$og_site_name = $template_config->sitename;
+$og_desc = $doc->getMetaData('description');
+
+$doc->setMetaData( 'og:title', $og_title );
+$doc->setMetaData( 'og:type', $og_type );
+$doc->setMetaData( 'og:url', $og_url );
+$doc->setMetaData( 'og:image', $og_image );
+$doc->setMetaData( 'og:site_name', $og_site_name );
+$doc->setMetaData( 'og:description', $og_desc );
 ?>
 <div class="blog-featured<?php echo $this->pageclass_sfx;?> item-page" itemscope itemtype="http://schema.org/Blog">
 <?php if ( $this->params->get('show_page_heading')!=0) : ?>

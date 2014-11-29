@@ -18,6 +18,7 @@ $images     = json_decode($this->item->images);
 $urls       = json_decode($this->item->urls);
 $canEdit	= $this->item->params->get('access-edit');
 $user		= JFactory::getUser();
+$doc = JFactory::getDocument();
 
 JHtml::_('behavior.caption');
 
@@ -52,8 +53,14 @@ if (isset($images->image_fulltext) and !empty($images->image_fulltext)) {     $o
      }
 }
 
+list($width, $height, $type, $attr) = getimagesize($og_image);
+$ogfb_image = $templateParams->get('ogfb_image','');
+if (!empty($ogfb_image) && ($width < 200 || $height < 200)) {
+        $og_image = $uri->root() . $ogfb_image;
+
+} 
 $og_site_name = $template_config->sitename;
-$og_desc = '';
+$og_desc = $doc->getMetaData('description');
 
 
 if(isset($article_attribs['og:title'])) {
@@ -65,7 +72,6 @@ if(isset($article_attribs['og:title'])) {
      $og_desc = $this->escape($article_attribs['og:description']);
 }
 
-$doc = JFactory::getDocument();
 $doc->setMetaData( 'og:title', $og_title );
 $doc->setMetaData( 'og:type', $og_type );
 $doc->setMetaData( 'og:url', $og_url );
