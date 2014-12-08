@@ -29,13 +29,7 @@ $userID = $user->get('id');
 				<?php if($userID > 0) : ?>
 				<jdoc:include type="modules" name="usermenu" style="gk_style>" />
 				<?php endif; ?>
-				<?php if($userID > 0) : ?>
-
-					<?php endif; ?>
-					<jdoc:include type="modules" name="login" style="none" />
-					<?php if($userID > 0) : ?>
-
-				<?php endif; ?>
+				<jdoc:include type="modules" name="login" style="none" />
 			</div>
 		</div>
 		<?php if($userID == 0) : ?>
