@@ -4,7 +4,10 @@
 // Bootstrap LESS parser
 //
 
-include_once('lessparser.php');
+if (!class_exists('lessc'))
+{
+	include_once('lessparser.php');
+}
 
 class GKTemplateBootstrap {
 	function __construct($parent) {
