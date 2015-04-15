@@ -111,9 +111,9 @@ class JFormFieldConfigManager extends JFormField {
 		// return the standard formfield output
 		$html = '';
 		$html .= '<div id="config_manager_form" class="well">';
-		$html .= '<div><p><label>'.JText::_('TPL_GK_LANG_CONFIG_LOAD').'</label>'.$file_select.'<button id="config_manager_load" class="btn"><i class="icon-download"></i> '.JText::_('TPL_GK_LANG_CONFIG_LOAD_BTN').'</button></p></div>';
-		$html .= '<div class="input-append"><p><label>'.JText::_('TPL_GK_LANG_CONFIG_SAVE').'</label><input type="text" id="config_manager_save_filename" class="input-medium" placeholder="'.JText::_('TPL_GK_LANG_CONFIG_YOUR_FILENAME').'" /><span class="add-on">.json</span><button id="config_manager_save" class="btn"><i class="icon-upload"></i> '.JText::_('TPL_GK_LANG_CONFIG_SAVE_BTN').'</button></p></div>';
-		$html .= '<div><p><label>'.JText::_('TPL_GK_LANG_CONFIG_DELETE').'</label>'.$file_delete.'<button id="config_manager_delete" class="btn"><i class="icon-remove"></i> '.JText::_('TPL_GK_LANG_CONFIG_DELETE_BTN').'</button></p></div>';
+		$html .= '<div><label>'.JText::_('TPL_GK_LANG_CONFIG_LOAD').'</label>'.$file_select.'<button id="config_manager_load" class="btn"><i class="icon-download"></i> '.JText::_('TPL_GK_LANG_CONFIG_LOAD_BTN').'</button></div>';
+		$html .= '<div class="input-append"><label>'.JText::_('TPL_GK_LANG_CONFIG_SAVE').'</label><input type="text" id="config_manager_save_filename" class="input-medium" placeholder="'.JText::_('TPL_GK_LANG_CONFIG_YOUR_FILENAME').'" /><span class="add-on">.json</span><button id="config_manager_save" class="btn"><i class="icon-upload"></i> '.JText::_('TPL_GK_LANG_CONFIG_SAVE_BTN').'</button></div>';
+		$html .= '<div><label>'.JText::_('TPL_GK_LANG_CONFIG_DELETE').'</label>'.$file_delete.'<button id="config_manager_delete" class="btn"><i class="icon-remove"></i> '.JText::_('TPL_GK_LANG_CONFIG_DELETE_BTN').'</button></div>';
 		$html .= '<div><p><span class="label label-warning">'.JText::_('TPL_GK_LANG_CONFIG_DIRECTORY').'</span> <span>'.str_replace(DS, ' ' . DS . ' ', $base_path).'</span></p></div>';
 		$html .= '</div>';
 		// finish the output

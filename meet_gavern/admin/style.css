@@ -1021,6 +1021,14 @@ div.position p {
 .com_installer #preloader {
 	display: none;
 }
+
+/* Fixes for Joomla! 3.4.* */
+.chzn-container-single .chzn-single div b {
+	width: 10px;
+}
+#details .well > div {
+	margin-bottom: 10px;
+}
   
   /* Support for mobile */
   @media (max-width: 480px) {
