@@ -1029,6 +1029,14 @@ div.position p {
 #details .well > div {
 	margin-bottom: 10px;
 }
+#myTabContent .control-group {
+	overflow: visible;
+}
+#myTabContent .control-group:after {
+	clear: both;
+	content: "";
+	display: table;
+}
   
   /* Support for mobile */
   @media (max-width: 480px) {
