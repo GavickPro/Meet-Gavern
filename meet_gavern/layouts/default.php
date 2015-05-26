@@ -192,7 +192,7 @@ if ($this->API->modules('sidebar')) {
 		<jdoc:include type="modules" name="footer" modpos="footer" style="gk_style" modnum="<?php echo $this->API->modules('footer'); ?>" settings="<?php echo htmlspecialchars(json_encode($this->layout->manager['footer'])); ?>"/>
 		<?php endif; ?>
 		
-		<p class="pull-right gk-toplink"><a href="<?php echo $current_url; ?>#top" id="back-top">Back to top</a></p>
+		<p class="pull-right gk-toplink"><a href="<?php echo $current_url; ?>#top" id="back-top"><?php echo JText::_('TPL_GK_LANG_BACK_TO_TOP') ?></a></p>
 		
 		<p class="pull-right gk-copyrights">
 		<?php if($this->API->get('copyrights', '') == '') : ?>
