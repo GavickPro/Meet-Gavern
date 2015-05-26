@@ -206,8 +206,8 @@ if ($this->API->modules('sidebar')) {
 		<a href="http://www.gavick.com" id="gk-framework-logo">Gavern Framework</a>
 		<?php endif; ?>
 		
-		<p class="gk-disclaimer">GavickPro is not affiliated with or endorsed by Open Source Matters or the Joomla! Project.<br />
-		The Joomla! logo is used under a limited license granted by Open Source Matters the trademark holder in the United States and other countries.<br />Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+		<p class="gk-disclaimer"><?php echo JText::_('TPL_GK_LANG_DISCLAIMER_GAVICKPRO') ?><br />
+		<?php echo JText::_('TPL_GK_LANG_DISCLAIMER') ?><br />Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
 	</footer>
 		
 	<?php if($this->API->modules('social')) : ?>
