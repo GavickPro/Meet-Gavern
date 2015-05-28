@@ -542,7 +542,8 @@
       if (this.transitioning || !this.$element.hasClass('in')) return
       dimension = this.dimension()
       this.reset(this.$element[dimension]())
-      this.transition('removeClass', $.Event('hide'), 'hidden')
+      this.transition('removeClass', $.Event('hideme'), 'hidden')
+
       this.$element[dimension](0)
     }
 
@@ -1274,7 +1275,7 @@
         , $tip = this.tip()
         , e = $.Event('hide')
 
-      this.$element.trigger(e)
+      /*this.$element.trigger(e)*/
       if (e.isDefaultPrevented()) return
 
       $tip.removeClass('in')
