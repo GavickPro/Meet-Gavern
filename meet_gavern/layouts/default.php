@@ -207,7 +207,7 @@ if ($this->API->modules('sidebar')) {
 		<?php endif; ?>
 		
 		<p class="gk-disclaimer"><?php echo JText::_('TPL_GK_LANG_DISCLAIMER_GAVICKPRO') ?><br />
-		<?php echo JText::_('TPL_GK_LANG_DISCLAIMER') ?><br />Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+		<?php echo JText::_('TPL_GK_LANG_DISCLAIMER') ?><br /><?php echo JText::_('TPL_GK_LANG_ICONS_FROM') ?> <a href="http://glyphicons.com">Glyphicons Free</a>, <?php echo JText::_('TPL_GK_LANG_LICENSED_UNDER') ?> <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
 	</footer>
 		
 	<?php if($this->API->modules('social')) : ?>
