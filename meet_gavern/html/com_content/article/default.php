@@ -28,6 +28,7 @@ $cur_url = preg_replace('@%[0-9A-Fa-f]{1,2}@mi', '', htmlspecialchars($cur_url, 
 
 // OpenGraph support
 $template_config = new JConfig();
+$templateParams = JFactory::getApplication()->getTemplate(true)->params;
 $uri = JURI::getInstance();
 $article_attribs = json_decode($this->item->attribs, true);
 $pin_image = '';
@@ -37,7 +38,6 @@ $og_url = $cur_url;
 if (isset($images->image_fulltext) and !empty($images->image_fulltext)) {     $og_image = $uri->root() . htmlspecialchars($images->image_fulltext);
      $pin_image = $uri->root() . htmlspecialchars($images->image_fulltext);
 } else {
-     $templateParams = JFactory::getApplication()->getTemplate(true)->params;
      $og_image = $uri->root() . $templateParams->get('logo_image','');
      preg_match('/src="([^"]*)"/', $this->item->introtext, $matches);
      $ext = substr($matches[0], -5, -1);
