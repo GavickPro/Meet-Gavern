@@ -28,40 +28,27 @@ $cur_url = preg_replace('@%[0-9A-Fa-f]{1,2}@mi', '', htmlspecialchars($cur_url, 
 
 // OpenGraph support
 $template_config = new JConfig();
-$templateParams = JFactory::getApplication()->getTemplate(true)->params;
 $uri = JURI::getInstance();
 $article_attribs = json_decode($this->item->attribs, true);
+
 $pin_image = '';
 $og_title = $this->escape($this->item->title);
 $og_type = 'article';
 $og_url = $cur_url;
-if (isset($images->image_fulltext) and !empty($images->image_fulltext)) {     $og_image = $uri->root() . htmlspecialchars($images->image_fulltext);
+if (version_compare( JVERSION, '1.8', 'ge' ) && isset($images->image_fulltext) and !empty($images->image_fulltext)) {     $og_image = $uri->root() . htmlspecialchars($images->image_fulltext);
      $pin_image = $uri->root() . htmlspecialchars($images->image_fulltext);
 } else {
-     $og_image = $uri->root() . $templateParams->get('logo_image','');
-     preg_match('/src="([^"]*)"/', $this->item->introtext, $matches);
-     $ext = substr($matches[0], -5, -1);
-     
-     if(isset($matches[0]) && ($ext == ".jpg" || $ext == ".png" || $ext == ".tif" || $ext == "jpeg")) {
-       if (substr($matches[0], 5, 4) ==  "http") {
-	   $pin_image = substr($matches[0], 5,-1);
-	   $og_image = substr($matches[0], 5,-1);
-	} else {
-     	   $pin_image = $uri->root() . substr($matches[0], 5,-1);
-     	   $og_image = $uri->root() . substr($matches[0], 5,-1);
-	}
+     $og_image = '';
+     preg_match('/src="([^"]*)"/', $this->item->text, $matches);
+
+     if(isset($matches[0])) {
+     	$pin_image = $uri->root() . substr($matches[0], 5,-1);
      }
 }
 
-list($width, $height, $type, $attr) = getimagesize($og_image);
-$ogfb_image = $templateParams->get('ogfb_image','');
-if (!empty($ogfb_image) && ($width < 200 || $height < 200)) {
-        $og_image = $uri->root() . $ogfb_image;
 
-} 
 $og_site_name = $template_config->sitename;
-$og_desc = $doc->getMetaData('description');
-
+$og_desc = '';
 
 if(isset($article_attribs['og:title'])) {
      $og_title = ($article_attribs['og:title'] == '') ? $this->escape($this->item->title) : $this->escape($article_attribs['og:title']);
@@ -72,6 +59,7 @@ if(isset($article_attribs['og:title'])) {
      $og_desc = $this->escape($article_attribs['og:description']);
 }
 
+$doc = JFactory::getDocument();
 $doc->setMetaData( 'og:title', $og_title );
 $doc->setMetaData( 'og:type', $og_type );
 $doc->setMetaData( 'og:url', $og_url );
