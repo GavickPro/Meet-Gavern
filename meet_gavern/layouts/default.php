@@ -13,6 +13,8 @@ defined('_JEXEC') or die;
 // get important objects
 $app = JFactory::getApplication();
 $doc = JFactory::getDocument();
+$menu 	= $app->getMenu();
+$lang 	= JFactory::getLanguage();
 // Add current user information
 $user = JFactory::getUser();
 // getting User ID
@@ -196,8 +198,12 @@ if ($this->API->modules('sidebar')) {
 		
 		<p class="pull-right gk-copyrights">
 		<?php if($this->API->get('copyrights', '') == '') : ?>
-			&copy; Meet Gavern - Free Joomla! 3.0 Template. <a href="https://www.gavick.com/joomla-templates.html" title="Best collection of Joomla Templates">Joomla Templates.</a>
-		<?php else : ?>
+					<?php if ($menu->getActive() == $menu->getDefault($lang->getTag())) : ?> 
+						Joomla Templates &amp; Wordpress Themes - <a href="https://www.gavick.com/">https://www.gavick.com</a>
+					<?php else : ?>
+						Joomla Templates &amp; Wordpress Themes - https://www.gavick.com
+					<?php endif; ?>	
+               <?php else : ?>
 			<?php echo $this->API->get('copyrights', ''); ?>
 		<?php endif; ?> 
 		</p>
