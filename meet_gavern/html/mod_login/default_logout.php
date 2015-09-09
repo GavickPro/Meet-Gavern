@@ -12,7 +12,7 @@ defined('_JEXEC') or die;
 JHtml::_('behavior.keepalive');
 ?>
 
-<form action="<?php echo JRoute::_(JUri::current(), true, $params->get('usesecure')); ?>" method="post" id="login-form" class="form-vertical">
+<form action="<?php echo JRoute::_(htmlspecialchars(JUri::getInstance()->toString()), true, $params->get('usesecure')); ?>" method="post" id="login-form" class="form-vertical">
 <?php if ($params->get('greeting')) : ?>
 	<div class="login-greeting">
 	<?php if ($params->get('name') == 0) : {
