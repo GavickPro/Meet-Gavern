@@ -54,7 +54,7 @@ $uri = JURI::getInstance();
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
 <head>
 	<title><?php echo $this->error->getCode(); ?>-<?php echo $this->title; ?></title>
-	
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $uri->base(); ?>templates/<?php echo $this->template; ?>/fonts/Colaborate/stylesheet.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $uri->base(); ?>templates/<?php echo $this->template; ?>/css/error.css" />
 	
