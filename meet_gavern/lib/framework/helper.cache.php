@@ -177,6 +177,8 @@ function optimizecss($css_urls, $overwrite = false) {
 		if(useGZip()) $file = $file.'.php';
 
 		$expireHeader = (int) 30 * 24 * 60 * 60;
+		
+		$headers = '';
 		if(useGZip()) {
 			$headers = "<?php if(extension_loaded('zlib')){ob_start('ob_gzhandler');} header(\"Content-type: text/css\");";
 			$headers .= "header(\"Content-Encoding: gzip\");";
