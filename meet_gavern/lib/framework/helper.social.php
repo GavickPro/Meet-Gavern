@@ -30,9 +30,9 @@ class GKTemplateSocial {
         // get the variables from the URL
         $option = JRequest::getCmd('option', '');
         $view = JRequest::getCmd('view', '');
-        $id = JRequest::getVar('id', '');
+        $id = (int) JRequest::getVar('id', '');
         if(strpos($id, ':')) $id = substr($id, 0, strpos($id, ':')); 
-        $catid = JRequest::getVar('catid', '');
+        $catid = (int) JRequest::getVar('catid', '');
         if(strpos($catid, ':')) $catid = substr($catid, 0, strpos($catid, ':'));
 
         // find catid if it is not set in the URL
