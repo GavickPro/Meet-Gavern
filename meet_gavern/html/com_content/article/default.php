@@ -14,6 +14,7 @@ JLoader::register('TagsHelperRoute', JPATH_BASE . '/components/com_tags/helpers/
 
 // Create shortcuts to some parameters.
 $params		= $this->item->params;
+$templateParams = JFactory::getApplication()->getTemplate(true)->params;
 $images     = json_decode($this->item->images);
 $urls       = json_decode($this->item->urls);
 $canEdit	= $this->item->params->get('access-edit');
@@ -38,14 +39,18 @@ $og_url = $cur_url;
 if (version_compare( JVERSION, '1.8', 'ge' ) && isset($images->image_fulltext) and !empty($images->image_fulltext)) {     $og_image = $uri->root() . htmlspecialchars($images->image_fulltext);
      $pin_image = $uri->root() . htmlspecialchars($images->image_fulltext);
 } else {
-     $og_image = '';
-     preg_match('/src="([^"]*)"/', $this->item->text, $matches);
+     preg_match('/src="([^"]*)"/', $this->item->introtext . $this->item->fulltext, $matches);
 
      if(isset($matches[0])) {
-     	$pin_image = $uri->root() . substr($matches[0], 5,-1);
+     	$og_image = $pin_image = $uri->root() . substr($matches[0], 5,-1);
      }
 }
 
+list($width, $height, $type, $attr) = getimagesize($og_image);
+$ogfb_image = $templateParams->get('ogfb_image','');
+if (!empty($ogfb_image) && ($width < 200 || $height < 200)) {
+        $og_image = $uri->root() . $ogfb_image;
+}
 
 $og_site_name = $template_config->sitename;
 $og_desc = '';
