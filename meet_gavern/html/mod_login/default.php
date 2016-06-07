@@ -21,14 +21,14 @@ JHtml::_('bootstrap.tooltip');
 	<div class="userdata">
 		<?php if($templateParams->get('usernameless_login', 0) && isset($_COOKIE['gkusernameless'])) : ?>
 			<?php 
-				$cookie_content = JFilterInput::clean($_COOKIE['gkusernameless'], 'USERNAME');
+				$cookie_content = JFilterInput::getInstance()->clean($_COOKIE['gkusernameless'], 'USERNAME');
 				$userData = explode(',', $cookie_content);
 			?>
 			<div id="gkuserless" data-username="<?php echo $userData[2]; ?>">
 				<img src="http://www.gravatar.com/avatar/<?php echo $userData[0]; ?>?s=64" alt="<?php echo $userData[1]; ?>" />
-				<h3>Login as:</h3>
+				<h3><?php echo JText::_('TPL_GK_LANG_USER_LOGIN_AS') ?>:</h3>
 				<p><strong><?php echo $userData[1]; ?></strong> (<?php echo $userData[2]; ?>)</p>
-				<a href="#not" id="gkwronguserless">Not <strong><?php echo $userData[1]; ?></strong>? Click to input your username &raquo;</a>
+				<a href="#not" id="gkwronguserless"><?php echo JText::_('TPL_GK_LANG_USER_NOT') ?> <strong><?php echo $userData[1]; ?></strong>? <?php echo JText::_('TPL_GK_LANG_USER_CLIC_INPUT_USERNAME') ?> &raquo;</a>
 			</div>
 		<?php endif; ?>
 		<div id="form-login-username" class="control-group">
