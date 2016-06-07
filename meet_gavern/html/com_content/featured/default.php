@@ -20,8 +20,6 @@ $cur_url = (!empty($_SERVER['HTTPS'])) ? "https://".$_SERVER['SERVER_NAME'].$_SE
 $cur_url = preg_replace('@%[0-9A-Fa-f]{1,2}@mi', '', htmlspecialchars($cur_url, ENT_QUOTES, 'UTF-8'));
 
 // Create shortcuts to some parameters.
-$params		= $this->item->params;
-$images     = json_decode($this->item->images);
 $doc = JFactory::getDocument();
 
 // OpenGraph support
