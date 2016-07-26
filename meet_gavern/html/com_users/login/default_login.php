@@ -44,7 +44,8 @@ $templateParams = JFactory::getApplication()->getTemplate(true)->params;
 		<fieldset class="well">
 			<?php if($templateParams->get('usernameless_login', 0) && isset($_COOKIE['gkusernameless'])) : ?>
 				<?php 
-					$cookie_content = JFilterInput::clean($_COOKIE['gkusernameless'], 'USERNAME');
+				$filter = new JFilterInput;	
+				$cookie_content = $filter->clean($_COOKIE['gkusernameless'], 'USERNAME');
 					$userData = explode(',', $cookie_content);
 				?>
 				<div id="gkuserless" data-username="<?php echo $userData[2]; ?>">
