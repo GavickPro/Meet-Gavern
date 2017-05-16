@@ -238,7 +238,7 @@ if ($this->API->modules('sidebar')) {
 // Rules to remove predefined jQuery and Bootstrap and MooTools More
 GKParser::$customRules['/<script src="(.*?)media\/jui\/js\/jquery.min.js" type="text\/javascript"><\/script>/mi'] = '';
 GKParser::$customRules['/<script src="(.*?)media\/jui\/js\/jquery-noconflict.js" type="text\/javascript"><\/script>/mi'] = '';
-GKParser::$customRules['/<script src="(.*?)media\/jui\/js\/bootstrap.min.js" type="text\/javascript"><\/script>/mi'] = '';
+GKParser::$customRules['/<script src="(.*?)media\/jui\/js\/bootstrap.min.js(.*?)" type="text\/javascript"><\/script>/mi'] = '';
 //GKParser::$customRules['/<script src="(.*?)media\/system\/js\/mootools-more.js" type="text\/javascript"><\/script>/mi'] = '';
 
 // EOF
