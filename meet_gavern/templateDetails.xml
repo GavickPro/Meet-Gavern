@@ -2,7 +2,7 @@
 <!DOCTYPE install PUBLIC "-//Joomla! 2.5//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/2.5/template-install.dtd">
 <extension version="3.0" type="template" client="site" method="upgrade">
           <name>meet_gavern</name>
-          <version>1.4.0</version>
+          <version>1.4.1</version>
           <creationDate>30 Oct 2014</creationDate>
           <author>GavickPro</author>
           <authorEmail>info@gavick.com</authorEmail>
@@ -360,82 +360,21 @@
                               </fieldset>
                               
                               <!-- Cookie consent settings -->
-                              <fieldset name="COOKIE_SETTINGS" addfieldpath="/templates/meet_gavern/admin/elements">
-                                        <field
-					name="cookie_consent"
-					type="radio"
-					class="btn-group"
-					label="TPL_GK_LANG_COOKIE_CONSENT"
-					default="0"
-					description="TPL_GK_LANG_COOKIE_CONSENT_DESC"
-					labelclass="control-label">
-                                                  <option	value="0">TPL_GK_LANG_DISABLED</option>
-                                                  <option	value="1">TPL_GK_LANG_ENABLED</option>
-                                        </field>
-                                        <field name="consenttype" type="list"  default="explicit" label="TPL_GK_LANG_CONSENT_TYPE" description="TPL_GK_LANG_CONSENT_TYPE_DESC">
-                                                  <option value="implicit">TPL_GK_LANG_IMPLIED</option>
-                                                  <option value="explicit">TPL_GK_LANG_EXPLICIT</option>
-                                        </field>
-                                        <field
-					name="cookie_latest_version"
-					type="radio"
-					class="btn-group"
-					label="TPL_GK_LANG_COOKIE_LATEST_VERSION"
-					default="0"
-					description="TPL_GK_LANG_COOKIE_LATEST_VERSION_DESC"
-					labelclass="control-label">
-                                                  <option	value="0">TPL_GK_LANG_DISABLED</option>
-                                                  <option	value="1">TPL_GK_LANG_ENABLED</option>
-                                        </field>
-                                        <field
-					name="cookie_use_ssl"
-					type="radio"
-					class="btn-group"
-					label="TPL_GK_LANG_COOKIE_SSL"
-					default="0"
-					description="TPL_GK_LANG_COOKIE_SSL_DESC"
-					labelclass="control-label">
-                                                  <option	value="0">TPL_GK_LANG_DISABLED</option>
-                                                  <option	value="1">TPL_GK_LANG_ENABLED</option>
-                                        </field>
-                                        <field name="banner_position" type="list"  default="bottom" label="TPL_GK_LANG_BANNER_POSITION" description="TPL_GK_LANG_BANNER_POSITION_DESC">
-                                                  <option value="top">TPL_GK_LANG_TOP</option>
-                                                  <option value="bottom">TPL_GK_LANG_BOTTOM</option>
-                                                  <option value="push">TPL_GK_LANG_PUSH</option>
-                                        </field>
-                                        <field name="banner_tag_placement" type="list"  default="bottom-right" label="TPL_GK_LANG_TAG_PLACEMENT" description="TPL_GK_LANG_TAG_PLACEMENT_DESC">
-                                                  <option value="bottom-right">TPL_GK_LANG_BR</option>
-                                                  <option value="bottom-left">TPL_GK_LANG_BL</option>
-                                                  <option value="vertical-left">TPL_GK_LANG_VL</option>
-                                                  <option value="vertical-right">TPL_GK_LANG_VR</option>
-                                        </field>
-                                        <field name="cookie_style" type="list"  default="light" label="TPL_GK_LANG_COOKIE_STYLE" description="TPL_GK_LANG_COOKIE_STYLE_DESC">
-                                                  <option value="dark">TPL_GK_LANG_DARK</option>
-                                                  <option value="light">TPL_GK_LANG_LIGHT</option>
-                                                  <option value="monochrome">TPL_GK_LANG_MONOCHROME</option>
-                                        </field>
-                                        <field
-					name="refreshOnConsent"
-					type="radio"
-					class="btn-group"
-					label="TPL_GK_LANG_REFRESH_CONSENT"
-					default="0"
-					description="TPL_GK_LANG_REFRESH_CONSENT_DESC"
-					labelclass="control-label">
-                                                  <option	value="0">TPL_GK_LANG_DISABLED</option>
-                                                  <option	value="1">TPL_GK_LANG_ENABLED</option>
-                                        </field>
-                                        <field
-					name="cookiecss"
-					type="radio"
-					class="btn-group"
-					label="TPL_GK_LANG_COOKIE_CSS"
-					default="1"
-					description="TPL_GK_LANG_COOKIE_CSS_DESC"
-					labelclass="control-label">
-                                                  <option	value="0">TPL_GK_LANG_DISABLED</option>
-                                                  <option	value="1">TPL_GK_LANG_ENABLED</option>
-                                        </field>
+                              <fieldset name="COOKIE_SETTINGS" addfieldpath="/templates/gk_appphone/admin/elements">
+                                   <field name="cookie_consent" type="radio" class="btn-group" default="0" label="TPL_GK_LANG_COOKIE_CONSENT" description="TPL_GK_LANG_COOKIE_CONSENT_DESC">
+                                        <option value="1">TPL_GK_LANG_ENABLED</option>
+                                        <option value="0">TPL_GK_LANG_DISABLED</option>
+                                   </field>
+                                   <field name="cookie_url" type="text" label="TPL_GK_LANG_COOKIE_URL" text="TPL_GK_LANG_COOKIE_URL" description="TPL_GK_LANG_COOKIE_URL_DESC" />
+                                  
+                                   <field name="cookie_theme" type="list"  default="dark-bottom" label="TPL_GK_LANG_COOKIE_THEME" description="TPL_GK_LANG_COOKIE_THEME_DESC">
+                                        <option value="light-floating">TPL_GK_LANG_COOKIE_THEME_LIGHT_FLOATING</option>
+                                        <option value="light-top">TPL_GK_LANG_COOKIE_THEME_LIGHT_TOP</option>
+                                        <option value="light-bottom">TPL_GK_LANG_COOKIE_THEME_LIGHT_BOTTOM</option>
+                                        <option value="dark-floating">TPL_GK_LANG_COOKIE_THEME_DARK_FLOATING</option>
+                                        <option value="dark-top">TPL_GK_LANG_COOKIE_THEME_DARK_TOP</option>
+                                        <option value="dark-bottom">TPL_GK_LANG_COOKIE_THEME_DARK_BOTTOM</option>
+                                   </field>
                               </fieldset>
                               <!-- Dev settings -->
                               <fieldset name="DEV_SETTINGS" addfieldpath="/templates/meet_gavern/admin/elements">

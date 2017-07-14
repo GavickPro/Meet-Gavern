@@ -11,11 +11,7 @@ $view = JRequest::getCmd('view', '');
 <?php if($this->API->get('fb_login', '0') == 1 || $this->API->get('fb_like', '0') == 1) : ?>
 <gavern:social>
 <div id="gkfb-root"></div>
-<?php if($this->API->get('cookie_consent', '0') == 0) : ?>
 <script type="text/javascript">
-<?php else : ?>
-<script type="text/plain" class="cc-onconsent-social">
-<?php endif; ?>
 
 //<![CDATA[
    	window.fbAsyncInit = function() {
@@ -97,11 +93,7 @@ $view = JRequest::getCmd('view', '');
 <!-- +1 button -->
 <?php if($this->API->get('google_plus', '1') == 1 && $option == 'com_content' && $view == 'article') : ?>
 <gavern:social>
-<?php if($this->API->get('cookie_consent', '0') == 0) : ?>
 <script type="text/javascript">
-<?php else : ?>
-<script type="text/plain" class="cc-onconsent-social">
-<?php endif; ?>
   window.___gcfg = {lang: '<?php echo $this->API->get("google_plus_lang", "en-GB"); ?>'};
   (function() {
     var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
@@ -114,21 +106,13 @@ $view = JRequest::getCmd('view', '');
 
 <!-- twitter -->
 <?php if($this->API->get('tweet_btn', '0') == 1 && $option == 'com_content' && $view == 'article') : ?>
-     <?php if($this->API->get('cookie_consent', '0') == 0) : ?>
      <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
-     <?php else : ?>
-     <script type="text/plain" class="cc-onconsent-social" src="//platform.twitter.com/widgets.js"></script>
-     <?php endif; ?>
 <?php endif; ?>
 
 
 <!-- Pinterest script --> 
 <?php if($this->API->get('pinterest_btn', '1') == 1 && $option == 'com_content' && $view == 'article') : ?><gavern:social>
-<?php if($this->API->get('cookie_consent', '0') == 0) : ?>
 <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
-<?php else : ?>
-<script type="text/plain" class="cc-onconsent-social" src="//assets.pinterest.com/js/pinit.js"></script>
-<?php endif; ?>
 
 </gavern:social>
 <?php endif; ?>
