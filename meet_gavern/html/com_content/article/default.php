@@ -63,23 +63,51 @@ if(isset($article_attribs['og:title'])) {
      $og_site_name = ($article_attribs['og:site_name'] == '') ? $template_config->sitename : $this->escape($article_attribs['og:site_name']);
      $og_desc = $this->escape($article_attribs['og:description']);
 }
+else
+{
+    jimport( 'joomla.filesystem.file' );
+    $imgPath	= '';
+    $path 		= JPATH_ROOT . '/images/opengraph';
+
+    //echo 'path '.$path . '/' . (int)$row->id.'.jpg';
+
+    if (JFile::exists($path . '/' . (int)$this->item->id.'.jpg')) {
+        $finfo = finfo_open(FILEINFO_MIME_TYPE);
+        $og_image_type = finfo_file($finfo, $path . '/' . (int)$this->item->id.'.jpg');
+        finfo_close($finfo);
+
+        $imgPath = JURI::base(false) . 'images/opengraph/'.(int)$this->item->id.'.jpg';
+
+    } else if (JFile::exists($path . '/' . (int)$this->item->id.'.png')) {
+
+
+        $imgPath = JURI::base(false) . 'images/opengraph/'.(int)$this->item->id.'.png';
+    }
+
+    $og_image = $imgPath;
+    $og_desc = $this->escape($this->item->metadesc);
+}
 
 $doc = JFactory::getDocument();
 $doc->setMetaData( 'og:title', $og_title );
 $doc->setMetaData( 'og:type', $og_type );
 $doc->setMetaData( 'og:url', $og_url );
 $doc->setMetaData( 'og:image', $og_image );
+$doc->setMetaData( 'og:image:type', $og_image_type);
+if (JUri::isSsl()) {
+    $doc->setMetaData( 'og:image:secure_url', $og_image );
+}
 $doc->setMetaData( 'og:site_name', $og_site_name );
 $doc->setMetaData( 'og:description', $og_desc );
 
-$aside_visible = $params->get('show_modify_date') || 
+$aside_visible = $params->get('show_modify_date') ||
 		 $params->get('show_publish_date') ||
 		 $params->get('show_hits') ||
 		 $params->get('show_category') ||
 		 $params->get('show_create_date') ||
 		 $params->get('show_parent_category') ||
-		 $params->get('show_author') || 
-		 $params->get('show_publish_date') || 
+		 $params->get('show_author') ||
+		 $params->get('show_publish_date') ||
 		 ($canEdit || $params->get('show_print_icon') || $params->get('show_email_icon'));
 
 ?>
@@ -97,19 +125,19 @@ if (!empty($this->item->pagination) AND $this->item->pagination && !$this->item-
  echo $this->item->pagination;
 }
  ?>
-	
+
 	<?php if ($aside_visible) : ?>
 	<aside>
-		<?php if ($params->get('show_publish_date')) : ?>	
+		<?php if ($params->get('show_publish_date')) : ?>
 		<time datetime="<?php echo JHtml::_('date', $this->item->publish_up, 'Y-m-d'); ?>" itemprop="datePublished">
 			<?php echo JHtml::_('date', $this->item->publish_up, JText::_('d')); ?>
 			<span><?php echo JHtml::_('date', $this->item->publish_up, JText::_('M')); ?></span>
 		</time>
 		<?php endif; ?>
-		
+
 		<?php if (($params->get('show_modify_date')) or ($params->get('show_publish_date'))
 			or ($params->get('show_hits')) or ($params->get('show_category')) or ($params->get('show_create_date')) or ($params->get('show_parent_category')) or ($params->get('show_author')) or ($params->get('show_tags', 1))) : ?>
-		
+
 		<dl class="article-info">
 			<?php if ($params->get('show_author') && !empty($this->item->author )) : ?>
 				<?php $author = $this->item->created_by_alias ? $this->item->created_by_alias : $this->item->author; ?>
@@ -126,34 +154,34 @@ if (!empty($this->item->pagination) AND $this->item->pagination && !$this->item-
 					<dt class="createdby"><?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', '</dt><dd>' . $author . '</dd>'); ?>
 				<?php endif; ?>
 			<?php endif; ?>
-			
+
 			<?php if ($params->get('show_modify_date')) : ?>
 			<dt class="modified" itemprop="dateModified"><?php echo JText::sprintf('COM_CONTENT_LAST_UPDATED', '</dt><dd>' . JHtml::_('date', $this->item->modified, JText::sprintf('DATE_FORMAT_LC3')) . '</dd>'); ?>
 			<?php endif; ?>
-			
+
 			<?php if ($params->get('show_publish_date')) : ?>
 			<dt class="published"><?php echo JText::sprintf('COM_CONTENT_PUBLISHED_DATE_ON', '</dt><dd>' . JHtml::_('date', $this->item->publish_up, JText::sprintf('DATE_FORMAT_LC3')) . '</dd>'); ?>
 			<?php endif; ?>
-			
+
 			<?php if ($params->get('show_hits')) : ?>
 			<dt class="hits">
 			<meta itemprop="interactionCount" content="UserPageVisits:<?php echo $this->item->hits; ?>" />
 			<?php echo JText::sprintf('COM_CONTENT_ARTICLE_HITS', '</dt><dd>' . $this->item->hits . '</dd>'); ?>
 			<?php endif; ?>
-			
+
 			<?php if ($params->get('show_tags', 1) && !empty($this->item->tags->itemTags)) : ?>
 				<dt class="category-name"><?php echo JText::sprintf('TPL_GK_LANG_TAGGED_UNDER', '</dt>'); ?>
-				<dd>	
+				<dd>
 				<?php foreach ($this->item->tags->itemTags as $tag) : ?>
 					<a href="<?php echo JRoute::_(TagsHelperRoute::getTagRoute($tag->tag_id . ':' . $tag->alias)) ?>"><?php echo $tag->title; ?></a>
 				<?php endforeach; ?>
 				</dd>
 			<?php endif; ?>
-			
+
 			<?php if ($params->get('show_create_date')) : ?>
 			<dt class="create"><?php echo JText::sprintf('COM_CONTENT_CREATED_DATE_ON', '</dt><dd itemprop="dateCreated">' . JHtml::_('date', $this->item->created, JText::_('DATE_FORMAT_LC3')) . '</dd>'); ?>
 			<?php endif; ?>
-			
+
 			<?php if ($params->get('show_parent_category') && $this->item->parent_slug != '1:root') : ?>
 				<?php $title = $this->escape($this->item->parent_title);
 				$url = '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->parent_slug)).'" itemprop="genre">'.$title.'</a>';?>
@@ -163,7 +191,7 @@ if (!empty($this->item->pagination) AND $this->item->pagination && !$this->item-
 					<dt class="parent-category-name"><?php echo JText::sprintf('COM_CONTENT_PARENT', '</dt><dd itemprop="genre">' . $title . '</dd>'); ?>
 				<?php endif; ?>
 			<?php endif; ?>
-			
+
 			<?php if ($params->get('show_category')) : ?>
 				<?php $title = $this->escape($this->item->category_title);
 				$url = '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catslug)).'">'.$title.'</a>';?>
@@ -173,10 +201,10 @@ if (!empty($this->item->pagination) AND $this->item->pagination && !$this->item-
 				<dt class="category-name"><?php echo JText::sprintf('COM_CONTENT_CATEGORY', '</dt><dd itemprop="genre">' . $title . '</dd>'); ?>
 				<?php endif; ?>
 			<?php endif; ?>
-		
+
 		</dl>
 		<?php endif; ?>
-		
+
 		<?php if ($canEdit ||  $params->get('show_print_icon') || $params->get('show_email_icon')) : ?>
 		<div class="btn-group pull-right"> <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"> <i class="icon-cog"></i> <span class="caret"></span> </a>
 			<ul class="dropdown-menu">
@@ -198,7 +226,7 @@ if (!empty($this->item->pagination) AND $this->item->pagination && !$this->item-
 		<?php endif; ?>
 	</aside>
 	<?php endif; ?>
-	
+
 	<div class="gk-article<?php if(!$aside_visible) : ?> no-sidebar<?php endif; ?>">
 	<?php if ($params->get('show_title') or (isset($images->image_fulltext) and !empty($images->image_fulltext))) : ?>
 		<?php  if (isset($images->image_fulltext) and !empty($images->image_fulltext)) : ?>
@@ -209,7 +237,7 @@ if (!empty($this->item->pagination) AND $this->item->pagination && !$this->item-
 		endif; ?>
 		src="<?php echo htmlspecialchars($images->image_fulltext); ?>" alt="<?php echo htmlspecialchars($images->image_fulltext_alt); ?>" itemprop="image"/> </div>
 		<?php endif; ?>
-		
+
 		<h1 class="article-header"  itemprop="name">
 			<?php if ($params->get('link_titles') && !empty($this->item->readmore_link)) : ?>
 				<a href="<?php echo $this->item->readmore_link; ?>" itemprop="url"> <?php echo $this->escape($this->item->title); ?></a>
@@ -220,17 +248,17 @@ if (!empty($this->item->pagination) AND $this->item->pagination && !$this->item-
 	<?php endif; ?>
 
 
-	<?php 
+	<?php
 		if (isset ($this->item->toc)) :
 			echo $this->item->toc;
-		endif; 
+		endif;
 	?>
 
 	<?php  if (!$params->get('show_intro')) : echo $this->item->event->afterDisplayTitle; endif; ?>
 	<?php echo $this->item->event->beforeDisplayContent; ?>
-	
+
 	<?php if ($params->get('access-view')):?>
-	
+
 	<?php
 if (!empty($this->item->pagination) AND $this->item->pagination AND !$this->item->paginationposition AND !$this->item->paginationrelative):
 	echo $this->item->pagination;
@@ -239,22 +267,22 @@ if (!empty($this->item->pagination) AND $this->item->pagination AND !$this->item
 	<span itemprop="articleBody">
 		<?php echo $this->item->text; ?>
 	</span>
-	
-	<?php 
+
+	<?php
 	//ToDo: move it to the proper place when config save will be available.
 	if (isset($urls) AND ((!empty($urls->urls_position) AND ($urls->urls_position=='0')) OR  ($params->get('urls_position')=='0' AND empty($urls->urls_position) ))
 		OR (empty($urls->urls_position) AND (!$params->get('urls_position')))): ?>
 	<?php echo $this->loadTemplate('links'); ?>
 	<?php endif; ?>
-	
+
 	<?php if (isset($urls) AND ((!empty($urls->urls_position)  AND ($urls->urls_position=='1')) OR ( $params->get('urls_position')=='1') )): ?>
 	<?php echo $this->loadTemplate('links'); ?>
 	<?php endif; ?>
-	
+
 	<?php if (!empty($this->item->pagination) AND $this->item->pagination AND $this->item->paginationposition AND!$this->item->paginationrelative): ?>
 		<?php echo $this->item->pagination; ?>
 	<?php endif; ?>
-	
+
 	<?php //optional teaser intro text for guests ?>
 	<?php elseif ($params->get('show_noauth') == true and  $user->get('guest') ) : ?>
 	<?php echo $this->item->introtext; ?>
@@ -287,16 +315,16 @@ if (!empty($this->item->pagination) AND $this->item->pagination AND $this->item-
 ?>
 	<?php endif; ?>
 	</div>
-	
+
 	<gavern:social><div id="gkSocialAPI"></gavern:social>
 			<gavern:social><fb:like href="<?php echo $cur_url; ?>" GK_FB_LIKE_SETTINGS></fb:like></gavern:social>
 		    <gavern:social><g:plusone GK_GOOGLE_PLUS_SETTINGS callback="<?php echo $cur_url; ?>"></g:plusone></gavern:social>
 	        <gavern:social><g:plus action="share" GK_GOOGLE_PLUS_SHARE_SETTINGS href="<?php echo $cur_url; ?>"></g:plus></gavern:social>
 		    <gavern:social><a href="http://twitter.com/share" class="twitter-share-button" data-text="<?php echo $this->item->title; ?>" data-url="<?php $cur_url; ?>"  gk_tweet_btn_settings>Tweet</a></gavern:social>
 			<gavern:social><a href="http://pinterest.com/pin/create/button/?url=<?php echo $cur_url; ?>&amp;media=<?php echo $pin_image; ?>&amp;description=<?php echo str_replace(" ", "%20", $this->item->title); ?>" class="pin-it-button" count-layout="GK_PINTEREST_SETTINGS"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="<?php echo JText::_('TPL_GK_LANG_PINIT_TITLE'); ?>" /></a></gavern:social>
-	
-	
+
+
 	<gavern:social></div></gavern:social>
-	
-	<?php echo $this->item->event->afterDisplayContent; ?> 
+
+	<?php echo $this->item->event->afterDisplayContent; ?>
 </div>
